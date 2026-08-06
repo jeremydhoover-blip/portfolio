@@ -1,0 +1,92 @@
+---
+import Base from '../../layouts/Base.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Base
+  title="Design Org AI Initiatives | Jeremy Hoover"
+  description="How an agent I initiated was adopted and used by 150+ designers, alongside the knowledge and AI education initiatives I drove across the Microsoft design org."
+>
+  <article class="section case-study case-study--orange">
+    <div class="container container--narrow">
+
+      <a href={`${base}/#projects`} class="back">← Back</a>
+
+      <span class="tag">Org-level · Design Org · Organization-wide adoption</span>
+      <h1>Building AI infrastructure across the design org</h1>
+      <p class="lede">
+        I didn't wait for AI initiatives to find me. An agent I initiated was adopted and used by
+        150+ designers. I also drove the org knowledge initiative and became someone designers and
+        leaders rely on for AI education and senior leadership demonstrations.
+      </p>
+
+      <div class="outcomes-strip">
+        <div class="outcome"><span class="outcome__num">150+</span><span class="outcome__label">designers adopted and used an agent I initiated</span></div>
+        <div class="outcome"><span class="outcome__num">Champs</span><span class="outcome__label">early contributor and relied-upon educator</span></div>
+        <div class="outcome"><span class="outcome__num">Leadership</span><span class="outcome__label">demos built by me for leadership visits</span></div>
+      </div>
+
+      <hr class="divider" />
+
+      <h2>Agent adoption across the design org</h2>
+      <p>
+        I initiated and led the foundational work for a content design writing agent that was
+        adopted and used by 150+ designers across Microsoft's design org. I created the foundational
+        files, then as the initiative grew, contributed to refinements and the business-area-specific
+        implementation alongside other content designers.
+      </p>
+      <p>
+        I didn't join something that existed. I built the thing others joined.
+      </p>
+
+      <h2>Knowledge initiative</h2>
+      <p>
+        I drove the initiative to collect and maintain design knowledge across the org: a structured
+        approach to capturing what the team knows so it doesn't get lost when people move on or
+        context disappears. It's now a key initiative within the group.
+      </p>
+
+      <h2>Champs group</h2>
+      <p>
+        I'm an early contributor to the AI Champs group, the community of practitioners pushing AI
+        adoption forward across the design org. I'm relied on to teach, to demonstrate, and to create
+        the demos that go in front of senior leadership. When SL comes to town and needs to see what
+        the team is doing with AI, I build those demos.
+      </p>
+      <p>
+        This kind of trust takes time to build and doesn't show up in a job title. It's built through
+        consistently being the person who figured it out first and then helped everyone else do the same.
+      </p>
+
+      <hr class="divider" />
+
+      <div class="nav-row">
+        <a href={`${base}/work/hackathon`} class="btn btn--outline">Previous: Hackathon win</a>
+        <a href={`${base}/work/fabric-cli`} class="btn">Next: Fabric CLI skills</a>
+      </div>
+
+    </div>
+  </article>
+</Base>
+
+<style>
+  .case-study { padding-top: 3rem; }
+  .back { display: inline-block; font-size: 0.875rem; font-weight: 500; color: var(--muted); margin-bottom: 2rem; }
+  .back:hover { color: var(--accent); text-decoration: none; }
+  .tag { margin-bottom: 1rem; display: inline-block; }
+  h1 { margin-block: 1rem 1.5rem; }
+  .lede { font-size: 1.2rem; color: var(--muted); margin-bottom: 3rem; max-width: 58ch; line-height: 1.6; }
+  .outcomes-strip { display: flex; gap: 3rem; flex-wrap: wrap; padding-block: 2rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .outcome { display: flex; flex-direction: column; gap: 0.3rem; }
+  .outcome__num { font-family: var(--f-heading); font-size: 2.5rem; font-weight: 700; color: var(--text); line-height: 1; }
+  .outcome__label { font-size: 0.8125rem; color: var(--muted); max-width: none; }
+  h2 { margin-top: 3rem; margin-bottom: 1rem; font-size: 1.4rem; }
+  p { margin-bottom: 1rem; color: var(--muted); font-size: 1rem; }
+  .btn { display: inline-block; font-size: 0.875rem; font-weight: 600; padding: 0.6rem 1.25rem; border-radius: 6px; background: var(--text); color: #fff; text-decoration: none; transition: background 0.15s; }
+  .btn:hover { background: #333; color: #fff; text-decoration: none; }
+  .btn--outline { background: transparent; color: var(--text); border: 1.5px solid var(--text); }
+  .btn--outline:hover { background: var(--text); color: #fff; }
+  .nav-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .divider { border: none; border-top: 1px solid var(--border); margin-block: 3rem; }
+</style>
+

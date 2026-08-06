@@ -1,0 +1,187 @@
+---
+import Base from '../layouts/Base.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Base title="About | Jeremy Hoover" description="Jeremy Hoover builds product systems, design workflows, and AI-powered tools. He is an HCI MA student at Reichman University and an instructor at the UX Content Collective.">
+
+  <section class="section">
+    <div class="container container--narrow">
+
+      <p class="eyebrow">About</p>
+      <h1>Jeremy Hoover</h1>
+      <p class="subtitle">Product strategy · Design systems · AI workflows</p>
+
+      <div class="about-body">
+        <p>
+          I design customer-facing developer tools, content experiences, and product workflows, as
+          well as internal systems that teams depend on. At Microsoft Fabric, my work spans content and product
+          design for CI/CD, CLI, and MCP experiences. I also own the design automation repo our
+          30-person design and PM team uses, a system I built from scratch that saw immediate adoption
+          and now supports everything from daily prototyping to senior leadership demos.
+        </p>
+        <p>
+          My background is unusual for someone doing this work. I started in journalism and history,
+          moved into content and UX writing, and kept pushing further into the technical side until
+          I was building agentic workflows, shipping skills to production, and contributing to
+          open-source Microsoft tooling. I think that path is a feature: I bridge the human side
+          of product problems with the technical side of building systems.
+        </p>
+        <p>
+          On top of that, I've driven org-wide AI initiatives at Microsoft. I initiated a content
+          design agent that was adopted and used by 150+ designers, and I was a key contributor to the
+          Fabric CLI's AI assets layer, the part the Corporate VP of Product highlighted when
+          it shipped GA. I'm also an instructor at the UX Content Collective, where I created
+          the Technical Content Designer program, and I'm completing an MA in Human-Computer
+          Interaction at Reichman University.
+        </p>
+        <p>
+          I'm part of the Content Design Leaders Upstream group, led by Kate Agena, PhD,
+          VP of Content Design at SAP. This keeps me connected to where the broader field
+          is heading.
+        </p>
+
+        <hr class="divider" />
+
+        <h2>Experience</h2>
+        <div class="experience">
+          <div class="experience__item">
+            <div class="experience__meta">
+              <strong>Microsoft</strong>
+              <span>February 2022 – Present</span>
+            </div>
+            <p class="experience__role">Senior Content Designer, AI systems and developer experiences</p>
+            <p>
+              Designing customer-facing content and product experiences for CI/CD, CLI, and MCP tools.
+              Building AI-powered workflows and evaluation frameworks for developer and design tools.
+              Owner of the team's AI design automation repo and a key contributor to org-wide AI initiatives.
+            </p>
+          </div>
+          <div class="experience__item">
+            <div class="experience__meta">
+              <strong>UX Content Collective</strong>
+              <span>May 2026 – Present</span>
+            </div>
+            <p class="experience__role">Creator and instructor, Technical Content Designer Program</p>
+            <p>Creator and instructor of the Technical Content Designer program, helping content designers build confidence with developer tools and AI systems.</p>
+          </div>
+          <div class="experience__item">
+            <div class="experience__meta">
+              <strong>Wix.com</strong>
+              <span>2018 – 2022</span>
+            </div>
+            <p class="experience__role">Senior UX Writer → Accessibility Champion</p>
+            <p>
+              Lead UX writer and editor for Wix Code. Led content strategy across products,
+              coordinated localization for 15+ languages, ran usability testing, and contributed
+              to the Words Matter blog. Accessibility champion across the org and hackathon winner.
+            </p>
+          </div>
+          <div class="experience__item">
+            <div class="experience__meta">
+              <strong>Natural Intelligence</strong>
+              <span>2016 – 2018</span>
+            </div>
+            <p class="experience__role">Content Manager</p>
+            <p>Managed, wrote, and edited content for multiple websites. Used Tableau to run content tests, analyze results, and drive data-informed content decisions.</p>
+          </div>
+        </div>
+
+        <hr class="divider" />
+
+        <h2>Education</h2>
+        <div class="experience">
+          <div class="experience__item">
+            <div class="experience__meta">
+              <strong>Reichman University</strong>
+              <span>2026 – 2027</span>
+            </div>
+            <p class="experience__role">MA, Human-Computer Interaction · Merit scholarship recipient</p>
+          </div>
+          <div class="experience__item">
+            <div class="experience__meta">
+              <strong>Metropolitan State University of Denver</strong>
+              <span>2006 – 2011</span>
+            </div>
+            <p class="experience__role">BA, History · Minor in Journalism · Helen Verba Award, Society of Professional Journalists</p>
+          </div>
+        </div>
+
+        <hr class="divider" />
+
+        <div class="cta-row">
+          <a href={`${base}/#projects`} class="btn">See selected projects</a>
+          <a href="mailto:jeremyd.hoover@gmail.com" class="btn btn--ghost">Get in touch</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .eyebrow {
+    font-size: var(--size-sm);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+    max-width: none;
+  }
+  h1 { margin-bottom: var(--space-2); }
+  .subtitle {
+    font-size: var(--size-lg);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-12);
+    max-width: none;
+  }
+  .about-body p {
+    font-size: var(--size-lg);
+    margin-bottom: var(--space-6);
+  }
+  h2 { margin-bottom: var(--space-8); }
+
+  .experience { display: flex; flex-direction: column; gap: var(--space-8); }
+  .experience__item {}
+  .experience__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-1);
+  }
+  .experience__meta strong { font-size: var(--size-base); }
+  .experience__meta span { font-size: var(--size-sm); color: var(--color-text-muted); }
+  .experience__role {
+    font-size: var(--size-base);
+    font-weight: 500;
+    color: var(--color-accent);
+    margin-bottom: var(--space-2);
+    max-width: none;
+  }
+  .experience__item p { font-size: var(--size-base); color: var(--color-text-muted); }
+
+  .btn {
+    display: inline-block;
+    font-size: var(--size-sm);
+    font-weight: 600;
+    padding: 0.65rem 1.4rem;
+    border-radius: var(--radius-md);
+    background: var(--color-accent);
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .btn:hover { background: var(--color-accent-hover); color: #fff; }
+  .btn--ghost {
+    background: transparent;
+    color: var(--color-accent);
+    border: 1.5px solid var(--color-accent);
+  }
+  .btn--ghost:hover { background: var(--color-tag-bg); color: var(--color-accent-hover); }
+  .cta-row { display: flex; gap: var(--space-4); flex-wrap: wrap; }
+</style>

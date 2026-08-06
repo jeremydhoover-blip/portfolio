@@ -1,0 +1,161 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Base
+  title="AI Design Automation Repo | Jeremy Hoover"
+  description="How I built the AI-powered design system that replaced how a 30-person Microsoft team designs, prototypes, and ships work."
+>
+  <article class="section case-study case-study--blue">
+    <div class="container container--narrow">
+
+      <a href={`${base}/#projects`} class="back">← Back</a>
+
+      <span class="tag">AI Systems · Product · Microsoft</span>
+      <h1>The repo that changed how our team designs</h1>
+      <p class="lede">
+        I built an AI-powered design automation system from scratch. Within weeks it was the
+        primary tool for a 30-person design and PM team. It is used for prototyping, daily design
+        work, and every senior leadership demo.
+      </p>
+
+      <div class="outcomes-strip">
+        <div class="outcome"><span class="outcome__num">30+</span><span class="outcome__label">designers and PMs using it</span></div>
+        <div class="outcome"><span class="outcome__num">Day 1</span><span class="outcome__label">adoption from first release</span></div>
+        <div class="outcome"><span class="outcome__num">100%</span><span class="outcome__label">of senior leadership demos built with it</span></div>
+      </div>
+
+      <hr class="divider" />
+
+      <h2>The problem</h2>
+      <p>
+        Our design team was spending significant time on repeatable, manual work: generating
+        early-stage designs, creating prototypes for PM customer interviews, building materials
+        for senior leadership reviews. None of it required creative judgment. All of it required
+        design knowledge.
+      </p>
+      <p>
+        The tools available didn't understand our design language, couldn't pull in real product
+        context, and produced output that needed significant rework before it was usable. There
+        was no system. Everyone was improvising individually.
+      </p>
+
+      <h2>My role</h2>
+      <p>
+        I built it. End to end. I own the repo, its architecture, its processes, and its roadmap.
+        That includes UX spec building, engineering handoff, requirements gathering from PMs and
+        engineers, deciding what gets built, and onboarding the people who contribute to it.
+      </p>
+      <p>
+        I work directly with PMs and engineers to understand what they need, sometimes building
+        out what they describe, sometimes pushing back and building what they actually need based
+        on my judgment of the problem.
+      </p>
+
+      <h2>What I built</h2>
+      <p>
+        A repo of AI skills and agents that generates designs using our exact Microsoft Fabric
+        design language. The system has MCPs and APIs wired in for:
+      </p>
+      <ul>
+        <li>Customer research and feedback</li>
+        <li>Imagery and visual assets</li>
+        <li>PM specs and PRDs</li>
+        <li>Customer feedback and voice-of-customer data</li>
+      </ul>
+      <p>
+        The result automates significant portions of the design process: prototyping, spec
+        generation, and early-stage design exploration. It also enforces our quality standards,
+        including content guidelines and accessibility requirements. It doesn't produce generic
+        output. It produces work that looks and reads like our team made it, because the system
+        knows our design language.
+      </p>
+
+      <h2>The outcome</h2>
+      <p>
+        The entire design and PM team in our business group uses it. That's roughly 10 designers
+        on my immediate team, another 10 on the wider design team, and 10 PMs across both groups.
+        Adoption was immediate. There was no slow rollout, forcing, or incentive. People switched
+        because it was better.
+      </p>
+      <p>
+        It's now the primary tool my design manager uses. When senior leadership visits, every
+        demo is built with it. PMs use it to generate quick prototypes to take into customer
+        interviews. I'm continuing to iterate, and the current focus is improving the engineering
+        handoff process so what we produce moves cleanly into development.
+      </p>
+
+      <hr class="divider" />
+
+      <div class="nav-row">
+        <a href={`${base}/#projects`} class="btn btn--ghost">← All projects</a>
+        <a href={`${base}/work/hackathon`} class="btn">Next: Hackathon win →</a>
+      </div>
+
+    </div>
+  </article>
+</Base>
+
+<style>
+  .case-study { padding-top: var(--space-12); }
+  .back {
+    display: inline-block;
+    font-size: var(--size-sm);
+    font-weight: 500;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    margin-bottom: var(--space-8);
+  }
+  .back:hover { color: var(--color-accent); }
+  .tag { margin-bottom: var(--space-4); display: inline-block; }
+  h1 { margin-block: var(--space-4) var(--space-6); }
+  .lede {
+    font-size: var(--size-xl);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-12);
+    max-width: 58ch;
+  }
+
+  .outcomes-strip {
+    display: flex;
+    gap: var(--space-12);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-4);
+  }
+  .outcome { display: flex; flex-direction: column; gap: var(--space-1); }
+  .outcome__num {
+    font-family: var(--font-heading);
+    font-size: var(--size-4xl);
+    font-weight: 700;
+    color: var(--color-accent);
+    line-height: 1;
+  }
+  .outcome__label { font-size: var(--size-sm); color: var(--color-text-muted); max-width: none; }
+
+  h2 { margin-top: var(--space-12); margin-bottom: var(--space-4); }
+  p { margin-bottom: var(--space-4); }
+  ul { margin: var(--space-4) 0 var(--space-4) var(--space-6); }
+  li { margin-bottom: var(--space-2); color: var(--color-text-muted); }
+
+  .btn {
+    display: inline-block;
+    font-size: var(--size-sm);
+    font-weight: 600;
+    padding: 0.65rem 1.4rem;
+    border-radius: var(--radius-md);
+    background: var(--color-accent);
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .btn:hover { background: var(--color-accent-hover); color: #fff; }
+  .btn--ghost {
+    background: transparent;
+    color: var(--color-accent);
+    border: 1.5px solid var(--color-accent);
+  }
+  .btn--ghost:hover { background: var(--color-tag-bg); color: var(--color-accent-hover); }
+  .nav-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4); }
+</style>

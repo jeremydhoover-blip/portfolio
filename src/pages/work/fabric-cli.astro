@@ -1,0 +1,103 @@
+---
+import Base from '../../layouts/Base.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Base
+  title="Fabric CLI AI Skills | Jeremy Hoover"
+  description="How I built the AI assets layer of the Microsoft Fabric CLI, shipping skills and agents to production before it was common practice."
+>
+  <article class="section case-study case-study--green">
+    <div class="container container--narrow">
+
+      <a href={`${base}/#projects`} class="back">← Back</a>
+
+      <span class="tag">Open Source · microsoft/fabric-cli · GA</span>
+      <h1>Shipping AI skills to production in the Fabric CLI</h1>
+      <p class="lede">
+        I built the AI assets layer of the Microsoft Fabric CLI before most teams were thinking about agents. My commits are in the public <code>microsoft/fabric-cli</code> repo. The work shipped Generally Available in v1.5, called out by the Corporate VP of Product.
+      </p>
+
+      <div class="outcomes-strip">
+        <div class="outcome"><span class="outcome__num">GA</span><span class="outcome__label">Fabric CLI v1.5, Generally Available</span></div>
+        <div class="outcome"><span class="outcome__num">Public</span><span class="outcome__label">Commits in microsoft/fabric-cli</span></div>
+        <div class="outcome"><span class="outcome__num">Early</span><span class="outcome__label">skills shipped for MCP and CLI</span></div>
+      </div>
+
+      <hr class="divider" />
+
+      <h2>What I built</h2>
+      <p>
+        The <code>.ai-assets/</code> folder in <code>microsoft/fabric-cli</code> is the AI agent
+        execution layer of the Fabric CLI. I built and structured it: context files, agent modes,
+        prompts, and skills that define how AI agents interact with the CLI.
+      </p>
+      <p>
+        When the CLI shipped v1.5 as Generally Available, Kim Manis (Corporate VP of Product,
+        Microsoft Fabric) highlighted this layer in her announcement:
+      </p>
+      <blockquote>
+        "The CLI is now designed for AI agents. Context files, agent modes, skills, and improved
+        error messages make it the most efficient way for Copilot, Claude, and other assistants
+        to operate Fabric."
+      </blockquote>
+      <p>
+        My name is in the commit history. The repo is public. The announcement post received
+        221 likes and 28 reposts from a Corporate VP, giving the work high visibility.
+      </p>
+
+      <h2>External and internal skills work</h2>
+      <p>
+        Beyond the CLI, I was one of the first people at Microsoft Fabric to ship skills for
+        customers externally via the product's MCP and CLI tools. I also built internal agent
+        skills for engineers, both for content creation tasks and for repetitive engineering
+        workflows they wanted to automate. First-mover credibility with a public paper trail.
+      </p>
+
+      <h2>Why it matters</h2>
+      <p>
+        Most portfolio work at Microsoft stays behind NDA. This is public, verifiable, and
+        was announced by a CVP. It demonstrates that I was building AI agent infrastructure
+        for a GA product before it was common practice. I was not catching up to a trend.
+      </p>
+
+      <div class="repo-cta">
+        <a href="https://github.com/microsoft/fabric-cli" target="_blank" rel="noopener" class="btn">
+          View microsoft/fabric-cli on GitHub
+        </a>
+      </div>
+
+      <hr class="divider" />
+
+      <div class="nav-row">
+        <a href={`${base}/work/org-ai-initiatives`} class="btn btn--outline">Previous: Org AI initiatives</a>
+        <a href={`${base}/#projects`} class="btn">All selected projects</a>
+      </div>
+
+    </div>
+  </article>
+</Base>
+
+<style>
+  .case-study { padding-top: 3rem; }
+  .back { display: inline-block; font-size: 0.875rem; font-weight: 500; color: var(--muted); margin-bottom: 2rem; }
+  .back:hover { color: var(--accent); text-decoration: none; }
+  .tag { margin-bottom: 1rem; display: inline-block; }
+  h1 { margin-block: 1rem 1.5rem; }
+  .lede { font-size: 1.2rem; color: var(--muted); margin-bottom: 3rem; max-width: 58ch; line-height: 1.6; }
+  .outcomes-strip { display: flex; gap: 3rem; flex-wrap: wrap; padding-block: 2rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .outcome { display: flex; flex-direction: column; gap: 0.3rem; }
+  .outcome__num { font-family: var(--f-heading); font-size: 2.5rem; font-weight: 700; color: var(--text); line-height: 1; }
+  .outcome__label { font-size: 0.8125rem; color: var(--muted); max-width: none; }
+  h2 { margin-top: 3rem; margin-bottom: 1rem; font-size: 1.4rem; }
+  p { margin-bottom: 1rem; color: var(--muted); font-size: 1rem; }
+  code { font-size: 0.875em; background: #f0f0ee; padding: 0.15em 0.4em; border-radius: 3px; color: var(--text); font-family: var(--f-mono, monospace); }
+  blockquote { border-left: 3px solid var(--border); padding-left: 1.25rem; margin-block: 1.5rem; font-style: italic; color: var(--muted); font-size: 1rem; }
+  .repo-cta { margin-top: 2rem; }
+  .btn { display: inline-block; font-size: 0.875rem; font-weight: 600; padding: 0.6rem 1.25rem; border-radius: 6px; background: var(--text); color: #fff; text-decoration: none; transition: background 0.15s; }
+  .btn:hover { background: #333; color: #fff; text-decoration: none; }
+  .btn--outline { background: transparent; color: var(--text); border: 1.5px solid var(--text); }
+  .btn--outline:hover { background: var(--text); color: #fff; }
+  .nav-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .divider { border: none; border-top: 1px solid var(--border); margin-block: 3rem; }
+</style>

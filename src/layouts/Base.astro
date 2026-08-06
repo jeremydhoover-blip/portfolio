@@ -1,0 +1,62 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Jeremy Hoover designs customer-facing developer tools, content experiences, product systems, and AI-powered workflows." } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Jeremy Hoover" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jeremydhoover-blip.github.io/portfolio" />
+
+    <title>{title}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Primary navigation">
+      <div class="container nav__inner">
+        <a href={`${base}/`} class="nav__logo">Jeremy Hoover</a>
+        <ul class="nav__links">
+          <li><a href={`${base}/#projects`}>Work</a></li>
+          <li><a href={`${base}/#writing`}>Articles</a></li>
+          <li><a href={`${base}/about`}>About</a></li>
+          <li><a href={`${base}/#contact`}>Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span>© 2026 Jeremy Hoover</span>
+        <ul class="footer__links">
+          <li><a href="https://www.linkedin.com/in/jeremydhoover/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/jeremydhoover-blip" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="mailto:jeremyd.hoover@gmail.com">Email</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

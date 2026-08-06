@@ -1,0 +1,107 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Base
+  title="Hackathon Win | Jeremy Hoover"
+  description="How I turned 50+ scattered PM requirements into a simple agentic experience that won Best Use of AI and shipped into production across Microsoft."
+>
+  <article class="section case-study case-study--violet">
+    <div class="container container--narrow">
+
+      <a href={`${base}/#projects`} class="back">← Back</a>
+
+      <span class="tag">AI Product · Hackathon · Microsoft</span>
+      <h1>From hackathon win to org-wide deployment</h1>
+      <p class="lede">
+        I replaced a 50+ requirement wiki and a cumbersome form with a single agentic experience
+        connected to Azure DevOps. It won Best Use of AI, shipped into production, and became a
+        catalyst for how PMs across the org work today.
+      </p>
+
+      <div class="outcomes-strip">
+        <div class="outcome"><span class="outcome__num">1st</span><span class="outcome__label">Best Use of AI, Microsoft hackathon</span></div>
+        <div class="outcome"><span class="outcome__num">100s</span><span class="outcome__label">of users with access post-adoption</span></div>
+        <div class="outcome"><span class="outcome__num">Shipped</span><span class="outcome__label">into production, built upon by others</span></div>
+      </div>
+
+      <hr class="divider" />
+
+      <h2>The problem</h2>
+      <p>
+        Every PM on our team had to navigate the same friction every time they created new work:
+        find the right requirements across a 50+ item wiki, fill out a cumbersome form manually,
+        then create and assign tasks in Azure DevOps by hand. The process was slow, inconsistent,
+        and relied entirely on each PM knowing where to look and what to fill in.
+      </p>
+      <p>
+        The information existed. The tools existed. Nobody had connected them.
+      </p>
+
+      <h2>My role</h2>
+      <p>
+        I designed and built the solution during a Microsoft hackathon. The constraint was the
+        hackathon timeframe. The goal was something that actually worked, not a demo.
+      </p>
+
+      <h2>What I built</h2>
+      <p>
+        A simple agentic experience that replaced the entire manual process. The agent:
+      </p>
+      <ul>
+        <li>Analyzes the PRD to understand the product context</li>
+        <li>Asks the PM targeted questions to gather requirements, release stage, and dependencies</li>
+        <li>Creates and assigns tasks in Azure DevOps automatically, based on its analysis and the PM's answers</li>
+      </ul>
+      <p>
+        The interaction model was a conversation, not a form. The PM describes their product;
+        the agent figures out the rest. No wiki to search, no fields to fill, no manual task creation.
+      </p>
+
+      <h2>The outcome</h2>
+      <p>
+        It won Best Use of AI at the Microsoft hackathon, and then it shipped. That distinction
+        matters: most hackathon projects are prototypes. This one was adopted at the highest
+        organizational level, with hundreds of people getting access to it.
+      </p>
+      <p>
+        More importantly, it didn't just get used. It got built upon. Other teams extended it,
+        added to it, connected it to other workflows. It became one of many agents in a broader
+        ecosystem, but it was one of the first and it kicked off the shift. The way PMs in our
+        org use agents today traces back to this project.
+      </p>
+
+      <hr class="divider" />
+
+      <div class="nav-row">
+        <a href={`${base}/work/ai-design-repo`} class="btn btn--ghost">← Previous: AI Design Repo</a>
+        <a href={`${base}/work/org-ai-initiatives`} class="btn">Next: Org AI initiatives →</a>
+      </div>
+
+    </div>
+  </article>
+</Base>
+
+<style>
+  .case-study { padding-top: var(--space-12); }
+  .back { display: inline-block; font-size: var(--size-sm); font-weight: 500; color: var(--color-text-muted); text-decoration: none; margin-bottom: var(--space-8); }
+  .back:hover { color: var(--color-accent); }
+  .tag { margin-bottom: var(--space-4); display: inline-block; }
+  h1 { margin-block: var(--space-4) var(--space-6); }
+  .lede { font-size: var(--size-xl); color: var(--color-text-muted); margin-bottom: var(--space-12); max-width: 58ch; }
+  .outcomes-strip { display: flex; gap: var(--space-12); flex-wrap: wrap; margin-bottom: var(--space-4); }
+  .outcome { display: flex; flex-direction: column; gap: var(--space-1); }
+  .outcome__num { font-family: var(--font-heading); font-size: var(--size-4xl); font-weight: 700; color: var(--color-accent); line-height: 1; }
+  .outcome__label { font-size: var(--size-sm); color: var(--color-text-muted); max-width: none; }
+  h2 { margin-top: var(--space-12); margin-bottom: var(--space-4); }
+  p { margin-bottom: var(--space-4); }
+  ul { margin: var(--space-4) 0 var(--space-4) var(--space-6); }
+  li { margin-bottom: var(--space-2); color: var(--color-text-muted); }
+  .btn { display: inline-block; font-size: var(--size-sm); font-weight: 600; padding: 0.65rem 1.4rem; border-radius: var(--radius-md); background: var(--color-accent); color: #fff; text-decoration: none; transition: background 0.15s; }
+  .btn:hover { background: var(--color-accent-hover); color: #fff; }
+  .btn--ghost { background: transparent; color: var(--color-accent); border: 1.5px solid var(--color-accent); }
+  .btn--ghost:hover { background: var(--color-tag-bg); color: var(--color-accent-hover); }
+  .nav-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4); }
+</style>
