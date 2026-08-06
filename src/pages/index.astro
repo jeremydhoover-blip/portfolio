@@ -21,13 +21,19 @@ const base = import.meta.env.BASE_URL;
             <a href="#contact" class="btn btn--outline">Get in touch</a>
           </div>
         </div>
-        <div class="hero-system" aria-hidden="true">
-          <div class="hero-system__label">How I work</div>
-          <div class="hero-system__steps">
-            <div class="hero-system__step"><span>01</span><strong>Frame the problem</strong><small>Research + requirements</small></div>
-            <div class="hero-system__step hero-system__step--core"><span>02</span><strong>Build the system</strong><small>Product + content design</small></div>
-            <div class="hero-system__step"><span>03</span><strong>Ship the tool</strong><small>Customer + team workflows</small></div>
-          </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 620 560" preserveAspectRatio="xMidYMid slice" role="presentation">
+            <rect width="620" height="560" rx="44" fill="#1155cc" />
+            <circle cx="506" cy="92" r="150" fill="#f6d365" />
+            <circle cx="103" cy="478" r="112" fill="#f4efe5" />
+            <path d="M-46 94C86 60 72 218 210 194S250 68 356 116" fill="none" stroke="#ff7657" stroke-width="25" stroke-linecap="round" />
+            <path d="M-35 198C88 155 95 314 220 276S275 164 366 214" fill="none" stroke="#f4efe5" stroke-width="25" stroke-linecap="round" />
+            <path d="M-44 308C92 256 105 410 232 352S292 256 367 284" fill="none" stroke="#8eb8ff" stroke-width="25" stroke-linecap="round" />
+            <path d="M365 214L676 214" fill="none" stroke="#101a2d" stroke-width="31" stroke-linecap="round" />
+            <path d="M367 284L676 284" fill="none" stroke="#ffffff" stroke-width="31" stroke-linecap="round" />
+            <circle cx="365" cy="249" r="62" fill="#101a2d" />
+            <circle cx="365" cy="249" r="20" fill="#ffffff" />
+          </svg>
         </div>
       </div>
     </div>
@@ -51,12 +57,6 @@ const base = import.meta.env.BASE_URL;
             </div>
           </div>
           <div class="project__body">
-            <span class="project__n">01</span>
-            <div class="project__tags">
-              <span class="tag">AI Systems</span>
-              <span class="tag">Product</span>
-              <span class="tag">Team workflow</span>
-            </div>
             <h3>The repo that changed how our team designs</h3>
             <p>Built an AI-powered design automation system from scratch. Adopted on day one. Now the primary tool 30 designers and PMs use daily for prototyping, handoff, and every senior leadership demo.</p>
             <span class="project__link">Read case study &#8594;</span>
@@ -72,12 +72,6 @@ const base = import.meta.env.BASE_URL;
             </div>
           </div>
           <div class="project__body">
-            <span class="project__n">02</span>
-            <div class="project__tags">
-              <span class="tag">AI Product</span>
-              <span class="tag">Best Use of AI</span>
-              <span class="tag">Shipped to production</span>
-            </div>
             <h3>From hackathon win to org-wide deployment</h3>
             <p>Replaced 50+ scattered PM requirements and a cumbersome ADO workflow with a single agentic experience. Won Best Use of AI. Adopted at the highest org level, reached hundreds of users, and helped start a broader ecosystem of agents.</p>
             <span class="project__link">Read case study &#8594;</span>
@@ -93,12 +87,6 @@ const base = import.meta.env.BASE_URL;
             </div>
           </div>
           <div class="project__body">
-            <span class="project__n">03</span>
-            <div class="project__tags">
-              <span class="tag">Org-level</span>
-              <span class="tag">Design Org</span>
-              <span class="tag">Organization-wide adoption</span>
-            </div>
             <h3>Building AI infrastructure across the design org</h3>
             <p>An agent I initiated was adopted and used by 150+ designers. I also drove the org knowledge initiative, contributed early to the AI Champs group, and built demos for senior leadership.</p>
             <span class="project__link">Read case study &#8594;</span>
@@ -115,12 +103,6 @@ const base = import.meta.env.BASE_URL;
             </div>
           </div>
           <div class="project__body">
-            <span class="project__n">04</span>
-            <div class="project__tags">
-              <span class="tag">Open Source</span>
-              <span class="tag">microsoft/fabric-cli</span>
-              <span class="tag">Generally Available</span>
-            </div>
             <h3>Shipping AI skills to production in the Fabric CLI</h3>
             <p>Built the AI assets layer of the Fabric CLI that shipped GA in v1.5. Public commits in microsoft/fabric-cli, called out by the Corporate VP of Product. Also shipped internal agent skills for engineers before it was common practice.</p>
             <span class="project__link">Read case study &#8594;</span>
@@ -131,8 +113,10 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
+  <div class="section-transition section-transition--dark" aria-hidden="true"></div>
+
   <!-- RECENT EXPERIENCE -->
-  <section class="experience" id="about">
+  <section class="experience" id="experience">
     <div class="wrap">
       <div class="section-header">
         <h2>Recent experience</h2>
@@ -177,6 +161,8 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
+  <div class="section-transition section-transition--cream" aria-hidden="true"></div>
+
   <!-- EDUCATION + RECOGNITION -->
   <section class="credentials">
     <div class="wrap">
@@ -186,7 +172,7 @@ const base = import.meta.env.BASE_URL;
       <div class="cred__grid">
 
         <div class="cred__block cred__block--education">
-          <div class="cred__title"><span aria-hidden="true">01</span><h3>Education</h3></div>
+          <div class="cred__title"><h3>Education</h3></div>
           <ul class="cred__list">
             <li>
               <strong>Reichman University</strong>
@@ -201,7 +187,7 @@ const base = import.meta.env.BASE_URL;
         </div>
 
         <div class="cred__block cred__block--recognition">
-          <div class="cred__title"><span aria-hidden="true">02</span><h3>Recognition</h3></div>
+          <div class="cred__title"><h3>Recognition</h3></div>
           <ul class="cred__list">
             <li>
               <strong>Best Use of AI</strong>
@@ -234,8 +220,10 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
+  <div class="section-transition section-transition--stone" aria-hidden="true"></div>
+
   <!-- HOOVER CONTENT SYSTEM -->
-  <section class="hcs">
+  <section class="hcs" id="open-source">
     <div class="wrap">
       <div class="hcs__panel">
         <div class="hcs__content">
@@ -262,6 +250,8 @@ const base = import.meta.env.BASE_URL;
       </div>
     </div>
   </section>
+
+  <div class="section-transition section-transition--blue" aria-hidden="true"></div>
 
   <!-- PUBLISHED ARTICLES -->
   <section class="writing" id="writing">
@@ -301,6 +291,8 @@ const base = import.meta.env.BASE_URL;
       </div>
     </div>
   </section>
+
+  <div class="section-transition section-transition--ink" aria-hidden="true"></div>
 
   <!-- CONTACT -->
   <section class="contact" id="contact">
@@ -363,70 +355,44 @@ const base = import.meta.env.BASE_URL;
     max-width: none;
   }
   .hero__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-  .hero-system {
-    min-height: 300px;
-    padding: clamp(1.5rem, 3vw, 2rem);
-    border: 1px solid rgba(0, 82, 204, 0.14);
-    border-radius: 28px;
-    background: #fff;
-    box-shadow: 0 24px 70px rgba(12, 38, 78, 0.12);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  .hero-art {
+    overflow: hidden;
+    border-radius: 32px;
+    box-shadow: 0 28px 80px rgba(12, 38, 78, 0.2);
+    transform: rotate(1.5deg);
   }
-  .hero-system__label {
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 1rem;
-  }
-  .hero-system__steps { display: flex; flex-direction: column; }
-  .hero-system__step {
-    display: grid;
-    grid-template-columns: 2rem minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 0.75rem;
-    min-width: 0;
-    padding: 0.9rem 0;
-    border-top: 1px solid var(--border);
-  }
-  .hero-system__step span {
-    display: grid;
-    place-items: center;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    background: #edf3ff;
-    color: var(--accent);
-    font-size: 0.625rem;
-    font-weight: 700;
-  }
-  .hero-system__step strong {
-    font-family: var(--f-heading);
-    font-size: 0.85rem;
-    line-height: 1.25;
-  }
-  .hero-system__step small { color: var(--muted); font-size: 0.68rem; font-weight: 600; text-align: right; }
-  .hero-system__step--core {
-    margin-inline: -0.75rem;
-    padding-inline: 0.75rem;
-    border-top-color: transparent;
-    border-radius: 12px;
-    background: #edf3ff;
-    color: var(--text);
-  }
-  .hero-system__step--core span { background: var(--accent); color: #fff; }
+  .hero-art svg { display: block; width: 100%; height: auto; }
   @media (max-width: 900px) {
     .hero__grid { grid-template-columns: 1fr; }
-    .hero-system { min-height: 260px; max-width: 680px; }
+    .hero-art { width: min(100%, 680px); aspect-ratio: 16 / 10; transform: none; }
+    .hero-art svg { width: 100%; height: 100%; }
   }
   @media (max-width: 480px) {
-    .hero-system { min-height: auto; border-radius: 16px; }
-    .hero-system__step { grid-template-columns: 2rem minmax(0, 1fr); }
-    .hero-system__step small { grid-column: 2; text-align: left; }
+    .hero-art { border-radius: 18px; }
   }
+
+  /* ─ SECTION TRANSITIONS ─ */
+  .section-transition {
+    position: relative;
+    height: clamp(2.75rem, 5vw, 4.5rem);
+    overflow: hidden;
+  }
+  .section-transition::after {
+    content: '';
+    position: absolute;
+    inset: 12% -8% -1px;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  }
+  .section-transition--dark { background: #fff; }
+  .section-transition--dark::after { background: #111a2d; transform: translateX(-7%); }
+  .section-transition--cream { background: #111a2d; }
+  .section-transition--cream::after { background: #f4efe5; transform: translateX(8%); }
+  .section-transition--stone { background: #f4efe5; }
+  .section-transition--stone::after { background: #e7e1d5; transform: translateX(-5%); }
+  .section-transition--blue { background: #e7e1d5; }
+  .section-transition--blue::after { background: #eef2fb; transform: translateX(7%); }
+  .section-transition--ink { background: #eef2fb; }
+  .section-transition--ink::after { background: var(--text); transform: translateX(-6%); }
 
   /* ─ SECTION HEADER ─ */
   .section-header {
@@ -484,19 +450,11 @@ const base = import.meta.env.BASE_URL;
   .project__body {
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
-    padding: 1.5rem;
+    gap: 0.8rem;
+    padding: clamp(1.5rem, 3vw, 2rem);
     flex: 1;
   }
-  .project__n {
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--muted);
-    max-width: none;
-  }
-  .project__tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-  .project__body h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); margin-top: 0.15rem; }
+  .project__body h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
   .project__body p { font-size: 0.9375rem; color: var(--muted); line-height: 1.65; }
   .project__link { margin-top: auto; padding-top: 0.5rem; font-size: 0.875rem; font-weight: 700; color: var(--accent); }
   .visual-repo {
@@ -575,11 +533,7 @@ const base = import.meta.env.BASE_URL;
 
   /* ─ EXPERIENCE ─ */
   .experience {
-    position: relative;
-    z-index: 2;
-    margin-top: -1.5rem;
     padding-block: clamp(4rem, 7vw, 6rem);
-    border-radius: 36px 36px 0 0;
     background: #111a2d;
     color: #fff;
   }
@@ -605,11 +559,7 @@ const base = import.meta.env.BASE_URL;
 
   /* ─ CREDENTIALS ─ */
   .credentials {
-    position: relative;
-    z-index: 3;
-    margin-top: -1.5rem;
     padding-block: clamp(4rem, 7vw, 6rem);
-    border-radius: 36px 36px 0 0;
     background: #f4efe5;
   }
   .credentials__header { margin-bottom: 2rem; }
@@ -617,22 +567,21 @@ const base = import.meta.env.BASE_URL;
   .cred__block { padding: clamp(1.5rem, 3vw, 2.25rem); border: 1px solid var(--border); border-radius: 18px; }
   .cred__block--education { background: #eef4ff; border-color: #d5e3fc; }
   .cred__block--recognition { background: #fff4e9; border-color: #f4dcc4; }
-  .cred__title { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
-  .cred__title > span { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: #fff; color: var(--muted); font-size: 0.65rem; font-weight: 700; }
+  .cred__title { margin-bottom: 1.5rem; }
   .cred__block h3 { font-size: 1.15rem; font-weight: 700; color: var(--text); }
   .cred__list { list-style: none; display: flex; flex-direction: column; gap: 0; }
   .cred__block--recognition .cred__list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 1.5rem; }
   .cred__list li { display: flex; flex-direction: column; gap: 0.2rem; padding-block: 1rem; border-top: 1px solid rgba(15,15,14,0.1); }
   .cred__list strong { font-size: 0.9375rem; font-weight: 600; color: var(--text); }
   .cred__list span { font-size: 0.8125rem; color: var(--muted); max-width: none; }
-  .cred__list em { width: fit-content; margin-top: 0.35rem; padding: 0.2rem 0.5rem; border-radius: 999px; background: rgba(255,255,255,0.8); color: #174b9f; font-size: 0.7rem; font-style: normal; font-weight: 700; }
+  .cred__list em { margin-top: 0.2rem; color: #174b9f; font-size: 0.75rem; font-style: normal; font-weight: 700; }
   @media (max-width: 700px) {
     .cred__grid { grid-template-columns: 1fr; gap: 2rem; }
     .cred__block--recognition .cred__list { grid-template-columns: 1fr; }
   }
 
   /* ─ HOOVER CONTENT SYSTEM ─ */
-  .hcs { position: relative; z-index: 4; margin-top: -1.5rem; padding-block: clamp(4rem, 7vw, 6rem); border-radius: 36px 36px 0 0; background: #e7e1d5; }
+  .hcs { padding-block: clamp(4rem, 7vw, 6rem); background: #e7e1d5; }
   .hcs__panel {
     display: grid;
     grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
@@ -669,7 +618,7 @@ const base = import.meta.env.BASE_URL;
   }
 
   /* ─ WRITING ─ */
-  .writing { position: relative; z-index: 5; margin-top: -1.5rem; padding-block: clamp(4rem, 7vw, 6rem); border-radius: 36px 36px 0 0; background: #eef2fb; }
+  .writing { padding-block: clamp(4rem, 7vw, 6rem); background: #eef2fb; }
   .writing .section-header { margin-bottom: 1.25rem; }
   .writing__intro { margin-bottom: 2rem; color: var(--muted); font-size: 0.95rem; }
   .writing__cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: start; }
@@ -695,10 +644,6 @@ const base = import.meta.env.BASE_URL;
 
   /* ─ CONTACT ─ */
   .contact {
-    position: relative;
-    z-index: 6;
-    margin-top: -1.5rem;
-    border-radius: 36px 36px 0 0;
     background: var(--text);
     padding-block: clamp(3rem, 6vw, 5rem);
   }
