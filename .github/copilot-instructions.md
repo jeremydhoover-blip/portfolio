@@ -19,6 +19,8 @@
 ## Design and quality
 
 - Preserve the visual, card-based portfolio system and distinct project colors.
+- Use the Content Design Leaders Upstream site as a quality reference for editorial hierarchy, generous whitespace, confident color fields, and clear transitions between sections.
+- Keep diagrams simple and conceptual. Prefer one clear relationship over collections of small boxes or repeated labels.
 - Review every meaningful change at desktop and mobile widths.
 - Check heading order, keyboard focus, contrast, reduced motion, link labels, and horizontal overflow.
 - Keep `Profile.pdf` and `PORTFOLIO_PLAN.md` local and out of Git.
