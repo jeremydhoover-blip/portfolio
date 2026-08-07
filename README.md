@@ -2,6 +2,8 @@
 
 Career portfolio for Jeremy Hoover, focused on product strategy, design systems, and AI workflows. Built with Astro and deployed to GitHub Pages.
 
+**Live portfolio:** <https://jeremydhoover-blip.github.io/portfolio/>
+
 ## Site structure
 
 - Homepage with career positioning, four selected projects, experience, the Technical Content Designer Program, Hoover Content System, published articles, education, recognition, and contact details
