@@ -5,85 +5,290 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <Base
-  title="Hackathon Win | Jeremy Hoover"
-  description="How I turned 50+ scattered PM requirements into a simple agentic experience that won Best Use of AI and shipped into production across Microsoft."
+  title="Hackathon PM Agent | Jeremy Hoover"
+  description="How I designed a verified PRD-first agent workflow that won Best Use of AI and became a catalyst for an evolving system of product-management skills and agents."
 >
   <article class="section case-study case-study--violet">
     <header class="case-hero">
       <div class="container container--narrow">
+        <a href={`${base}/#projects`} class="back">← Back to selected work</a>
 
-        <a href={`${base}/#projects`} class="back">← Back</a>
-
-        <span class="tag">AI Product · Hackathon · Microsoft</span>
-        <h1>From hackathon win to org-wide deployment</h1>
+        <span class="tag">AI product · Agent interaction · Microsoft hackathon</span>
+        <h1>Replacing a requirements maze with a verified agent workflow</h1>
         <p class="lede">
-          I replaced a 50+ requirement wiki and a cumbersome form with a single agentic experience
-          connected to Azure DevOps. It won Best Use of AI, shipped into production, and became a
-          catalyst for how PMs across the org work today.
+          In a three-day Microsoft hackathon, I turned a repeated wiki, form, routing, and manual
+          work-creation process into a skill that starts with a PRD. The agent extracts what it
+          can, asks targeted questions, produces a report for confirmation, and keeps downstream
+          actions under the product manager's control.
         </p>
 
-        <div class="outcomes-strip">
-          <div class="outcome"><span class="outcome__num">1st</span><span class="outcome__label">Best Use of AI, Microsoft hackathon</span></div>
-          <div class="outcome"><span class="outcome__num">100s</span><span class="outcome__label">of users with access post-adoption</span></div>
-          <div class="outcome"><span class="outcome__num">Shipped</span><span class="outcome__label">into production, built upon by others</span></div>
+        <div class="outcomes-strip" aria-label="Project outcomes">
+          <div class="outcome">
+            <span class="outcome__num">Winner</span>
+            <span class="outcome__label">Best Use of AI, awarded to our three-person team</span>
+          </div>
+          <div class="outcome">
+            <span class="outcome__num">3 days</span>
+            <span class="outcome__label">From product concept to working proof of concept</span>
+          </div>
+          <div class="outcome">
+            <span class="outcome__num">Catalyst</span>
+            <span class="outcome__label">Foundational contribution to evolving PM skills and agents</span>
+          </div>
         </div>
       </div>
     </header>
 
     <div class="case-body">
-      <div class="container container--narrow">
+      <div class="container case-shell">
+        <aside class="disclosure" aria-label="Project disclosure">
+          <strong>About the evidence</strong>
+          <p>This project was completed inside Microsoft. I reconstructed the workflow and interaction with generic content and removed internal requirements, contacts, product details, and work-management data.</p>
+        </aside>
 
-      <h2>The problem</h2>
-      <p>
-        Every PM on our team had to navigate the same friction every time they created new work:
-        find the right requirements across a 50+ item wiki, fill out a cumbersome form manually,
-        then create and assign tasks in Azure DevOps by hand. The process was slow, inconsistent,
-        and relied entirely on each PM knowing where to look and what to fill in.
-      </p>
-      <p>
-        The information existed. The tools existed. Nobody had connected them.
-      </p>
+        <section class="case-summary" aria-labelledby="summary-title">
+          <div class="reading-column">
+            <h2 id="summary-title">At a glance</h2>
+            <dl class="case-meta">
+              <div><dt>Role</dt><dd>Senior Content Designer; concept originator, product driver, and experience owner</dd></div>
+              <div><dt>Ownership</dt><dd>Skill, most agent instructions, complete interaction, full experience design, and demo video</dd></div>
+              <div><dt>Team</dt><dd>Three people: me, another designer, and a product manager</dd></div>
+              <div><dt>Constraint</dt><dd>Three-day official Microsoft hackathon</dd></div>
+              <div><dt>Status</dt><dd>Working proof of concept incorporated into an active, evolving PM system</dd></div>
+              <div><dt>Evidence</dt><dd>Best Use of AI, judges' assessment, broad PM sharing, and generic reconstructed artifacts</dd></div>
+            </dl>
+          </div>
+        </section>
 
-      <h2>My role</h2>
-      <p>
-        I designed and built the solution during a Microsoft hackathon. The constraint was the
-        hackathon timeframe. The goal was something that actually worked, not a demo.
-      </p>
+        <nav class="case-toc" aria-label="Hackathon PM agent case study sections">
+          <span class="case-toc__label">Jump to a section</span>
+          <ul>
+            <li><a href="#problem">Workflow gap</a></li>
+            <li><a href="#decision">Product decision</a></li>
+            <li><a href="#interaction">Agent interaction</a></li>
+            <li><a href="#validation">Validation</a></li>
+            <li><a href="#evolution">Evolution</a></li>
+            <li><a href="#reflection">Reflection</a></li>
+          </ul>
+        </nav>
 
-      <h2>What I built</h2>
-      <p>
-        A simple agentic experience that replaced the entire manual process. The agent:
-      </p>
-      <ul>
-        <li>Analyzes the PRD to understand the product context</li>
-        <li>Asks the PM targeted questions to gather requirements, release stage, and dependencies</li>
-        <li>Creates and assigns tasks in Azure DevOps automatically, based on its analysis and the PM's answers</li>
-      </ul>
-      <p>
-        The interaction model was a conversation, not a form. The PM describes their product;
-        the agent figures out the rest. No wiki to search, no fields to fill, no manual task creation.
-      </p>
+        <section id="problem" class="reading-column content-section">
+          <h2>The repeated operational problem</h2>
+          <p>
+            Product managers across teams followed the same manual sequence whenever they needed
+            to turn a product idea into assigned work.
+          </p>
+          <p>
+            They searched a wiki containing more than 50 fundamental requirements, completed a
+            form to determine which requirements applied, identified the right groups and
+            contacts, and then created and assigned work manually.
+          </p>
+          <p>
+            The information existed, but the workflow forced each product manager to repeatedly
+            locate, interpret, route, and recreate it. The form did not remove that work. It told
+            people where to look for more work.
+          </p>
+        </section>
 
-      <h2>The outcome</h2>
-      <p>
-        It won Best Use of AI at the Microsoft hackathon, and then it shipped. That distinction
-        matters: most hackathon projects are prototypes. This one was adopted at the highest
-        organizational level, with hundreds of people getting access to it.
-      </p>
-      <p>
-        More importantly, it didn't just get used. It got built upon. Other teams extended it,
-        added to it, connected it to other workflows. It became one of many agents in a broader
-        ecosystem, but it was one of the first and it kicked off the shift. The way PMs in our
-        org use agents today traces back to this project.
-      </p>
+        <section class="reading-column content-section" aria-labelledby="role-title">
+          <h2 id="role-title">Acting as the product driver</h2>
+          <p>
+            The idea and product plan were mine. I created the skill, wrote most of the agent
+            instructions, designed the complete interaction and experience, and produced the demo
+            video used in our presentation.
+          </p>
+          <p>
+            The product manager gave me the domain foundation I needed. They explained how the
+            wiki, form, requirements, routing, and contacts worked, created test PRDs, and helped
+            with the agent runtime and work-management integration.
+          </p>
+          <p>
+            I was working as the designer and the product driver. I defined the problem, decided
+            how the interaction should work, and drove the proof of concept from idea to
+            presentation.
+          </p>
+        </section>
 
-      <hr class="divider" />
+        <section id="decision" class="reading-column content-section">
+          <h2>The form was not the experience to preserve</h2>
+          <p>
+            We considered keeping the wiki as the primary experience, simplifying the form,
+            packaging the concept as a standalone application, and pursuing other hackathon ideas.
+          </p>
+          <p>
+            I did not think a shorter form solved the real problem. The product manager already
+            had a PRD containing useful context. Asking them to re-enter that information created
+            work without improving the result.
+          </p>
+          <p>
+            We used the wiki and form as source material for the agent instead. The skill starts
+            with the PRD, infers what it can, and asks only for missing information. This changed
+            the interaction from repeated data entry to focused verification.
+          </p>
+        </section>
 
-      <div class="nav-row">
-        <a href={`${base}/work/ai-design-repo`} class="btn btn--ghost">← Previous: AI Design Repo</a>
-        <a href={`${base}/work/org-ai-initiatives`} class="btn">Next: Org AI initiatives →</a>
-      </div>
+        <figure class="evidence-figure" aria-labelledby="workflow-caption">
+          <div class="workflow-compare" role="img" aria-label="Before and after PM workflow comparison showing wiki search, form routing, and manual work creation replaced by a PRD-first verified agent workflow">
+            <section class="workflow-panel workflow-panel--before">
+              <span class="diagram-label">Before</span>
+              <h3>Repeated manual process</h3>
+              <ol>
+                <li>Search 50+ fundamentals</li>
+                <li>Complete routing form</li>
+                <li>Find groups and contacts</li>
+                <li>Create and assign work</li>
+              </ol>
+            </section>
+            <div class="workflow-shift" aria-hidden="true">→</div>
+            <section class="workflow-panel workflow-panel--after">
+              <span class="diagram-label">After</span>
+              <h3>Verified agent workflow</h3>
+              <ol>
+                <li>Provide PRD</li>
+                <li>Answer targeted questions</li>
+                <li>Verify and save report</li>
+                <li>Initiate follow-on actions</li>
+              </ol>
+            </section>
+          </div>
+          <figcaption id="workflow-caption">
+            <strong>Start with existing context.</strong> The PRD supplies the foundation, and the
+            agent asks only what is missing before producing a report for confirmation.
+          </figcaption>
+        </figure>
 
+        <section id="interaction" class="reading-column content-section">
+          <h2>Designing the agent interaction</h2>
+          <p>
+            The agent reads the PRD and identifies available context such as the feature type,
+            release stage, schedule, dependencies, related team needs, and likely contacts.
+          </p>
+          <p>
+            It asks targeted follow-up questions where the PRD does not provide enough
+            information. The product manager does not need to repeat details the agent already
+            found.
+          </p>
+          <p>The agent then produces a complete draft report containing:</p>
+          <ul>
+            <li>The applicable fundamentals</li>
+            <li>The source or rationale for each one</li>
+            <li>The responsible contact</li>
+            <li>Basic requirement information</li>
+            <li>The downstream work the system can help set up</li>
+          </ul>
+          <p>The product manager can ask for deeper information from the agent's knowledge base before confirming the report.</p>
+        </section>
+
+        <figure class="evidence-figure" aria-labelledby="conversation-caption">
+          <div class="conversation" aria-label="Generic reconstructed conversation between a product manager and the agent">
+            <div class="message message--user"><span>Product manager</span><p>Here is the PRD for a new feature in an upcoming release.</p></div>
+            <div class="message message--agent"><span>Agent</span><p>I found the feature type and release stage. Does this experience depend on an existing team capability?</p></div>
+            <div class="message message--user"><span>Product manager</span><p>Yes. It uses a shared platform capability.</p></div>
+            <div class="report-preview">
+              <span>Draft report</span>
+              <strong>Applicable fundamental</strong>
+              <p>Requirement summary, rationale, responsible contact, and proposed follow-on work.</p>
+            </div>
+          </div>
+          <figcaption id="conversation-caption">
+            <strong>A reconstructed interaction.</strong> The agent combines PRD context with one
+            targeted answer, then shows its reasoning and proposed work for review.
+          </figcaption>
+        </figure>
+
+        <section class="reading-column content-section" aria-labelledby="confirmation-title">
+          <h2 id="confirmation-title">Separating report approval from action</h2>
+          <p>The confirmation model was a key safety decision.</p>
+          <p>
+            First, the product manager verifies and confirms the complete report. Only then does
+            the system save it. After saving, the agent prompts the product manager to initiate
+            work setup and other action items separately.
+          </p>
+          <p>
+            Report approval is not blanket permission to perform every downstream action. The
+            product manager remains in control of each consequential next step.
+          </p>
+        </section>
+
+        <figure class="evidence-figure" aria-labelledby="agent-flow-caption">
+          <ol class="agent-flow">
+            <li><span>1</span><strong>Read PRD</strong><small>Extract available context</small></li>
+            <li><span>2</span><strong>Infer</strong><small>Identify fundamentals, dependencies, and contacts</small></li>
+            <li><span>3</span><strong>Ask</strong><small>Gather only missing information</small></li>
+            <li><span>4</span><strong>Report</strong><small>Show rationale, contacts, and proposed work</small></li>
+            <li><span>5</span><strong>Verify</strong><small>PM reviews, corrects, and confirms</small></li>
+            <li><span>6</span><strong>Act</strong><small>Initiate follow-on actions individually</small></li>
+          </ol>
+          <figcaption id="agent-flow-caption">
+            <strong>Two layers of control.</strong> The report is approved and saved before the PM
+            chooses any downstream work-management action.
+          </figcaption>
+        </figure>
+
+        <section id="validation" class="reading-column content-section">
+          <h2>Validation in three days</h2>
+          <p>
+            We tested the skill against sample PRDs created by the product manager. The
+            three-person team used those examples to check whether the agent extracted the right
+            context, asked useful follow-up questions, and produced a report that could guide
+            downstream work.
+          </p>
+          <p>
+            The hackathon judges recognized that the concept could eliminate hours of repeated
+            wiki search, form completion, contact routing, and manual work creation. That was
+            their assessment of the opportunity, not a measured production result.
+          </p>
+          <p>Our team won Best Use of AI.</p>
+        </section>
+
+        <section id="evolution" class="reading-column content-section">
+          <h2>From proof of concept to evolving system</h2>
+          <p>The hackathon version was a working proof of concept, not the unchanged final system.</p>
+          <p>
+            After the event, the skill was shared across the wider product-management organization
+            and became an input to a larger system of PM skills and agents. That broader effort
+            standardized more of the product-management workflow across the business group and
+            continued to evolve through contributions from multiple teams.
+          </p>
+          <p>
+            The proof of concept was a catalyst and foundational contribution during that shift.
+            It did not create the later ecosystem alone, but it demonstrated a different way to
+            handle the fundamentals and gave teams something concrete to build from.
+          </p>
+        </section>
+
+        <div class="evolution-grid" aria-label="Project evolution">
+          <div><span>01</span><strong>Proof of concept</strong><small>Three-day working skill and tested interaction</small></div>
+          <div><span>02</span><strong>Wider PM sharing</strong><small>A concrete workflow for teams to evaluate and extend</small></div>
+          <div><span>03</span><strong>Evolving system</strong><small>Standardized skills and agents shaped by multiple teams</small></div>
+        </div>
+
+        <section id="reflection" class="reading-column content-section">
+          <h2>Reflection</h2>
+          <p>
+            The key product decision was not adding chat to a form. It was changing where the work
+            began, using the PRD as context, asking only what was missing, and preserving
+            confirmation before consequential actions.
+          </p>
+          <p>
+            I think the project also showed how quickly a useful system can emerge when the
+            interaction model is clear. Three days was enough to prove the concept because we
+            focused on one repeated problem, one meaningful source of context, and one safe path
+            from understanding to action.
+          </p>
+        </section>
+
+        <aside class="closing-panel" aria-labelledby="closing-title">
+          <span class="tag">Reusable product workflow</span>
+          <h2 id="closing-title">From repeated process to reusable skill</h2>
+          <p>The proof of concept turned a manual requirements workflow into a verified agent interaction and helped establish a broader direction for how product managers could use skills and agents in their daily work.</p>
+        </aside>
+
+        <hr class="divider" />
+        <div class="nav-row">
+          <a href={`${base}/work/ai-design-repo`} class="btn btn--outline">← Previous: AI design repository</a>
+          <a href={`${base}/work/org-ai-initiatives`} class="btn">Next: Org AI initiatives →</a>
+        </div>
       </div>
     </div>
   </article>
@@ -91,22 +296,120 @@ const base = import.meta.env.BASE_URL;
 
 <style>
   .case-study { padding-top: 0; }
-  .back { display: inline-block; font-size: var(--size-sm); font-weight: 500; color: var(--color-text-muted); text-decoration: none; margin-bottom: var(--space-8); }
-  .back:hover { color: var(--color-accent); }
-  .tag { margin-bottom: var(--space-4); display: inline-block; }
+  .tag { display: inline-block; margin-bottom: var(--space-4); }
   h1 { margin-block: var(--space-4) var(--space-6); }
-  .lede { font-size: var(--size-xl); color: var(--color-text-muted); margin-bottom: var(--space-12); max-width: 58ch; }
-  .outcomes-strip { display: flex; gap: var(--space-12); flex-wrap: wrap; margin-bottom: var(--space-4); }
-  .outcome { display: flex; flex-direction: column; gap: var(--space-1); }
-  .outcome__num { font-family: var(--font-heading); font-size: var(--size-4xl); font-weight: 700; color: var(--color-accent); line-height: 1; }
-  .outcome__label { font-size: var(--size-sm); color: var(--color-text-muted); max-width: none; }
-  h2 { margin-top: var(--space-12); margin-bottom: var(--space-4); }
-  p { margin-bottom: var(--space-4); }
-  ul { margin: var(--space-4) 0 var(--space-4) var(--space-6); }
-  li { margin-bottom: var(--space-2); color: var(--color-text-muted); }
-  .btn { display: inline-block; font-size: var(--size-sm); font-weight: 600; padding: 0.65rem 1.4rem; border-radius: var(--radius-md); background: var(--color-accent); color: #fff; text-decoration: none; transition: background 0.15s; }
-  .btn:hover { background: var(--color-accent-hover); color: #fff; }
-  .btn--ghost { background: transparent; color: var(--color-accent); border: 1.5px solid var(--color-accent); }
-  .btn--ghost:hover { background: var(--color-tag-bg); color: var(--color-accent-hover); }
+  .lede { max-width: 58ch; margin-bottom: var(--space-12); font-size: var(--size-xl); line-height: 1.6; }
+  .outcome { display: flex; flex-direction: column; gap: var(--space-1); transition: transform 180ms ease, box-shadow 180ms ease; }
+  .outcome:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
+  .outcome__num { font-size: clamp(1.3rem, 11cqw, 2rem); line-height: 1.1; }
+  .outcome__label { max-width: 25ch; font-size: var(--size-sm); color: var(--muted); }
+  .case-shell { max-width: calc(var(--narrow) + 6rem); }
+  .reading-column { width: 100%; max-width: var(--narrow); margin-inline: auto; }
+  .content-section { scroll-margin-top: 90px; }
+  .content-section h2, .case-summary h2 { margin-bottom: var(--space-6); }
+  .content-section:not(:first-child) h2 { margin-top: var(--space-16); }
+  .content-section p { margin-bottom: var(--space-4); }
+  .content-section ul { margin: var(--space-4) 0 var(--space-6) var(--space-6); }
+  .content-section li { margin-bottom: var(--space-2); }
+
+  .disclosure { display: grid; grid-template-columns: 150px 1fr; gap: var(--space-6); width: 100%; max-width: var(--narrow); margin: 0 auto var(--space-12); padding: var(--space-6); border: 1px solid var(--portfolio-blue-soft); border-left: 4px solid var(--portfolio-blue); border-radius: 12px; background: #fff; }
+  .disclosure strong { color: var(--portfolio-blue); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .disclosure p { color: var(--muted); font-size: var(--size-sm); }
+
+  .case-meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+  .case-meta div { padding: var(--space-6); border: 1px solid var(--border); border-left: 4px solid var(--portfolio-blue-soft); border-radius: 12px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .case-meta div:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
+  .case-meta dt { margin-bottom: var(--space-2); color: var(--portfolio-blue); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .case-meta dd { color: var(--portfolio-ink); font-size: 0.95rem; line-height: 1.5; }
+
+  .case-toc { max-width: var(--narrow); margin: var(--space-8) auto var(--space-16); padding-block: var(--space-6); border-block: 1px solid var(--border); }
+  .case-toc__label { display: block; margin-bottom: var(--space-3); color: var(--portfolio-blue); font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.1em; line-height: 1.2; text-transform: uppercase; }
+  .case-toc ul { display: flex; flex-wrap: wrap; gap: 0.5rem 0; margin: 0; list-style: none; }
+  .case-toc li { --toc-divider: var(--portfolio-coral); display: flex; align-items: center; }
+  .case-toc li + li { margin-left: var(--space-4); }
+  .case-toc li + li::before { content: ''; width: 2px; height: 16px; margin-right: var(--space-4); border-radius: 999px; background: var(--toc-divider); }
+  .case-toc li:nth-child(3n) { --toc-divider: var(--portfolio-yellow); }
+  .case-toc li:nth-child(3n + 1) { --toc-divider: var(--portfolio-blue); }
+  .case-toc a { display: inline-flex; min-height: 32px; align-items: center; color: var(--portfolio-ink); font-size: 0.875rem; font-weight: 650; line-height: 1.3; text-decoration: none; }
+  .case-toc a:hover { color: var(--portfolio-blue); text-decoration: underline; text-decoration-color: var(--portfolio-coral); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+
+  .evidence-figure { width: 100%; max-width: var(--narrow); margin: var(--space-12) auto var(--space-16); }
+  .evidence-figure figcaption { width: 100%; margin-top: var(--space-4); color: var(--muted); font-size: var(--size-sm); }
+  .evidence-figure figcaption strong { color: var(--portfolio-ink); }
+
+  .workflow-compare { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: var(--space-3); align-items: stretch; padding: var(--space-4); border: 1px solid var(--border); border-radius: 20px; background: #fff; }
+  .workflow-panel { padding: var(--space-6); border: 1px solid var(--border); border-radius: 14px; background: var(--portfolio-blue-soft); transition: transform 180ms ease, box-shadow 180ms ease; }
+  .workflow-panel--before { background: var(--portfolio-cream); }
+  .workflow-panel:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
+  .workflow-panel h3 { margin-block: var(--space-3) var(--space-4); color: var(--portfolio-blue); }
+  .workflow-panel ol { margin-left: var(--space-5, 1.25rem); }
+  .workflow-panel li { margin-bottom: var(--space-2); color: var(--muted); font-size: var(--size-sm); }
+  .diagram-label { color: var(--portfolio-coral); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .workflow-shift { display: grid; place-items: center; color: var(--portfolio-blue); font-size: 1.5rem; font-weight: 800; }
+
+  .conversation { display: grid; gap: var(--space-3); padding: var(--space-4); border: 1px solid #b8c9ee; border-radius: 20px; background: var(--portfolio-blue-soft); }
+  .message, .report-preview { max-width: 78%; padding: var(--space-4) var(--space-6); border-radius: 14px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .message:hover, .report-preview:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
+  .message--user { justify-self: end; border-bottom-right-radius: 4px; }
+  .message--agent { justify-self: start; border-bottom-left-radius: 4px; }
+  .message span, .report-preview > span { color: var(--portfolio-coral); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; }
+  .message p, .report-preview p { margin-top: var(--space-2); color: var(--muted); font-size: var(--size-sm); }
+  .report-preview { max-width: 100%; border-left: 4px solid var(--portfolio-blue); }
+  .report-preview strong { display: block; margin-top: var(--space-2); color: var(--portfolio-ink); }
+
+  .agent-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); margin: 0; padding: var(--space-4); border: 1px solid #e1c35f; border-radius: 20px; background: #fff8da; list-style: none; }
+  .agent-flow li { position: relative; display: flex; min-height: 185px; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border-radius: 12px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .agent-flow li:hover { z-index: 2; transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
+  .agent-flow li > span { display: grid; width: 1.75rem; height: 1.75rem; place-items: center; border-radius: 50%; background: var(--portfolio-blue); color: #fff; font-size: 0.75rem; font-weight: 800; }
+  .agent-flow strong { color: var(--portfolio-ink); font-size: 0.8rem; line-height: 1.35; }
+  .agent-flow small { color: var(--muted); font-size: 0.7rem; line-height: 1.45; }
+
+  .evolution-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; max-width: var(--narrow); gap: var(--space-3); margin: var(--space-8) auto var(--space-16); }
+  .evolution-grid div { display: flex; min-height: 165px; flex-direction: column; gap: var(--space-3); padding: var(--space-6); border: 1px solid var(--border); border-radius: 14px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .evolution-grid div:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
+  .evolution-grid span { color: var(--portfolio-coral); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; }
+  .evolution-grid strong { color: var(--portfolio-blue); line-height: 1.35; }
+  .evolution-grid small { color: var(--muted); font-size: var(--size-sm); line-height: 1.5; }
+
+  .closing-panel { width: 100%; max-width: var(--narrow); margin: var(--space-16) auto 0; padding: clamp(1.5rem, 5vw, 3rem); border-radius: 20px; background: var(--portfolio-blue); }
+  .closing-panel .tag { color: var(--portfolio-yellow); }
+  .closing-panel h2 { margin-bottom: var(--space-3); color: #fff; }
+  .closing-panel p { color: rgba(255,255,255,0.82); }
   .nav-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4); }
+  .divider { margin-block: var(--space-16) var(--space-8); }
+
+  @media (max-width: 900px) {
+    .case-toc ul { gap: 0.5rem 1.5rem; }
+    .case-toc li + li { margin-left: 0; }
+    .case-toc li + li::before { content: none; }
+    .agent-flow li { min-height: 150px; }
+    .evolution-grid { grid-template-columns: 1fr; }
+    .evolution-grid div { min-height: 0; }
+  }
+
+  @media (max-width: 640px) {
+    .content-section { scroll-margin-top: 130px; }
+    .disclosure { grid-template-columns: 1fr; gap: var(--space-2); padding: var(--space-4); }
+    .case-meta { grid-template-columns: 1fr; }
+    .case-meta div { padding: var(--space-4); }
+    .case-toc { margin-top: var(--space-6); margin-bottom: var(--space-12); padding-block: var(--space-4); }
+    .case-toc ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; gap: var(--space-1) var(--space-6); }
+    .case-toc a { min-height: 44px; }
+    .workflow-compare { grid-template-columns: 1fr; padding: var(--space-3); }
+    .workflow-shift { transform: rotate(90deg); }
+    .message, .report-preview { max-width: 100%; }
+    .agent-flow { grid-template-columns: 1fr; padding: var(--space-3); }
+    .agent-flow li { min-height: auto; }
+    .nav-row .btn { width: 100%; text-align: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .outcome:hover,
+    .case-meta div:hover,
+    .workflow-panel:hover,
+    .message:hover,
+    .report-preview:hover,
+    .agent-flow li:hover,
+    .evolution-grid div:hover { transform: none; }
+  }
 </style>
