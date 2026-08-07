@@ -11,6 +11,8 @@
     "dev:status": "astro dev status",
     "dev:logs": "astro dev logs",
     "build": "astro build",
+    "audit": "python scripts/audit_portfolio.py",
+    "quality": "npm run build && npm run audit",
     "preview": "astro preview",
     "astro": "astro"
   },

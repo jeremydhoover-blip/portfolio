@@ -5,7 +5,8 @@
 - This is an Astro static site deployed under the `/portfolio` base path.
 - Start the development server in background mode with `npm run dev`.
 - Manage it with `npm run dev:status`, `npm run dev:logs`, and `npm run dev:stop`.
-- Run `npm run build` before reporting a change as complete.
+- Run `npm run quality` before reporting a change as complete. This builds the site and runs the deterministic portfolio audit.
+- Treat deterministic checks as a baseline, not a substitute for browser review at desktop, intermediate, and mobile widths.
 
 ## Content
 
@@ -23,4 +24,4 @@
 - Keep diagrams simple and conceptual. Prefer one clear relationship over collections of small boxes or repeated labels.
 - Review every meaningful change at desktop and mobile widths.
 - Check heading order, keyboard focus, contrast, reduced motion, link labels, and horizontal overflow.
-- Keep `Profile.pdf` and `PORTFOLIO_PLAN.md` local and out of Git.
+- Keep `Profile.pdf` and the `.portfolio-plan/` planning workspace local and out of Git.

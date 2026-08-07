@@ -1,0 +1,52 @@
+{
+  "$schema": "./portfolio-standards.schema.json",
+  "version": 1,
+  "site": {
+    "basePath": "/portfolio",
+    "canonicalOrigin": "https://jeremydhoover-blip.github.io",
+    "requiredRoutes": [
+      "index.html",
+      "about/index.html",
+      "work/ai-design-repo/index.html",
+      "work/hackathon/index.html",
+      "work/org-ai-initiatives/index.html",
+      "work/fabric-cli/index.html"
+    ],
+    "forbiddenDomains": [
+      "jeremyhoover.io"
+    ]
+  },
+  "brand": {
+    "colors": {
+      "--portfolio-blue": "#1155cc",
+      "--portfolio-blue-soft": "#dfe9ff",
+      "--portfolio-yellow": "#f6d365",
+      "--portfolio-coral": "#ff7657",
+      "--portfolio-cream": "#f4efe5",
+      "--portfolio-ink": "#101a2d"
+    },
+    "fonts": [
+      "Inter",
+      "Space Grotesk"
+    ]
+  },
+  "content": {
+    "forbiddenCharacters": [
+      "—"
+    ],
+    "requiredPositioningTerms": [
+      "product",
+      "design",
+      "AI"
+    ]
+  },
+  "accessibility": {
+    "documentLanguage": "en",
+    "h1PerPage": 1,
+    "requireMetaDescription": true,
+    "requireImageAlt": true,
+    "requireNoopenerForBlankTargets": true,
+    "disallowHeadingSkips": true,
+    "requireSkipLinkTarget": "main-content"
+  }
+}

@@ -27,7 +27,7 @@ The site is static, responsive, and designed to work under the `/portfolio` base
 
 ## Run locally
 
-Requires Node.js 22.12 or later.
+Requires Node.js 22.12 or later and Python 3.12.
 
 ```sh
 npm install
@@ -36,10 +36,10 @@ npm run dev
 
 Open [http://localhost:4321/portfolio/](http://localhost:4321/portfolio/).
 
-Build the production site with:
+Build and audit the production site with:
 
 ```sh
-npm run build
+npm run quality
 ```
 
 ## Deployment

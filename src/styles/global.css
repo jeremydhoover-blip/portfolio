@@ -293,6 +293,7 @@ p { max-width: 66ch; }
 .nav__links a { font-size: 0.8125rem; font-weight: 500; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; }
 .nav__links a:hover { color: var(--text); text-decoration: none; }
 @media (max-width: 640px) {
+  .nav__links .nav__item--desktop { display: none; }
   .nav__inner {
     height: auto;
     min-height: 56px;
