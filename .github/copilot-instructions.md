@@ -2,7 +2,7 @@
 
 ## Development
 
-- This is an Astro static site deployed at the `jeremyhoover.io` domain root.
+- This is an Astro static site deployed under the `/portfolio` base path.
 - Start the development server in background mode with `npm run dev`.
 - Manage it with `npm run dev:status`, `npm run dev:logs`, and `npm run dev:stop`.
 - Run `npm run build` before reporting a change as complete.
