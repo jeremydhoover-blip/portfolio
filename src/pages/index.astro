@@ -154,7 +154,7 @@ const base = import.meta.env.BASE_URL;
       <div class="program__content">
         <p class="program__eyebrow">Creator and instructor</p>
         <h2>Technical Content Designer Program</h2>
-        <p>I created and teach this program with UX Content Collective. It gives content designers, product designers, and design managers practical fluency with repositories, Git, GitHub, VS Code, the terminal, and AI tools. Participants learn to work confidently with engineers, contribute directly to product development, and apply AI responsibly in real production workflows.</p>
+        <p>I created and teach this program with the UX Content Collective. It gives content designers, product designers, and design managers practical fluency with repositories, Git, GitHub, VS Code, the terminal, and AI tools. Participants learn to work confidently with engineers, contribute directly to product development, and apply AI responsibly in real production workflows.</p>
         <a href="https://uxcontent.com/technical-content-designer-program/" target="_blank" rel="noopener" class="btn btn--outline">Explore the program &#8599;</a>
       </div>
       <div class="program__curriculum" aria-label="Program curriculum">
@@ -315,7 +315,7 @@ const base = import.meta.env.BASE_URL;
 
   /* ─ HERO ─ */
   .hero {
-    padding-block: clamp(3.5rem, 8vw, 6.5rem);
+    padding-block: clamp(2rem, 4vw, 3.5rem);
     background: var(--portfolio-blue);
     color: #fff;
     overflow: hidden;
@@ -400,7 +400,8 @@ const base = import.meta.env.BASE_URL;
     .affiliation__label { display: none; }
   }
   .hero__actions {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 230px));
     align-items: center;
     gap: 0.75rem;
     width: auto;
@@ -409,7 +410,7 @@ const base = import.meta.env.BASE_URL;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 180px;
+    width: 100%;
     min-height: 50px;
     padding: 0.75rem 1.25rem;
     border: 1.5px solid var(--portfolio-yellow);
@@ -418,13 +419,14 @@ const base = import.meta.env.BASE_URL;
     color: var(--portfolio-yellow);
     line-height: 1.2;
     text-align: center;
+    white-space: nowrap;
   }
   .hero .btn:hover { background: rgba(246,211,101,0.12); border-color: #ffe28a; color: #ffe28a; text-decoration: none; }
   .hero .hero__contact { color: #fff; border-color: var(--portfolio-coral); }
   .hero .hero__contact:hover { background: rgba(255,118,87,0.14); border-color: #ff9b83; color: #fff; }
   @media (max-width: 560px) {
     .hero__actions { display: grid; grid-template-columns: 1fr; width: 100%; }
-    .hero .btn { width: 100%; }
+    .hero .btn { width: 100%; white-space: normal; }
   }
   .hero-art {
     position: relative;

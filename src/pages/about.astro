@@ -9,6 +9,7 @@ const base = import.meta.env.BASE_URL;
   <section class="section about-page">
     <header class="about-hero">
       <div class="container container--narrow">
+        <a href={`${base}/`} class="hero-back">← Back</a>
         <p class="eyebrow">About</p>
         <h1>Jeremy Hoover</h1>
         <p class="subtitle">Product strategy · Design systems · AI workflows</p>
@@ -115,8 +116,7 @@ const base = import.meta.env.BASE_URL;
         <hr class="divider" />
 
         <div class="cta-row">
-          <a href={`${base}/`} class="btn">Back to home</a>
-          <a href="mailto:jeremyd.hoover@gmail.com" class="btn btn--ghost">Get in touch</a>
+          <a href="mailto:jeremyd.hoover@gmail.com" class="btn">Get in touch</a>
         </div>
         </div>
       </div>
@@ -130,7 +130,7 @@ const base = import.meta.env.BASE_URL;
   .about-hero {
     position: relative;
     overflow: hidden;
-    padding-block: clamp(3.5rem, 8vw, 6.5rem);
+    padding: clamp(1rem, 2vw, 1.5rem) 0 clamp(3.5rem, 8vw, 6.5rem);
     background: var(--portfolio-blue);
     color: #fff;
   }

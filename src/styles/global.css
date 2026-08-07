@@ -71,7 +71,7 @@ section { scroll-margin-top: 80px; }
 .case-study .case-hero {
   position: relative;
   overflow: hidden;
-  padding-block: clamp(2.5rem, 6vw, 5rem);
+  padding: clamp(1rem, 2vw, 1.5rem) 0 clamp(2.5rem, 6vw, 5rem);
   background: var(--portfolio-blue);
   color: #fff;
 }
@@ -108,12 +108,13 @@ section { scroll-margin-top: 80px; }
   z-index: 1;
 }
 
-.case-study.case-study .back {
+.case-study.case-study .back,
+.hero-back {
   display: flex;
   align-items: center;
   width: fit-content;
   min-height: 38px;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   padding: 0.45rem 0.8rem;
   border: 1px solid var(--portfolio-yellow);
   border-radius: 999px;
@@ -125,7 +126,8 @@ section { scroll-margin-top: 80px; }
   box-shadow: 0 4px 14px rgba(21, 26, 35, 0.05);
 }
 
-.case-study.case-study .back:hover {
+.case-study.case-study .back:hover,
+.hero-back:hover {
   border-color: #ffe28a;
   background: rgba(246,211,101,0.12);
   color: #ffe28a;
@@ -138,11 +140,18 @@ section { scroll-margin-top: 80px; }
 .case-study--green { --case-accent: #dfe9ff; --case-surface: #edf3ff; }
 
 .case-study[class*='case-study--'] .tag {
-  color: var(--portfolio-ink);
-  background: var(--case-accent);
+  color: var(--portfolio-yellow);
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  letter-spacing: 0.08em;
+  line-height: 1.45;
 }
 
-.case-study .case-hero h1 { color: #fff; }
+.case-study .case-hero h1 {
+  color: #fff;
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+}
 .case-study .case-hero .lede { color: rgba(255,255,255,0.8); }
 
 .case-study .case-body {
@@ -167,8 +176,9 @@ section { scroll-margin-top: 80px; }
 }
 
 .case-study[class*='case-study--'] .outcome {
+  container-type: inline-size;
   min-width: 0;
-  padding: 1.25rem;
+  padding: clamp(1rem, 2vw, 1.25rem);
   border: 1px solid rgba(16,26,45,0.08);
   border-radius: 11px;
   background: #fff;
@@ -176,7 +186,9 @@ section { scroll-margin-top: 80px; }
 
 .case-study[class*='case-study--'] .outcome__num {
   color: var(--portfolio-blue);
-  overflow-wrap: anywhere;
+  font-size: clamp(1.75rem, 18cqw, 2.5rem);
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 @media (max-width: 640px) {
