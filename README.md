@@ -4,7 +4,7 @@ Career portfolio for Jeremy Hoover, focused on product strategy, design systems,
 
 ## Site structure
 
-- Homepage with career positioning, four selected projects, experience, education, recognition, Hoover Content System, published articles, and contact details
+- Homepage with career positioning, four selected projects, experience, the Technical Content Designer Program, Hoover Content System, published articles, education, recognition, and contact details
 - Four case studies covering the AI design automation repo, hackathon PM agent, design-org AI initiatives, and Fabric CLI AI skills
 - About page with full career and education context
 - Repository guidance and quality expectations in `.github/copilot-instructions.md`
@@ -21,13 +21,13 @@ Install dependencies with `npm install`, then start the managed background serve
 | `npm run dev:stop` | Stop the background server |
 | `npm run build` | Generate the production site in `dist/` |
 
-The local site is available at `http://localhost:4321/portfolio`.
+The local site is available at `http://localhost:4321/portfolio/`.
 
 ## Deployment
 
 The GitHub Actions workflow in `.github/workflows/deploy.yml` builds and deploys the site to GitHub Pages. Astro is configured with the `/portfolio` base path in `astro.config.mjs`.
 
-Production URL: <https://jeremydhoover-blip.github.io/portfolio>
+Production URL: <https://jeremydhoover-blip.github.io/portfolio/>
 
 ## Quality checks
 

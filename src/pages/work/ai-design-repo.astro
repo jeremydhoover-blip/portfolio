@@ -9,25 +9,29 @@ const base = import.meta.env.BASE_URL;
   description="How I built the AI-powered design system that replaced how a 30-person Microsoft team designs, prototypes, and ships work."
 >
   <article class="section case-study case-study--blue">
-    <div class="container container--narrow">
+    <header class="case-hero">
+      <div class="container container--narrow">
 
-      <a href={`${base}/#projects`} class="back">← Back</a>
+        <a href={`${base}/#projects`} class="back">← Back</a>
 
-      <span class="tag">AI Systems · Product · Microsoft</span>
-      <h1>The repo that changed how our team designs</h1>
-      <p class="lede">
-        I built an AI-powered design automation system from scratch. Within weeks it was the
-        primary tool for a 30-person design and PM team. It is used for prototyping, daily design
-        work, and every senior leadership demo.
-      </p>
+        <span class="tag">AI Systems · Product · Microsoft</span>
+        <h1>The repo that changed how our team designs</h1>
+        <p class="lede">
+          I built an AI-powered design automation system from scratch. Within weeks it was the
+          primary tool for a 30-person design and PM team. It is used for prototyping, daily design
+          work, and every senior leadership demo.
+        </p>
 
-      <div class="outcomes-strip">
-        <div class="outcome"><span class="outcome__num">30+</span><span class="outcome__label">designers and PMs using it</span></div>
-        <div class="outcome"><span class="outcome__num">Day 1</span><span class="outcome__label">adoption from first release</span></div>
-        <div class="outcome"><span class="outcome__num">100%</span><span class="outcome__label">of senior leadership demos built with it</span></div>
+        <div class="outcomes-strip">
+          <div class="outcome"><span class="outcome__num">30+</span><span class="outcome__label">designers and PMs using it</span></div>
+          <div class="outcome"><span class="outcome__num">Day 1</span><span class="outcome__label">adoption from first release</span></div>
+          <div class="outcome"><span class="outcome__num">100%</span><span class="outcome__label">of senior leadership demos built with it</span></div>
+        </div>
       </div>
+    </header>
 
-      <hr class="divider" />
+    <div class="case-body">
+      <div class="container container--narrow">
 
       <h2>The problem</h2>
       <p>
@@ -94,12 +98,13 @@ const base = import.meta.env.BASE_URL;
         <a href={`${base}/work/hackathon`} class="btn">Next: Hackathon win →</a>
       </div>
 
+      </div>
     </div>
   </article>
 </Base>
 
 <style>
-  .case-study { padding-top: var(--space-12); }
+  .case-study { padding-top: 0; }
   .back {
     display: inline-block;
     font-size: var(--size-sm);

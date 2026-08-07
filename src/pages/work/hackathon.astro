@@ -9,25 +9,29 @@ const base = import.meta.env.BASE_URL;
   description="How I turned 50+ scattered PM requirements into a simple agentic experience that won Best Use of AI and shipped into production across Microsoft."
 >
   <article class="section case-study case-study--violet">
-    <div class="container container--narrow">
+    <header class="case-hero">
+      <div class="container container--narrow">
 
-      <a href={`${base}/#projects`} class="back">← Back</a>
+        <a href={`${base}/#projects`} class="back">← Back</a>
 
-      <span class="tag">AI Product · Hackathon · Microsoft</span>
-      <h1>From hackathon win to org-wide deployment</h1>
-      <p class="lede">
-        I replaced a 50+ requirement wiki and a cumbersome form with a single agentic experience
-        connected to Azure DevOps. It won Best Use of AI, shipped into production, and became a
-        catalyst for how PMs across the org work today.
-      </p>
+        <span class="tag">AI Product · Hackathon · Microsoft</span>
+        <h1>From hackathon win to org-wide deployment</h1>
+        <p class="lede">
+          I replaced a 50+ requirement wiki and a cumbersome form with a single agentic experience
+          connected to Azure DevOps. It won Best Use of AI, shipped into production, and became a
+          catalyst for how PMs across the org work today.
+        </p>
 
-      <div class="outcomes-strip">
-        <div class="outcome"><span class="outcome__num">1st</span><span class="outcome__label">Best Use of AI, Microsoft hackathon</span></div>
-        <div class="outcome"><span class="outcome__num">100s</span><span class="outcome__label">of users with access post-adoption</span></div>
-        <div class="outcome"><span class="outcome__num">Shipped</span><span class="outcome__label">into production, built upon by others</span></div>
+        <div class="outcomes-strip">
+          <div class="outcome"><span class="outcome__num">1st</span><span class="outcome__label">Best Use of AI, Microsoft hackathon</span></div>
+          <div class="outcome"><span class="outcome__num">100s</span><span class="outcome__label">of users with access post-adoption</span></div>
+          <div class="outcome"><span class="outcome__num">Shipped</span><span class="outcome__label">into production, built upon by others</span></div>
+        </div>
       </div>
+    </header>
 
-      <hr class="divider" />
+    <div class="case-body">
+      <div class="container container--narrow">
 
       <h2>The problem</h2>
       <p>
@@ -80,12 +84,13 @@ const base = import.meta.env.BASE_URL;
         <a href={`${base}/work/org-ai-initiatives`} class="btn">Next: Org AI initiatives →</a>
       </div>
 
+      </div>
     </div>
   </article>
 </Base>
 
 <style>
-  .case-study { padding-top: var(--space-12); }
+  .case-study { padding-top: 0; }
   .back { display: inline-block; font-size: var(--size-sm); font-weight: 500; color: var(--color-text-muted); text-decoration: none; margin-bottom: var(--space-8); }
   .back:hover { color: var(--color-accent); }
   .tag { margin-bottom: var(--space-4); display: inline-block; }

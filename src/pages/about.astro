@@ -6,14 +6,18 @@ const base = import.meta.env.BASE_URL;
 
 <Base title="About | Jeremy Hoover" description="Jeremy Hoover builds product systems, design workflows, and AI-powered tools. He is an HCI MA student at Reichman University and an instructor at the UX Content Collective.">
 
-  <section class="section">
-    <div class="container container--narrow">
+  <section class="section about-page">
+    <header class="about-hero">
+      <div class="container container--narrow">
+        <p class="eyebrow">About</p>
+        <h1>Jeremy Hoover</h1>
+        <p class="subtitle">Product strategy · Design systems · AI workflows</p>
+      </div>
+    </header>
 
-      <p class="eyebrow">About</p>
-      <h1>Jeremy Hoover</h1>
-      <p class="subtitle">Product strategy · Design systems · AI workflows</p>
-
-      <div class="about-body">
+    <div class="about-content">
+      <div class="container container--narrow">
+        <div class="about-body">
         <p>
           I design customer-facing developer tools, content experiences, and product workflows, as
           well as internal systems that teams depend on. At Microsoft Fabric, my work spans content and product
@@ -37,7 +41,7 @@ const base = import.meta.env.BASE_URL;
           Interaction at Reichman University.
         </p>
         <p>
-          I'm part of <a href="https://www.contentdesignleaders.com/upstream" target="_blank" rel="noopener">Content Design Leaders Upstream</a>,
+          I'm part of Content Design Leaders Upstream,
           an invite-only workgroup shaping what UX content becomes in an AI-driven world.
           We compare active fieldwork and build frameworks the broader field can use.
         </p>
@@ -111,41 +115,81 @@ const base = import.meta.env.BASE_URL;
         <hr class="divider" />
 
         <div class="cta-row">
-          <a href={`${base}/#projects`} class="btn">See selected projects</a>
+          <a href={`${base}/`} class="btn">Back to home</a>
           <a href="mailto:jeremyd.hoover@gmail.com" class="btn btn--ghost">Get in touch</a>
         </div>
+        </div>
       </div>
-
     </div>
   </section>
 
 </Base>
 
 <style>
+  .about-page { background: var(--portfolio-cream); }
+  .about-hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(3.5rem, 8vw, 6.5rem);
+    background: var(--portfolio-blue);
+    color: #fff;
+  }
+  .about-hero::before,
+  .about-hero::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+  }
+  .about-hero::before {
+    width: clamp(170px, 25vw, 340px);
+    aspect-ratio: 1;
+    top: -40%;
+    right: 4%;
+    border-radius: 50% 50% 12% 50%;
+    background: var(--portfolio-yellow);
+  }
+  .about-hero::after {
+    width: clamp(110px, 16vw, 220px);
+    aspect-ratio: 1.2;
+    right: 22%;
+    bottom: -35%;
+    border-radius: 50% 12% 50% 50%;
+    background: var(--portfolio-coral);
+  }
+  .about-hero .container { position: relative; z-index: 1; }
+  .about-hero h1 { color: #fff; }
+  .about-content { padding-block: clamp(3.5rem, 7vw, 6rem); }
   .eyebrow {
     font-size: var(--size-sm);
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--color-accent);
+    color: var(--portfolio-yellow);
     margin-bottom: var(--space-4);
     max-width: none;
   }
   h1 { margin-bottom: var(--space-2); }
   .subtitle {
     font-size: var(--size-lg);
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-12);
+    color: rgba(255,255,255,0.72);
+    margin-bottom: 0;
     max-width: none;
   }
   .about-body p {
     font-size: var(--size-lg);
     margin-bottom: var(--space-6);
   }
-  h2 { margin-bottom: var(--space-8); }
+  h2 { margin-bottom: var(--space-8); color: var(--portfolio-blue); }
 
   .experience { display: flex; flex-direction: column; gap: var(--space-8); }
-  .experience__item {}
+  .experience__item {
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border: 1px solid var(--color-border);
+    border-left: 6px solid var(--portfolio-coral);
+    border-radius: 14px;
+    background: #fff;
+  }
+  .experience__item:nth-child(even) { border-left-color: var(--portfolio-yellow); }
   .experience__meta {
     display: flex;
     justify-content: space-between;
