@@ -11,7 +11,7 @@ const base = import.meta.env.BASE_URL;
   <article class="section case-study case-study--violet">
     <header class="case-hero">
       <div class="container container--narrow">
-        <a href={`${base}/#projects`} class="back">← Back to selected work</a>
+        <a href={`${base}/#projects`} class="back"><span class="back-icon" aria-hidden="true"></span><span>Back to selected projects</span></a>
 
         <span class="tag">AI product · Agent interaction · Microsoft hackathon</span>
         <h1>Replacing a requirements maze with a verified agent workflow</h1>
@@ -285,10 +285,16 @@ const base = import.meta.env.BASE_URL;
         </aside>
 
         <hr class="divider" />
-        <div class="nav-row">
-          <a href={`${base}/work/ai-design-repo`} class="btn btn--outline">← Previous: AI design repository</a>
-          <a href={`${base}/work/org-ai-initiatives`} class="btn">Next: Org AI initiatives →</a>
-        </div>
+        <nav class="case-pagination" aria-label="Case study navigation">
+          <a href={`${base}/work/ai-design-repo`} class="case-pagination__link">
+            <span class="case-pagination__icon" aria-hidden="true"></span>
+            <span class="case-pagination__content"><span class="case-pagination__direction">Previous project</span><span class="case-pagination__title">AI design repository</span></span>
+          </a>
+          <a href={`${base}/work/org-ai-initiatives`} class="case-pagination__link case-pagination__link--next">
+            <span class="case-pagination__content"><span class="case-pagination__direction">Next project</span><span class="case-pagination__title">Org AI initiatives</span></span>
+            <span class="case-pagination__icon" aria-hidden="true"></span>
+          </a>
+        </nav>
       </div>
     </div>
   </article>
@@ -375,7 +381,6 @@ const base = import.meta.env.BASE_URL;
   .closing-panel .tag { color: var(--portfolio-yellow); }
   .closing-panel h2 { margin-bottom: var(--space-3); color: #fff; }
   .closing-panel p { color: rgba(255,255,255,0.82); }
-  .nav-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4); }
   .divider { margin-block: var(--space-16) var(--space-8); }
 
   @media (max-width: 900px) {
@@ -400,7 +405,6 @@ const base = import.meta.env.BASE_URL;
     .message, .report-preview { max-width: 100%; }
     .agent-flow { grid-template-columns: 1fr; padding: var(--space-3); }
     .agent-flow li { min-height: auto; }
-    .nav-row .btn { width: 100%; text-align: center; }
   }
 
   @media (prefers-reduced-motion: reduce) {

@@ -11,7 +11,7 @@ const base = import.meta.env.BASE_URL;
   <article class="section case-study case-study--green">
     <header class="case-hero">
       <div class="container container--narrow">
-        <a href={`${base}/#projects`} class="back">← Back to selected work</a>
+        <a href={`${base}/#projects`} class="back"><span class="back-icon" aria-hidden="true"></span><span>Back to selected projects</span></a>
 
         <span class="tag">Open source · Microsoft Fabric CLI · Agent infrastructure</span>
         <h1>Designing the AI execution layer for Fabric CLI</h1>
@@ -275,10 +275,16 @@ const base = import.meta.env.BASE_URL;
         </aside>
 
         <hr class="divider" />
-        <div class="nav-row">
-          <a href={`${base}/work/org-ai-initiatives`} class="btn btn--outline">← Previous: Org AI initiatives</a>
-          <a href={`${base}/#projects`} class="btn">All selected projects</a>
-        </div>
+        <nav class="case-pagination" aria-label="Case study navigation">
+          <a href={`${base}/work/org-ai-initiatives`} class="case-pagination__link">
+            <span class="case-pagination__icon" aria-hidden="true"></span>
+            <span class="case-pagination__content"><span class="case-pagination__direction">Previous project</span><span class="case-pagination__title">Org AI initiatives</span></span>
+          </a>
+          <a href={`${base}/#projects`} class="case-pagination__link">
+            <span class="case-pagination__icon case-pagination__icon--index" aria-hidden="true"></span>
+            <span class="case-pagination__content"><span class="case-pagination__direction">Project index</span><span class="case-pagination__title">All selected projects</span></span>
+          </a>
+        </nav>
       </div>
     </div>
   </article>
@@ -352,11 +358,10 @@ const base = import.meta.env.BASE_URL;
   .inspect-work h2 { margin-bottom: var(--space-3); color: #fff; }
   .inspect-work p { color: rgba(255,255,255,0.82); }
   .inspect-work__actions { display: grid; gap: var(--space-3); }
-  .inspect-work .btn { display: flex; min-height: 48px; align-items: center; justify-content: center; background: var(--portfolio-yellow); color: var(--portfolio-ink); text-align: center; }
-  .inspect-work .btn:hover { background: #ffe28a; }
+  .inspect-work .btn { display: flex; min-height: 48px; align-items: center; justify-content: center; background: var(--portfolio-coral); color: #fff; text-align: center; }
+  .inspect-work .btn:hover { background: #e85f43; }
   .inspect-work .btn--outline { border-color: rgba(255,255,255,0.7); background: transparent; color: #fff; }
   .inspect-work .btn--outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
-  .nav-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4); }
   .divider { margin-block: var(--space-16) var(--space-8); }
   @media (max-width: 900px) {
     .case-toc ul { gap: 0.5rem 1.5rem; }
@@ -387,7 +392,6 @@ const base = import.meta.env.BASE_URL;
     .response-quote blockquote { padding: var(--space-6); }
     .response-quote figcaption { padding-left: var(--space-6); }
     .inspect-work { grid-template-columns: 1fr; }
-    .nav-row .btn { width: 100%; text-align: center; }
   }
   @media (prefers-reduced-motion: reduce) {
     .outcome:hover,

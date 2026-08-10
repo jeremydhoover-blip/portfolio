@@ -10,7 +10,7 @@ const base = import.meta.env.BASE_URL;
     <div class="wrap">
       <div class="hero__grid">
         <div class="hero__content">
-          <p class="hero__eyebrow">Product strategy · Design systems · AI workflows</p>
+          <p class="hero__eyebrow"><span>Product strategy</span><span>Design systems</span><span>AI workflows</span></p>
           <h1 class="hero__name">Hi, I’m Jeremy. <span>I design systems people love to use.</span></h1>
           <p class="hero__pitch">
             My career spans journalism, marketing, UX, accessibility, developer tools, and AI products. Today I design customer-facing tools, content experiences, and AI workflows that connect design, product, and engineering.
@@ -61,7 +61,7 @@ const base = import.meta.env.BASE_URL;
           <div class="project__body">
             <h3>Building the repository our teams use to design with AI</h3>
             <p>I identified a fragmented prototyping problem and built the shared repository that became a required workflow for dozens of designers, product managers, and engineers across multiple teams.</p>
-            <span class="project__link">Read case study &#8594;</span>
+            <span class="project__link">Read case study</span>
           </div>
         </a>
 
@@ -72,7 +72,7 @@ const base = import.meta.env.BASE_URL;
           <div class="project__body">
             <h3>Replacing a requirements maze with a verified agent workflow</h3>
             <p>I designed a PRD-first skill that replaced repeated wiki search, form completion, routing, and manual work setup. Our three-person team won Best Use of AI, and the proof of concept became a catalyst for evolving PM skills and agents.</p>
-            <span class="project__link">Read case study &#8594;</span>
+            <span class="project__link">Read case study</span>
           </div>
         </a>
 
@@ -83,7 +83,7 @@ const base = import.meta.env.BASE_URL;
           <div class="project__body">
             <h3>Building the conditions for AI adoption across the design org</h3>
             <p>I identified three gaps in how the org was approaching AI, drove each from idea to required workflow, and trained designers and managers to use them. The work spans a content-design agent, a knowledge base, and org-wide training that is now part of how the organization works.</p>
-            <span class="project__link">Read case study &#8594;</span>
+            <span class="project__link">Read case study</span>
           </div>
         </a>
 
@@ -94,7 +94,7 @@ const base = import.meta.env.BASE_URL;
           <div class="project__body">
             <h3>Designing the AI execution layer for Fabric CLI</h3>
             <p>I identified a missing product layer, shaped the direction with the product manager, and implemented the public AI assets shipped with Fabric CLI at GA. The work is verifiable through public PRs, release notes, and a co-authored launch article.</p>
-            <span class="project__link">Read case study &#8594;</span>
+            <span class="project__link">Read case study</span>
           </div>
         </a>
 
@@ -148,9 +148,50 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
+  <!-- PROFESSIONAL RECOMMENDATIONS -->
+  <section class="recommendations" id="recommendations" aria-labelledby="recommendations-title">
+    <div class="wrap">
+      <div class="section-header recommendations__header">
+        <div>
+          <p class="recommendations__eyebrow">Professional recommendations</p>
+          <h2 id="recommendations-title">What colleagues say</h2>
+        </div>
+      </div>
+      <div class="recommendations__grid">
+        <figure class="recommendation-card recommendation-card--blue">
+          <blockquote>
+            <p>Jeremy Hoover is a leader in using AI tools and LLM systems to optimize content design and drive measurable business outcomes. His deep understanding of engineering systems, backend workflows, GitHub, and VS Code ensures AI is operationalized in practice, not theory.</p>
+            <p>Jeremy is actively shaping how teams build, scale, and responsibly integrate AI into everyday product development and content strategy. And on top of his technical experience, he&rsquo;s an outstanding collaborator and mentor.</p>
+          </blockquote>
+          <figcaption>
+            <img src={`${base}/images/testimonials/colleague-elena-v2.png`} alt="" width="96" height="96" loading="lazy" />
+            <span>
+              <strong>Elena Greenspan</strong>
+              <small>UX Writer and Content Designer</small>
+            </span>
+          </figcaption>
+        </figure>
+
+        <figure class="recommendation-card recommendation-card--coral">
+          <blockquote>
+            <p>Working with Jeremy at Microsoft, I&rsquo;ve benefited tremendously from his expertise at the intersection of AI and content systems. Through his guidance, I was able to build my own AI content agent, which now supports my team&rsquo;s needs, including terminology usage, voice and tone guidelines, and formatting standards.</p>
+            <p>Jeremy explained high-level technical concepts in a way that was easy to grasp and empowered me to build my own tools. I highly recommend Jeremy both as a content designer and an expert AI instructor.</p>
+          </blockquote>
+          <figcaption>
+            <img src={`${base}/images/testimonials/colleague-sarabeth-v2.png`} alt="" width="96" height="96" loading="lazy" />
+            <span>
+              <strong>Sarabeth Reingold</strong>
+              <small>UX Writer, UX Designer, and Technical Writer &middot; Microsoft</small>
+            </span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- TECHNICAL CONTENT DESIGNER PROGRAM -->
   <section class="program" id="program">
-    <div class="wrap">
+    <div class="wrap program__intro">
       <div class="program__content">
         <p class="program__eyebrow">Creator and instructor</p>
         <h2>Technical Content Designer Program</h2>
@@ -162,6 +203,35 @@ const base = import.meta.env.BASE_URL;
         <span><small>02</small><strong>Collaborate with engineers</strong></span>
         <span><small>03</small><strong>Contribute to product development</strong></span>
         <span><small>04</small><strong>Use AI responsibly in production</strong></span>
+      </div>
+    </div>
+    <div class="wrap program__feedback" aria-labelledby="program-feedback-title">
+      <div class="program__feedback-header">
+        <p class="program__eyebrow">Participant feedback</p>
+        <h3 id="program-feedback-title">From the people in the program</h3>
+      </div>
+      <div class="program__quotes">
+        <figure class="program-quote">
+          <div class="program-quote__rating" aria-label="5 out of 5 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+          <blockquote>
+            <p>This program helped me pave a clearer path to maintaining the strategic helm of language at my company.</p>
+          </blockquote>
+          <figcaption>
+            <img src={`${base}/images/testimonials/participant-feminine.png`} alt="" width="96" height="96" loading="lazy" />
+            <span><strong>Michelle Gerling</strong><small>Content Designer, Gett</small></span>
+          </figcaption>
+        </figure>
+
+        <figure class="program-quote">
+          <div class="program-quote__rating" aria-label="5 out of 5 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+          <blockquote>
+            <p>Getting to play with a functioning Git repo helped me understand how to build one. Jeremy is enthusiastic and can speak at length about each topic.</p>
+          </blockquote>
+          <figcaption>
+            <img src={`${base}/images/testimonials/participant-masculine.png`} alt="" width="96" height="96" loading="lazy" />
+            <span><strong>Gabriel Lek</strong><small>Lead UX Writer, Grab</small></span>
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -327,6 +397,10 @@ const base = import.meta.env.BASE_URL;
     align-items: end;
   }
   .hero__eyebrow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem 0.55rem;
     font-size: 0.8125rem;
     font-weight: 700;
     letter-spacing: 0.07em;
@@ -335,6 +409,7 @@ const base = import.meta.env.BASE_URL;
     margin-bottom: 1rem;
     max-width: none;
   }
+  .hero__eyebrow span + span::before { content: '\00B7'; margin-right: 0.55rem; }
   .hero__name {
     margin-bottom: 1.25rem;
     max-width: 20ch;
@@ -422,8 +497,8 @@ const base = import.meta.env.BASE_URL;
     white-space: nowrap;
   }
   .hero .btn:hover { background: rgba(246,211,101,0.12); border-color: #ffe28a; color: #ffe28a; text-decoration: none; }
-  .hero .hero__contact { color: #fff; border-color: var(--portfolio-coral); }
-  .hero .hero__contact:hover { background: rgba(255,118,87,0.14); border-color: #ff9b83; color: #fff; }
+  .hero .hero__contact { color: var(--portfolio-coral); border-color: var(--portfolio-coral); }
+  .hero .hero__contact:hover { background: rgba(255,118,87,0.14); border-color: #ff9b83; color: #ff9b83; }
   @media (max-width: 560px) {
     .hero__actions { display: grid; grid-template-columns: 1fr; width: 100%; }
     .hero .btn { width: 100%; white-space: normal; }
@@ -477,6 +552,9 @@ const base = import.meta.env.BASE_URL;
     .hero-art { width: min(100%, 560px); min-height: 470px; margin-inline: auto; }
   }
   @media (max-width: 480px) {
+    .hero__eyebrow { flex-wrap: nowrap; gap: 0; font-size: clamp(0.56rem, 2.8vw, 0.68rem); letter-spacing: 0.035em; line-height: 1.35; white-space: nowrap; }
+    .hero__eyebrow span + span::before { content: none; }
+    .hero__eyebrow span + span { margin-left: 0.45rem; padding-left: 0.45rem; border-left: 1px solid rgba(246,211,101,0.65); }
     .hero-art { min-height: 390px; }
     .hero-art__portrait { width: 78%; border-width: 7px; }
   }
@@ -601,9 +679,84 @@ const base = import.meta.env.BASE_URL;
     .exp__item { grid-template-columns: 1fr; gap: 0.5rem; }
   }
 
+  /* ─ PROFESSIONAL RECOMMENDATIONS ─ */
+  .recommendations {
+    padding-block: clamp(4rem, 7vw, 6rem);
+    background: var(--portfolio-cream);
+  }
+  .recommendations__header { margin-bottom: 2rem; }
+  .recommendations__eyebrow {
+    margin-bottom: 0.4rem;
+    color: var(--portfolio-blue);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .recommendations__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+  .recommendation-card {
+    --recommendation-accent: var(--portfolio-blue);
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(16,26,45,0.12);
+    border-top: 8px solid var(--recommendation-accent);
+    border-radius: var(--portfolio-radius);
+    background: #fff;
+    box-shadow: 0 12px 34px rgba(16,26,45,0.08);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+  .recommendation-card--coral { --recommendation-accent: var(--portfolio-coral); }
+  .recommendation-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 46px rgba(16,26,45,0.13);
+  }
+  .recommendation-card blockquote {
+    position: relative;
+    flex: 1;
+    padding: clamp(1.5rem, 3vw, 2rem);
+    color: var(--portfolio-ink);
+  }
+  .recommendation-card blockquote p {
+    position: relative;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  .recommendation-card blockquote p:last-child { margin-bottom: 0; }
+  .recommendation-card figcaption {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid rgba(16,26,45,0.1);
+    background: #fff;
+    color: var(--portfolio-ink);
+  }
+  .recommendation-card figcaption img {
+    width: 64px;
+    height: 64px;
+    flex: 0 0 64px;
+    border: 2px solid var(--recommendation-accent);
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .recommendation-card figcaption > span:last-child { display: flex; min-width: 0; flex-direction: column; }
+  .recommendation-card figcaption strong { font-family: var(--f-heading); font-size: 1rem; }
+  .recommendation-card figcaption small { color: var(--muted); font-size: 0.8rem; line-height: 1.4; }
+  @media (max-width: 760px) {
+    .recommendations__grid { grid-template-columns: 1fr; }
+  }
+
   /* ─ TECHNICAL CONTENT DESIGNER PROGRAM ─ */
   .program { padding-block: clamp(4rem, 7vw, 6rem); background: var(--portfolio-blue-soft); }
-  .program .wrap {
+  .program__intro {
     display: grid;
     grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
     gap: clamp(2rem, 6vw, 5rem);
@@ -632,7 +785,65 @@ const base = import.meta.env.BASE_URL;
   .program__curriculum span:last-child { border-bottom: 1px solid rgba(16,26,45,0.28); }
   .program__curriculum small { color: var(--portfolio-blue); font-size: 0.7rem; font-weight: 800; }
   .program__curriculum strong { color: var(--portfolio-ink); font-family: var(--f-heading); font-size: clamp(0.95rem, 2vw, 1.1rem); line-height: 1.4; padding-block: 0.08em; }
-  @media (max-width: 800px) { .program .wrap { grid-template-columns: 1fr; } }
+  .program__feedback { margin-top: clamp(3rem, 6vw, 5rem); }
+  .program__feedback-header { margin-bottom: 1.5rem; }
+  .program__feedback-header h3 { color: var(--portfolio-ink); font-size: clamp(1.35rem, 2.5vw, 1.8rem); }
+  .program__quotes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+  .program-quote {
+    --program-quote-accent: var(--portfolio-coral);
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(16,26,45,0.14);
+    border-top: 8px solid var(--program-quote-accent);
+    border-radius: var(--portfolio-radius);
+    background: #fff;
+    box-shadow: 0 12px 34px rgba(16,26,45,0.08);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+  .program-quote:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 46px rgba(16,26,45,0.13);
+  }
+  .program-quote__rating { padding: 1.4rem 1.5rem 0; color: #d99a21; font-size: 1.1rem; letter-spacing: 0.12em; }
+  .program-quote blockquote { flex: 1; padding: 1rem 1.5rem 1.5rem; }
+  .program-quote blockquote p {
+    color: var(--portfolio-ink);
+    font-family: var(--f-heading);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-style: italic;
+    line-height: 1.55;
+  }
+  .program-quote:nth-child(2) { --program-quote-accent: var(--portfolio-yellow); }
+  .program-quote figcaption {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid rgba(16,26,45,0.1);
+    background: #fff;
+    color: var(--portfolio-ink);
+  }
+  .program-quote figcaption img {
+    width: 64px;
+    height: 64px;
+    flex: 0 0 64px;
+    border: 2px solid var(--program-quote-accent);
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .program-quote figcaption span { display: flex; min-width: 0; flex-direction: column; }
+  .program-quote figcaption strong { font-family: var(--f-heading); font-size: 1rem; }
+  .program-quote figcaption small { color: var(--muted); font-size: 0.8rem; }
+  @media (max-width: 800px) {
+    .program__intro,
+    .program__quotes { grid-template-columns: 1fr; }
+  }
 
   /* ─ CREDENTIALS ─ */
   .credentials {
@@ -805,7 +1016,7 @@ const base = import.meta.env.BASE_URL;
   .contact__cta { display: flex; gap: 0.75rem; flex-wrap: wrap; flex-shrink: 0; }
   .contact .btn--outline { background: transparent; color: var(--portfolio-yellow); border-color: var(--portfolio-yellow); }
   .contact .btn--outline:hover { background: rgba(246,211,101,0.12); color: #ffe28a; text-decoration: none; }
-  .contact .btn--outline:last-child { color: #fff; border-color: var(--portfolio-coral); }
-  .contact .btn--outline:last-child:hover { background: rgba(255,118,87,0.14); color: #fff; }
+  .contact .btn--outline:last-child { color: var(--portfolio-coral); border-color: var(--portfolio-coral); }
+  .contact .btn--outline:last-child:hover { background: rgba(255,118,87,0.14); color: #ff9b83; }
 </style>
 

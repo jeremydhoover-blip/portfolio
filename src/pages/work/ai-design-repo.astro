@@ -11,7 +11,7 @@ const base = import.meta.env.BASE_URL;
   <article class="section case-study case-study--blue">
     <header class="case-hero">
       <div class="container container--narrow">
-        <a href={`${base}/#projects`} class="back">← Back to selected work</a>
+        <a href={`${base}/#projects`} class="back"><span class="back-icon" aria-hidden="true"></span><span>Back to selected projects</span></a>
 
         <span class="tag">AI systems · Product design · Shared infrastructure</span>
         <h1>Building the repository our teams use to design with AI</h1>
@@ -307,10 +307,16 @@ const base = import.meta.env.BASE_URL;
         </aside>
 
         <hr class="divider" />
-        <div class="nav-row">
-          <a href={`${base}/#projects`} class="btn btn--outline">← All selected projects</a>
-          <a href={`${base}/work/hackathon`} class="btn">Next: Hackathon PM agent →</a>
-        </div>
+        <nav class="case-pagination" aria-label="Case study navigation">
+          <a href={`${base}/#projects`} class="case-pagination__link">
+            <span class="case-pagination__icon case-pagination__icon--index" aria-hidden="true"></span>
+            <span class="case-pagination__content"><span class="case-pagination__direction">Project index</span><span class="case-pagination__title">All selected projects</span></span>
+          </a>
+          <a href={`${base}/work/hackathon`} class="case-pagination__link case-pagination__link--next">
+            <span class="case-pagination__content"><span class="case-pagination__direction">Next project</span><span class="case-pagination__title">Hackathon PM agent</span></span>
+            <span class="case-pagination__icon" aria-hidden="true"></span>
+          </a>
+        </nav>
       </div>
     </div>
   </article>
@@ -390,7 +396,6 @@ const base = import.meta.env.BASE_URL;
   .next-system .tag { color: var(--portfolio-yellow); }
   .next-system h2 { margin-bottom: var(--space-3); color: #fff; }
   .next-system p { color: rgba(255,255,255,0.82); }
-  .nav-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4); }
   .divider { margin-block: var(--space-16) var(--space-8); }
 
   @media (max-width: 900px) {
@@ -416,7 +421,6 @@ const base = import.meta.env.BASE_URL;
     .workflow-shift { transform: rotate(90deg); }
     .system-flow, .operating-flow { grid-template-columns: 1fr; padding: var(--space-3); }
     .system-flow li, .operating-flow li { min-height: auto; }
-    .nav-row .btn { width: 100%; text-align: center; }
   }
 
   @media (prefers-reduced-motion: reduce) {
