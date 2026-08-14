@@ -13,7 +13,7 @@ const base = import.meta.env.BASE_URL;
       <div class="container container--narrow">
         <a href={`${base}/#projects`} class="back"><span class="back-icon" aria-hidden="true"></span><span>Back to selected projects</span></a>
 
-        <span class="tag">AI systems · Product design · Shared infrastructure</span>
+        <span class="tag"><span>AI systems</span><span>Product design</span><span>Shared infrastructure</span></span>
         <h1>Building the repository our teams use to design with AI</h1>
         <p class="lede">
           I identified a fragmented prototyping problem and built a shared AI design repository
@@ -376,11 +376,12 @@ const base = import.meta.env.BASE_URL;
   .tool-row span { padding: 0.3rem 0.55rem; border-radius: 999px; background: #fff; color: var(--portfolio-ink); font-size: 0.72rem; font-weight: 700; }
   .workflow-shift { display: grid; place-items: center; color: var(--portfolio-blue); font-size: 1.5rem; font-weight: 800; }
 
-  .system-flow, .operating-flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-2); margin: 0; padding: var(--space-4); border: 1px solid #b8c9ee; border-radius: 20px; background: var(--portfolio-blue-soft); list-style: none; }
+  .system-flow, .operating-flow { --flow-gap: 1.5rem; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--flow-gap); margin: 0; padding: var(--space-4); border: 1px solid #b8c9ee; border-radius: 20px; background: var(--portfolio-blue-soft); list-style: none; }
   .system-flow li, .operating-flow li { position: relative; display: flex; min-height: 185px; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border-radius: 12px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
   .system-flow li:hover, .operating-flow li:hover { z-index: 2; transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
-  .system-flow li::after, .operating-flow li::after { content: '→'; position: absolute; top: 50%; right: -0.8rem; z-index: 1; color: var(--portfolio-blue); font-size: 1.2rem; font-weight: 800; transform: translateY(-50%); }
-  .system-flow li:last-child::after, .operating-flow li:last-child::after { content: none; }
+  .system-flow li::after, .operating-flow li::after { content: ''; position: absolute; top: 50%; left: 100%; z-index: 1; width: var(--flow-gap); height: 2px; background: var(--portfolio-blue); transform: translateY(-50%); }
+  .system-flow li::before, .operating-flow li::before { content: ''; position: absolute; top: 50%; left: calc(100% + var(--flow-gap) - 9px); z-index: 2; width: 9px; height: 9px; border-top: 2px solid var(--portfolio-blue); border-right: 2px solid var(--portfolio-blue); transform: translateY(-50%) rotate(45deg); }
+  .system-flow li:last-child::after, .system-flow li:last-child::before, .operating-flow li:last-child::after, .operating-flow li:last-child::before { content: none; }
   .system-flow li > span, .operating-flow li > span { display: grid; width: 1.75rem; height: 1.75rem; place-items: center; border-radius: 50%; background: var(--portfolio-blue); color: #fff; font-size: 0.75rem; font-weight: 800; }
   .system-flow strong, .operating-flow strong { color: var(--portfolio-ink); font-size: 0.85rem; line-height: 1.35; }
   .system-flow small, .operating-flow small { color: var(--muted); font-size: 0.75rem; line-height: 1.45; }
@@ -402,9 +403,10 @@ const base = import.meta.env.BASE_URL;
     .case-toc ul { gap: 0.5rem 1.5rem; }
     .case-toc li + li { margin-left: 0; }
     .case-toc li + li::before { content: none; }
-    .system-flow, .operating-flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .system-flow, .operating-flow { grid-template-columns: 1fr; }
     .system-flow li, .operating-flow li { min-height: 150px; }
-    .system-flow li::after, .operating-flow li::after { content: none; }
+    .system-flow li::after, .operating-flow li::after { top: 100%; left: 50%; width: 2px; height: var(--flow-gap); transform: translateX(-50%); }
+    .system-flow li::before, .operating-flow li::before { top: calc(100% + var(--flow-gap) - 9px); left: 50%; border-top: 0; border-right: 2px solid var(--portfolio-blue); border-bottom: 2px solid var(--portfolio-blue); transform: translateX(-50%) rotate(45deg); }
     .impact-grid { grid-template-columns: 1fr; }
     .impact-grid div { min-height: 0; }
   }

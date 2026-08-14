@@ -258,12 +258,49 @@ section { scroll-margin-top: 80px; }
 .case-study--green { --case-accent: #dfe9ff; --case-surface: #edf3ff; }
 
 .case-study[class*='case-study--'] .tag {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   color: var(--portfolio-yellow);
   background: transparent;
   padding: 0;
   border-radius: 0;
   letter-spacing: 0.08em;
   line-height: 1.45;
+}
+
+.case-study[class*='case-study--'] .tag > span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.case-study[class*='case-study--'] .tag > span + span {
+  margin-left: 0.75rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid currentColor;
+}
+
+@media (max-width: 640px) {
+  .case-study[class*='case-study--'] .tag {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    font-size: clamp(0.62rem, 2.75vw, 0.72rem);
+    letter-spacing: 0.045em;
+    text-align: center;
+  }
+
+  .case-study[class*='case-study--'] .tag > span {
+    justify-content: center;
+    padding-inline: 0.45rem;
+  }
+
+  .case-study[class*='case-study--'] .tag > span:first-child { justify-content: flex-start; padding-left: 0; text-align: left; }
+  .case-study[class*='case-study--'] .tag > span:last-child { justify-content: flex-end; padding-right: 0; text-align: right; }
+
+  .case-study[class*='case-study--'] .tag > span + span {
+    margin-left: 0;
+  }
 }
 
 .case-study .case-hero h1 {
