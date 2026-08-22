@@ -5,7 +5,7 @@ const base = import.meta.env.BASE_URL;
 
 <Base
   title="Design Org AI Initiatives | Jeremy Hoover"
-  description="How I identified gaps in org-wide AI adoption, created foundational capability, revived a stalled knowledge system, and trained designers across the organization."
+  description="How I identified gaps in org-wide AI adoption, created foundational capability, established governance for a shared knowledge system, and trained designers across the organization."
 >
   <article class="section case-study case-study--orange">
     <header class="case-hero">
@@ -17,7 +17,7 @@ const base = import.meta.env.BASE_URL;
         <p class="lede">
           I didn't wait for the org to have an AI strategy. Three times I identified what was
           missing, brought it to leadership, drove it from proof of concept to required workflow,
-          and trained the people using it. The work spans a content-design agent, a revived
+          and trained the people using it. The work spans a content-design agent, a governed
           knowledge system, and org-wide training that is now part of how the organization works.
         </p>
 
@@ -31,8 +31,8 @@ const base = import.meta.env.BASE_URL;
             <span class="outcome__label">Initiatives from initial idea to required org workflow</span>
           </div>
           <div class="outcome">
-            <span class="outcome__num">Key trainer</span>
-            <span class="outcome__label">For AI adoption across the design org</span>
+            <span class="outcome__num">Governed</span>
+            <span class="outcome__label">One contribution, review, and quality model for the shared knowledge base</span>
           </div>
         </div>
       </div>
@@ -49,11 +49,11 @@ const base = import.meta.env.BASE_URL;
           <div class="reading-column">
             <h2 id="summary-title">At a glance</h2>
             <dl class="case-meta">
-              <div><dt>Role</dt><dd>Senior Content Designer; initiator, driving contributor, and org-level trainer</dd></div>
+              <div><dt>Role</dt><dd>Senior Content Designer; initiative lead, KB governance owner, and org-level trainer</dd></div>
               <div><dt>Scope</dt><dd>Design organization spanning multiple teams and geographies</dd></div>
               <div><dt>Pattern</dt><dd>Gap identification, leadership engagement, v-team, POC, GA, required workflow</dd></div>
               <div><dt>Status</dt><dd>All three initiatives active and required</dd></div>
-              <div><dt>Collaboration</dt><dd>Senior org leaders, design manager, v-teams, and content designers</dd></div>
+              <div><dt>Collaboration</dt><dd>Senior org leaders, principal design managers, DesignOps, repository owners, reviewers, and subject-matter experts</dd></div>
               <div><dt>Evidence</dt><dd>Verified internal adoption, VP-level recognition, and internal showcase presentation</dd></div>
             </dl>
           </div>
@@ -117,41 +117,51 @@ const base = import.meta.env.BASE_URL;
           <h2>Knowledge base</h2>
           <p>The knowledge base had stalled. Years of collective design knowledge sat in a system that was neither growing nor being maintained.</p>
           <p>I identified the gap and brought it to a senior design org leader. He connected me with the design manager overseeing the effort. From there, I worked with that manager and a small v-team to define the approach, build the proof of concept, and drive it up the org. The concept was well received at VP level and became a full initiative.</p>
-          <p>The KB is now a required part of how every designer in the org works. Everyone is expected to contribute to it. I helped design the system, drove the proof of concept to general availability, and trained the people who use it.</p>
+          <p>The KB is now a required part of how every designer in the org works. Everyone is expected to contribute to it. After helping drive the proof of concept to general availability, I stepped up to lead the governance plan for how the organization submits, reviews, improves, merges, and closes contributions and gap logs.</p>
+          <p>I designed the end-to-end operating model, including entry types and templates, a review rubric, contributor and reviewer workflows, reviewer triage, merge responsibilities, and a process for bringing subject-matter experts into unresolved knowledge gaps. I also created repository-based skills and prompts that guide people through the work at the point of need.</p>
+          <p>I piloted the process with a small reviewer group, gathered feedback, and refined both the model and the repository before expanding it. I trained reviewers on the standard and partnered with principal design managers, DesignOps, and owners of the broader design repository, where the KB is a core part of the organization's AI strategy.</p>
+          <p>The work moved my role from helping launch the KB to owning how its quality and contribution system operates. I continue to run and refine the process as the organization contributes, reviewers encounter new cases, and the knowledge base evolves.</p>
         </section>
 
         <figure class="evidence-figure" aria-labelledby="kb-caption">
-          <ol class="kb-stages">
+          <ol class="kb-stages kb-stages--governance">
             <li>
               <span class="stage-num">01</span>
-              <strong>Stalled KB</strong>
-              <small>Knowledge scattered, system inactive</small>
+              <strong>Submit</strong>
+              <small>Use a defined entry type and template</small>
             </li>
             <li>
               <span class="stage-num">02</span>
-              <strong>Leadership engagement</strong>
-              <small>Senior leader, design manager, v-team</small>
+              <strong>Triage</strong>
+              <small>Route contributions and gap logs to reviewers</small>
             </li>
             <li>
               <span class="stage-num">03</span>
-              <strong>Proof of concept</strong>
-              <small>Approach defined, POC built, VP reception</small>
+              <strong>Review</strong>
+              <small>Apply the shared quality rubric</small>
             </li>
             <li>
               <span class="stage-num">04</span>
-              <strong>General availability</strong>
-              <small>Launched, trained, and adopted</small>
+              <strong>Improve</strong>
+              <small>Resolve feedback and partner with SMEs</small>
             </li>
             <li>
               <span class="stage-num">05</span>
-              <strong>Required workflow</strong>
-              <small>Every designer contributes</small>
+              <strong>Merge or close</strong>
+              <small>Publish trusted knowledge or resolve the log</small>
             </li>
           </ol>
           <figcaption id="kb-caption">
-            <strong>From stalled to required.</strong> The knowledge base moved from inactive to a POC driven with a v-team to a GA initiative that is now a required contribution for every designer in the org.
+            <strong>A contribution system for the entire design org.</strong> Templates, triage, a review rubric, SME partnership, and clear merge ownership turn required contributions into trusted, maintainable knowledge.
           </figcaption>
         </figure>
+
+        <section class="reading-column content-section" aria-labelledby="enablement-title">
+          <h2 id="enablement-title">Designing support into the workflow</h2>
+          <p>A governance model only works if people can follow it. We considered office hours, standing support sessions, and a library of training videos. Those options could help, but they also separated guidance from the moment someone was contributing or reviewing.</p>
+          <p>I recommended putting reusable skills, workflows, and prompts directly in the repository, then supporting them through the existing org channel. Contributors can ask questions where the broader community already works or set up time for a specific issue, while the repository provides consistent guidance every time.</p>
+          <p>This approach makes the process available across the organization without depending on a recurring meeting or one person repeating the same instructions. It also gives us a practical way to update the guidance as the governance model matures.</p>
+        </section>
 
         <section class="reading-column content-section" aria-labelledby="platform-title">
           <h2 id="platform-title">The broader org platform and the AI design repository</h2>
@@ -222,10 +232,10 @@ const base = import.meta.env.BASE_URL;
   .tag { display: inline-block; margin-bottom: var(--space-4); }
   h1 { margin-block: var(--space-4) var(--space-6); }
   .lede { max-width: 58ch; margin-bottom: var(--space-12); font-size: var(--size-xl); line-height: 1.6; }
-  .outcome { display: flex; flex-direction: column; gap: var(--space-1); transition: transform 180ms ease, box-shadow 180ms ease; }
+  .outcome { display: grid; grid-template-rows: 2.25rem auto; align-content: start; gap: var(--space-3); transition: transform 180ms ease, box-shadow 180ms ease; }
   .outcome:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
-  .outcome__num { font-size: clamp(1.5rem, 13cqw, 2rem); line-height: 1.1; white-space: nowrap; }
-  .outcome__label { max-width: 25ch; font-size: var(--size-sm); color: var(--muted); }
+  .case-study .outcome__num { align-self: start; font-size: clamp(1.5rem, 11cqw, 1.875rem); line-height: 1.15; white-space: nowrap; }
+  .case-study .outcome__label { max-width: 25ch; font-size: var(--size-sm); line-height: 1.55; color: var(--muted); }
   .case-shell { max-width: calc(var(--narrow) + 6rem); }
   .reading-column { width: 100%; max-width: var(--narrow); margin-inline: auto; }
   .content-section { scroll-margin-top: 90px; }
