@@ -36,10 +36,6 @@ const base = import.meta.env.BASE_URL;
               <span class="affiliation__label">UX Content Collective</span>
               <span class="sr-only">Instructor at UX Content Collective</span>
             </a>
-            <a class="affiliation affiliation--reichman" href="https://www.runi.ac.il/en/schools/rris/graduate/ma-human-computer-interaction" target="_blank" rel="noopener">
-              <img src="https://www.runi.ac.il/media/hbvhwh5g/brand-en.png?format=webp" alt="Reichman University" width="230" height="74" />
-              <span class="sr-only">MA HCI student at Reichman University</span>
-            </a>
           </div>
         </div>
       </div>
@@ -94,6 +90,17 @@ const base = import.meta.env.BASE_URL;
           <div class="project__body">
             <h3>Designing the AI execution layer for Fabric CLI</h3>
             <p>I identified a missing product layer, shaped the direction with the product manager, and implemented the public AI assets shipped with Fabric CLI at GA. The work is verifiable through public PRs, release notes, and a co-authored launch article.</p>
+            <span class="project__link">Read case study</span>
+          </div>
+        </a>
+
+        <a href={`${base}/work/statecraft-israel`} class="project project--game">
+          <div class="project__visual project__visual--image">
+            <img src={`${base}/images/case-studies/statecraft-israel.jpg`} alt="Statecraft: Israel gameplay showing the 1948 map and the Tel Aviv city-management panel" width="1600" height="900" />
+          </div>
+          <div class="project__body">
+            <h3>From historical evidence to playable UX</h3>
+            <p>Across 16 merged pull requests, I contributed sourced research, player-facing UX copy, writing standards, AI-assisted contributor workflows, and release messaging to a publicly developed strategy game.</p>
             <span class="project__link">Read case study</span>
           </div>
         </a>
@@ -316,11 +323,6 @@ const base = import.meta.env.BASE_URL;
           <div class="cred__title"><h3>Education</h3></div>
           <ul class="cred__list">
             <li>
-              <strong>Reichman University</strong>
-              <span>MA, Human-Computer Interaction · 2026 to 2027</span>
-              <em>Merit scholarship recipient</em>
-            </li>
-            <li>
               <strong>Metropolitan State University of Denver</strong>
               <span>BA, History · Minor in Journalism · 2006 to 2011</span>
             </li>
@@ -429,7 +431,7 @@ const base = import.meta.env.BASE_URL;
     position: relative;
     z-index: 3;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: center;
     gap: 0;
     width: min(82%, 390px);
@@ -461,7 +463,6 @@ const base = import.meta.env.BASE_URL;
   .affiliation:hover { text-decoration: none; transform: translateY(-1px); }
   .affiliation img { display: block; width: auto; max-width: 100%; height: auto; object-fit: contain; }
   .affiliation--uxcc img { width: 38px; }
-  .affiliation--reichman img { width: 64px; }
   .affiliation__label { max-width: 5.5rem; color: #fff; font-size: 0.58rem; font-weight: 700; line-height: 1.15; }
   .microsoft-mark { display: grid; grid-template-columns: repeat(2, 7px); gap: 1px; flex: 0 0 auto; }
   .microsoft-mark i { width: 7px; height: 7px; }
@@ -529,7 +530,6 @@ const base = import.meta.env.BASE_URL;
     filter: saturate(0.92) contrast(1.03);
   }
   .hero-art .affiliation--uxcc img { width: 38px; height: 38px; object-fit: contain; filter: none; }
-  .hero-art .affiliation--reichman img { width: 64px; height: auto; object-fit: contain; filter: none; }
   .hero-art__shape { position: absolute; display: block; }
   .hero-art__shape--yellow {
     width: 46%;
@@ -618,10 +618,13 @@ const base = import.meta.env.BASE_URL;
   .project--violet .project__visual--image { background: var(--portfolio-blue); }
   .project--orange .project__visual--image { background: var(--portfolio-coral); }
   .project--green .project__visual--image { background: var(--portfolio-blue-soft); }
+  .project--game .project__visual--image { background: var(--portfolio-ink); }
   .project--blue .project__visual { background: var(--portfolio-blue); }
   .project--violet .project__visual { background: var(--portfolio-yellow); }
   .project--orange .project__visual { background: var(--portfolio-coral); }
   .project--green .project__visual { background: var(--portfolio-blue-soft); }
+  .project--game .project__visual { background: var(--portfolio-ink); }
+  .project--game .project__visual--image img { width: 100%; max-width: none; height: 300px; object-fit: cover; }
   .project__body {
     display: flex;
     flex-direction: column;

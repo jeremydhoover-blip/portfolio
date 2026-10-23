@@ -1,0 +1,334 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Base
+  title="Statecraft: Israel Content System | Jeremy Hoover"
+  description="How I built contributor guidance, reusable AI workflows, historical research, UX writing standards, and shipped interface copy for a publicly developed strategy game."
+>
+  <article class="section case-study case-study--violet">
+    <header class="case-hero">
+      <div class="container container--narrow">
+        <a href={`${base}/#projects`} class="back"><span class="back-icon" aria-hidden="true"></span><span>Back to selected projects</span></a>
+
+        <span class="tag"><span>Historical research</span><span>Game UX</span><span>Content systems</span></span>
+        <h1>Designing the content system for a historical strategy game</h1>
+        <p class="lede">
+          Drawing on my background in history and content design, I joined Statecraft: Israel as
+          a public contributor. I conducted source-backed historical research and turned it into
+          structured game content, then built reusable guidance, AI-assisted workflows,
+          validation tools, and player-facing copy through 16 merged pull requests.
+        </p>
+
+        <div class="outcomes-strip" aria-label="Project outcomes">
+          <div class="outcome">
+            <span class="outcome__num">16 PRs</span>
+            <span class="outcome__label">Public contributions merged into the project</span>
+          </div>
+          <div class="outcome">
+            <span class="outcome__num">7 studies</span>
+            <span class="outcome__label">Historical research and source-verification contributions</span>
+          </div>
+          <div class="outcome">
+            <span class="outcome__num">4 skills</span>
+            <span class="outcome__label">Reusable workflows for research, writing, UX, and video</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="case-body">
+      <div class="container case-shell">
+        <aside class="disclosure" aria-label="Project disclosure">
+          <strong>My role</strong>
+          <p>Statecraft: Israel was created by Eyal Golan. I did not create or own the game. This case study covers only my public issues and merged contributions. The repository uses different licenses for code, content, documentation, and assets.</p>
+        </aside>
+
+        <section class="case-summary" aria-labelledby="summary-title">
+          <div class="reading-column">
+            <h2 id="summary-title">At a glance</h2>
+            <dl class="case-meta">
+              <div><dt>Role</dt><dd>Historical research, content systems, and UX-writing contributor</dd></div>
+              <div><dt>Contribution</dt><dd>Identified gaps, proposed work publicly, and authored 16 merged pull requests</dd></div>
+              <div><dt>Scope</dt><dd>Contributor guidance, AI skills, historical research, game data, UX copy, localization guidance, and release messaging</dd></div>
+              <div><dt>Collaboration</dt><dd>Project owner, maintainers, and public contributors</dd></div>
+              <div><dt>Timeframe</dt><dd>October 2026, ongoing public contribution</dd></div>
+              <div><dt>Evidence</dt><dd>Public issues, pull requests, review history, tests, merged files, and contributor credit</dd></div>
+            </dl>
+          </div>
+        </section>
+
+        <nav class="case-toc" aria-label="Statecraft: Israel case study sections">
+          <span class="case-toc__label">Jump to a section</span>
+          <ul>
+            <li><a href="#challenge">Challenge</a></li>
+            <li><a href="#foundation">Foundation</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#experience">Player experience</a></li>
+            <li><a href="#evidence">Evidence</a></li>
+            <li><a href="#reflection">Reflection</a></li>
+          </ul>
+        </nav>
+
+        <section id="challenge" class="reading-column content-section">
+          <h2>A game where every word carries evidence</h2>
+          <p>
+            Statecraft: Israel is a turn-based strategy game about governing the country from
+            1948. It combines a deterministic simulation with real people, events, locations,
+            and political decisions. Historical claims need sources, sensitive events require
+            care, and interface text must explain unfamiliar systems without flattening the history.
+          </p>
+          <p>
+            The repository was moving quickly across game design, Unity implementation,
+            historical content, English and Hebrew localization, and public releases. I saw a
+            content-design problem larger than any individual string: contributors and AI agents
+            needed a shared way to research, write, validate, and communicate the game.
+          </p>
+          <p>
+            My history background was directly relevant. I could move from archival and
+            institutional sources to conflicting accounts, unresolved evidence, and the product
+            decisions those findings supported. The work combined historical method with the
+            implementation discipline of a public software repository.
+          </p>
+        </section>
+
+        <figure class="gameplay-figure">
+          <img src={`${base}/images/case-studies/statecraft-israel.jpg`} alt="Statecraft: Israel gameplay showing the 1948 map, city labels, resource indicators, and the Tel Aviv city-management panel" width="1600" height="900" />
+          <figcaption>
+            <strong>The playable game.</strong> This public repository screenshot shows the map,
+            city systems, resources, and player guidance that the content system supports.
+            Screenshot from the Statecraft: Israel repository, licensed under its documented asset terms.
+          </figcaption>
+        </figure>
+
+        <section id="foundation" class="reading-column content-section">
+          <h2>Building the contributor foundation first</h2>
+          <p>
+            My first major contribution did not add a game event. It made the repository easier
+            to contribute to. I added repository-level agent guidance, a writing guide,
+            tool-specific instructions, reusable skills, templates, and validation scripts.
+          </p>
+          <p>
+            That decision made later work repeatable. Instead of solving source handling, voice,
+            or implementation context again in every pull request, contributors and AI agents
+            could start from shared rules and follow the authoritative project sources.
+          </p>
+        </section>
+
+        <figure class="system-figure" aria-labelledby="system-caption">
+          <div class="system-grid" role="img" aria-label="Four layers of the contribution system: repository guidance, reusable skills, validation, and product delivery">
+            <div><span>01</span><strong>Guidance</strong><small>Repository rules, writing standards, and source authority</small></div>
+            <div><span>02</span><strong>Skills</strong><small>Historical content, writing voice, UX writing, and video scripts</small></div>
+            <div><span>03</span><strong>Validation</strong><small>Templates, checkers, tests, and explicit uncertainty</small></div>
+            <div><span>04</span><strong>Delivery</strong><small>Research, structured data, interface copy, and release messaging</small></div>
+          </div>
+          <figcaption id="system-caption">
+            <strong>Standards connected to delivery.</strong> The system joined repository guidance
+            to reusable workflows and then applied both to player-facing work.
+          </figcaption>
+        </figure>
+
+        <section id="research" class="reading-column content-section">
+          <h2>Turning research into product infrastructure</h2>
+          <p>
+            I contributed public research on the New Economic Policy, the Knesset vote on talks
+            with Germany, the 1955 election, the 1948 war, the road to Suez, and the Sinai
+            Campaign. I also verified the sources behind attributed trailer quotations.
+          </p>
+          <p>
+            The useful output was not just a collection of facts. The notes distinguish verified
+            claims, secondary leads, conflicts between sources, and unresolved gaps. That makes
+            uncertainty visible before material becomes structured content or player-facing copy.
+          </p>
+          <p>
+            I then carried the research into the product by adding structured Third Knesset and
+            1955 election data, including source references and tests that verified the new
+            records fit the simulation's content model.
+          </p>
+        </section>
+
+        <figure class="system-figure" aria-labelledby="pipeline-caption">
+          <ol class="research-flow">
+            <li><span>1</span><strong>Question</strong><small>Define the historical or product gap</small></li>
+            <li><span>2</span><strong>Sources</strong><small>Open, compare, and record evidence</small></li>
+            <li><span>3</span><strong>Research note</strong><small>Separate facts, conflicts, and gaps</small></li>
+            <li><span>4</span><strong>Game content</strong><small>Structure reviewed material for the system</small></li>
+            <li><span>5</span><strong>Player experience</strong><small>Explain decisions and consequences clearly</small></li>
+          </ol>
+          <figcaption id="pipeline-caption">
+            <strong>A source-first pipeline.</strong> Historical material moves through explicit
+            evidence states before it reaches the game experience.
+          </figcaption>
+        </figure>
+
+        <section id="experience" class="reading-column content-section">
+          <h2>Making complex systems understandable to players</h2>
+          <p>
+            I audited the implemented interface before proposing new standards. That work became
+            a 49-concept glossary, six shared conventions, and English and Hebrew UI-writing
+            guidance tied to the actual game rather than generic style advice.
+          </p>
+          <p>
+            I applied the guidance in shipped UI changes. The revised save warnings explain what
+            changed and what a player should do next. The How to play content defines unfamiliar
+            training terms, connects facilities to outcomes, and makes clear when worker changes
+            take effect. Draft Hebrew remained marked for native review rather than being
+            presented as final.
+          </p>
+          <p>
+            I also built reusable UX-writing and sourced video-script skills with templates and
+            checks. The goal was to make good decisions easier to repeat, while still leaving
+            source review, native-language review, and maintainer approval visible.
+          </p>
+        </section>
+
+        <section id="evidence" class="content-section">
+          <div class="reading-column">
+            <h2>Public, inspectable evidence</h2>
+            <p>
+              Every contribution is visible in the repository, including the original proposal,
+              review discussion, revisions, tests, and merge. The record shows both the reusable
+              system and the product work it enabled.
+            </p>
+          </div>
+          <div class="proof-list" aria-label="Public contribution evidence">
+            <a href="https://github.com/eyalgolan/statecraft-israel/pulls?q=is%3Apr+author%3Ajeremydhoover-blip+is%3Amerged" target="_blank" rel="noopener"><span>Complete record</span><strong>Review all 16 merged pull requests</strong><small>Research, systems, content, UX, and messaging ↗</small></a>
+            <a href="https://github.com/eyalgolan/statecraft-israel/pull/134" target="_blank" rel="noopener"><span>Foundation</span><strong>Inspect the repository guidance and skills</strong><small>Writing guide, agent instructions, templates, and checks ↗</small></a>
+            <a href="https://github.com/eyalgolan/statecraft-israel/pull/970" target="_blank" rel="noopener"><span>UX system</span><strong>Read the bilingual UX guidance contribution</strong><small>Glossary, conventions, English, and Hebrew guidance ↗</small></a>
+            <a href="https://github.com/eyalgolan/statecraft-israel/pull/1139" target="_blank" rel="noopener"><span>Shipped UI copy</span><strong>Compare the revised save and recovery messages</strong><small>Implementation evidence, review, and before-and-after captures ↗</small></a>
+            <a href="https://github.com/eyalgolan/statecraft-israel/pull/1140" target="_blank" rel="noopener"><span>Player guidance</span><strong>Inspect the revised How to play content</strong><small>Desktop and mobile evidence in English and Hebrew ↗</small></a>
+            <a href="https://github.com/eyalgolan/statecraft-israel/blob/main/site/src/data/contributors.yaml" target="_blank" rel="noopener"><span>Contributor credit</span><strong>View the project's public contributor record</strong><small>Repository-maintained attribution ↗</small></a>
+          </div>
+        </section>
+
+        <section id="reflection" class="reading-column content-section">
+          <h2>Reflection</h2>
+          <p>
+            This work shows what content design can look like in a public, AI-assisted software
+            project. The contribution was not limited to writing interface strings. It connected
+            source authority, contributor behavior, agent instructions, validation, structured
+            data, localization, and release communication.
+          </p>
+          <p>
+            The public review process also made the boundaries clear. Maintainers owned the merge
+            decision, native speakers owned final language review, and unresolved historical
+            evidence stayed unresolved. The system helped AI accelerate the work without hiding
+            where human judgment and further review were still required.
+          </p>
+        </section>
+
+        <aside class="inspect-work" aria-labelledby="inspect-title">
+          <div>
+            <span class="tag">Public contribution</span>
+            <h2 id="inspect-title">Inspect the work and the game</h2>
+            <p>The live repository contains the contribution history, current game, source policies, tests, and project roadmap.</p>
+          </div>
+          <div class="inspect-work__actions">
+            <a href="https://github.com/eyalgolan/statecraft-israel/pulls?q=is%3Apr+author%3Ajeremydhoover-blip+is%3Amerged" target="_blank" rel="noopener" class="btn">View my pull requests ↗</a>
+            <a href="https://github.com/eyalgolan/statecraft-israel" target="_blank" rel="noopener" class="btn btn--outline">Explore the repository ↗</a>
+          </div>
+        </aside>
+
+        <hr class="divider" />
+        <nav class="case-pagination" aria-label="Case study navigation">
+          <a href={`${base}/work/fabric-cli`} class="case-pagination__link">
+            <span class="case-pagination__icon" aria-hidden="true"></span>
+            <span class="case-pagination__content"><span class="case-pagination__direction">Previous project</span><span class="case-pagination__title">Fabric CLI AI skills</span></span>
+          </a>
+          <a href={`${base}/#projects`} class="case-pagination__link">
+            <span class="case-pagination__icon case-pagination__icon--index" aria-hidden="true"></span>
+            <span class="case-pagination__content"><span class="case-pagination__direction">Project index</span><span class="case-pagination__title">All selected projects</span></span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .case-study { padding-top: 0; }
+  .tag { display: inline-block; margin-bottom: var(--space-4); }
+  h1 { margin-block: var(--space-4) var(--space-6); }
+  .lede { max-width: 58ch; margin-bottom: var(--space-12); font-size: var(--size-xl); line-height: 1.6; }
+  .outcome { display: flex; flex-direction: column; gap: var(--space-2); transition: transform 180ms ease, box-shadow 180ms ease; }
+  .outcome:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
+  .outcome__num { line-height: 1.1; white-space: nowrap; }
+  .outcome__label { max-width: 24ch; color: var(--muted); font-size: var(--size-sm); line-height: 1.5; }
+  .case-shell { max-width: calc(var(--narrow) + 6rem); }
+  .reading-column { width: 100%; max-width: var(--narrow); margin-inline: auto; }
+  .content-section { scroll-margin-top: 90px; }
+  .content-section h2, .case-summary h2 { margin-bottom: var(--space-6); }
+  .content-section:not(:first-child) h2 { margin-top: var(--space-16); }
+  .content-section p { margin-bottom: var(--space-4); }
+
+  .disclosure { display: grid; grid-template-columns: 120px 1fr; gap: var(--space-6); width: 100%; max-width: var(--narrow); margin: 0 auto var(--space-12); padding: var(--space-6); border: 1px solid var(--portfolio-blue-soft); border-left: 4px solid var(--portfolio-blue); border-radius: 12px; background: #fff; }
+  .disclosure strong { color: var(--portfolio-blue); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .disclosure p { color: var(--muted); font-size: var(--size-sm); }
+
+  .case-meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+  .case-meta div { padding: var(--space-6); border: 1px solid var(--border); border-left: 4px solid var(--portfolio-blue-soft); border-radius: 12px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .case-meta div:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
+  .case-meta dt { margin-bottom: var(--space-2); color: var(--portfolio-blue); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .case-meta dd { color: var(--portfolio-ink); font-size: 0.95rem; line-height: 1.5; }
+
+  .case-toc { max-width: var(--narrow); margin: var(--space-8) auto var(--space-16); padding-block: var(--space-6); border-block: 1px solid var(--border); }
+  .case-toc__label { display: block; margin-bottom: var(--space-3); color: var(--portfolio-blue); font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+  .case-toc ul { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin: 0; list-style: none; }
+  .case-toc a { display: inline-flex; min-height: 32px; align-items: center; color: var(--portfolio-ink); font-size: 0.875rem; font-weight: 650; text-decoration: none; }
+  .case-toc a:hover { color: var(--portfolio-blue); text-decoration: underline; text-decoration-color: var(--portfolio-coral); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+
+  .gameplay-figure { width: min(100%, 880px); margin: var(--space-12) auto var(--space-16); }
+  .system-figure { width: 100%; max-width: var(--narrow); margin: var(--space-12) auto var(--space-16); }
+  .gameplay-figure img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--border); border-radius: 18px; box-shadow: 0 14px 34px rgba(16,26,45,0.12); }
+  .gameplay-figure figcaption, .system-figure figcaption { margin-top: var(--space-4); color: var(--muted); font-size: var(--size-sm); line-height: 1.55; }
+  .gameplay-figure figcaption strong, .system-figure figcaption strong { color: var(--portfolio-ink); }
+
+  .system-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); padding: var(--space-4); border: 1px solid #b8c9ee; border-radius: 20px; background: var(--portfolio-blue-soft); }
+  .system-grid div { display: flex; min-height: 145px; flex-direction: column; gap: var(--space-2); padding: var(--space-6); border-radius: 12px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .system-grid div:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
+  .system-grid span, .research-flow > li > span { display: grid; width: 1.8rem; height: 1.8rem; place-items: center; border-radius: 50%; background: var(--portfolio-blue); color: #fff; font-size: 0.7rem; font-weight: 800; }
+  .system-grid strong, .research-flow strong { color: var(--portfolio-ink); }
+  .system-grid small, .research-flow small { color: var(--muted); font-size: 0.8rem; line-height: 1.5; }
+
+  .research-flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-2); margin: 0; padding: var(--space-4); border: 1px solid #efc4b8; border-radius: 20px; background: #ffe8e2; list-style: none; }
+  .research-flow li { position: relative; display: flex; min-height: 165px; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border-radius: 12px; background: #fff; }
+
+  .proof-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; max-width: var(--narrow); gap: var(--space-3); margin: var(--space-8) auto 0; }
+  .proof-list a { display: flex; min-height: 150px; flex-direction: column; gap: var(--space-2); padding: var(--space-6); border: 1px solid var(--border); border-top: 6px solid var(--portfolio-blue); border-radius: 12px; background: #fff; color: var(--portfolio-ink); text-decoration: none; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .proof-list a:nth-child(2n) { border-top-color: var(--portfolio-coral); }
+  .proof-list a:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(16,26,45,0.12); }
+  .proof-list span { color: var(--muted); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .proof-list strong { color: var(--portfolio-blue); line-height: 1.4; }
+  .proof-list small { margin-top: auto; color: var(--muted); font-size: 0.78rem; line-height: 1.45; }
+
+  .inspect-work { display: grid; grid-template-columns: 1fr auto; gap: var(--space-8); align-items: center; width: 100%; max-width: var(--narrow); margin: var(--space-16) auto 0; padding: clamp(1.5rem, 5vw, 3rem); border-radius: 20px; background: var(--portfolio-blue); }
+  .inspect-work .tag { color: var(--portfolio-yellow); }
+  .inspect-work h2 { margin-bottom: var(--space-3); color: #fff; }
+  .inspect-work p { color: rgba(255,255,255,0.82); }
+  .inspect-work__actions { display: flex; flex-direction: column; gap: var(--space-3); min-width: 215px; }
+  .inspect-work .btn { justify-content: center; text-align: center; }
+  .inspect-work .btn--outline { color: #fff; border-color: var(--portfolio-yellow); }
+  .divider { margin-block: var(--space-16) var(--space-8); }
+
+  @media (max-width: 900px) {
+    .research-flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .research-flow li { min-height: 140px; }
+  }
+  @media (max-width: 640px) {
+    .content-section { scroll-margin-top: 130px; }
+    .disclosure, .case-meta, .system-grid, .proof-list, .inspect-work { grid-template-columns: 1fr; }
+    .disclosure { gap: var(--space-2); padding: var(--space-4); }
+    .case-meta div { padding: var(--space-4); }
+    .case-toc { margin-block: var(--space-6) var(--space-12); padding-block: var(--space-4); }
+    .case-toc ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-1) var(--space-6); }
+    .case-toc a { min-height: 44px; }
+    .research-flow { grid-template-columns: 1fr; padding: var(--space-3); }
+    .research-flow li, .system-grid div, .proof-list a { min-height: auto; }
+    .inspect-work__actions { min-width: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .outcome:hover, .case-meta div:hover, .system-grid div:hover, .proof-list a:hover { transform: none; }
+  }
+</style>

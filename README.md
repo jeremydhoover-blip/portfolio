@@ -6,7 +6,7 @@ Career portfolio for Jeremy Hoover, focused on product strategy, design systems,
 
 ## About the portfolio
 
-I built this site to show how I connect design, product, and engineering through systems that people can use. It includes four detailed case studies, my recent experience, the Technical Content Designer Program, independent open-source work, published articles, and professional recognition.
+I built this site to show how I connect design, product, and engineering through systems that people can use. It includes five detailed case studies, my recent experience, the Technical Content Designer Program, independent open-source work, published articles, and professional recognition.
 
 ### Selected work
 
@@ -14,6 +14,7 @@ I built this site to show how I connect design, product, and engineering through
 - **Hackathon agent:** An agentic product experience that won Best Use of AI and expanded across the organization
 - **Design-org AI infrastructure:** Agent adoption, shared knowledge, AI education, and leadership demonstrations across a 150+ person design organization
 - **Fabric CLI AI skills:** Public AI agent infrastructure shipped in the Microsoft Fabric CLI
+- **Statecraft: Israel:** Public contributions spanning historical research, content systems, player UX, and release messaging
 - **Hoover Content System:** An independent, open-source content system for developer products
 
 ## Built with
