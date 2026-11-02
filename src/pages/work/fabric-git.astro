@@ -16,14 +16,14 @@ const learn = 'https://learn.microsoft.com/en-us/fabric/cicd/git-integration';
         <h1>Making Git feel native inside a data platform</h1>
         <p class="lede">
           Fabric workspaces are shared, live environments. Git is built around private branches,
-          explicit commits, and merges. I worked with interaction design to bring those two
-          models together: the source control panel, the status system, conflict resolution,
-          selective branching, and code comparison.
+          explicit commits, and merges. As the senior content designer, working alongside a dedicated product designer, product
+          management, engineering, and research, I helped bring those two models together across
+          navigation, status language, consequential actions, and branching workflows.
         </p>
         <div class="outcomes-strip" aria-label="Project outcomes">
           <div class="outcome">
-            <span class="outcome__num">6</span>
-            <span class="outcome__label">design decisions shipped in public Fabric UI</span>
+            <span class="outcome__num">5</span>
+            <span class="outcome__label">research themes framing the design space</span>
           </div>
           <div class="outcome">
             <span class="outcome__num">2-way</span>
@@ -43,9 +43,9 @@ const learn = 'https://learn.microsoft.com/en-us/fabric/cicd/git-integration';
           <div class="reading-column">
             <h2 id="summary-title">At a glance</h2>
             <dl class="case-meta">
-              <div><dt>Role</dt><dd>Content and product design, in partnership with interaction design</dd></div>
-              <div><dt>Contribution</dt><dd>Screens and mockups, information architecture, status and action language, and overall flow decisions</dd></div>
-              <div><dt>Collaboration</dt><dd>Interaction designers, product managers, and engineering</dd></div>
+              <div><dt>Role</dt><dd>Senior Content Designer, contributing to product and interaction design</dd></div>
+              <div><dt>Contribution</dt><dd>Terminology and status language, error and confirmation experiences, flow proposals, wireframes and high-fidelity prototypes, usability research, and input on Git behavior and permissions</dd></div>
+              <div><dt>Collaboration</dt><dd>A dedicated product designer, product manager, engineering, and research. The shipped UI was shared design and engineering work.</dd></div>
               <div><dt>Users</dt><dd>Data engineers, BI developers, and analytics teams adopting software development practices</dd></div>
               <div><dt>Status</dt><dd>Shipped. Branched workspaces, selective branching, and code comparison released in preview.</dd></div>
               <div><dt>Evidence</dt><dd>Public Microsoft Learn documentation and Fabric blog posts. No confidential material.</dd></div>
@@ -58,6 +58,7 @@ const learn = 'https://learn.microsoft.com/en-us/fabric/cicd/git-integration';
           <ul>
             <li><a href="#problem">Problem</a></li>
             <li><a href="#constraints">Constraints</a></li>
+            <li><a href="#research">Research</a></li>
             <li><a href="#direction">Panel structure</a></li>
             <li><a href="#status">Status model</a></li>
             <li><a href="#conflicts">Conflicts</a></li>
@@ -95,6 +96,23 @@ const learn = 'https://learn.microsoft.com/en-us/fabric/cicd/git-integration';
           </ul>
         </section>
 
+        <section id="research" class="reading-column content-section">
+          <h2>Framing the design space</h2>
+          <p>
+            Research organized potential customer pain points into five areas. They gave the
+            team a way to see the problem as a system, not a list of UI fixes:
+          </p>
+          <ul>
+            <li><strong>Native Git tooling gaps.</strong> What developers expect from Git tools that Fabric didn't yet offer.</li>
+            <li><strong>Git and Fabric concept confusion.</strong> Workspaces, items, branches, and commits mean different things to different users.</li>
+            <li><strong>Uneven item support.</strong> Not every Fabric item type behaves the same way in Git.</li>
+            <li><strong>Permission differences.</strong> Workspace roles and repository access don't line up one to one.</li>
+            <li><strong>Configuration differences.</strong> Providers, folders, and branch setups vary across teams.</li>
+          </ul>
+          <p class="todo"><strong>Jeremy:</strong> confirm which themes were validated with customers versus hypotheses, and which decisions below followed from which theme. What was your part in the research?</p>
+          <p class="todo"><strong>Jeremy (centerpiece):</strong> describe one wireframe or prototype you personally made. What was the problem, what did you design, what did the product designer do with it, and what shipped?</p>
+        </section>
+
         <section id="direction" class="reading-column content-section">
           <h2>Decision 1: Organize the panel by direction</h2>
           <p>
@@ -128,7 +146,7 @@ const learn = 'https://learn.microsoft.com/en-us/fabric/cicd/git-integration';
           </div>
           <figcaption id="panel-caption">
             <strong>One direction per tab, one primary action per direction.</strong>
-            A simplified reconstruction. See the shipped panel in
+            Retrospective recreation, not an original project artifact. See the shipped panel in
             <a href={`${learn}/git-get-started`} target="_blank" rel="noopener">Get started with Git integration on Microsoft Learn ↗</a>.
           </figcaption>
         </figure>
@@ -159,7 +177,7 @@ const learn = 'https://learn.microsoft.com/en-us/fabric/cicd/git-integration';
             <div><dt><span class="status status--synced">✓</span>Synced</dt><dd>Workspace and branch match</dd></div>
           </dl>
           <figcaption id="status-caption">
-            <strong>The status model.</strong> Each state answers "do I need to act?" in a word.
+            <strong>The status model.</strong> Each state answers "do I need to act?" in a word. Retrospective recreation.
           </figcaption>
         </figure>
 
@@ -189,7 +207,7 @@ const learn = 'https://learn.microsoft.com/en-us/fabric/cicd/git-integration';
             <div class="choice choice--safe"><strong>Compare and commit changes</strong><span>Review both versions side by side</span><em>Decide with evidence</em></div>
           </div>
           <figcaption id="conflict-caption">
-            <strong>Choices framed as outcomes, with consequences stated up front.</strong>
+            <strong>Choices framed as outcomes, with consequences stated up front.</strong> Retrospective recreation.
             See the shipped flow in
             <a href={`${learn}/conflict-resolution`} target="_blank" rel="noopener">Conflict resolution on Microsoft Learn ↗</a>.
           </figcaption>
@@ -255,7 +273,7 @@ const learn = 'https://learn.microsoft.com/en-us/fabric/cicd/git-integration';
             act, and what you will lose if you continue.
           </p>
           <p>
-            Working as a content designer alongside interaction design, I learned that structure
+            Working as a content designer alongside a product designer, I learned that structure
             and language decisions are the same decision in a product like this. The tab names
             are the information architecture.
           </p>
