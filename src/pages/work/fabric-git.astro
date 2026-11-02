@@ -1,0 +1,432 @@
+---
+import Base from '../../layouts/Base.astro';
+const base = import.meta.env.BASE_URL;
+const learn = 'https://learn.microsoft.com/en-us/fabric/cicd/git-integration';
+---
+
+<Base
+  title="Fabric Git integration | Jeremy Hoover"
+  description="How I helped design the Git integration experience in Microsoft Fabric: the source control panel, status model, conflict resolution, selective branching, and code comparison."
+>
+  <article class="section case-study case-study--blue">
+    <header class="case-hero">
+      <div class="container container--narrow">
+        <a href={`${base}/#projects`} class="back"><span class="back-icon" aria-hidden="true"></span><span>Back to selected projects</span></a>
+        <span class="tag"><span>Product design</span><span>Microsoft Fabric</span><span>Git integration</span></span>
+        <h1>Making Git feel native inside a data platform</h1>
+        <p class="lede">
+          Fabric workspaces are shared, live environments. Git is built around private branches,
+          explicit commits, and merges. I worked with interaction design to bring those two
+          models together: the source control panel, the status system, conflict resolution,
+          selective branching, and code comparison.
+        </p>
+        <div class="outcomes-strip" aria-label="Project outcomes">
+          <div class="outcome">
+            <span class="outcome__num">6</span>
+            <span class="outcome__label">design decisions shipped in public Fabric UI</span>
+          </div>
+          <div class="outcome">
+            <span class="outcome__num">2-way</span>
+            <span class="outcome__label">sync model between workspace and Git</span>
+          </div>
+          <div class="outcome">
+            <span class="outcome__num">Public</span>
+            <span class="outcome__label">Microsoft Learn docs and Fabric blog announcements</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="case-body">
+      <div class="container case-shell">
+        <section class="case-summary" aria-labelledby="summary-title">
+          <div class="reading-column">
+            <h2 id="summary-title">At a glance</h2>
+            <dl class="case-meta">
+              <div><dt>Role</dt><dd>Content and product design, in partnership with interaction design</dd></div>
+              <div><dt>Contribution</dt><dd>Screens and mockups, information architecture, status and action language, and overall flow decisions</dd></div>
+              <div><dt>Collaboration</dt><dd>Interaction designers, product managers, and engineering</dd></div>
+              <div><dt>Users</dt><dd>Data engineers, BI developers, and analytics teams adopting software development practices</dd></div>
+              <div><dt>Status</dt><dd>Shipped. Branched workspaces, selective branching, and code comparison released in preview.</dd></div>
+              <div><dt>Evidence</dt><dd>Public Microsoft Learn documentation and Fabric blog posts. No confidential material.</dd></div>
+            </dl>
+          </div>
+        </section>
+
+        <nav class="case-toc" aria-label="Fabric Git case study sections">
+          <span class="case-toc__label">Jump to a section</span>
+          <ul>
+            <li><a href="#problem">Problem</a></li>
+            <li><a href="#constraints">Constraints</a></li>
+            <li><a href="#direction">Panel structure</a></li>
+            <li><a href="#status">Status model</a></li>
+            <li><a href="#conflicts">Conflicts</a></li>
+            <li><a href="#branching">Branching</a></li>
+            <li><a href="#compare">Compare</a></li>
+            <li><a href="#reflection">Reflection</a></li>
+          </ul>
+        </nav>
+
+        <section id="problem" class="reading-column content-section">
+          <h2>The problem</h2>
+          <p>
+            A Fabric workspace is a shared runtime. When someone edits a notebook, report, or
+            pipeline there, everyone sees the change immediately. Software teams protect shared
+            code with branches, commits, and reviews, but data teams in Fabric had no native way
+            to work like that.
+          </p>
+          <p>
+            Git integration connects a workspace to a branch in Azure DevOps or GitHub. The hard
+            part was not the connection. It was helping people who had never used Git understand
+            what state their work was in, which direction a change was moving, and what would
+            happen to their work before they acted.
+          </p>
+          <p class="todo"><strong>Jeremy:</strong> add one concrete signal you saw, such as a support theme, research finding, or a common user mistake. Keep it public-safe.</p>
+        </section>
+
+        <section id="constraints" class="reading-column content-section">
+          <h2>Users and constraints</h2>
+          <ul>
+            <li><strong>Two audiences.</strong> Experienced developers expected Git conventions. BI authors and analysts often met Git for the first time here.</li>
+            <li><strong>Shared workspaces.</strong> One workspace connects to one branch, so an action by one person affects everyone in it.</li>
+            <li><strong>Items, not files.</strong> People think in reports, semantic models, and notebooks, not in folders of definition files.</li>
+            <li><strong>Destructive operations.</strong> Updating a workspace or accepting incoming changes can overwrite work. Every irreversible action needed to say so plainly.</li>
+            <li><strong>Consistency.</strong> The experience had to match deployment pipelines and the rest of Fabric's CI/CD tools.</li>
+          </ul>
+        </section>
+
+        <section id="direction" class="reading-column content-section">
+          <h2>Decision 1: Organize the panel by direction</h2>
+          <p>
+            Git has many verbs: commit, push, pull, fetch, and merge. Instead of exposing those
+            verbs, the source control panel answers one question first: which way is this change
+            going? <strong>Changes</strong> lists what is moving from the workspace to Git.
+            <strong>Updates</strong> lists what is moving from Git into the workspace. Each tab
+            has one primary action, Commit or Update all.
+          </p>
+          <p class="todo"><strong>Jeremy:</strong> what other structure was considered (for example, one combined list, or Git verbs as tabs), and why did direction win?</p>
+        </section>
+
+        <figure class="evidence-figure" aria-labelledby="panel-caption">
+          <div class="mock-panel" role="img" aria-label="Simplified source control panel with a Changes tab showing two items and a commit box, and an Updates tab">
+            <div class="mock-panel__header">
+              <span>Source control</span>
+              <span class="mock-badge" aria-hidden="true">2</span>
+            </div>
+            <div class="mock-panel__tabs">
+              <span class="is-active">Changes <small>Workspace → Git</small></span>
+              <span>Updates <small>Git → workspace</small></span>
+            </div>
+            <ul class="mock-panel__list">
+              <li><span class="status status--modified">M</span>Sales report<em>Modified</em></li>
+              <li><span class="status status--new">+</span>Customer notebook<em>New</em></li>
+            </ul>
+            <div class="mock-panel__footer">
+              <span class="mock-input">Describe your changes (optional)</span>
+              <span class="mock-button">Commit</span>
+            </div>
+          </div>
+          <figcaption id="panel-caption">
+            <strong>One direction per tab, one primary action per direction.</strong>
+            A simplified reconstruction. See the shipped panel in
+            <a href={`${learn}/git-get-started`} target="_blank" rel="noopener">Get started with Git integration on Microsoft Learn ↗</a>.
+          </figcaption>
+        </figure>
+
+        <section id="status" class="reading-column content-section">
+          <h2>Decision 2: A small, honest status vocabulary</h2>
+          <p>
+            Every item in a connected workspace shows its Git status, and the source control icon
+            shows a count of uncommitted changes. The set is deliberately small: New, Modified,
+            Deleted, Conflict, and Same change in the panel, and Uncommitted or Synced on the
+            item. Each status pairs an icon with a word, so meaning never depends on color alone.
+          </p>
+          <p>
+            "Same change" covers a case Git users rarely think about: the item changed in both
+            places, but in the same way. Naming it separately keeps it out of the conflict flow,
+            so people don't stop to resolve a problem that doesn't exist.
+          </p>
+          <p class="todo"><strong>Jeremy:</strong> which status names were debated? For example, was "Synced" chosen over "Up to date" or "Committed"? What drove it?</p>
+        </section>
+
+        <figure class="evidence-figure" aria-labelledby="status-caption">
+          <dl class="status-grid">
+            <div><dt><span class="status status--new">+</span>New</dt><dd>Exists in the workspace, not yet in Git</dd></div>
+            <div><dt><span class="status status--modified">M</span>Modified</dt><dd>Changed in the workspace since the last sync</dd></div>
+            <div><dt><span class="status status--deleted">−</span>Deleted</dt><dd>Removed from the workspace, still in Git</dd></div>
+            <div><dt><span class="status status--conflict">!</span>Conflict</dt><dd>Changed differently in both places</dd></div>
+            <div><dt><span class="status status--same">=</span>Same change</dt><dd>Changed in both places, identically</dd></div>
+            <div><dt><span class="status status--synced">✓</span>Synced</dt><dd>Workspace and branch match</dd></div>
+          </dl>
+          <figcaption id="status-caption">
+            <strong>The status model.</strong> Each state answers "do I need to act?" in a word.
+          </figcaption>
+        </figure>
+
+        <section id="conflicts" class="reading-column content-section">
+          <h2>Decision 3: Name conflict choices by outcome</h2>
+          <p>
+            When the same item changes in the workspace and in Git, Commit is disabled and the
+            panel offers <strong>Resolve conflicts</strong>. For each item, people choose
+            between outcomes, not Git mechanics:
+          </p>
+          <ul>
+            <li><strong>Accept incoming changes</strong> replaces the workspace version with the Git version. Workspace changes are lost.</li>
+            <li><strong>Keep current content</strong> keeps the workspace version. The item stays uncommitted until it is committed.</li>
+            <li><strong>Compare and commit changes</strong> opens a side-by-side view before deciding.</li>
+          </ul>
+          <p>
+            The third option matters most for new Git users. It gives people a safe step when
+            they aren't sure, instead of forcing an irreversible choice.
+          </p>
+          <p class="todo"><strong>Jeremy:</strong> what were the earlier labels (for example "Overwrite" or "Discard"), and what made you push for outcome-based wording?</p>
+        </section>
+
+        <figure class="evidence-figure" aria-labelledby="conflict-caption">
+          <div class="choice-grid" role="img" aria-label="Three conflict resolution choices with their outcomes">
+            <div class="choice"><strong>Accept incoming changes</strong><span>Workspace becomes the Git version</span><em class="risk">Workspace edits are lost</em></div>
+            <div class="choice"><strong>Keep current content</strong><span>Workspace version stays</span><em>Commit it later to finish</em></div>
+            <div class="choice choice--safe"><strong>Compare and commit changes</strong><span>Review both versions side by side</span><em>Decide with evidence</em></div>
+          </div>
+          <figcaption id="conflict-caption">
+            <strong>Choices framed as outcomes, with consequences stated up front.</strong>
+            See the shipped flow in
+            <a href={`${learn}/conflict-resolution`} target="_blank" rel="noopener">Conflict resolution on Microsoft Learn ↗</a>.
+          </figcaption>
+        </figure>
+
+        <section id="branching" class="reading-column content-section">
+          <h2>Decisions 4 and 5: Branch only what you need, and show where it came from</h2>
+          <p>
+            Branching out originally copied every item in a workspace. For large workspaces that
+            was slow, and it increased the risk of unintended changes. <strong>Selective
+            branching</strong> lets people pick specific items and automatically adds the items
+            they depend on, so the new workspace still works.
+          </p>
+          <p>
+            <strong>Branched workspaces</strong> make the relationship visible. A feature
+            workspace now shows which workspace it came from in navigation and in source
+            control, so people don't lose track of where their work belongs.
+          </p>
+          <p class="todo"><strong>Jeremy:</strong> how did you handle auto-included items in the UI? Were they shown, locked, or explained? What was the alternative?</p>
+        </section>
+
+        <figure class="evidence-figure" aria-labelledby="flow-caption">
+          <ol class="agent-flow">
+            <li><span class="agent-flow__step">1</span><strong>Shared workspace</strong><span>Connected to the main branch</span></li>
+            <li><span class="agent-flow__step">2</span><strong>Selective branch</strong><span>Pick items, dependencies added</span></li>
+            <li><span class="agent-flow__step">3</span><strong>Branched workspace</strong><span>Linked back to its source</span></li>
+            <li><span class="agent-flow__step">4</span><strong>Compare and commit</strong><span>Review before it leaves</span></li>
+            <li><span class="agent-flow__step">5</span><strong>Pull request</strong><span>Merge in the Git provider, then update</span></li>
+          </ol>
+          <figcaption id="flow-caption">
+            <strong>The end-to-end developer loop</strong>, as described in the
+            <a href="https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Introducing-new-Git-developer-experiences-in-Microsoft-Fabric/ba-p/5172181" target="_blank" rel="noopener">Fabric announcement ↗</a>.
+          </figcaption>
+        </figure>
+
+        <section id="compare" class="reading-column content-section">
+          <h2>Decision 6: One compare pattern across CI/CD</h2>
+          <p>
+            Compare code changes adds a diff view in three places: before committing, before
+            updating from Git, and while resolving a conflict. It intentionally matches the
+            comparison people already know from other Git tools and from Fabric deployment
+            pipelines, so one learned pattern works across the CI/CD experience.
+          </p>
+          <p class="todo"><strong>Jeremy:</strong> what was your part in keeping Git and deployment pipelines consistent? Any specific labels or entry points you aligned?</p>
+        </section>
+
+        <section id="outcome" class="reading-column content-section">
+          <h2>What shipped</h2>
+          <p>
+            The source control panel, status model, and conflict resolution flow are part of
+            Fabric Git integration. Branched workspaces, selective branching, and code comparison
+            shipped in preview. All of it is documented publicly on Microsoft Learn.
+          </p>
+          <p class="todo"><strong>Jeremy:</strong> add any public outcome you can cite, such as community reactions, a conference demo, or a follow-up feature that built on this.</p>
+        </section>
+
+        <section id="reflection" class="reading-column content-section">
+          <h2>Reflection</h2>
+          <p>
+            The main design challenge was translation. Git's model is precise, but its
+            vocabulary assumes a developer audience. Each decision here moved the experience
+            from Git mechanics toward outcomes: which way a change is going, whether you need to
+            act, and what you will lose if you continue.
+          </p>
+          <p>
+            Working as a content designer alongside interaction design, I learned that structure
+            and language decisions are the same decision in a product like this. The tab names
+            are the information architecture.
+          </p>
+        </section>
+
+        <aside class="inspect-work" aria-labelledby="inspect-title">
+          <div>
+            <span class="tag">Public and inspectable</span>
+            <h2 id="inspect-title">See the shipped experience</h2>
+            <p>Microsoft Learn documents every screen described here, and the Fabric blog explains the newest branching and compare features.</p>
+          </div>
+          <div class="inspect-work__actions">
+            <a href={`${learn}/git-get-started`} target="_blank" rel="noopener" class="btn">Git integration docs ↗</a>
+            <a href="https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Introducing-new-Git-developer-experiences-in-Microsoft-Fabric/ba-p/5172181" target="_blank" rel="noopener" class="btn btn--outline">Read the announcement ↗</a>
+          </div>
+        </aside>
+
+        <hr class="divider" />
+        <nav class="case-pagination" aria-label="Case study navigation">
+          <a href={`${base}/work/statecraft-israel`} class="case-pagination__link">
+            <span class="case-pagination__icon" aria-hidden="true"></span>
+            <span class="case-pagination__content"><span class="case-pagination__direction">Previous project</span><span class="case-pagination__title">Statecraft: Israel</span></span>
+          </a>
+          <a href={`${base}/work/ai-design-repo`} class="case-pagination__link case-pagination__link--next">
+            <span class="case-pagination__content"><span class="case-pagination__direction">Next project</span><span class="case-pagination__title">AI design repository</span></span>
+            <span class="case-pagination__icon" aria-hidden="true"></span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </article>
+</Base>
+<style>
+  .case-study { padding-top: 0; }
+  .tag { display: inline-block; margin-bottom: var(--space-4); }
+  h1 { margin-block: var(--space-4) var(--space-6); }
+  .lede { max-width: 58ch; margin-bottom: var(--space-12); font-size: var(--size-xl); line-height: 1.6; }
+  .outcome { display: flex; flex-direction: column; gap: var(--space-1); transition: transform 180ms ease, box-shadow 180ms ease; }
+  .outcome:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
+  .outcome__num { font-size: clamp(1.5rem, 13cqw, 2rem); line-height: 1.1; white-space: nowrap; }
+  .outcome__label { max-width: 24ch; font-size: var(--size-sm); color: var(--muted); }
+  .case-shell { max-width: calc(var(--narrow) + 6rem); }
+  .reading-column { width: 100%; max-width: var(--narrow); margin-inline: auto; }
+  .content-section { scroll-margin-top: 90px; }
+  .content-section h2, .case-summary h2 { margin-bottom: var(--space-6); }
+  .content-section:not(:first-child) h2 { margin-top: var(--space-16); }
+  .content-section p { margin-bottom: var(--space-4); }
+  .content-section ul { margin: var(--space-4) 0 var(--space-6) var(--space-6); }
+  .content-section li { margin-bottom: var(--space-2); }
+  code { padding: 0.15em 0.4em; border-radius: 3px; background: var(--portfolio-blue-soft); color: var(--portfolio-ink); font-family: var(--f-mono); font-size: 0.875em; }
+  .case-meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+  .case-meta div { padding: var(--space-6); border: 1px solid var(--border); border-left: 4px solid var(--portfolio-blue-soft); border-radius: 12px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .case-meta div:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
+  .case-meta dt { margin-bottom: var(--space-2); color: var(--portfolio-blue); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .case-meta dd { color: var(--portfolio-ink); font-size: 0.95rem; line-height: 1.5; }
+  .case-toc { max-width: var(--narrow); margin: var(--space-8) auto var(--space-16); padding-block: var(--space-6); border-block: 1px solid var(--border); }
+  .case-toc__label { display: block; margin-bottom: var(--space-3); color: var(--portfolio-blue); font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.1em; line-height: 1.2; text-transform: uppercase; }
+  .case-toc ul { display: flex; flex-wrap: wrap; gap: 0.5rem 0; margin: 0; list-style: none; }
+  .case-toc li { --toc-divider: var(--portfolio-coral); display: flex; align-items: center; }
+  .case-toc li + li { margin-left: var(--space-4); }
+  .case-toc li + li::before { content: ''; width: 2px; height: 16px; margin-right: var(--space-4); border-radius: 999px; background: var(--toc-divider); }
+  .case-toc li:nth-child(3n) { --toc-divider: var(--portfolio-yellow); }
+  .case-toc li:nth-child(3n + 1) { --toc-divider: var(--portfolio-blue); }
+  .case-toc a { display: inline-flex; min-height: 32px; align-items: center; color: var(--portfolio-ink); font-size: 0.875rem; font-weight: 650; line-height: 1.3; text-decoration: none; }
+  .case-toc a:hover { color: var(--portfolio-blue); text-decoration: underline; text-decoration-color: var(--portfolio-coral); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+  .evidence-figure { width: 100%; max-width: var(--narrow); margin: var(--space-12) auto var(--space-16); }
+  .evidence-figure figcaption { width: 100%; max-width: none; margin-top: var(--space-4); color: var(--muted); font-size: var(--size-sm); }
+  .evidence-figure figcaption strong { color: var(--portfolio-ink); }
+  .architecture { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-3); padding: var(--space-4); border: 1px solid #b8c9ee; border-radius: 20px; background: var(--portfolio-blue-soft); }
+  .architecture__item { position: relative; min-height: 210px; padding: var(--space-6); border: 1px solid rgba(16,26,45,0.1); border-radius: 14px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .architecture__item:hover { z-index: 2; transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
+  .architecture__item::after { content: '→'; position: absolute; top: 50%; right: -1.05rem; z-index: 1; display: grid; width: 1.55rem; height: 1.55rem; place-items: center; border-radius: 50%; background: var(--portfolio-blue); color: #fff; font-weight: 800; transform: translateY(-50%); }
+  .architecture__item:last-child::after { content: none; }
+  .architecture__number { display: block; margin-bottom: var(--space-8); color: var(--portfolio-coral); font-family: var(--f-heading); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.08em; }
+  .architecture h3 { margin-bottom: var(--space-2); color: var(--portfolio-blue); }
+  .architecture p { color: var(--muted); font-size: 0.875rem; line-height: 1.5; }
+  .agent-flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-2); margin: 0; padding: var(--space-4); border: 1px solid #e1c35f; border-radius: 20px; background: #fff8da; list-style: none; }
+  .agent-flow li { position: relative; display: flex; min-height: 170px; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border-radius: 12px; background: #fff; color: var(--muted); transition: transform 180ms ease, box-shadow 180ms ease; }
+  .agent-flow li:hover { z-index: 2; transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
+  .agent-flow li::after { content: '→'; position: absolute; top: 50%; right: -0.75rem; z-index: 1; color: var(--portfolio-blue); font-size: 1.25rem; font-weight: 800; transform: translateY(-50%); }
+  .agent-flow li:last-child::after { content: none; }
+  .agent-flow__step { display: grid; width: 1.75rem; height: 1.75rem; place-items: center; border-radius: 50%; background: var(--portfolio-blue); color: #fff; font-size: 0.75rem; font-weight: 800; }
+  .agent-flow strong { color: var(--portfolio-ink); font-size: 0.9rem; }
+  .agent-flow li > span:last-child { font-size: 0.8rem; line-height: 1.45; }
+  .proof-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; max-width: var(--narrow); gap: var(--space-3); margin: var(--space-8) auto 0; }
+  .proof-list a { display: flex; min-height: 176px; flex-direction: column; align-items: flex-start; gap: var(--space-3); padding: var(--space-6); border: 1px solid var(--border); border-radius: 14px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .proof-list a:hover { text-decoration: none; transform: translateY(-4px); box-shadow: 0 12px 28px rgba(16,26,45,0.12); }
+  .proof-list span { color: var(--portfolio-coral); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; }
+  .proof-list strong { color: var(--portfolio-ink); font-size: 1rem; line-height: 1.35; }
+  .proof-list small { margin-top: auto; color: var(--muted); font-size: 0.8rem; line-height: 1.5; }
+  .response-quote { width: 100%; max-width: var(--narrow); margin: var(--space-8) auto; }
+  .response-quote blockquote { margin: 0; padding: var(--space-8); border-left: 5px solid var(--portfolio-coral); border-radius: 0 16px 16px 0; background: #fff; color: var(--portfolio-ink); font-family: var(--f-heading); font-size: clamp(1.15rem, 2.5vw, 1.5rem); font-style: normal; line-height: 1.5; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .response-quote blockquote:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
+  .response-quote figcaption { display: flex; flex-direction: column; gap: 0.1rem; padding: var(--space-3) 0 0 var(--space-8); color: var(--muted); font-size: var(--size-sm); }
+  .response-quote figcaption strong { color: var(--portfolio-ink); }
+  .inspect-work { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.6fr); width: 100%; max-width: var(--narrow); gap: var(--space-8); align-items: center; margin: var(--space-16) auto 0; padding: clamp(1.5rem, 5vw, 3rem); border-radius: 20px; background: var(--portfolio-blue); }
+  .inspect-work .tag { color: var(--portfolio-yellow); }
+  .inspect-work h2 { margin-bottom: var(--space-3); color: #fff; }
+  .inspect-work p { color: rgba(255,255,255,0.82); }
+  .inspect-work__actions { display: grid; gap: var(--space-3); }
+  .inspect-work .btn { display: flex; min-height: 48px; align-items: center; justify-content: center; background: var(--portfolio-coral); color: #fff; text-align: center; }
+  .inspect-work .btn:hover { background: #e85f43; }
+  .inspect-work .btn--outline { border-color: rgba(255,255,255,0.7); background: transparent; color: #fff; }
+  .inspect-work .btn--outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+  .divider { margin-block: var(--space-16) var(--space-8); }
+  @media (max-width: 900px) {
+    .case-toc ul { gap: 0.5rem 1.5rem; }
+    .case-toc li + li { margin-left: 0; }
+    .case-toc li + li::before { content: none; }
+    .architecture { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .architecture__item { min-height: 180px; }
+    .architecture__item::after { content: none; }
+    .agent-flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .agent-flow li { min-height: 145px; }
+    .agent-flow li::after { content: none; }
+    .proof-list { grid-template-columns: 1fr; }
+    .proof-list a { min-height: 0; }
+    .proof-list small { margin-top: 0; }
+  }
+  @media (max-width: 640px) {
+    .content-section { scroll-margin-top: 130px; }
+    .case-meta { grid-template-columns: 1fr; }
+    .case-meta div { padding: var(--space-4); }
+    .case-toc { margin-top: var(--space-6); margin-bottom: var(--space-12); padding-block: var(--space-4); }
+    .case-toc ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; gap: var(--space-1) var(--space-6); }
+    .case-toc a { min-height: 44px; }
+    .architecture { grid-template-columns: 1fr; padding: var(--space-3); }
+    .architecture__item { min-height: auto; }
+    .architecture__number { margin-bottom: var(--space-4); }
+    .agent-flow { grid-template-columns: 1fr; padding: var(--space-3); }
+    .agent-flow li { min-height: auto; }
+    .response-quote blockquote { padding: var(--space-6); }
+    .response-quote figcaption { padding-left: var(--space-6); }
+    .inspect-work { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .outcome:hover,
+    .case-meta div:hover,
+    .architecture__item:hover,
+    .agent-flow li:hover,
+    .proof-list a:hover,
+    .response-quote blockquote:hover { transform: none; }
+  }
+  .todo { padding: var(--space-4); border: 2px dashed var(--portfolio-coral); border-radius: 10px; background: #fff3ef; font-size: 0.9rem; }
+  .mock-panel { max-width: 420px; margin-inline: auto; border: 1px solid var(--border); border-radius: 14px; background: #fff; box-shadow: 0 10px 24px rgba(16,26,45,0.08); overflow: hidden; font-size: 0.875rem; }
+  .mock-panel__header { display: flex; justify-content: space-between; align-items: center; padding: var(--space-4); font-weight: 750; border-bottom: 1px solid var(--border); }
+  .mock-badge { display: grid; width: 1.5rem; height: 1.5rem; place-items: center; border-radius: 50%; background: var(--portfolio-blue); color: #fff; font-size: 0.75rem; }
+  .mock-panel__tabs { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--border); }
+  .mock-panel__tabs span { display: flex; flex-direction: column; padding: var(--space-3) var(--space-4); color: var(--muted); font-weight: 650; }
+  .mock-panel__tabs span.is-active { color: var(--portfolio-ink); box-shadow: inset 0 -3px 0 var(--portfolio-blue); }
+  .mock-panel__tabs small { font-weight: 500; font-size: 0.75rem; color: var(--muted); }
+  .mock-panel__list { margin: 0; padding: var(--space-2) 0; list-style: none; }
+  .mock-panel__list li { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2) var(--space-4); }
+  .mock-panel__list em { margin-left: auto; color: var(--muted); font-style: normal; font-size: 0.8rem; }
+  .mock-panel__footer { display: flex; gap: var(--space-2); padding: var(--space-4); border-top: 1px solid var(--border); }
+  .mock-input { flex: 1; padding: var(--space-2) var(--space-3); border: 1px solid var(--border); border-radius: 6px; color: var(--muted); }
+  .mock-button { padding: var(--space-2) var(--space-4); border-radius: 6px; background: var(--portfolio-blue); color: #fff; font-weight: 700; }
+  .status { display: inline-grid; width: 1.4rem; height: 1.4rem; flex: none; place-items: center; border-radius: 5px; color: #fff; font-size: 0.75rem; font-weight: 800; }
+  .status--new { background: #2e7d4f; } .status--modified { background: #2d5bd7; } .status--deleted { background: #6b7280; }
+  .status--conflict { background: #c2410c; } .status--same { background: #8a6d00; } .status--synced { background: #1f6f5c; }
+  .status-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3); }
+  .status-grid div { padding: var(--space-4); border: 1px solid var(--border); border-radius: 12px; background: #fff; }
+  .status-grid dt { display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2); font-weight: 750; color: var(--portfolio-ink); }
+  .status-grid dd { color: var(--muted); font-size: 0.85rem; line-height: 1.45; }
+  .choice-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3); padding: var(--space-4); border-radius: 20px; background: var(--portfolio-blue-soft); }
+  .choice { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-6); border-radius: 12px; background: #fff; border: 1px solid rgba(16,26,45,0.1); }
+  .choice--safe { border: 2px solid var(--portfolio-blue); }
+  .choice span { color: var(--muted); font-size: 0.875rem; }
+  .choice em { margin-top: auto; font-style: normal; font-size: 0.8rem; font-weight: 700; color: var(--portfolio-blue); }
+  .choice em.risk { color: #c2410c; }
+  @media (max-width: 640px) {
+    .status-grid, .choice-grid { grid-template-columns: 1fr; }
+  }
+</style>
