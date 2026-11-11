@@ -243,27 +243,31 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
-  <!-- HOOVER CONTENT SYSTEM -->
+  <!-- FIEVEL -->
   <section class="hcs" id="open-source">
     <div class="wrap">
       <div class="hcs__panel">
         <div class="hcs__content">
           <p class="hcs__eyebrow">Independent open-source work</p>
-          <h2>Hoover Content System</h2>
-          <p>A living content system for developer products. I built it to move content guidance out of static documents and into a structured, version-controlled system teams can maintain, extend, and use in their daily work.</p>
-          <a href="https://jeremydhoover-blip.github.io/hoover-content-system/" target="_blank" rel="noopener" class="hcs__link">Explore the live system &#8599;</a>
+          <h2>Fievel</h2>
+          <p>Your AI content systems architect. Fievel is a repository-native guide that works inside Claude Code, Codex, and GitHub Copilot to help content designers turn product context, writing standards, sources, AI behavior, quality checks, and governance into a connected content system they own and keep improving.</p>
+          <p>It ships as a plugin with six skills, a seven-stage workflow, a local CLI that validates and checks the system, and a read-only viewer that maps how every source, rule, and check connects.</p>
+          <div class="hcs__links">
+            <a href="https://fievel.ai/" target="_blank" rel="noopener" class="hcs__link">Visit fievel.ai &#8599;</a>
+            <a href="https://github.com/jeremydhoover-blip/fievel-content-system" target="_blank" rel="noopener" class="hcs__link">View on GitHub &#8599;</a>
+          </div>
         </div>
         <div class="hcs__visual" aria-hidden="true">
           <div class="hcs-window">
             <div class="hcs-window__bar"><span></span><span></span><span></span></div>
             <div class="hcs-window__body">
               <div class="hcs-window__nav">
-                <span>Principles</span><span>Patterns</span><span>Components</span><span>Accessibility</span>
+                <span>Product context</span><span>Standards</span><span>Sources</span><span>AI behavior</span><span>Evaluations</span><span>Governance</span>
               </div>
               <div class="hcs-window__doc">
-                <strong>Content pattern</strong>
+                <strong>Draft rule &rarr; linked check</strong>
                 <span></span><span></span><span class="short"></span>
-                <div class="hcs-window__code">version: 1.0.0</div>
+                <div class="hcs-window__code">fievel validate &#10003;</div>
               </div>
             </div>
           </div>
@@ -887,7 +891,7 @@ const base = import.meta.env.BASE_URL;
     .cred__block--recognition .cred__list { grid-template-columns: 1fr; }
   }
 
-  /* ─ HOOVER CONTENT SYSTEM ─ */
+  /* ─ FIEVEL (open-source feature) ─ */
   .hcs { padding-block: clamp(4rem, 7vw, 6rem); background: var(--portfolio-blue); }
   .hcs__panel {
     display: grid;
@@ -913,6 +917,7 @@ const base = import.meta.env.BASE_URL;
   .hcs__eyebrow { color: var(--portfolio-blue); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.85rem; }
   .hcs h2 { color: var(--portfolio-ink); margin-bottom: 1rem; }
   .hcs__content > p:not(.hcs__eyebrow) { color: rgba(16,26,45,0.72); line-height: 1.7; margin-bottom: 1.5rem; }
+  .hcs__links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
   .hcs__link { color: var(--portfolio-blue); font-weight: 700; font-size: 0.9rem; }
   .hcs__link:hover { color: var(--portfolio-coral); }
   .hcs-window { border: 1px solid rgba(255,255,255,0.16); border-radius: 14px; background: #f8faf8; box-shadow: 0 24px 60px rgba(0,0,0,0.26); overflow: hidden; transform: rotate(1.5deg); transition: transform 220ms ease; }
