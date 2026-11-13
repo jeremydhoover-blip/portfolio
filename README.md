@@ -2,7 +2,7 @@
 
 Career portfolio for Jeremy Hoover, focused on product strategy, design systems, and AI workflows. Built with Astro and deployed to GitHub Pages.
 
-**[View the live portfolio](https://jeremydhoover-blip.github.io/portfolio/)**
+**[View the live portfolio](https://jeremyhoover.ai/)**
 
 ## About the portfolio
 
@@ -24,7 +24,7 @@ I built this site to show how I connect design, product, and engineering through
 - GitHub Actions
 - GitHub Pages
 
-The site is static, responsive, and designed to work under the `/portfolio` base path.
+The site is static, responsive, and served from the root of `jeremyhoover.ai`.
 
 ## Run locally
 
@@ -35,7 +35,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:4321/portfolio/](http://localhost:4321/portfolio/).
+Open [http://localhost:4321/](http://localhost:4321/).
 
 Build and audit the production site with:
 

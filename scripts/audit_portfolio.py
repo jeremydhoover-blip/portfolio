@@ -240,8 +240,11 @@ def audit_source(config: dict, issues: list[dict[str, str]]) -> None:
             add_issue(issues, "error", "brand-font", "src", f"Font {font!r} is not declared in CSS and loaded by the base layout.")
 
     base_path = config["site"]["basePath"]
-    if not re.search(rf"base\s*:\s*['\"]{re.escape(base_path)}['\"]", astro_config):
-        add_issue(issues, "error", "astro-base", astro_config_path.relative_to(ROOT).as_posix(), f"Astro base must remain {base_path!r}.")
+    if base_path:
+        if not re.search(rf"base\s*:\s*['\"]{re.escape(base_path)}['\"]", astro_config):
+            add_issue(issues, "error", "astro-base", astro_config_path.relative_to(ROOT).as_posix(), f"Astro base must remain {base_path!r}.")
+    elif re.search(r"base\s*:\s*['\"](?!/?['\"])", astro_config):
+        add_issue(issues, "error", "astro-base", astro_config_path.relative_to(ROOT).as_posix(), "Astro base must stay unset; the site is served from the domain root.")
 
     canonical_origin = config["site"]["canonicalOrigin"].rstrip("/")
     if not re.search(rf"site\s*:\s*['\"]{re.escape(canonical_origin)}['\"]", astro_config):

@@ -2,7 +2,7 @@
 import Icon from '../../components/Icon.astro';
 import Base from '../../layouts/Base.astro';
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Base

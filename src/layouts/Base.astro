@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { title, description = "Jeremy Hoover designs customer-facing developer tools, content experiences, product systems, and AI-powered workflows." } = Astro.props;
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const favicon = `${base}/images/brand-icon.svg?v=4`;
 ---
 
@@ -24,7 +24,7 @@ const favicon = `${base}/images/brand-icon.svg?v=4`;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://jeremydhoover-blip.github.io/portfolio" />
+    <meta property="og:url" content="https://jeremyhoover.ai/" />
 
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href={favicon} />
