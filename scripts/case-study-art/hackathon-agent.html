@@ -1,0 +1,49 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="common.css">
+<style>
+body{background:var(--cream)}
+.doc{position:absolute;left:110px;top:150px;width:600px;height:880px;background:#fff;border-radius:28px;box-shadow:0 30px 60px rgba(16,26,45,.14);transform:rotate(-4deg);padding:64px 60px}
+.doc h1{margin:0 0 8px;font:700 64px 'Space Grotesk';color:var(--ink);letter-spacing:-1px}
+.doc .sub{font:500 26px 'JetBrains Mono';color:var(--muted);margin-bottom:46px}
+.l{height:22px;border-radius:11px;background:#e3e0d8;margin:0 0 28px;position:relative}
+.l.h{background:transparent}
+.l.h::before{content:'';position:absolute;left:-10px;right:-10px;top:-10px;bottom:-10px;background:var(--yellow);border-radius:8px;z-index:0}
+.l.h::after{content:'';position:absolute;inset:0;background:#c9a83a;border-radius:11px;opacity:.55}
+.sec{font:700 30px 'Space Grotesk';color:var(--blue);margin:44px 0 26px}
+.items{position:absolute;right:80px;top:250px;width:440px;display:flex;flex-direction:column;gap:30px}
+.item{background:var(--ink);color:#fff;border-radius:22px;padding:28px 30px;display:flex;align-items:center;gap:24px;box-shadow:0 20px 40px rgba(16,26,45,.22)}
+.chk{flex:0 0 56px;height:56px;border-radius:50%;background:var(--blue);display:grid;place-items:center}
+.chk.y{background:var(--yellow)}
+.item b{display:block;font:700 30px 'Space Grotesk'}
+.item span{font:500 22px 'JetBrains Mono';color:#9fb0cf}
+.arrow{position:absolute;left:640px;top:330px;z-index:2}
+.ribbon{position:absolute;right:110px;bottom:90px;width:280px;height:280px}
+</style></head><body>
+<div class="doc">
+  <h1>PRD</h1><div class="sub">draft v3 · 12 pages</div>
+  <div class="l" style="width:92%"></div>
+  <div class="l h" style="width:78%"></div>
+  <div class="l" style="width:86%"></div>
+  <div class="sec">Requirements</div>
+  <div class="l" style="width:70%"></div>
+  <div class="l h" style="width:88%"></div>
+  <div class="l" style="width:60%"></div>
+  <div class="l h" style="width:74%"></div>
+  <div class="sec">Open questions</div>
+  <div class="l" style="width:84%"></div>
+  <div class="l" style="width:52%"></div>
+</div>
+<div class="items">
+  <div class="item"><div class="chk y"><svg width="30" height="30" viewBox="0 0 30 30"><path d="M5 16 l7 7 l14 -16" stroke="#101a2d" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><b>Report confirmed</b><span>3 gaps · 2 questions</span></div></div>
+  <div class="item"><div class="chk"><svg width="30" height="30" viewBox="0 0 30 30"><path d="M5 16 l7 7 l14 -16" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><b>Security review</b><span>work item · assigned</span></div></div>
+  <div class="item"><div class="chk"><svg width="30" height="30" viewBox="0 0 30 30"><path d="M5 16 l7 7 l14 -16" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><b>Accessibility</b><span>work item · assigned</span></div></div>
+</div>
+<svg class="ribbon" viewBox="0 0 200 200">
+  <path d="M60 120 L40 195 L72 180 L90 200 L105 130 Z" fill="#c95540"/><path d="M140 120 L160 195 L128 180 L110 200 L95 130 Z" fill="#c95540"/>
+  <g fill="#ff7657">
+    <circle cx="100" cy="88" r="80"/>
+  </g>
+  <circle cx="100" cy="88" r="62" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="6 8"/>
+  <text x="100" y="80" text-anchor="middle" style="font:700 19px 'JetBrains Mono';fill:#fff;letter-spacing:1px">BEST USE</text>
+  <text x="100" y="114" text-anchor="middle" style="font:700 34px 'Space Grotesk';fill:#fff">of AI</text>
+</svg>
+</body></html>

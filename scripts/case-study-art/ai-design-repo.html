@@ -1,0 +1,47 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="common.css">
+<style>
+body{background:var(--blue);background-image:linear-gradient(rgba(255,255,255,.06) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,.06) 2px,transparent 2px);background-size:60px 60px}
+svg{position:absolute;inset:0}
+text{font-family:'JetBrains Mono';font-weight:600}
+.lbl{font-size:32px;fill:var(--ink)}
+.main{font-size:34px;fill:#fff;font-weight:700}
+</style></head><body>
+<svg width="1200" height="1200" viewBox="0 0 1200 1200">
+  <!-- branches: drawn first, under trunk -->
+  <g fill="none" stroke-width="22" stroke-linecap="round">
+    <path d="M220 640 C 300 640, 300 420, 380 420 L 560 420 C 640 420, 640 640, 720 640" stroke="#f6d365"/>
+    <path d="M300 640 C 380 640, 380 860, 460 860 L 760 860 C 840 860, 840 640, 920 640" stroke="#ff7657"/>
+    <path d="M520 640 C 600 640, 600 240, 680 240 L 860 240 C 940 240, 940 640, 1020 640" stroke="#dfe9ff"/>
+  </g>
+  <!-- trunk -->
+  <path d="M60 640 L 1140 640" stroke="#fff" stroke-width="30" stroke-linecap="round"/>
+  <!-- commits -->
+  <g stroke="#101a2d" stroke-width="10">
+    <circle cx="470" cy="420" r="30" fill="#f6d365"/>
+    <circle cx="560" cy="860" r="30" fill="#ff7657"/><circle cx="680" cy="860" r="30" fill="#ff7657"/>
+    <circle cx="770" cy="240" r="30" fill="#dfe9ff"/>
+  </g>
+  <g stroke="#1155cc" stroke-width="12" fill="#fff">
+    <circle cx="140" cy="640" r="34"/><circle cx="720" cy="640" r="42"/><circle cx="920" cy="640" r="42"/><circle cx="1020" cy="640" r="42"/>
+  </g>
+  <!-- merge checks -->
+  <g stroke="#1155cc" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M702 641 l12 12 l22 -24"/><path d="M902 641 l12 12 l22 -24"/><path d="M1002 641 l12 12 l22 -24"/>
+  </g>
+  <!-- labels -->
+  <g>
+    <rect x="66" y="560" width="128" height="50" rx="14" fill="#101a2d"/><text x="88" y="596" class="main">main</text>
+    <rect x="360" y="330" width="230" height="56" rx="16" fill="#f6d365"/><text x="382" y="369" class="lbl">concept/</text>
+    <rect x="440" y="900" width="268" height="56" rx="16" fill="#ff7657"/><text x="462" y="939" class="lbl">prototype/</text>
+    <rect x="650" y="150" width="232" height="56" rx="16" fill="#dfe9ff"/><text x="672" y="189" class="lbl">handoff/</text>
+  </g>
+  <!-- PR card -->
+  <g transform="translate(640 980)">
+    <rect width="480" height="120" rx="24" fill="#fff"/>
+    <circle cx="60" cy="60" r="30" fill="#5ad19a"/>
+    <path d="M46 61 l10 10 l20 -22" stroke="#fff" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="110" y="52" style="font:700 30px 'Space Grotesk';fill:#101a2d">Checks passed</text>
+    <text x="110" y="90" style="font:500 24px 'JetBrains Mono';fill:#586174">review · merge · ship</text>
+  </g>
+</svg>
+</body></html>
