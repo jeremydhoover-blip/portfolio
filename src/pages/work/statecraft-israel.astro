@@ -1,4 +1,5 @@
 ---
+import Icon from '../../components/Icon.astro';
 import Base from '../../layouts/Base.astro';
 
 const base = import.meta.env.BASE_URL;
@@ -10,25 +11,24 @@ const base = import.meta.env.BASE_URL;
 >
   <article class="section case-study case-study--violet">
     <header class="case-hero">
-      <div class="container container--narrow">
+      <div class="container case-hero__grid">
+        <div class="case-hero__main">
         <a href={`${base}/#projects`} class="back"><span class="back-icon" aria-hidden="true"></span><span>Back to selected projects</span></a>
-
-        <span class="tag"><span>Historical research</span><span>Game UX</span><span>Content systems</span></span>
         <h1>Designing the content system for a historical strategy game</h1>
         <p class="lede">
           Drawing on my background in history and content design, I joined Statecraft: Israel as
           a public contributor. I conducted source-backed historical research and turned it into
           structured game content, then built reusable guidance, AI-assisted workflows,
-          validation tools, and player-facing copy through 16 merged pull requests.
+          validation tools, and player-facing copy through 20 merged pull requests.
         </p>
 
         <div class="outcomes-strip" aria-label="Project outcomes">
           <div class="outcome">
-            <span class="outcome__num">16 PRs</span>
+            <span class="outcome__num">20 PRs</span>
             <span class="outcome__label">Public contributions merged into the project</span>
           </div>
           <div class="outcome">
-            <span class="outcome__num">7 studies</span>
+            <span class="outcome__num">8 studies</span>
             <span class="outcome__label">Historical research and source-verification contributions</span>
           </div>
           <div class="outcome">
@@ -36,6 +36,18 @@ const base = import.meta.env.BASE_URL;
             <span class="outcome__label">Reusable workflows for research, writing, UX, and video</span>
           </div>
         </div>
+        </div>
+        <aside class="glance-card" aria-labelledby="glance-title">
+          <h2 id="glance-title">At a glance</h2>
+          <dl class="glance">
+              <div><dt>Role</dt><dd>Historical research, content systems, and UX-writing contributor</dd></div>
+              <div><dt>Contribution</dt><dd>Identified gaps, proposed work publicly, and authored 20 merged pull requests</dd></div>
+              <div><dt>Scope</dt><dd>Contributor guidance, AI skills, historical research, game data, UX copy, localization guidance, and release messaging</dd></div>
+              <div><dt>Collaboration</dt><dd>Project owner, maintainers, and public contributors</dd></div>
+              <div><dt>Timeframe</dt><dd>October 2026, ongoing public contribution</dd></div>
+              <div><dt>Evidence</dt><dd>Public issues, pull requests, review history, tests, merged files, and contributor credit</dd></div>
+            </dl>
+        </aside>
       </div>
     </header>
 
@@ -46,22 +58,7 @@ const base = import.meta.env.BASE_URL;
           <p>Statecraft: Israel was created by Eyal Golan. I did not create or own the game. This case study covers only my public issues and merged contributions. The repository uses different licenses for code, content, documentation, and assets.</p>
         </aside>
 
-        <section class="case-summary" aria-labelledby="summary-title">
-          <div class="reading-column">
-            <h2 id="summary-title">At a glance</h2>
-            <dl class="case-meta">
-              <div><dt>Role</dt><dd>Historical research, content systems, and UX-writing contributor</dd></div>
-              <div><dt>Contribution</dt><dd>Identified gaps, proposed work publicly, and authored 16 merged pull requests</dd></div>
-              <div><dt>Scope</dt><dd>Contributor guidance, AI skills, historical research, game data, UX copy, localization guidance, and release messaging</dd></div>
-              <div><dt>Collaboration</dt><dd>Project owner, maintainers, and public contributors</dd></div>
-              <div><dt>Timeframe</dt><dd>October 2026, ongoing public contribution</dd></div>
-              <div><dt>Evidence</dt><dd>Public issues, pull requests, review history, tests, merged files, and contributor credit</dd></div>
-            </dl>
-          </div>
-        </section>
-
         <nav class="case-toc" aria-label="Statecraft: Israel case study sections">
-          <span class="case-toc__label">Jump to a section</span>
           <ul>
             <li><a href="#challenge">Challenge</a></li>
             <li><a href="#foundation">Foundation</a></li>
@@ -194,7 +191,7 @@ const base = import.meta.env.BASE_URL;
             </p>
           </div>
           <div class="proof-list" aria-label="Public contribution evidence">
-            <a href="https://github.com/eyalgolan/statecraft-israel/pulls?q=is%3Apr+author%3Ajeremydhoover-blip+is%3Amerged" target="_blank" rel="noopener"><span>Complete record</span><strong>Review all 16 merged pull requests</strong><small>Research, systems, content, UX, and messaging ↗</small></a>
+            <a href="https://github.com/eyalgolan/statecraft-israel/pulls?q=is%3Apr+author%3Ajeremydhoover-blip+is%3Amerged" target="_blank" rel="noopener"><span>Complete record</span><strong>Review all 20 merged pull requests</strong><small>Research, systems, content, UX, and messaging ↗</small></a>
             <a href="https://github.com/eyalgolan/statecraft-israel/pull/134" target="_blank" rel="noopener"><span>Foundation</span><strong>Inspect the repository guidance and skills</strong><small>Writing guide, agent instructions, templates, and checks ↗</small></a>
             <a href="https://github.com/eyalgolan/statecraft-israel/pull/970" target="_blank" rel="noopener"><span>UX system</span><strong>Read the bilingual UX guidance contribution</strong><small>Glossary, conventions, English, and Hebrew guidance ↗</small></a>
             <a href="https://github.com/eyalgolan/statecraft-israel/pull/1139" target="_blank" rel="noopener"><span>Shipped UI copy</span><strong>Compare the revised save and recovery messages</strong><small>Implementation evidence, review, and before-and-after captures ↗</small></a>
@@ -221,13 +218,12 @@ const base = import.meta.env.BASE_URL;
 
         <aside class="inspect-work" aria-labelledby="inspect-title">
           <div>
-            <span class="tag">Public contribution</span>
             <h2 id="inspect-title">Inspect the work and the game</h2>
             <p>The live repository contains the contribution history, current game, source policies, tests, and project roadmap.</p>
           </div>
           <div class="inspect-work__actions">
-            <a href="https://github.com/eyalgolan/statecraft-israel/pulls?q=is%3Apr+author%3Ajeremydhoover-blip+is%3Amerged" target="_blank" rel="noopener" class="btn">View my pull requests ↗</a>
-            <a href="https://github.com/eyalgolan/statecraft-israel" target="_blank" rel="noopener" class="btn btn--outline">Explore the repository ↗</a>
+            <a href="https://github.com/eyalgolan/statecraft-israel/pulls?q=is%3Apr+author%3Ajeremydhoover-blip+is%3Amerged" target="_blank" rel="noopener" class="btn">View my pull requests<Icon name="arrow-outward" /></a>
+            <a href="https://github.com/eyalgolan/statecraft-israel" target="_blank" rel="noopener" class="btn btn--outline">Explore the repository<Icon name="arrow-outward" /></a>
           </div>
         </aside>
 
@@ -253,7 +249,6 @@ const base = import.meta.env.BASE_URL;
   h1 { margin-block: var(--space-4) var(--space-6); }
   .lede { max-width: 58ch; margin-bottom: var(--space-12); font-size: var(--size-xl); line-height: 1.6; }
   .outcome { display: flex; flex-direction: column; gap: var(--space-2); transition: transform 180ms ease, box-shadow 180ms ease; }
-  .outcome:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
   .outcome__num { line-height: 1.1; white-space: nowrap; }
   .outcome__label { max-width: 24ch; color: var(--muted); font-size: var(--size-sm); line-height: 1.5; }
   .case-shell { max-width: calc(var(--narrow) + 6rem); }
@@ -263,21 +258,20 @@ const base = import.meta.env.BASE_URL;
   .content-section:not(:first-child) h2 { margin-top: var(--space-16); }
   .content-section p { margin-bottom: var(--space-4); }
 
-  .disclosure { display: grid; grid-template-columns: 120px 1fr; gap: var(--space-6); width: 100%; max-width: var(--narrow); margin: 0 auto var(--space-12); padding: var(--space-6); border: 1px solid var(--portfolio-blue-soft); border-left: 4px solid var(--portfolio-blue); border-radius: 12px; background: #fff; }
-  .disclosure strong { color: var(--portfolio-blue); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .disclosure { display: grid; grid-template-columns: 120px 1fr; gap: var(--space-6); width: 100%; max-width: var(--narrow); margin: 0 auto var(--space-12); padding: var(--space-6); border: 1px solid var(--portfolio-blue-soft); border-radius: 12px; background: #fff; }
+  .disclosure strong { color: var(--muted); font-size: 0.75rem; text-transform: none; }
   .disclosure p { color: var(--muted); font-size: var(--size-sm); }
 
   .case-meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
-  .case-meta div { padding: var(--space-6); border: 1px solid var(--border); border-left: 4px solid var(--portfolio-blue-soft); border-radius: 12px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
-  .case-meta div:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
-  .case-meta dt { margin-bottom: var(--space-2); color: var(--portfolio-blue); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .case-meta div { padding: var(--space-6); border: 1px solid var(--border); border-radius: 12px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .case-meta dt { margin-bottom: var(--space-2); color: var(--muted); font-size: 0.75rem; font-weight: 600; text-transform: none; }
   .case-meta dd { color: var(--portfolio-ink); font-size: 0.95rem; line-height: 1.5; }
 
   .case-toc { max-width: var(--narrow); margin: var(--space-8) auto var(--space-16); padding-block: var(--space-6); border-block: 1px solid var(--border); }
-  .case-toc__label { display: block; margin-bottom: var(--space-3); color: var(--portfolio-blue); font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+  .case-toc__label { display: block; margin-bottom: var(--space-3); color: var(--muted); font-size: 0.6875rem; font-weight: 600; text-transform: none; }
   .case-toc ul { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin: 0; list-style: none; }
   .case-toc a { display: inline-flex; min-height: 32px; align-items: center; color: var(--portfolio-ink); font-size: 0.875rem; font-weight: 650; text-decoration: none; }
-  .case-toc a:hover { color: var(--portfolio-blue); text-decoration: underline; text-decoration-color: var(--portfolio-coral); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+  .case-toc a:hover { color: var(--portfolio-blue); text-decoration: underline; text-decoration-color: var(--portfolio-blue); text-decoration-thickness: 2px; text-underline-offset: 5px; }
 
   .gameplay-figure { width: min(100%, 880px); margin: var(--space-12) auto var(--space-16); }
   .system-figure { width: 100%; max-width: var(--narrow); margin: var(--space-12) auto var(--space-16); }
@@ -285,21 +279,20 @@ const base = import.meta.env.BASE_URL;
   .gameplay-figure figcaption, .system-figure figcaption { margin-top: var(--space-4); color: var(--muted); font-size: var(--size-sm); line-height: 1.55; }
   .gameplay-figure figcaption strong, .system-figure figcaption strong { color: var(--portfolio-ink); }
 
-  .system-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); padding: var(--space-4); border: 1px solid #b8c9ee; border-radius: 20px; background: var(--portfolio-blue-soft); }
+  .system-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--border); border-radius: 20px; background: var(--portfolio-blue-soft); }
   .system-grid div { display: flex; min-height: 145px; flex-direction: column; gap: var(--space-2); padding: var(--space-6); border-radius: 12px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
-  .system-grid div:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
   .system-grid span, .research-flow > li > span { display: grid; width: 1.8rem; height: 1.8rem; place-items: center; border-radius: 50%; background: var(--portfolio-blue); color: #fff; font-size: 0.7rem; font-weight: 800; }
   .system-grid strong, .research-flow strong { color: var(--portfolio-ink); }
   .system-grid small, .research-flow small { color: var(--muted); font-size: 0.8rem; line-height: 1.5; }
 
-  .research-flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-2); margin: 0; padding: var(--space-4); border: 1px solid #efc4b8; border-radius: 20px; background: #ffe8e2; list-style: none; }
+  .research-flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-2); margin: 0; padding: var(--space-4); border: 1px solid #efc4b8; border-radius: 20px; background: var(--surface-tint); list-style: none; }
   .research-flow li { position: relative; display: flex; min-height: 165px; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border-radius: 12px; background: #fff; }
 
   .proof-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; max-width: var(--narrow); gap: var(--space-3); margin: var(--space-8) auto 0; }
-  .proof-list a { display: flex; min-height: 150px; flex-direction: column; gap: var(--space-2); padding: var(--space-6); border: 1px solid var(--border); border-top: 6px solid var(--portfolio-blue); border-radius: 12px; background: #fff; color: var(--portfolio-ink); text-decoration: none; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .proof-list a { display: flex; min-height: 150px; flex-direction: column; gap: var(--space-2); padding: var(--space-6); border: 1px solid var(--border); border-radius: 12px; background: #fff; color: var(--portfolio-ink); text-decoration: none; transition: transform 180ms ease, box-shadow 180ms ease; }
   .proof-list a:nth-child(2n) { border-top-color: var(--portfolio-coral); }
-  .proof-list a:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(16,26,45,0.12); }
-  .proof-list span { color: var(--muted); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .proof-list a:hover { box-shadow: 0 8px 20px rgba(16,26,45,0.08); border-color: rgba(17,85,204,0.35); }
+  .proof-list span { color: var(--muted); font-size: 0.7rem; font-weight: 600; text-transform: none; }
   .proof-list strong { color: var(--portfolio-blue); line-height: 1.4; }
   .proof-list small { margin-top: auto; color: var(--muted); font-size: 0.78rem; line-height: 1.45; }
 
@@ -331,4 +324,27 @@ const base = import.meta.env.BASE_URL;
   @media (prefers-reduced-motion: reduce) {
     .outcome:hover, .case-meta div:hover, .system-grid div:hover, .proof-list a:hover { transform: none; }
   }
+
+  /* ---- Visual refresh ---- */
+  /* stepper: numbered nodes on one line */
+  .research-flow { --node: 36px; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.75rem; padding: 0; border: 0; background: transparent; list-style: none; }
+  .research-flow li { position: relative; display: flex; min-height: 0; flex-direction: column; align-items: center; gap: 0.35rem; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; text-align: center; }
+  .research-flow li > span:first-child { position: relative; z-index: 1; display: grid; width: var(--node); height: var(--node); margin-bottom: 0.6rem; place-items: center; border: 3px solid #fff; border-radius: 50%; background: var(--portfolio-blue); box-shadow: var(--elev-1); color: #fff; font-size: 0.8rem; font-weight: 800; }
+  .research-flow li::after { content: ''; position: absolute; top: calc(var(--node) / 2); left: 50%; z-index: 0; width: calc(100% + 0.75rem); height: 2px; background: var(--portfolio-blue-soft); transform: translateY(-50%); }
+  .research-flow li:last-child::after { content: none; }
+  .research-flow li::before { content: none; }
+  .research-flow strong { color: var(--portfolio-ink); font-size: 0.9rem; line-height: 1.3; }
+  .research-flow li > small:last-child { max-width: 18ch; color: var(--muted); font-size: 0.78rem; line-height: 1.45; }
+  @media (max-width: 900px) {
+    .research-flow { grid-template-columns: 1fr; gap: 1.25rem; }
+    .research-flow li { display: grid; grid-template-columns: var(--node) 1fr; column-gap: 1rem; align-items: start; text-align: left; }
+    .research-flow li > span:first-child { grid-row: 1 / span 2; margin: 0; }
+    .research-flow li::after { top: var(--node); left: calc(var(--node) / 2); width: 2px; height: calc(100% - var(--node) + 1.25rem); transform: translateX(-50%); }
+    .research-flow li > small:last-child { max-width: none; }
+  }
+
+  /* card grid: open white cards, no outer box */
+  .system-grid { padding: 0; border: 0; background: transparent; }
+  .system-grid > div, .system-grid > li { border: 1px solid var(--border); border-radius: 20px; background: #fff; box-shadow: var(--elev-1); }
+  .system-grid strong { color: var(--portfolio-ink); }
 </style>

@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/Icon.astro';
 import Base from '../layouts/Base.astro';
 
 const base = import.meta.env.BASE_URL;
@@ -10,9 +11,13 @@ const base = import.meta.env.BASE_URL;
     <header class="about-hero">
       <div class="container container--narrow">
         <a href={`${base}/`} class="hero-back"><span class="back-icon" aria-hidden="true"></span><span>Back to homepage</span></a>
-        <p class="eyebrow">About</p>
-        <h1>Jeremy Hoover</h1>
-        <p class="subtitle"><span>Product strategy</span><span>Design systems</span><span>AI workflows</span></p>
+        <div class="about-id">
+          <img src={`${base}/images/jeremy-hoover.jpg`} alt="" width="88" height="88" />
+          <div>
+            <h1>Jeremy Hoover</h1>
+            <p class="subtitle">Senior Content Designer at Microsoft and UXCC instructor</p>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -53,7 +58,7 @@ const base = import.meta.env.BASE_URL;
           <div class="experience__item">
             <div class="experience__meta">
               <strong>Microsoft</strong>
-              <span>February 2022 – Present</span>
+              <span>February 2022 – present</span>
             </div>
             <p class="experience__role">Senior Content Designer, AI systems and developer experiences</p>
             <p>
@@ -65,7 +70,7 @@ const base = import.meta.env.BASE_URL;
           <div class="experience__item">
             <div class="experience__meta">
               <strong>UX Content Collective</strong>
-              <span>May 2026 – Present</span>
+              <span>May 2026 – present</span>
             </div>
             <p class="experience__role">Creator and instructor, Technical Content Designer Program</p>
             <p>Creator and instructor of the Technical Content Designer program, helping content designers build confidence with developer tools and AI systems.</p>
@@ -108,7 +113,7 @@ const base = import.meta.env.BASE_URL;
         <hr class="divider" />
 
         <div class="cta-row">
-          <a href="mailto:jeremyd.hoover@gmail.com" class="btn">Get in touch</a>
+          <a href="mailto:jeremyd.hoover@gmail.com" class="btn"><Icon name="mail" />Get in touch</a>
         </div>
         </div>
       </div>
@@ -118,125 +123,22 @@ const base = import.meta.env.BASE_URL;
 </Base>
 
 <style>
-  .about-page { background: var(--portfolio-cream); }
-  .about-hero {
-    position: relative;
-    overflow: hidden;
-    padding: clamp(1rem, 2vw, 1.5rem) 0 clamp(3.5rem, 8vw, 6.5rem);
-    background: var(--portfolio-blue);
-    color: #fff;
-  }
-  .about-hero::before,
-  .about-hero::after {
-    content: '';
-    position: absolute;
-    pointer-events: none;
-  }
-  .about-hero::before {
-    width: clamp(170px, 25vw, 340px);
-    aspect-ratio: 1;
-    top: -40%;
-    right: 4%;
-    border-radius: 50% 50% 12% 50%;
-    background: var(--portfolio-yellow);
-  }
-  .about-hero::after {
-    width: clamp(110px, 16vw, 220px);
-    aspect-ratio: 1.2;
-    right: 22%;
-    bottom: -35%;
-    border-radius: 50% 12% 50% 50%;
-    background: var(--portfolio-coral);
-  }
-  .about-hero .container { position: relative; z-index: 1; }
-  .about-hero h1 { color: #fff; }
-  .about-content { padding-block: clamp(3.5rem, 7vw, 6rem); }
-  .eyebrow {
-    font-size: var(--size-sm);
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--portfolio-yellow);
-    margin-bottom: var(--space-4);
-    max-width: none;
-  }
-  h1 { margin-bottom: var(--space-2); }
-  .subtitle {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    font-size: var(--size-lg);
-    color: rgba(255,255,255,0.72);
-    margin-bottom: 0;
-    max-width: none;
-  }
-  .subtitle span + span { margin-left: 0.65rem; padding-left: 0.65rem; border-left: 1px solid rgba(255,255,255,0.55); }
-
-  @media (max-width: 640px) {
-    .subtitle {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      width: 100%;
-      font-size: clamp(0.68rem, 3.2vw, 0.82rem);
-      line-height: 1.35;
-      text-align: center;
-    }
-    .subtitle span { display: flex; align-items: center; justify-content: center; padding-inline: 0.45rem; }
-    .subtitle span:first-child { justify-content: flex-start; padding-left: 0; text-align: left; }
-    .subtitle span:last-child { justify-content: flex-end; padding-right: 0; text-align: right; }
-    .subtitle span + span { margin-left: 0; padding-left: 0.45rem; }
-  }
-  .about-body p {
-    font-size: var(--size-lg);
-    margin-bottom: var(--space-6);
-  }
-  h2 { margin-bottom: var(--space-8); color: var(--portfolio-blue); }
-
-  .experience { display: flex; flex-direction: column; gap: var(--space-8); }
-  .experience__item {
-    padding: clamp(1.25rem, 3vw, 2rem);
-    border: 1px solid var(--color-border);
-    border-left: 6px solid var(--portfolio-coral);
-    border-radius: 14px;
-    background: #fff;
-  }
-  .experience__item:nth-child(even) { border-left-color: var(--portfolio-yellow); }
-  .experience__meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: var(--space-4);
-    flex-wrap: wrap;
-    margin-bottom: var(--space-1);
-  }
-  .experience__meta strong { font-size: var(--size-base); }
-  .experience__meta span { font-size: var(--size-sm); color: var(--color-text-muted); }
-  .experience__role {
-    font-size: var(--size-base);
-    font-weight: 500;
-    color: var(--color-accent);
-    margin-bottom: var(--space-2);
-    max-width: none;
-  }
-  .experience__item p { font-size: var(--size-base); color: var(--color-text-muted); }
-
-  .btn {
-    display: inline-block;
-    font-size: var(--size-sm);
-    font-weight: 600;
-    padding: 0.65rem 1.4rem;
-    border-radius: var(--radius-md);
-    background: var(--color-accent);
-    color: #fff;
-    text-decoration: none;
-    transition: background 0.15s;
-  }
-  .btn:hover { background: var(--color-accent-hover); color: #fff; }
-  .btn--ghost {
-    background: transparent;
-    color: var(--color-accent);
-    border: 1.5px solid var(--color-accent);
-  }
-  .btn--ghost:hover { background: var(--color-tag-bg); color: var(--color-accent-hover); }
-  .cta-row { display: flex; gap: var(--space-4); flex-wrap: wrap; }
+  .about-page { background: #fff; }
+  .about-hero { padding: clamp(1rem, 2vw, 1.5rem) 0 clamp(2.5rem, 5vw, 3.5rem); background: var(--portfolio-blue); color: #fff; }
+  .about-id { display: flex; align-items: center; gap: 1.25rem; }
+  .about-id img { flex: 0 0 auto; width: 88px; height: 88px; border: 2px solid var(--portfolio-yellow); border-radius: 50%; object-fit: cover; object-position: 50% 30%; box-shadow: var(--elev-2); }
+  .about-hero h1 { margin: 0; color: #fff; font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.1; }
+  .subtitle { margin: 0.35rem 0 0; color: rgba(255,255,255,0.82); font-size: 1rem; max-width: none; }
+  .about-content { padding-block: clamp(3rem, 6vw, 4.5rem); }
+  .about-body p { margin-bottom: var(--space-6); font-size: 1.0625rem; line-height: 1.75; }
+  h2 { margin-bottom: var(--space-6); color: var(--portfolio-ink); }
+  .experience { display: flex; flex-direction: column; gap: 0.75rem; }
+  .experience__item { padding: 1.25rem 1.5rem; border: 1px solid var(--border); border-radius: var(--portfolio-radius); background: #fff; box-shadow: var(--elev-1); }
+  .experience__meta { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.25rem 1rem; margin-bottom: 0.2rem; }
+  .experience__meta strong { color: var(--portfolio-ink); font-family: var(--f-heading); font-size: 1.05rem; }
+  .experience__meta span { color: var(--muted); font-size: 0.8125rem; }
+  .experience__role { margin-bottom: 0.4rem; color: var(--portfolio-ink); font-size: 0.9375rem; font-weight: 600; max-width: none; }
+  .experience__item p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: var(--space-4); }
+  @media (max-width: 560px) { .about-id img { width: 64px; height: 64px; } }
 </style>

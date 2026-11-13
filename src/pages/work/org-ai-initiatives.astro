@@ -9,10 +9,9 @@ const base = import.meta.env.BASE_URL;
 >
   <article class="section case-study case-study--orange">
     <header class="case-hero">
-      <div class="container container--narrow">
+      <div class="container case-hero__grid">
+        <div class="case-hero__main">
         <a href={`${base}/#projects`} class="back"><span class="back-icon" aria-hidden="true"></span><span>Back to selected projects</span></a>
-
-        <span class="tag"><span>Org-wide influence</span><span>Design organization</span><span>AI adoption</span></span>
         <h1>Building the conditions for AI adoption across the design org</h1>
         <p class="lede">
           I didn't wait for the org to have an AI strategy. Three times I identified what was
@@ -35,6 +34,18 @@ const base = import.meta.env.BASE_URL;
             <span class="outcome__label">One contribution, review, and quality model for the shared knowledge base</span>
           </div>
         </div>
+        </div>
+        <aside class="glance-card" aria-labelledby="glance-title">
+          <h2 id="glance-title">At a glance</h2>
+          <dl class="glance">
+              <div><dt>Role</dt><dd>Senior Content Designer; initiative lead, KB governance owner, and org-level trainer</dd></div>
+              <div><dt>Scope</dt><dd>Design organization spanning multiple teams and geographies</dd></div>
+              <div><dt>Pattern</dt><dd>Gap identification, leadership engagement, v-team, POC, GA, required workflow</dd></div>
+              <div><dt>Status</dt><dd>All three initiatives active and required</dd></div>
+              <div><dt>Collaboration</dt><dd>Senior org leaders, principal design managers, DesignOps, repository owners, reviewers, and subject-matter experts</dd></div>
+              <div><dt>Evidence</dt><dd>Verified internal adoption, VP-level recognition, and internal showcase presentation</dd></div>
+            </dl>
+        </aside>
       </div>
     </header>
 
@@ -45,22 +56,7 @@ const base = import.meta.env.BASE_URL;
           <p>This project was completed inside Microsoft. I reconstructed the diagrams with generic labels and removed internal details that are not public.</p>
         </aside>
 
-        <section class="case-summary" aria-labelledby="summary-title">
-          <div class="reading-column">
-            <h2 id="summary-title">At a glance</h2>
-            <dl class="case-meta">
-              <div><dt>Role</dt><dd>Senior Content Designer; initiative lead, KB governance owner, and org-level trainer</dd></div>
-              <div><dt>Scope</dt><dd>Design organization spanning multiple teams and geographies</dd></div>
-              <div><dt>Pattern</dt><dd>Gap identification, leadership engagement, v-team, POC, GA, required workflow</dd></div>
-              <div><dt>Status</dt><dd>All three initiatives active and required</dd></div>
-              <div><dt>Collaboration</dt><dd>Senior org leaders, principal design managers, DesignOps, repository owners, reviewers, and subject-matter experts</dd></div>
-              <div><dt>Evidence</dt><dd>Verified internal adoption, VP-level recognition, and internal showcase presentation</dd></div>
-            </dl>
-          </div>
-        </section>
-
         <nav class="case-toc" aria-label="Design org AI initiatives sections">
-          <span class="case-toc__label">Jump to a section</span>
           <ul>
             <li><a href="#gap">The gap</a></li>
             <li><a href="#agent">Writing agent</a></li>
@@ -205,7 +201,6 @@ const base = import.meta.env.BASE_URL;
 
         <aside class="pattern-cta" aria-labelledby="pattern-title">
           <div>
-            <span class="tag">Active and required</span>
             <h2 id="pattern-title">A pattern, not a project</h2>
             <p>All three initiatives remain active. The content-design agent is part of the org platform. The knowledge base is a required workflow. The training continues as the tools and practices evolve.</p>
           </div>
@@ -233,7 +228,6 @@ const base = import.meta.env.BASE_URL;
   h1 { margin-block: var(--space-4) var(--space-6); }
   .lede { max-width: 58ch; margin-bottom: var(--space-12); font-size: var(--size-xl); line-height: 1.6; }
   .outcome { display: grid; grid-template-rows: 2.25rem auto; align-content: start; gap: var(--space-3); transition: transform 180ms ease, box-shadow 180ms ease; }
-  .outcome:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
   .case-study .outcome__num { align-self: start; font-size: clamp(1.5rem, 11cqw, 1.875rem); line-height: 1.15; white-space: nowrap; }
   .case-study .outcome__label { max-width: 25ch; font-size: var(--size-sm); line-height: 1.55; color: var(--muted); }
   .case-shell { max-width: calc(var(--narrow) + 6rem); }
@@ -245,26 +239,25 @@ const base = import.meta.env.BASE_URL;
   .content-section ul { margin: var(--space-4) 0 var(--space-6) var(--space-6); }
   .content-section li { margin-bottom: var(--space-2); }
 
-  .disclosure { display: grid; grid-template-columns: 150px 1fr; gap: var(--space-6); width: 100%; max-width: var(--narrow); margin: 0 auto var(--space-12); padding: var(--space-6); border: 1px solid var(--portfolio-blue-soft); border-left: 4px solid var(--portfolio-blue); border-radius: 12px; background: #fff; }
-  .disclosure strong { color: var(--portfolio-blue); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .disclosure { display: grid; grid-template-columns: 150px 1fr; gap: var(--space-6); width: 100%; max-width: var(--narrow); margin: 0 auto var(--space-12); padding: var(--space-6); border: 1px solid var(--portfolio-blue-soft); border-radius: 12px; background: #fff; }
+  .disclosure strong { color: var(--muted); font-size: 0.75rem; text-transform: none; }
   .disclosure p { color: var(--muted); font-size: var(--size-sm); }
 
   .case-meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
-  .case-meta div { padding: var(--space-6); border: 1px solid var(--border); border-left: 4px solid var(--portfolio-blue-soft); border-radius: 12px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
-  .case-meta div:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
-  .case-meta dt { margin-bottom: var(--space-2); color: var(--portfolio-blue); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .case-meta div { padding: var(--space-6); border: 1px solid var(--border); border-radius: 12px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .case-meta dt { margin-bottom: var(--space-2); color: var(--muted); font-size: 0.75rem; font-weight: 600; text-transform: none; }
   .case-meta dd { color: var(--portfolio-ink); font-size: 0.95rem; line-height: 1.5; }
 
   .case-toc { max-width: var(--narrow); margin: var(--space-8) auto var(--space-16); padding-block: var(--space-6); border-block: 1px solid var(--border); }
-  .case-toc__label { display: block; margin-bottom: var(--space-3); color: var(--portfolio-blue); font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.1em; line-height: 1.2; text-transform: uppercase; }
+  .case-toc__label { display: block; margin-bottom: var(--space-3); color: var(--muted); font-size: 0.6875rem; font-weight: 600; line-height: 1.2; text-transform: none; }
   .case-toc ul { display: flex; flex-wrap: wrap; gap: 0.5rem 0; margin: 0; list-style: none; }
-  .case-toc li { --toc-divider: var(--portfolio-coral); display: flex; align-items: center; }
+  .case-toc li { --toc-divider: var(--border); display: flex; align-items: center; }
   .case-toc li + li { margin-left: var(--space-4); }
   .case-toc li + li::before { content: ''; width: 2px; height: 16px; margin-right: var(--space-4); border-radius: 999px; background: var(--toc-divider); }
-  .case-toc li:nth-child(3n) { --toc-divider: var(--portfolio-yellow); }
-  .case-toc li:nth-child(3n + 1) { --toc-divider: var(--portfolio-blue); }
+  .case-toc li:nth-child(3n) { --toc-divider: var(--border); }
+  .case-toc li:nth-child(3n + 1) { --toc-divider: var(--border); }
   .case-toc a { display: inline-flex; min-height: 32px; align-items: center; color: var(--portfolio-ink); font-size: 0.875rem; font-weight: 650; line-height: 1.3; text-decoration: none; }
-  .case-toc a:hover { color: var(--portfolio-blue); text-decoration: underline; text-decoration-color: var(--portfolio-coral); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+  .case-toc a:hover { color: var(--portfolio-blue); text-decoration: underline; text-decoration-color: var(--portfolio-blue); text-decoration-thickness: 2px; text-underline-offset: 5px; }
 
   .evidence-figure { width: 100%; max-width: var(--narrow); margin: var(--space-12) auto var(--space-16); }
   .evidence-figure figcaption { width: 100%; margin-top: var(--space-4); color: var(--muted); font-size: var(--size-sm); }
@@ -272,18 +265,16 @@ const base = import.meta.env.BASE_URL;
 
   .before-after { display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); gap: var(--space-3); align-items: stretch; padding: var(--space-4); border: 1px solid var(--border); border-radius: 20px; background: #fff; }
   .ba-panel { padding: var(--space-6); border: 1px solid var(--border); border-radius: 14px; transition: transform 180ms ease, box-shadow 180ms ease; }
-  .ba-panel--before { background: var(--portfolio-cream); }
+  .ba-panel--before { background: var(--surface-tint); }
   .ba-panel--after { background: var(--portfolio-blue-soft); }
-  .ba-panel:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
-  .ba-label { display: block; color: var(--portfolio-coral); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: var(--space-2); }
+  .ba-label { display: block; color: var(--muted); font-size: 0.7rem; font-weight: 600; text-transform: none; margin-bottom: var(--space-2); }
   .ba-panel h3 { margin-bottom: var(--space-4); color: var(--portfolio-blue); }
   .ba-panel ul { margin-left: var(--space-4); }
   .ba-panel li { margin-bottom: var(--space-2); color: var(--muted); font-size: var(--size-sm); }
   .ba-arrow { display: grid; place-items: center; color: var(--portfolio-blue); font-size: 1.5rem; font-weight: 800; }
 
-  .kb-stages { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-2); margin: 0; padding: var(--space-4); border: 1px solid #b8c9ee; border-radius: 20px; background: var(--portfolio-blue-soft); list-style: none; }
+  .kb-stages { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-2); margin: 0; padding: var(--space-4); border: 1px solid var(--border); border-radius: 20px; background: var(--portfolio-blue-soft); list-style: none; }
   .kb-stages li { position: relative; display: flex; min-height: 185px; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border-radius: 12px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
-  .kb-stages li:hover { z-index: 2; transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
   .kb-stages li::after { content: '→'; position: absolute; top: 50%; right: -0.8rem; z-index: 1; color: var(--portfolio-blue); font-size: 1.2rem; font-weight: 800; transform: translateY(-50%); }
   .kb-stages li:last-child::after { content: none; }
   .stage-num { display: grid; width: 1.75rem; height: 1.75rem; place-items: center; border-radius: 50%; background: var(--portfolio-blue); color: #fff; font-size: 0.7rem; font-weight: 800; }
@@ -292,7 +283,6 @@ const base = import.meta.env.BASE_URL;
 
   .conditions-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; max-width: var(--narrow); gap: var(--space-3); margin: var(--space-8) auto var(--space-4); }
   .conditions-grid div { display: flex; min-height: 140px; flex-direction: column; gap: var(--space-3); padding: var(--space-6); border: 1px solid var(--border); border-radius: 14px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
-  .conditions-grid div:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
   .conditions-grid strong { color: var(--portfolio-blue); line-height: 1.35; }
   .conditions-grid span { color: var(--muted); font-size: var(--size-sm); line-height: 1.5; }
 
@@ -331,4 +321,43 @@ const base = import.meta.env.BASE_URL;
     .outcome:hover, .case-meta div:hover, .ba-panel:hover,
     .kb-stages li:hover, .conditions-grid div:hover { transform: none; }
   }
+
+  /* ---- Visual refresh ---- */
+  /* before / after: two open cards with an arrow badge */
+  .before-after { grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr); gap: var(--space-4); align-items: center; padding: 0; border: 0; background: transparent; }
+  .ba-panel { height: 100%; padding: 1.5rem; border: 1px solid var(--border); border-radius: 20px; background: #fff; box-shadow: none; }
+  .ba-panel--after { border-color: rgba(17,85,204,0.35); background: #fff; box-shadow: var(--elev-2); }
+  .ba-label { display: inline-flex; align-items: center; height: 24px; padding: 0 0.6rem; border-radius: 12px; background: var(--surface-tint); color: var(--muted); font-size: 0.75rem; font-weight: 600; text-transform: none; letter-spacing: 0; }
+  .ba-panel--after .ba-label { background: var(--portfolio-blue); color: #fff; }
+  .ba-panel h3 { margin-block: 0.75rem; color: var(--portfolio-ink); font-size: 1.15rem; }
+  .ba-panel ul, .ba-panel ol { margin: 0; list-style: none; }
+  .ba-panel li { position: relative; margin-bottom: 0.5rem; padding-left: 1.6rem; color: var(--text); font-size: 0.9rem; }
+  .ba-panel li::before { position: absolute; top: 0.1em; left: 0; display: grid; width: 1.1rem; height: 1.1rem; place-items: center; border-radius: 50%; font-size: 0.7rem; font-weight: 800; line-height: 1; }
+  .ba-panel--before li { color: var(--muted); }
+  .ba-panel--before li::before { content: '–'; background: #eef0f4; color: var(--muted); }
+  .ba-panel--after li::before { content: '✓'; background: var(--portfolio-blue-soft); color: var(--portfolio-blue); }
+  .ba-arrow { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; background: var(--portfolio-blue); box-shadow: var(--elev-2); color: #fff; font-size: 1.15rem; }
+  @media (max-width: 640px) { .before-after { grid-template-columns: 1fr; } .ba-arrow { justify-self: center; transform: rotate(90deg); } }
+
+  /* stepper: numbered nodes on one line */
+  .kb-stages { --node: 36px; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.75rem; padding: 0; border: 0; background: transparent; list-style: none; }
+  .kb-stages li { position: relative; display: flex; min-height: 0; flex-direction: column; align-items: center; gap: 0.35rem; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; text-align: center; }
+  .kb-stages li > span:first-child { position: relative; z-index: 1; display: grid; width: var(--node); height: var(--node); margin-bottom: 0.6rem; place-items: center; border: 3px solid #fff; border-radius: 50%; background: var(--portfolio-blue); box-shadow: var(--elev-1); color: #fff; font-size: 0.8rem; font-weight: 800; }
+  .kb-stages li::after { content: ''; position: absolute; top: calc(var(--node) / 2); left: 50%; z-index: 0; width: calc(100% + 0.75rem); height: 2px; background: var(--portfolio-blue-soft); transform: translateY(-50%); }
+  .kb-stages li:last-child::after { content: none; }
+  .kb-stages li::before { content: none; }
+  .kb-stages strong { color: var(--portfolio-ink); font-size: 0.9rem; line-height: 1.3; }
+  .kb-stages li > small:last-child { max-width: 18ch; color: var(--muted); font-size: 0.78rem; line-height: 1.45; }
+  @media (max-width: 900px) {
+    .kb-stages { grid-template-columns: 1fr; gap: 1.25rem; }
+    .kb-stages li { display: grid; grid-template-columns: var(--node) 1fr; column-gap: 1rem; align-items: start; text-align: left; }
+    .kb-stages li > span:first-child { grid-row: 1 / span 2; margin: 0; }
+    .kb-stages li::after { top: var(--node); left: calc(var(--node) / 2); width: 2px; height: calc(100% - var(--node) + 1.25rem); transform: translateX(-50%); }
+    .kb-stages li > small:last-child { max-width: none; }
+  }
+
+  /* card grid: open white cards, no outer box */
+  .conditions-grid { padding: 0; border: 0; background: transparent; }
+  .conditions-grid > div, .conditions-grid > li { border: 1px solid var(--border); border-radius: 20px; background: #fff; box-shadow: var(--elev-1); }
+  .conditions-grid strong { color: var(--portfolio-ink); }
 </style>
