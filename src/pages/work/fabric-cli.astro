@@ -7,20 +7,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <Base
   title="Fabric CLI AI Agent Infrastructure | Jeremy Hoover"
-  description="How I identified, designed, and implemented the public AI asset system shipped with the Microsoft Fabric CLI general availability release."
+  description="I proposed, designed, and wrote the AI skills, prompts, and agent context that shipped with the Microsoft Fabric CLI at general availability."
 >
   <article class="section case-study case-study--green">
     <header class="case-hero">
       <div class="container case-hero__grid">
         <div class="case-hero__main">
         <a href={`${base}/#projects`} class="back"><span class="back-icon" aria-hidden="true"></span><span>Back to selected projects</span></a>
-        <h1>Designing the AI execution layer for Fabric CLI</h1>
+        <h1>I built the AI skills that shipped with Fabric CLI</h1>
         <p class="lede">
-          I identified a missing product layer before the Fabric CLI general availability release.
-          AI assistants could run the CLI, but they lacked a shared system for understanding
-          Fabric and completing repeatable tasks reliably. I proposed the AI asset system, shaped
-          it with the product manager, and implemented the context, mode, prompt, skills,
-          references, and scripts in my public contributions.
+          People were already using AI assistants to run the Fabric CLI, but the assistants didn't understand Fabric, and everyone was writing their own instructions. Before GA, I proposed a shared set of AI assets, shaped it with the PM, and wrote it: agent context, a custom mode, a prompt, skills, references, and scripts. It's all public.
         </p>
 
         <div class="outcomes-strip" aria-label="Project outcomes">
@@ -30,11 +26,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           </div>
           <div class="outcome">
             <span class="outcome__num">36 files</span>
-            <span class="outcome__label">in the primary AI assets pull request</span>
+            <span class="outcome__label">In my main AI assets pull request</span>
           </div>
           <div class="outcome">
             <span class="outcome__num">Public</span>
-            <span class="outcome__label">PRs, release notes, and a co-authored launch article</span>
+            <span class="outcome__label">PRs, release notes, and a launch article I co-wrote</span>
           </div>
         </div>
         </div>
@@ -42,11 +38,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <h2 id="glance-title">At a glance</h2>
           <dl class="glance">
               <div><dt>Role</dt><dd>Senior Content Designer</dd></div>
-              <div><dt>Ownership</dt><dd>Initiative, system design, and implementation for my public contributions</dd></div>
-              <div><dt>Collaboration</dt><dd>Fabric CLI product manager and engineering team</dd></div>
+              <div><dt>Ownership</dt><dd>I proposed it, designed it, and wrote the files in my PRs</dd></div>
+              <div><dt>Collaboration</dt><dd>The Fabric CLI PM and engineering team</dd></div>
               <div><dt>Timeframe</dt><dd>December 2025 &ndash; March 2026</dd></div>
-              <div><dt>Status</dt><dd>Shipped at GA. The public repository continues to evolve.</dd></div>
-              <div><dt>Evidence</dt><dd>Public pull requests, commits, release notes, and GA article</dd></div>
+              <div><dt>Status</dt><dd>Shipped at GA. The public repo has kept changing since.</dd></div>
+              <div><dt>Evidence</dt><dd>Public PRs, commits, release notes, and the GA article</dd></div>
             </dl>
         </aside>
       </div>
@@ -56,89 +52,51 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <div class="container case-shell">
         <nav class="case-toc" aria-label="Fabric CLI case study sections">
           <ul>
-            <li><a href="#gap">Product gap</a></li>
-            <li><a href="#decision">System decision</a></li>
-            <li><a href="#implementation">Implementation</a></li>
-            <li><a href="#validation">Validation</a></li>
-            <li><a href="#response">Response</a></li>
-            <li><a href="#reflection">Reflection</a></li>
+            <li><a href="#gap">The problem</a></li>
+            <li><a href="#decision">The decision</a></li>
+            <li><a href="#implementation">What I built</a></li>
+            <li><a href="#validation">Review and release</a></li>
+            <li><a href="#response">How people reacted</a></li>
+            <li><a href="#reflection">What I learned</a></li>
           </ul>
         </nav>
 
         <section id="gap" class="reading-column content-section">
-          <h2>The product gap</h2>
-          <p>
-            The Fabric CLI gave developers a direct way to operate Microsoft Fabric from a
-            terminal. As more people connected it to GitHub Copilot, Claude, Cursor, and other
-            assistants, a new problem emerged: each agent needed enough product context to use the
-            CLI correctly, and users were rebuilding the same instructions for repeatable tasks.
-          </p>
-          <p>
-            There was no single source of truth for this work. Agents needed to understand
-            Fabric's hierarchy, command patterns, authentication, safety rules, and verification
-            steps. They also needed practical workflows that went beyond a long reference
-            document.
-          </p>
-          <p>I thought the CLI needed a structured agent layer, not another set of disconnected prompts.</p>
+          <h2>The problem</h2>
+          <p>The Fabric CLI lets developers run Microsoft Fabric from a terminal. More and more people were hooking it up to GitHub Copilot, Claude, Cursor, and other assistants. Each agent needed enough product context to use the CLI correctly, and users kept writing the same instructions over and over.</p>
+          <p>There was no single source of truth. Agents needed to know Fabric's hierarchy, command patterns, authentication, safety rules, and how to check their work. They also needed real workflows, not just a long reference doc.</p>
+          <p>I thought the CLI needed one structured set of agent assets, not another pile of one-off prompts.</p>
         </section>
 
         <section class="reading-column content-section" aria-labelledby="role-title">
-          <h2 id="role-title">Expanding my role</h2>
-          <p>
-            My official role was Senior Content Designer supporting the Fabric CLI product and
-            engineering teams. This system was not part of the original release plan. I brought
-            the opportunity forward because the boundary between product guidance, interaction
-            design, and implementation was changing quickly as agents became real CLI users.
-          </p>
-          <p>
-            I worked with the product manager to define the direction using industry practice,
-            our experience with the CLI, and feedback from community power users. I then
-            implemented the files in my pull requests and revised them through product and
-            engineering review.
-          </p>
-          <p>
-            The work expanded my role from improving individual product experiences to designing
-            the infrastructure that shaped how agents interacted with the product.
-          </p>
+          <h2 id="role-title">My role</h2>
+          <p>I was the Senior Content Designer on the Fabric CLI team. None of this was in the original release plan. I brought it up because agents were becoming real CLI users, and the line between product guidance, design, and code was moving fast.</p>
+          <p>The PM and I set the direction based on what others in the industry were doing, our own experience with the CLI, and feedback from community power users. Then I wrote the files, opened the PRs, and revised them through product and engineering review.</p>
+          <p>It took my job from improving specific product experiences to designing how agents use the product.</p>
         </section>
 
         <section id="decision" class="reading-column content-section">
-          <h2>One file would not solve the problem</h2>
-          <p>
-            We considered several approaches: a different folder structure, fewer and broader
-            skills, no foundational core skill, one universal context file, and an
-            <code>AGENTS.md</code>-only model.
-          </p>
-          <p>
-            A universal file looked simpler, but it would mix product context, agent behavior,
-            repeatable workflows, and task instructions in one place. It also would not account
-            for the different file formats, installation paths, and loading models used by
-            Copilot, Claude, and Cursor.
-          </p>
-          <p>
-            We separated the system into four layers instead. The core skill created a shared
-            foundation, and specialized skills could build on it without repeating the same
-            authentication, hierarchy, safety, and command guidance.
-          </p>
+          <h2>One file wasn't going to cut it</h2>
+          <p>We looked at a different folder structure, fewer and broader skills, skipping a core skill, one universal context file, and just using <code>AGENTS.md</code>.</p>
+          <p>One file looked simpler. But it would have mixed product context, agent behavior, workflows, and task instructions all together. It also wouldn't handle the different file formats, install paths, and loading rules that Copilot, Claude, and Cursor each use.</p>
+          <p>So we split it into four layers. A core skill covers the basics once, and the other skills build on it without repeating the same auth, hierarchy, safety, and command guidance.</p>
         </section>
 
         <figure class="evidence-figure" aria-labelledby="architecture-caption">
           <div class="architecture" role="img" aria-label="Four connected layers of the Fabric CLI AI asset system: context, modes, prompts, and skills">
-            <div class="architecture__item"><span class="architecture__number" aria-hidden="true">01</span><h3>Context</h3><p>Gives each assistant the Fabric and CLI mental model it needs.</p></div>
-            <div class="architecture__item"><span class="architecture__number" aria-hidden="true">02</span><h3>Modes</h3><p>Define specialized agent behavior and operating rules.</p></div>
-            <div class="architecture__item"><span class="architecture__number" aria-hidden="true">03</span><h3>Prompts</h3><p>Provide reusable entry points for common workflows.</p></div>
-            <div class="architecture__item"><span class="architecture__number" aria-hidden="true">04</span><h3>Skills</h3><p>Package task guidance, references, and executable scripts.</p></div>
+            <div class="architecture__item"><span class="architecture__number" aria-hidden="true">01</span><h3>Context</h3><p>Teaches each assistant how Fabric and the CLI work.</p></div>
+            <div class="architecture__item"><span class="architecture__number" aria-hidden="true">02</span><h3>Modes</h3><p>Set how a specialized agent behaves and what rules it follows.</p></div>
+            <div class="architecture__item"><span class="architecture__number" aria-hidden="true">03</span><h3>Prompts</h3><p>Ready-made starting points for common tasks.</p></div>
+            <div class="architecture__item"><span class="architecture__number" aria-hidden="true">04</span><h3>Skills</h3><p>Bundle task guidance, references, and scripts.</p></div>
           </div>
           <figcaption id="architecture-caption">
-            <strong>A maintainable agent layer.</strong> The system separated shared product
-            context, specialized behavior, repeatable prompts, and task-specific skills instead
-            of forcing every tool and workflow into one universal file.
+            <strong>Four layers instead of one big file.</strong> Shared context, agent behavior, prompts, and task skills each live in their own place.
           </figcaption>
         </figure>
 
         <section id="implementation" class="reading-column content-section">
           <h2>What I implemented</h2>
-          <p>My primary AI assets pull request introduced or reorganized 36 files. I wrote the files included in my contribution, including:</p>
+          <p>My main AI assets pull request added or reorganized 36 files. I wrote the files in it, including:</p>
           <ul>
             <li>Tool-specific context for GitHub Copilot, Claude, and Cursor</li>
             <li>A custom Fabric CLI agent mode</li>
@@ -146,27 +104,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             <li>Core and Power BI skills</li>
             <li>Detailed command and scenario references</li>
             <li>Automation scripts for health checks, semantic model refresh, refresh history, and report rebinding</li>
-            <li>Repository guidance connecting contributors and agents to the right source material</li>
+            <li>Repo guidance that points contributors and agents to the right source material</li>
           </ul>
-          <p>
-            The repository has continued to evolve since GA. The public pull request preserves
-            the exact scope of what I contributed at launch.
-          </p>
+          <p>The repo has changed since GA. The pull request shows exactly what I contributed at launch.</p>
         </section>
 
         <section class="reading-column content-section" aria-labelledby="workflow-title">
-          <h2 id="workflow-title">Designing around real agent workflows</h2>
-          <p>
-            The final scope was not based only on what we thought agents might need. Community
-            members were already describing how they used agents with the CLI, how they got better
-            results, and which types of skills supported their workflows.
-          </p>
-          <p>
-            That feedback helped us decide which skills to prioritize, how users would access
-            them, and how the system should work across different assistants. We focused the
-            release on a core skill, Power BI scenarios, and workspace creation rather than trying
-            to cover every possible Fabric task at once.
-          </p>
+          <h2 id="workflow-title">Built around how people actually use it</h2>
+          <p>We didn't just guess what agents needed. People in the community were already telling us how they used agents with the CLI, what got them better results, and which skills helped.</p>
+          <p>That shaped which skills we did first, how people would get to them, and how it would work across assistants. We kept the release to a core skill, Power BI scenarios, and workspace creation instead of trying to cover every Fabric task.</p>
         </section>
 
         <figure class="evidence-figure" aria-labelledby="flow-caption">
@@ -178,25 +124,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             <li><span class="agent-flow__step">5</span><strong>Verification</strong><span>Check authentication, paths, and results</span></li>
           </ol>
           <figcaption id="flow-caption">
-            <strong>From intent to verified action.</strong> The agent loads the guidance it needs
-            for the task instead of relying on a generic prompt or a complete API specification.
+            <strong>From goal to checked result.</strong> The agent loads only the guidance it needs for the task, not a generic prompt or the whole API spec.
           </figcaption>
         </figure>
 
         <section id="validation" class="content-section">
           <div class="reading-column">
-            <h2>Review, validation, and release</h2>
-            <p>
-              The product manager reviewed the direction, and the engineering team reviewed and
-              tested the implementation. The public pull request also passed the repository's
-              automated checks before it was approved and merged.
-            </p>
-            <p>
-              The work shipped as part of the Fabric CLI general availability
-              release. The public release notes credit the AI assets, and I co-authored the GA
-              article with the product manager to explain why the CLI was becoming an execution
-              layer for agents.
-            </p>
+            <h2>Review and release</h2>
+            <p>The PM reviewed the direction. Engineering reviewed and tested the code. The PR passed the repo's automated checks before it was approved and merged.</p>
+            <p>It shipped with the Fabric CLI GA release. The release notes credit the AI assets, and I co-wrote the GA article with the PM about why the CLI was becoming something agents run.</p>
           </div>
 
           <div class="proof-list" aria-label="Public project evidence">
@@ -209,11 +145,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <section id="response" class="content-section">
           <div class="reading-column">
             <h2>The public response</h2>
-            <p>
-              The release gave us qualitative evidence that the product shift was meaningful.
-              External users did not describe the agent layer as extra documentation. They
-              described it as a change in what the CLI could be.
-            </p>
+            <p>People outside Microsoft didn't talk about it as extra docs. They talked about it as a change in what the CLI could do.</p>
           </div>
           <figure class="response-quote">
             <blockquote>
@@ -224,45 +156,26 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             <figcaption><strong>Martin Rojze</strong><span>Public response to the Fabric CLI GA announcement</span></figcaption>
           </figure>
           <div class="reading-column">
-            <p>
-              Leon Gordon made a similar distinction, describing the work as a shift from a
-              developer tool to an agent surface. These responses do not provide an adoption count,
-              but they show that users understood the system and connected it to real workflows.
-            </p>
+            <p>Leon Gordon said something similar: that it turned a developer tool into something agents use. That's not an adoption number, but it shows people got it and saw how it fit their work.</p>
           </div>
         </section>
 
         <section class="reading-column content-section" aria-labelledby="next-title">
           <h2 id="next-title">What happened next</h2>
-          <p>The GA work helped move product and engineering conversations toward a broader question: which repeatable workflows should become skills next?</p>
-          <p>
-            After the public release, I created internal skills for engineering teams I
-            supported. That work built on the same principle, but it solved different
-            team-specific problems and needs its own evidence and story. I keep it separate from
-            the public Fabric CLI contribution.
-          </p>
+          <p>After GA, product and engineering started asking a new question: which repeated workflows should become skills next?</p>
+          <p>After the release, I also built internal skills for the engineering teams I supported. Same idea, different problems. That's a separate story, so I've kept it out of this one.</p>
         </section>
 
         <section id="reflection" class="reading-column content-section">
-          <h2>Reflection</h2>
-          <p>
-            The important shift was not teaching an agent a list of commands. It was designing a
-            maintainable system that connected product knowledge, task guidance, tool-specific
-            setup, and verification.
-          </p>
-          <p>
-            I think this project also shows how design roles are changing. The work required
-            product judgment, information architecture, interaction design, technical writing,
-            repository implementation, and close collaboration with engineering. The title
-            mattered less than identifying the missing system and taking responsibility for
-            getting it into the product.
-          </p>
+          <h2>What I learned</h2>
+          <p>Teaching an agent a list of commands is the easy part. The real work was setting up something we could maintain, that tied together product knowledge, task guidance, per-tool setup, and checking results.</p>
+          <p>I think it also shows how design jobs are changing. This took product judgment, information architecture, interaction design, technical writing, writing code in the repo, and working closely with engineering. My title mattered a lot less than seeing what was missing and getting it into the product.</p>
         </section>
 
         <aside class="inspect-work" aria-labelledby="inspect-title">
           <div>
             <h2 id="inspect-title">Inspect the work</h2>
-            <p>The pull request, release notes, launch article, and current repository show the system, review process, release context, and how the work evolved.</p>
+            <p>The pull request, release notes, and launch article are all public.</p>
           </div>
           <div class="inspect-work__actions">
             <a href="https://github.com/microsoft/fabric-cli/pull/176" target="_blank" rel="noopener" class="btn">View AI assets PR<Icon name="arrow-outward" /></a>

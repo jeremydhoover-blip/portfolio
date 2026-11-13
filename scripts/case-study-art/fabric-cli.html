@@ -1,0 +1,31 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="common.css">
+<style>
+body{background:var(--ink);background-image:radial-gradient(rgba(223,233,255,.10) 2px,transparent 2px);background-size:40px 40px}
+.glow{position:absolute;left:-200px;bottom:-260px;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(17,85,204,.55),transparent 65%)}
+.term{position:absolute;left:90px;top:150px;width:1020px;height:900px;border-radius:40px;background:#0b1322;border:3px solid #26324a;box-shadow:0 40px 80px rgba(0,0,0,.45);overflow:hidden}
+.bar{height:88px;display:flex;align-items:center;gap:18px;padding:0 40px;background:#16213a;border-bottom:3px solid #26324a}
+.dot{width:24px;height:24px;border-radius:50%}
+.tab{margin-left:30px;font:600 28px 'JetBrains Mono';color:#9fb0cf}
+.body{padding:48px 56px;font:500 44px/1.62 'JetBrains Mono';color:#dfe9ff;white-space:pre}
+.p{color:var(--yellow);font-weight:700}
+.c{color:#7f8cab}
+.ok{color:#7ee2a8}
+.b{color:#8fb4ff}
+.chip{display:inline-block;padding:0 18px;margin-right:10px;border-radius:12px;background:rgba(17,85,204,.45);color:#dfe9ff;font-size:36px;line-height:60px}
+.chip.y{background:var(--yellow);color:var(--ink)}
+.cur{display:inline-block;width:30px;height:54px;background:var(--yellow);vertical-align:-8px;margin-left:8px}
+</style></head><body>
+<div class="glow"></div>
+<div class="term">
+  <div class="bar"><span class="dot" style="background:#ff7657"></span><span class="dot" style="background:#f6d365"></span><span class="dot" style="background:#5ad19a"></span><span class="tab">fab — agent session</span></div>
+<div class="body"><span class="p">❯</span> fab auth login
+<span class="ok">✓</span> <span class="c">signed in to Fabric</span>
+<span class="p">❯</span> fab ls <span class="b">Sales.Workspace</span>
+<span class="c">  Orders.Lakehouse</span>
+<span class="c">  Nightly.DataPipeline</span>
+<span class="p">❯</span> @agent run the nightly refresh
+  <span class="chip">context</span><span class="chip">mode</span><span class="chip">prompt</span><span class="chip y">skill</span>
+<span class="ok">✓</span> verified <span class="c">· 4 steps · 0 retries</span>
+<span class="p">❯</span><span class="cur"></span></div>
+</div>
+</body></html>

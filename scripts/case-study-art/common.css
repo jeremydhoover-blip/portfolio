@@ -1,0 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+:root{--blue:#1155cc;--blue-soft:#dfe9ff;--yellow:#f6d365;--coral:#ff7657;--cream:#f4efe5;--ink:#101a2d;--muted:#586174}
+*{box-sizing:border-box}html,body{margin:0;width:1200px;height:1200px;overflow:hidden}
+body{position:relative;font-family:Inter,sans-serif}

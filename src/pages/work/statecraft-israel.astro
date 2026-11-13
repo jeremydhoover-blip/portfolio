@@ -7,45 +7,42 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <Base
   title="Statecraft: Israel Content System | Jeremy Hoover"
-  description="How I built contributor guidance, reusable AI workflows, historical research, UX writing standards, and shipped interface copy for a publicly developed strategy game."
+  description="My 20 merged contributions to an open-source strategy game about Israel: historical research, contributor guidance, AI skills, UX writing standards, and shipped UI copy."
 >
   <article class="section case-study case-study--violet">
     <header class="case-hero">
       <div class="container case-hero__grid">
         <div class="case-hero__main">
         <a href={`${base}/#projects`} class="back"><span class="back-icon" aria-hidden="true"></span><span>Back to selected projects</span></a>
-        <h1>Designing the content system for a historical strategy game</h1>
+        <h1>Research, writing rules, and UI copy for a history game</h1>
         <p class="lede">
-          Drawing on my background in history and content design, I joined Statecraft: Israel as
-          a public contributor. I conducted source-backed historical research and turned it into
-          structured game content, then built reusable guidance, AI-assisted workflows,
-          validation tools, and player-facing copy through 20 merged pull requests.
+          I have a background in history, so I started contributing to Statecraft: Israel, an open-source strategy game. I researched the history with sources, turned it into game data, wrote guidance and AI skills for other contributors, and rewrote player-facing copy. So far that's 20 merged pull requests.
         </p>
 
         <div class="outcomes-strip" aria-label="Project outcomes">
           <div class="outcome">
             <span class="outcome__num">20 PRs</span>
-            <span class="outcome__label">Public contributions merged into the project</span>
+            <span class="outcome__label">Merged into the project</span>
           </div>
           <div class="outcome">
             <span class="outcome__num">8 studies</span>
-            <span class="outcome__label">Historical research and source-verification contributions</span>
+            <span class="outcome__label">Historical research and source checks</span>
           </div>
           <div class="outcome">
             <span class="outcome__num">4 skills</span>
-            <span class="outcome__label">Reusable workflows for research, writing, UX, and video</span>
+            <span class="outcome__label">For research, writing, UX copy, and video scripts</span>
           </div>
         </div>
         </div>
         <aside class="glance-card" aria-labelledby="glance-title">
           <h2 id="glance-title">At a glance</h2>
           <dl class="glance">
-              <div><dt>Role</dt><dd>Historical research, content systems, and UX-writing contributor</dd></div>
-              <div><dt>Contribution</dt><dd>Identified gaps, proposed work publicly, and authored 20 merged pull requests</dd></div>
-              <div><dt>Scope</dt><dd>Contributor guidance, AI skills, historical research, game data, UX copy, localization guidance, and release messaging</dd></div>
-              <div><dt>Collaboration</dt><dd>Project owner, maintainers, and public contributors</dd></div>
-              <div><dt>Timeframe</dt><dd>October 2026, ongoing public contribution</dd></div>
-              <div><dt>Evidence</dt><dd>Public issues, pull requests, review history, tests, merged files, and contributor credit</dd></div>
+              <div><dt>Role</dt><dd>Contributor: historical research, writing guidance, and UX writing</dd></div>
+              <div><dt>Contribution</dt><dd>I found the gaps, proposed fixes in public issues, and wrote 20 merged PRs</dd></div>
+              <div><dt>Scope</dt><dd>Contributor guidance, AI skills, research, game data, UI copy, localization guidance, and release notes</dd></div>
+              <div><dt>Collaboration</dt><dd>The project owner, maintainers, and other contributors</dd></div>
+              <div><dt>Timeframe</dt><dd>October 2026 to now</dd></div>
+              <div><dt>Evidence</dt><dd>Public issues, PRs, reviews, tests, and contributor credit</dd></div>
             </dl>
         </aside>
       </div>
@@ -55,140 +52,83 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <div class="container case-shell">
         <aside class="disclosure" aria-label="Project disclosure">
           <strong>My role</strong>
-          <p>Statecraft: Israel was created by Eyal Golan. I did not create or own the game. This case study covers only my public issues and merged contributions. The repository uses different licenses for code, content, documentation, and assets.</p>
+          <p>Eyal Golan created Statecraft: Israel. I don't own the game. This page only covers my own public issues and merged contributions. The repo uses different licenses for code, content, docs, and assets.</p>
         </aside>
 
         <nav class="case-toc" aria-label="Statecraft: Israel case study sections">
           <ul>
-            <li><a href="#challenge">Challenge</a></li>
-            <li><a href="#foundation">Foundation</a></li>
+            <li><a href="#challenge">The problem</a></li>
+            <li><a href="#foundation">Contributor guidance</a></li>
             <li><a href="#research">Research</a></li>
-            <li><a href="#experience">Player experience</a></li>
-            <li><a href="#evidence">Evidence</a></li>
-            <li><a href="#reflection">Reflection</a></li>
+            <li><a href="#experience">UI copy</a></li>
+            <li><a href="#evidence">See the work</a></li>
+            <li><a href="#reflection">What I learned</a></li>
           </ul>
         </nav>
 
         <section id="challenge" class="reading-column content-section">
-          <h2>A game where every word carries evidence</h2>
-          <p>
-            Statecraft: Israel is a turn-based strategy game about governing the country from
-            1948. It combines a deterministic simulation with real people, events, locations,
-            and political decisions. Historical claims need sources, sensitive events require
-            care, and interface text must explain unfamiliar systems without flattening the history.
-          </p>
-          <p>
-            The repository was moving quickly across game design, Unity implementation,
-            historical content, English and Hebrew localization, and public releases. I saw a
-            content-design problem larger than any individual string: contributors and AI agents
-            needed a shared way to research, write, validate, and communicate the game.
-          </p>
-          <p>
-            My history background was directly relevant. I could move from archival and
-            institutional sources to conflicting accounts, unresolved evidence, and the product
-            decisions those findings supported. The work combined historical method with the
-            implementation discipline of a public software repository.
-          </p>
+          <h2>A game where every claim needs a source</h2>
+          <p>Statecraft: Israel is a turn-based strategy game about running the country starting in 1948. It's a simulation built on real people, events, places, and political decisions. Historical claims need sources. Sensitive events need care. And the UI has to explain unfamiliar systems without dumbing down the history.</p>
+          <p>The repo was moving fast: game design, Unity code, historical content, English and Hebrew, and public releases. The problem was bigger than any one string. Contributors and AI agents needed a shared way to research, write, check, and talk about the game.</p>
+          <p>My history background helped. I know how to go from archives and official sources to conflicting accounts and open questions, and then decide what the game can actually say.</p>
         </section>
 
         <figure class="gameplay-figure">
           <img src={`${base}/images/case-studies/statecraft-israel.jpg`} alt="Statecraft: Israel gameplay showing the 1948 map, city labels, resource indicators, and the Tel Aviv city-management panel" width="1600" height="900" />
           <figcaption>
-            <strong>The playable game.</strong> This public repository screenshot shows the map,
-            city systems, resources, and player guidance that the content system supports.
-            Screenshot from the Statecraft: Israel repository, licensed under its documented asset terms.
+            <strong>The game.</strong> The map, cities, resources, and player guidance. Screenshot from the Statecraft: Israel repo, used under its asset license.
           </figcaption>
         </figure>
 
         <section id="foundation" class="reading-column content-section">
-          <h2>Building the contributor foundation first</h2>
-          <p>
-            My first major contribution did not add a game event. It made the repository easier
-            to contribute to. I added repository-level agent guidance, a writing guide,
-            tool-specific instructions, reusable skills, templates, and validation scripts.
-          </p>
-          <p>
-            That decision made later work repeatable. Instead of solving source handling, voice,
-            or implementation context again in every pull request, contributors and AI agents
-            could start from shared rules and follow the authoritative project sources.
-          </p>
+          <h2>Contributor guidance first</h2>
+          <p>My first big contribution didn't add anything to the game. It made the repo easier to contribute to. I added agent guidance, a writing guide, instructions for specific AI tools, reusable skills, templates, and validation scripts.</p>
+          <p>That made everything after it repeatable. Nobody has to figure out sourcing, voice, or project context again in every PR. Contributors and AI agents start from the same rules and the same trusted sources.</p>
         </section>
 
         <figure class="system-figure" aria-labelledby="system-caption">
           <div class="system-grid" role="img" aria-label="Four layers of the contribution system: repository guidance, reusable skills, validation, and product delivery">
-            <div><span>01</span><strong>Guidance</strong><small>Repository rules, writing standards, and source authority</small></div>
+            <div><span>01</span><strong>Guidance</strong><small>Repo rules, writing standards, and which sources to trust</small></div>
             <div><span>02</span><strong>Skills</strong><small>Historical content, writing voice, UX writing, and video scripts</small></div>
-            <div><span>03</span><strong>Validation</strong><small>Templates, checkers, tests, and explicit uncertainty</small></div>
-            <div><span>04</span><strong>Delivery</strong><small>Research, structured data, interface copy, and release messaging</small></div>
+            <div><span>03</span><strong>Validation</strong><small>Templates, checkers, tests, and flagging what's uncertain</small></div>
+            <div><span>04</span><strong>Delivery</strong><small>Research, game data, UI copy, and release notes</small></div>
           </div>
           <figcaption id="system-caption">
-            <strong>Standards connected to delivery.</strong> The system joined repository guidance
-            to reusable workflows and then applied both to player-facing work.
+            <strong>Rules that get used.</strong> The guidance feeds the skills, and both feed the work players actually see.
           </figcaption>
         </figure>
 
         <section id="research" class="reading-column content-section">
-          <h2>Turning research into product infrastructure</h2>
-          <p>
-            I contributed public research on the New Economic Policy, the Knesset vote on talks
-            with Germany, the 1955 election, the 1948 war, the road to Suez, and the Sinai
-            Campaign. I also verified the sources behind attributed trailer quotations.
-          </p>
-          <p>
-            The useful output was not just a collection of facts. The notes distinguish verified
-            claims, secondary leads, conflicts between sources, and unresolved gaps. That makes
-            uncertainty visible before material becomes structured content or player-facing copy.
-          </p>
-          <p>
-            I then carried the research into the product by adding structured Third Knesset and
-            1955 election data, including source references and tests that verified the new
-            records fit the simulation's content model.
-          </p>
+          <h2>From research to game data</h2>
+          <p>I wrote public research on the New Economic Policy, the Knesset vote on talks with Germany, the 1955 election, the 1948 war, the road to Suez, and the Sinai Campaign. I also checked the sources behind the quotes used in the trailer.</p>
+          <p>The notes don't just list facts. They separate what's verified, what's a lead, where sources disagree, and what's still unknown. So you can see the uncertainty before anything turns into game data or copy.</p>
+          <p>Then I put the research into the game: Third Knesset and 1955 election data, with source references and tests that check the new records fit the simulation.</p>
         </section>
 
         <figure class="system-figure" aria-labelledby="pipeline-caption">
           <ol class="research-flow">
-            <li><span>1</span><strong>Question</strong><small>Define the historical or product gap</small></li>
-            <li><span>2</span><strong>Sources</strong><small>Open, compare, and record evidence</small></li>
+            <li><span>1</span><strong>Question</strong><small>What's missing, historically or in the game</small></li>
+            <li><span>2</span><strong>Sources</strong><small>Read, compare, and record evidence</small></li>
             <li><span>3</span><strong>Research note</strong><small>Separate facts, conflicts, and gaps</small></li>
-            <li><span>4</span><strong>Game content</strong><small>Structure reviewed material for the system</small></li>
-            <li><span>5</span><strong>Player experience</strong><small>Explain decisions and consequences clearly</small></li>
+            <li><span>4</span><strong>Game content</strong><small>Turn reviewed material into game data</small></li>
+            <li><span>5</span><strong>Player experience</strong><small>Explain choices and what happens next</small></li>
           </ol>
           <figcaption id="pipeline-caption">
-            <strong>A source-first pipeline.</strong> Historical material moves through explicit
-            evidence states before it reaches the game experience.
+            <strong>Sources first.</strong> Nothing reaches the game until it's clear how solid the evidence is.
           </figcaption>
         </figure>
 
         <section id="experience" class="reading-column content-section">
-          <h2>Making complex systems understandable to players</h2>
-          <p>
-            I audited the implemented interface before proposing new standards. That work became
-            a 49-concept glossary, six shared conventions, and English and Hebrew UI-writing
-            guidance tied to the actual game rather than generic style advice.
-          </p>
-          <p>
-            I applied the guidance in shipped UI changes. The revised save warnings explain what
-            changed and what a player should do next. The How to play content defines unfamiliar
-            training terms, connects facilities to outcomes, and makes clear when worker changes
-            take effect. Draft Hebrew remained marked for native review rather than being
-            presented as final.
-          </p>
-          <p>
-            I also built reusable UX-writing and sourced video-script skills with templates and
-            checks. The goal was to make good decisions easier to repeat, while still leaving
-            source review, native-language review, and maintainer approval visible.
-          </p>
+          <h2>Making the game easier to understand</h2>
+          <p>Before writing any standards, I audited the UI as it existed. That turned into a 49-term glossary, six shared conventions, and English and Hebrew UI-writing guidance based on the actual game, not generic style advice.</p>
+          <p>Then I used it in shipped UI changes. The save warnings now say what changed and what to do next. The How to play content explains unfamiliar training terms, ties facilities to outcomes, and says when worker changes take effect. My draft Hebrew stayed marked for native review instead of being passed off as final.</p>
+          <p>I also built skills for UX writing and for sourced video scripts, with templates and checks. They make good calls easier to repeat, but source review, native-speaker review, and maintainer approval still happen in the open.</p>
         </section>
 
         <section id="evidence" class="content-section">
           <div class="reading-column">
-            <h2>Public, inspectable evidence</h2>
-            <p>
-              Every contribution is visible in the repository, including the original proposal,
-              review discussion, revisions, tests, and merge. The record shows both the reusable
-              system and the product work it enabled.
-            </p>
+            <h2>See the work</h2>
+            <p>Everything is public: the original proposals, review comments, revisions, tests, and merges.</p>
           </div>
           <div class="proof-list" aria-label="Public contribution evidence">
             <a href="https://github.com/eyalgolan/statecraft-israel/pulls?q=is%3Apr+author%3Ajeremydhoover-blip+is%3Amerged" target="_blank" rel="noopener"><span>Complete record</span><strong>Review all 20 merged pull requests</strong><small>Research, systems, content, UX, and messaging ↗</small></a>
@@ -201,25 +141,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         </section>
 
         <section id="reflection" class="reading-column content-section">
-          <h2>Reflection</h2>
-          <p>
-            This work shows what content design can look like in a public, AI-assisted software
-            project. The contribution was not limited to writing interface strings. It connected
-            source authority, contributor behavior, agent instructions, validation, structured
-            data, localization, and release communication.
-          </p>
-          <p>
-            The public review process also made the boundaries clear. Maintainers owned the merge
-            decision, native speakers owned final language review, and unresolved historical
-            evidence stayed unresolved. The system helped AI accelerate the work without hiding
-            where human judgment and further review were still required.
-          </p>
+          <h2>What I learned</h2>
+          <p>In an open, AI-assisted project, content design is a lot more than UI strings. Here it covered which sources to trust, how contributors work, agent instructions, checks, game data, translation, and release notes.</p>
+          <p>Doing it in public also kept the lines clear. Maintainers decided what merged. Native speakers had the final say on Hebrew. Open historical questions stayed open. AI sped things up, but it was always obvious where a person still had to make the call.</p>
         </section>
 
         <aside class="inspect-work" aria-labelledby="inspect-title">
           <div>
-            <h2 id="inspect-title">Inspect the work and the game</h2>
-            <p>The live repository contains the contribution history, current game, source policies, tests, and project roadmap.</p>
+            <h2 id="inspect-title">See the work and the game</h2>
+            <p>The repo has my contribution history, the current game, the source rules, tests, and the roadmap.</p>
           </div>
           <div class="inspect-work__actions">
             <a href="https://github.com/eyalgolan/statecraft-israel/pulls?q=is%3Apr+author%3Ajeremydhoover-blip+is%3Amerged" target="_blank" rel="noopener" class="btn">View my pull requests<Icon name="arrow-outward" /></a>
