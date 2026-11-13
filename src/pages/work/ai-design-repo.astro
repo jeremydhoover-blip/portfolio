@@ -6,29 +6,26 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <Base
   title="AI Design Repository | Jeremy Hoover"
-  description="How I built and continue to own the shared AI design repository used across multiple Microsoft design, product, and engineering teams."
+  description="How I built, and still own, shared AI design repos that hundreds of designers, PMs, and engineers use across Microsoft teams."
 >
   <article class="section case-study case-study--blue">
     <header class="case-hero">
       <div class="container case-hero__grid">
         <div class="case-hero__main">
         <a href={`${base}/#projects`} class="back"><span class="back-icon" aria-hidden="true"></span><span>Back to selected projects</span></a>
-        <h1>Building the repository our teams use to design with AI</h1>
+        <h1>I build the repos our teams use to design with AI</h1>
         <p class="lede">
-          I identified a fragmented prototyping problem and built a shared AI design repository
-          that became a required workflow across multiple teams. I designed the architecture,
-          integrated existing capabilities, established contribution and quality controls, and
-          continue to own the system as it expands from prototyping into engineering handoff.
+          Our designers were prototyping in Figma, Build, and their own repos, and nobody could build on anyone else's work. I proposed one shared repo, built it, and still own it. It's now required for designers across multiple teams, and PMs and engineers work in it too. I've since built several more, and hundreds of people use them.
         </p>
 
         <div class="outcomes-strip" aria-label="Project outcomes">
           <div class="outcome">
-            <span class="outcome__num">Dozens</span>
-            <span class="outcome__label">Designers, product managers, and engineers across multiple teams</span>
+            <span class="outcome__num">Hundreds</span>
+            <span class="outcome__label">Designers, PMs, and engineers using the repos I've built</span>
           </div>
           <div class="outcome">
             <span class="outcome__num">Required</span>
-            <span class="outcome__label">Shared workflow for design and prototyping</span>
+            <span class="outcome__label">The standard way our designers prototype</span>
           </div>
           <div class="outcome">
             <span class="outcome__num">Active</span>
@@ -40,11 +37,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <h2 id="glance-title">At a glance</h2>
           <dl class="glance">
               <div><dt>Role</dt><dd>Senior Content Designer</dd></div>
-              <div><dt>Ownership</dt><dd>Initiative, architecture, implementation, integrations, operating model, roadmap, and active ownership</dd></div>
-              <div><dt>Collaboration</dt><dd>Design manager, designers, product managers, and engineers</dd></div>
-              <div><dt>Scope</dt><dd>Shared design and prototyping infrastructure across multiple teams</dd></div>
-              <div><dt>Status</dt><dd>Active and required, with engineering handoff still evolving</dd></div>
-              <div><dt>Evidence</dt><dd>Verified internal use and generic reconstructed artifacts</dd></div>
+              <div><dt>Ownership</dt><dd>I proposed it, built it, and own the architecture and roadmap</dd></div>
+              <div><dt>Collaboration</dt><dd>My design manager, designers, PMs, and engineers</dd></div>
+              <div><dt>Scope</dt><dd>The prototyping workflow for multiple teams</dd></div>
+              <div><dt>Status</dt><dd>Required for designers. Engineering handoff is in progress.</dd></div>
+              <div><dt>Evidence</dt><dd>Internal use. Diagrams redrawn with generic labels.</dd></div>
             </dl>
         </aside>
       </div>
@@ -54,75 +51,49 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <div class="container case-shell">
         <aside class="disclosure" aria-label="Project disclosure">
           <strong>About the evidence</strong>
-          <p>This project was completed inside Microsoft. I reconstructed the diagrams with generic labels and removed product details that are not public.</p>
+          <p>This is internal Microsoft work. I redrew the diagrams with generic labels and left out anything that isn't public.</p>
         </aside>
 
         <nav class="case-toc" aria-label="AI design repository case study sections">
           <ul>
-            <li><a href="#problem">Workflow gap</a></li>
-            <li><a href="#decision">System decision</a></li>
-            <li><a href="#architecture">Architecture</a></li>
-            <li><a href="#operating-model">Operating model</a></li>
-            <li><a href="#outcome">Outcome</a></li>
-            <li><a href="#reflection">Reflection</a></li>
+            <li><a href="#problem">The problem</a></li>
+            <li><a href="#decision">The decision</a></li>
+            <li><a href="#architecture">How it connects</a></li>
+            <li><a href="#operating-model">How people contribute</a></li>
+            <li><a href="#outcome">What changed</a></li>
+            <li><a href="#reflection">What I learned</a></li>
           </ul>
         </nav>
 
         <section id="problem" class="reading-column content-section">
-          <h2>The fragmented workflow</h2>
-          <p>
-            Before this repository, designers used a mix of Figma, Build, and separate prototype
-            repositories to explore product ideas. Each tool could produce useful work, but the
-            work remained fragmented. Designers often started from scratch, and prototypes were
-            difficult to extend across the team.
-          </p>
-          <p>
-            There was no shared operating model for repository structure, contributions, reviews,
-            or quality checks. The team could create prototypes, but it could not build a
-            cumulative design system around them.
-          </p>
-          <p>I wanted to turn isolated experiments into infrastructure the team could use together.</p>
+          <h2>The problem</h2>
+          <p>Designers were prototyping in Figma, Build, and their own separate repos. Each one worked fine on its own. But every new idea started from scratch, and nobody could pick up someone else's prototype and keep going.</p>
+          <p>There were no rules for how to structure a repo, contribute, review, or check quality. We had plenty of prototypes and nothing that added up.</p>
+          <p>I wanted one place where the work could build on itself.</p>
         </section>
 
         <section class="reading-column content-section" aria-labelledby="ownership-title">
-          <h2 id="ownership-title">Identifying and owning the opportunity</h2>
-          <p>
-            I began by testing the idea through a series of experiments. I identified the
-            opportunity, proposed the repository, and built the system myself. I worked closely
-            with the design manager to understand his requirements, needs, and vision, and we
-            prioritized the roadmap together.
-          </p>
-          <p>
-            I made most final decisions about the architecture and implementation. I also reused
-            and integrated existing internal tools where they solved part of the problem well. The
-            goal was not to rebuild every capability. It was to connect the right capabilities
-            into one maintainable workflow.
-          </p>
-          <p>I continue to own the repository, its architecture, contribution process, quality controls, and roadmap.</p>
+          <h2 id="ownership-title">My role</h2>
+          <p>I tested the idea with a few experiments, then proposed the repo and built it myself. I worked with my design manager on requirements, and we set the roadmap together.</p>
+          <p>I made most of the architecture and implementation calls. When an internal tool already did part of the job well, I plugged it in instead of rebuilding it.</p>
+          <p>I still own the repo: the architecture, how people contribute, the quality checks, and the roadmap.</p>
         </section>
 
         <section id="decision" class="reading-column content-section">
-          <h2>One governed repository instead of disconnected tools</h2>
-          <p>
-            The key decision was to centralize the team's prototyping work in one governed
-            repository rather than create another optional tool.
-          </p>
-          <p>That required decisions about more than code or folder names. I designed:</p>
+          <h2>One required repo, not another optional tool</h2>
+          <p>The main call was to put all of the team's prototyping in one governed repo instead of adding another optional tool.</p>
+          <p>That meant deciding a lot more than folder names. I designed:</p>
           <ul>
-            <li>The folder and information architecture</li>
+            <li>The folder structure</li>
             <li>The branching model</li>
-            <li>Pull-request and approval workflows</li>
-            <li>How designers would contribute and update shared work</li>
-            <li>How the repository would be distributed and maintained</li>
+            <li>Pull requests and approvals</li>
+            <li>How designers contribute and update shared work</li>
+            <li>How the repo gets distributed and maintained</li>
             <li>Which internal tools to integrate rather than rebuild</li>
-            <li>How prototypes would move toward engineering handoff</li>
-            <li>Which deterministic checks would protect quality</li>
+            <li>How prototypes move toward engineering handoff</li>
+            <li>Which automated checks protect quality</li>
           </ul>
-          <p>
-            The repository gave the team one shared foundation. Designers could build on each
-            other's work instead of recreating it, and product managers and engineers could
-            participate in the same workflow.
-          </p>
+          <p>Now designers build on each other's work instead of redoing it, and PMs and engineers work in the same place.</p>
         </section>
 
         <figure class="evidence-figure" aria-labelledby="workflow-caption">
@@ -150,28 +121,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             </section>
           </div>
           <figcaption id="workflow-caption">
-            <strong>From isolated work to shared infrastructure.</strong> One repository connected
-            reusable design work, branches, reviews, checks, demos, customer concepts, and handoff.
+            <strong>From scattered prototypes to one repo.</strong> Shared work, reviews, checks, demos, and handoff all live in one place.
           </figcaption>
         </figure>
 
         <section id="architecture" class="reading-column content-section">
-          <h2>Connecting the system</h2>
-          <p>
-            The repository does not try to contain every design or AI capability. It connects
-            shared context and rules with existing MCPs, agents, knowledge bases, repositories,
-            and internal tools.
-          </p>
-          <p>
-            A request begins with a design or product goal. The repository applies shared guidance
-            and uses the relevant capabilities to produce a prototype or reusable design output.
-            The work then moves through review, evaluation, and handoff.
-          </p>
-          <p>
-            I use generic terms here because the exact internal systems and implementation details
-            are not public. The relationship is the important part: the repository coordinates
-            specialized capabilities without duplicating them.
-          </p>
+          <h2>How it connects</h2>
+          <p>The repo doesn't try to do everything itself. It holds our shared context and rules, and connects to the MCPs, agents, knowledge bases, repos, and internal tools we already had.</p>
+          <p>You start with a design or product goal. The repo applies our guidance, pulls in the right tools, and produces a prototype or reusable piece of design. Then it goes through review, evals, and handoff.</p>
+          <p>I'm using generic names because the internal systems aren't public.</p>
         </section>
 
         <figure class="evidence-figure" aria-labelledby="architecture-caption">
@@ -183,31 +141,21 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             <li><span>5</span><strong>Review and handoff</strong><small>Evaluation, decisions, and engineering inputs</small></li>
           </ol>
           <figcaption id="architecture-caption">
-            <strong>A reconstructed system view.</strong> The repository coordinates specialized
-            capabilities without exposing internal system names or implementation details.
+            <strong>Simplified system view.</strong> Internal names are removed.
           </figcaption>
         </figure>
 
         <section id="operating-model" class="reading-column content-section">
-          <h2>Designing the operating model</h2>
-          <p>
-            The repository needed to work as team infrastructure, not as a personal prototype. I
-            designed an operating model for how people would use, change, and trust it.
-          </p>
-          <p>
-            Branches and pull requests gave contributors a predictable way to propose updates.
-            Approvals protected shared work. The repository's deterministic checks validate:
-          </p>
+          <h2>How people contribute</h2>
+          <p>A whole team can only rely on a repo if there's a clear way to change it. So I set up how people use it, change it, and trust it.</p>
+          <p>Contributors work in branches and open pull requests. Approvals protect shared work. Automated checks cover:</p>
           <ul>
             <li>Evaluations</li>
             <li>Design-token compliance</li>
             <li>Content quality</li>
             <li>Accessibility</li>
           </ul>
-          <p>
-            These checks matter because generative output is not useful simply because it renders.
-            It needs to follow the same standards the team expects from product design work.
-          </p>
+          <p>An AI prototype that renders isn't automatically good. The checks hold it to the same bar as the rest of our design work.</p>
         </section>
 
         <figure class="evidence-figure" aria-labelledby="operating-caption">
@@ -219,38 +167,21 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             <li><span>05</span><strong>Merge and reuse</strong><small>Make approved work available to the team</small></li>
           </ol>
           <figcaption id="operating-caption">
-            <strong>A governed contribution model.</strong> Branches, checks, reviews, and approvals
-            make shared design work maintainable instead of disposable.
+            <strong>How a change gets in.</strong> Branches, checks, and reviews keep shared work from turning into throwaway work.
           </figcaption>
         </figure>
 
         <section class="reading-column content-section" aria-labelledby="training-title">
-          <h2 id="training-title">Preparing the team</h2>
-          <p>
-            The workflow also required designers to work differently. Before the wider release, I
-            trained the team in VS Code, GitHub, GitHub Copilot, branches, pull requests, and
-            repository-based collaboration.
-          </p>
-          <p>
-            That training made the transition possible. The repository was not just handed to the
-            team with instructions to use it. Designers had already started building the technical
-            fluency they needed to contribute confidently.
-          </p>
-          <p>
-            This team-specific work was part of a broader AI education effort across the design
-            organization. I cover that organizational work separately because its scope extends
-            beyond this repository.
-          </p>
+          <h2 id="training-title">Getting the team ready</h2>
+          <p>Designers had to work differently, too. Before the wider release, I trained the team on VS Code, GitHub, GitHub Copilot, branches, and pull requests.</p>
+          <p>That's what made the switch work. I didn't just hand people a repo and tell them to use it. They'd already picked up the basics before anyone asked them to contribute.</p>
+          <p>This was part of a bigger AI training effort across the design org, which I cover in <a href={`${base}/work/org-ai-initiatives`}>its own case study</a>.</p>
         </section>
 
         <section id="outcome" class="content-section">
           <div class="reading-column">
             <h2>What changed</h2>
-            <p>
-              After months of iteration, I released the mature system to dozens of designers,
-              product managers, and engineers across multiple teams. It became a required workflow
-              for designers and a core part of how the group develops and communicates ideas.
-            </p>
+            <p>After months of iteration, I released it to designers, PMs, and engineers across multiple teams. It's now required for designers and a core part of how the group develops and shows ideas. I've built several more design repos since, and together they're used by hundreds of people.</p>
           </div>
           <div class="impact-grid" aria-label="Current repository uses">
             <div><strong>Design and ideation</strong><span>Shared prototypes and reusable work</span></div>
@@ -258,46 +189,25 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             <div><strong>Engineering handoff</strong><span>Components, Storybook, versions, guided runs, and backlog inputs</span></div>
           </div>
           <div class="reading-column">
-            <p>
-              The most important result is not a speed percentage. It is that the work is
-              cumulative now. Teams can extend a shared foundation instead of restarting with
-              every idea.
-            </p>
+            <p>I don't have a speed number to share. What changed is that the work adds up now. People extend what's already there instead of starting over with every idea.</p>
           </div>
         </section>
 
         <section class="reading-column content-section" aria-labelledby="handoff-title">
-          <h2 id="handoff-title">From prototype to engineering handoff</h2>
-          <p>
-            The current focus is improving how prototype decisions move into development.
-            Designers and engineers are exploring how repository output can support reusable
-            components, Storybook, guided runs, versions, and more structured backlog creation.
-          </p>
-          <p>
-            This is still active work. The repository solved the fragmentation problem, but
-            broader use exposed the next system-level opportunity: making the transition from
-            design intent to engineering implementation more explicit and reusable.
-          </p>
+          <h2 id="handoff-title">What's next: engineering handoff</h2>
+          <p>Right now I'm working on getting prototype decisions into development more cleanly. Designers and engineers are trying out reusable components, Storybook, versions, guided runs, and more structured backlog items that come straight from the repo.</p>
+          <p>This is still in progress. The repo fixed the scattered-prototype problem. Once more people used it, the next gap was obvious: the path from design to engineering.</p>
         </section>
 
         <section id="reflection" class="reading-column content-section">
-          <h2>Reflection</h2>
-          <p>
-            The repository changed more than the tool. It changed how designers contributed, how
-            teams reused work, and how prototypes moved toward engineering.
-          </p>
-          <p>
-            I think the biggest lesson is that adoption starts before release. The architecture,
-            contribution model, quality checks, and team training all mattered because they gave
-            people a reliable way to participate. Building the repository was only one part of
-            building the system.
-          </p>
+          <h2>What I learned</h2>
+          <p>I think the biggest lesson is that adoption starts before launch. The structure, the contribution process, the checks, and the training all mattered because they gave people a reliable way to take part. Building the repo was only part of the work.</p>
         </section>
 
         <aside class="next-system" aria-labelledby="next-system-title">
           <div>
-            <h2 id="next-system-title">A shared foundation for design work</h2>
-            <p>The repository continues to evolve with the design, product, and engineering teams that use it. The next phase focuses on turning shared prototypes into clearer, more reusable engineering inputs.</p>
+            <h2 id="next-system-title">Still growing</h2>
+            <p>The repo keeps changing with the teams that use it. Next up is turning shared prototypes into cleaner inputs for engineering.</p>
           </div>
         </aside>
 
