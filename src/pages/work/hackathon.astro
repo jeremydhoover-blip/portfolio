@@ -10,10 +10,9 @@ const base = import.meta.env.BASE_URL;
 >
   <article class="section case-study case-study--violet">
     <header class="case-hero">
-      <div class="container container--narrow">
+      <div class="container case-hero__grid">
+        <div class="case-hero__main">
         <a href={`${base}/#projects`} class="back"><span class="back-icon" aria-hidden="true"></span><span>Back to selected projects</span></a>
-
-        <span class="tag"><span>AI product</span><span>Agent interaction</span><span>Microsoft hackathon</span></span>
         <h1>Replacing a requirements maze with a verified agent workflow</h1>
         <p class="lede">
           In a three-day Microsoft hackathon, I turned a repeated wiki, form, routing, and manual
@@ -36,6 +35,18 @@ const base = import.meta.env.BASE_URL;
             <span class="outcome__label">Foundational contribution to evolving PM skills and agents</span>
           </div>
         </div>
+        </div>
+        <aside class="glance-card" aria-labelledby="glance-title">
+          <h2 id="glance-title">At a glance</h2>
+          <dl class="glance">
+              <div><dt>Role</dt><dd>Senior Content Designer; concept originator, product driver, and experience owner</dd></div>
+              <div><dt>Ownership</dt><dd>Skill, most agent instructions, complete interaction, full experience design, and demo video</dd></div>
+              <div><dt>Team</dt><dd>Three people: me, another designer, and a product manager</dd></div>
+              <div><dt>Constraint</dt><dd>Three-day official Microsoft hackathon</dd></div>
+              <div><dt>Status</dt><dd>Working proof of concept incorporated into an active, evolving PM system</dd></div>
+              <div><dt>Evidence</dt><dd>Best Use of AI, judges' assessment, broad PM sharing, and generic reconstructed artifacts</dd></div>
+            </dl>
+        </aside>
       </div>
     </header>
 
@@ -46,22 +57,7 @@ const base = import.meta.env.BASE_URL;
           <p>This project was completed inside Microsoft. I reconstructed the workflow and interaction with generic content and removed internal requirements, contacts, product details, and work-management data.</p>
         </aside>
 
-        <section class="case-summary" aria-labelledby="summary-title">
-          <div class="reading-column">
-            <h2 id="summary-title">At a glance</h2>
-            <dl class="case-meta">
-              <div><dt>Role</dt><dd>Senior Content Designer; concept originator, product driver, and experience owner</dd></div>
-              <div><dt>Ownership</dt><dd>Skill, most agent instructions, complete interaction, full experience design, and demo video</dd></div>
-              <div><dt>Team</dt><dd>Three people: me, another designer, and a product manager</dd></div>
-              <div><dt>Constraint</dt><dd>Three-day official Microsoft hackathon</dd></div>
-              <div><dt>Status</dt><dd>Working proof of concept incorporated into an active, evolving PM system</dd></div>
-              <div><dt>Evidence</dt><dd>Best Use of AI, judges' assessment, broad PM sharing, and generic reconstructed artifacts</dd></div>
-            </dl>
-          </div>
-        </section>
-
         <nav class="case-toc" aria-label="Hackathon PM agent case study sections">
-          <span class="case-toc__label">Jump to a section</span>
           <ul>
             <li><a href="#problem">Workflow gap</a></li>
             <li><a href="#decision">Product decision</a></li>
@@ -279,7 +275,6 @@ const base = import.meta.env.BASE_URL;
         </section>
 
         <aside class="closing-panel" aria-labelledby="closing-title">
-          <span class="tag">Reusable product workflow</span>
           <h2 id="closing-title">From repeated process to reusable skill</h2>
           <p>The proof of concept turned a manual requirements workflow into a verified agent interaction and helped establish a broader direction for how product managers could use skills and agents in their daily work.</p>
         </aside>
@@ -306,7 +301,6 @@ const base = import.meta.env.BASE_URL;
   h1 { margin-block: var(--space-4) var(--space-6); }
   .lede { max-width: 58ch; margin-bottom: var(--space-12); font-size: var(--size-xl); line-height: 1.6; }
   .outcome { display: flex; flex-direction: column; gap: var(--space-1); transition: transform 180ms ease, box-shadow 180ms ease; }
-  .outcome:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
   .outcome__num { font-size: clamp(1.3rem, 11cqw, 2rem); line-height: 1.1; }
   .outcome__label { max-width: 25ch; font-size: var(--size-sm); color: var(--muted); }
   .case-shell { max-width: calc(var(--narrow) + 6rem); }
@@ -318,26 +312,25 @@ const base = import.meta.env.BASE_URL;
   .content-section ul { margin: var(--space-4) 0 var(--space-6) var(--space-6); }
   .content-section li { margin-bottom: var(--space-2); }
 
-  .disclosure { display: grid; grid-template-columns: 150px 1fr; gap: var(--space-6); width: 100%; max-width: var(--narrow); margin: 0 auto var(--space-12); padding: var(--space-6); border: 1px solid var(--portfolio-blue-soft); border-left: 4px solid var(--portfolio-blue); border-radius: 12px; background: #fff; }
-  .disclosure strong { color: var(--portfolio-blue); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .disclosure { display: grid; grid-template-columns: 150px 1fr; gap: var(--space-6); width: 100%; max-width: var(--narrow); margin: 0 auto var(--space-12); padding: var(--space-6); border: 1px solid var(--portfolio-blue-soft); border-radius: 12px; background: #fff; }
+  .disclosure strong { color: var(--muted); font-size: 0.75rem; text-transform: none; }
   .disclosure p { color: var(--muted); font-size: var(--size-sm); }
 
   .case-meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
-  .case-meta div { padding: var(--space-6); border: 1px solid var(--border); border-left: 4px solid var(--portfolio-blue-soft); border-radius: 12px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
-  .case-meta div:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
-  .case-meta dt { margin-bottom: var(--space-2); color: var(--portfolio-blue); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .case-meta div { padding: var(--space-6); border: 1px solid var(--border); border-radius: 12px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .case-meta dt { margin-bottom: var(--space-2); color: var(--muted); font-size: 0.75rem; font-weight: 600; text-transform: none; }
   .case-meta dd { color: var(--portfolio-ink); font-size: 0.95rem; line-height: 1.5; }
 
   .case-toc { max-width: var(--narrow); margin: var(--space-8) auto var(--space-16); padding-block: var(--space-6); border-block: 1px solid var(--border); }
-  .case-toc__label { display: block; margin-bottom: var(--space-3); color: var(--portfolio-blue); font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.1em; line-height: 1.2; text-transform: uppercase; }
+  .case-toc__label { display: block; margin-bottom: var(--space-3); color: var(--muted); font-size: 0.6875rem; font-weight: 600; line-height: 1.2; text-transform: none; }
   .case-toc ul { display: flex; flex-wrap: wrap; gap: 0.5rem 0; margin: 0; list-style: none; }
-  .case-toc li { --toc-divider: var(--portfolio-coral); display: flex; align-items: center; }
+  .case-toc li { --toc-divider: var(--border); display: flex; align-items: center; }
   .case-toc li + li { margin-left: var(--space-4); }
   .case-toc li + li::before { content: ''; width: 2px; height: 16px; margin-right: var(--space-4); border-radius: 999px; background: var(--toc-divider); }
-  .case-toc li:nth-child(3n) { --toc-divider: var(--portfolio-yellow); }
-  .case-toc li:nth-child(3n + 1) { --toc-divider: var(--portfolio-blue); }
+  .case-toc li:nth-child(3n) { --toc-divider: var(--border); }
+  .case-toc li:nth-child(3n + 1) { --toc-divider: var(--border); }
   .case-toc a { display: inline-flex; min-height: 32px; align-items: center; color: var(--portfolio-ink); font-size: 0.875rem; font-weight: 650; line-height: 1.3; text-decoration: none; }
-  .case-toc a:hover { color: var(--portfolio-blue); text-decoration: underline; text-decoration-color: var(--portfolio-coral); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+  .case-toc a:hover { color: var(--portfolio-blue); text-decoration: underline; text-decoration-color: var(--portfolio-blue); text-decoration-thickness: 2px; text-underline-offset: 5px; }
 
   .evidence-figure { width: 100%; max-width: var(--narrow); margin: var(--space-12) auto var(--space-16); }
   .evidence-figure figcaption { width: 100%; margin-top: var(--space-4); color: var(--muted); font-size: var(--size-sm); }
@@ -345,34 +338,30 @@ const base = import.meta.env.BASE_URL;
 
   .workflow-compare { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: var(--space-3); align-items: stretch; padding: var(--space-4); border: 1px solid var(--border); border-radius: 20px; background: #fff; }
   .workflow-panel { padding: var(--space-6); border: 1px solid var(--border); border-radius: 14px; background: var(--portfolio-blue-soft); transition: transform 180ms ease, box-shadow 180ms ease; }
-  .workflow-panel--before { background: var(--portfolio-cream); }
-  .workflow-panel:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
+  .workflow-panel--before { background: var(--surface-tint); }
   .workflow-panel h3 { margin-block: var(--space-3) var(--space-4); color: var(--portfolio-blue); }
   .workflow-panel ol { margin-left: var(--space-5, 1.25rem); }
   .workflow-panel li { margin-bottom: var(--space-2); color: var(--muted); font-size: var(--size-sm); }
-  .diagram-label { color: var(--portfolio-coral); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .diagram-label { color: var(--muted); font-size: 0.7rem; font-weight: 600; text-transform: none; }
   .workflow-shift { display: grid; place-items: center; color: var(--portfolio-blue); font-size: 1.5rem; font-weight: 800; }
 
-  .conversation { display: grid; gap: var(--space-3); padding: var(--space-4); border: 1px solid #b8c9ee; border-radius: 20px; background: var(--portfolio-blue-soft); }
+  .conversation { display: grid; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--border); border-radius: 20px; background: var(--portfolio-blue-soft); }
   .message, .report-preview { max-width: 78%; padding: var(--space-4) var(--space-6); border-radius: 14px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
-  .message:hover, .report-preview:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
   .message--user { justify-self: end; border-bottom-right-radius: 4px; }
   .message--agent { justify-self: start; border-bottom-left-radius: 4px; }
-  .message span, .report-preview > span { color: var(--portfolio-coral); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; }
+  .message span, .report-preview > span { color: var(--muted); font-size: 0.7rem; font-weight: 600; text-transform: none; }
   .message p, .report-preview p { margin-top: var(--space-2); color: var(--muted); font-size: var(--size-sm); }
-  .report-preview { max-width: 100%; border-left: 4px solid var(--portfolio-blue); }
+  .report-preview { max-width: 100%; }
   .report-preview strong { display: block; margin-top: var(--space-2); color: var(--portfolio-ink); }
 
-  .agent-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); margin: 0; padding: var(--space-4); border: 1px solid #e1c35f; border-radius: 20px; background: #fff8da; list-style: none; }
+  .agent-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); margin: 0; padding: var(--space-4); border: 1px solid var(--border); border-radius: 20px; background: var(--surface-tint); list-style: none; }
   .agent-flow li { position: relative; display: flex; min-height: 185px; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border-radius: 12px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
-  .agent-flow li:hover { z-index: 2; transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
   .agent-flow li > span { display: grid; width: 1.75rem; height: 1.75rem; place-items: center; border-radius: 50%; background: var(--portfolio-blue); color: #fff; font-size: 0.75rem; font-weight: 800; }
   .agent-flow strong { color: var(--portfolio-ink); font-size: 0.8rem; line-height: 1.35; }
   .agent-flow small { color: var(--muted); font-size: 0.7rem; line-height: 1.45; }
 
   .evolution-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; max-width: var(--narrow); gap: var(--space-3); margin: var(--space-8) auto var(--space-16); }
   .evolution-grid div { display: flex; min-height: 165px; flex-direction: column; gap: var(--space-3); padding: var(--space-6); border: 1px solid var(--border); border-radius: 14px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
-  .evolution-grid div:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
   .evolution-grid span { color: var(--portfolio-coral); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; }
   .evolution-grid strong { color: var(--portfolio-blue); line-height: 1.35; }
   .evolution-grid small { color: var(--muted); font-size: var(--size-sm); line-height: 1.5; }
@@ -416,4 +405,44 @@ const base = import.meta.env.BASE_URL;
     .agent-flow li:hover,
     .evolution-grid div:hover { transform: none; }
   }
+
+  /* ---- Visual refresh ---- */
+  /* before / after: two open cards with an arrow badge */
+  .workflow-compare { grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr); gap: var(--space-4); align-items: center; padding: 0; border: 0; background: transparent; }
+  .workflow-panel { height: 100%; padding: 1.5rem; border: 1px solid var(--border); border-radius: 20px; background: #fff; box-shadow: none; }
+  .workflow-panel--after { border-color: rgba(17,85,204,0.35); background: #fff; box-shadow: var(--elev-2); }
+  .diagram-label { display: inline-flex; align-items: center; height: 24px; padding: 0 0.6rem; border-radius: 12px; background: var(--surface-tint); color: var(--muted); font-size: 0.75rem; font-weight: 600; text-transform: none; letter-spacing: 0; }
+  .workflow-panel--after .diagram-label { background: var(--portfolio-blue); color: #fff; }
+  .workflow-panel h3 { margin-block: 0.75rem; color: var(--portfolio-ink); font-size: 1.15rem; }
+  .workflow-panel ul, .workflow-panel ol { margin: 0; list-style: none; }
+  .workflow-panel li { position: relative; margin-bottom: 0.5rem; padding-left: 1.6rem; color: var(--text); font-size: 0.9rem; }
+  .workflow-panel li::before { position: absolute; top: 0.1em; left: 0; display: grid; width: 1.1rem; height: 1.1rem; place-items: center; border-radius: 50%; font-size: 0.7rem; font-weight: 800; line-height: 1; }
+  .workflow-panel--before li { color: var(--muted); }
+  .workflow-panel--before li::before { content: '–'; background: #eef0f4; color: var(--muted); }
+  .workflow-panel--after li::before { content: '✓'; background: var(--portfolio-blue-soft); color: var(--portfolio-blue); }
+  .workflow-shift { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; background: var(--portfolio-blue); box-shadow: var(--elev-2); color: #fff; font-size: 1.15rem; }
+  @media (max-width: 640px) { .workflow-compare { grid-template-columns: 1fr; } .workflow-shift { justify-self: center; transform: rotate(90deg); } }
+
+  /* stepper: numbered nodes on one line */
+  .agent-flow { --node: 36px; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0.75rem; padding: 0; border: 0; background: transparent; list-style: none; }
+  .agent-flow li { position: relative; display: flex; min-height: 0; flex-direction: column; align-items: center; gap: 0.35rem; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; text-align: center; }
+  .agent-flow li > span:first-child { position: relative; z-index: 1; display: grid; width: var(--node); height: var(--node); margin-bottom: 0.6rem; place-items: center; border: 3px solid #fff; border-radius: 50%; background: var(--portfolio-blue); box-shadow: var(--elev-1); color: #fff; font-size: 0.8rem; font-weight: 800; }
+  .agent-flow li::after { content: ''; position: absolute; top: calc(var(--node) / 2); left: 50%; z-index: 0; width: calc(100% + 0.75rem); height: 2px; background: var(--portfolio-blue-soft); transform: translateY(-50%); }
+  .agent-flow li:last-child::after { content: none; }
+  .agent-flow li::before { content: none; }
+  .agent-flow strong { color: var(--portfolio-ink); font-size: 0.9rem; line-height: 1.3; }
+  .agent-flow li > small:last-child { max-width: 18ch; color: var(--muted); font-size: 0.78rem; line-height: 1.45; }
+  @media (max-width: 900px) {
+    .agent-flow { grid-template-columns: 1fr; gap: 1.25rem; }
+    .agent-flow li { display: grid; grid-template-columns: var(--node) 1fr; column-gap: 1rem; align-items: start; text-align: left; }
+    .agent-flow li > span:first-child { grid-row: 1 / span 2; margin: 0; }
+    .agent-flow li::after { top: var(--node); left: calc(var(--node) / 2); width: 2px; height: calc(100% - var(--node) + 1.25rem); transform: translateX(-50%); }
+    .agent-flow li > small:last-child { max-width: none; }
+  }
+
+  /* card grid: open white cards, no outer box */
+  .evolution-grid { padding: 0; border: 0; background: transparent; }
+  .evolution-grid > div, .evolution-grid > li { border: 1px solid var(--border); border-radius: 20px; background: #fff; box-shadow: var(--elev-1); }
+  .evolution-grid strong { color: var(--portfolio-ink); }
+  .evolution-grid span { color: var(--muted); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0; text-transform: none; }
 </style>

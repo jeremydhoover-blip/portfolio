@@ -10,10 +10,9 @@ const base = import.meta.env.BASE_URL;
 >
   <article class="section case-study case-study--blue">
     <header class="case-hero">
-      <div class="container container--narrow">
+      <div class="container case-hero__grid">
+        <div class="case-hero__main">
         <a href={`${base}/#projects`} class="back"><span class="back-icon" aria-hidden="true"></span><span>Back to selected projects</span></a>
-
-        <span class="tag"><span>AI systems</span><span>Product design</span><span>Shared infrastructure</span></span>
         <h1>Building the repository our teams use to design with AI</h1>
         <p class="lede">
           I identified a fragmented prototyping problem and built a shared AI design repository
@@ -36,6 +35,18 @@ const base = import.meta.env.BASE_URL;
             <span class="outcome__label">Used for ideation, demos, customer concepts, and handoff</span>
           </div>
         </div>
+        </div>
+        <aside class="glance-card" aria-labelledby="glance-title">
+          <h2 id="glance-title">At a glance</h2>
+          <dl class="glance">
+              <div><dt>Role</dt><dd>Senior Content Designer</dd></div>
+              <div><dt>Ownership</dt><dd>Initiative, architecture, implementation, integrations, operating model, roadmap, and active ownership</dd></div>
+              <div><dt>Collaboration</dt><dd>Design manager, designers, product managers, and engineers</dd></div>
+              <div><dt>Scope</dt><dd>Shared design and prototyping infrastructure across multiple teams</dd></div>
+              <div><dt>Status</dt><dd>Active and required, with engineering handoff still evolving</dd></div>
+              <div><dt>Evidence</dt><dd>Verified internal use and generic reconstructed artifacts</dd></div>
+            </dl>
+        </aside>
       </div>
     </header>
 
@@ -46,22 +57,7 @@ const base = import.meta.env.BASE_URL;
           <p>This project was completed inside Microsoft. I reconstructed the diagrams with generic labels and removed product details that are not public.</p>
         </aside>
 
-        <section class="case-summary" aria-labelledby="summary-title">
-          <div class="reading-column">
-            <h2 id="summary-title">At a glance</h2>
-            <dl class="case-meta">
-              <div><dt>Role</dt><dd>Senior Content Designer</dd></div>
-              <div><dt>Ownership</dt><dd>Initiative, architecture, implementation, integrations, operating model, roadmap, and active ownership</dd></div>
-              <div><dt>Collaboration</dt><dd>Design manager, designers, product managers, and engineers</dd></div>
-              <div><dt>Scope</dt><dd>Shared design and prototyping infrastructure across multiple teams</dd></div>
-              <div><dt>Status</dt><dd>Active and required, with engineering handoff still evolving</dd></div>
-              <div><dt>Evidence</dt><dd>Verified internal use and generic reconstructed artifacts</dd></div>
-            </dl>
-          </div>
-        </section>
-
         <nav class="case-toc" aria-label="AI design repository case study sections">
-          <span class="case-toc__label">Jump to a section</span>
           <ul>
             <li><a href="#problem">Workflow gap</a></li>
             <li><a href="#decision">System decision</a></li>
@@ -300,7 +296,6 @@ const base = import.meta.env.BASE_URL;
 
         <aside class="next-system" aria-labelledby="next-system-title">
           <div>
-            <span class="tag">Active system</span>
             <h2 id="next-system-title">A shared foundation for design work</h2>
             <p>The repository continues to evolve with the design, product, and engineering teams that use it. The next phase focuses on turning shared prototypes into clearer, more reusable engineering inputs.</p>
           </div>
@@ -328,7 +323,6 @@ const base = import.meta.env.BASE_URL;
   h1 { margin-block: var(--space-4) var(--space-6); }
   .lede { max-width: 58ch; margin-bottom: var(--space-12); font-size: var(--size-xl); line-height: 1.6; }
   .outcome { display: flex; flex-direction: column; gap: var(--space-1); transition: transform 180ms ease, box-shadow 180ms ease; }
-  .outcome:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
   .outcome__label { max-width: 25ch; font-size: var(--size-sm); color: var(--muted); }
   .case-shell { max-width: calc(var(--narrow) + 6rem); }
   .reading-column { width: 100%; max-width: var(--narrow); margin-inline: auto; }
@@ -339,26 +333,25 @@ const base = import.meta.env.BASE_URL;
   .content-section ul { margin: var(--space-4) 0 var(--space-6) var(--space-6); }
   .content-section li { margin-bottom: var(--space-2); }
 
-  .disclosure { display: grid; grid-template-columns: 150px 1fr; gap: var(--space-6); width: 100%; max-width: var(--narrow); margin: 0 auto var(--space-12); padding: var(--space-6); border: 1px solid var(--portfolio-blue-soft); border-left: 4px solid var(--portfolio-blue); border-radius: 12px; background: #fff; }
-  .disclosure strong { color: var(--portfolio-blue); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .disclosure { display: grid; grid-template-columns: 150px 1fr; gap: var(--space-6); width: 100%; max-width: var(--narrow); margin: 0 auto var(--space-12); padding: var(--space-6); border: 1px solid var(--portfolio-blue-soft); border-radius: 12px; background: #fff; }
+  .disclosure strong { color: var(--muted); font-size: 0.75rem; text-transform: none; }
   .disclosure p { color: var(--muted); font-size: var(--size-sm); }
 
   .case-meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
-  .case-meta div { padding: var(--space-6); border: 1px solid var(--border); border-left: 4px solid var(--portfolio-blue-soft); border-radius: 12px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
-  .case-meta div:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
-  .case-meta dt { margin-bottom: var(--space-2); color: var(--portfolio-blue); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .case-meta div { padding: var(--space-6); border: 1px solid var(--border); border-radius: 12px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .case-meta dt { margin-bottom: var(--space-2); color: var(--muted); font-size: 0.75rem; font-weight: 600; text-transform: none; }
   .case-meta dd { color: var(--portfolio-ink); font-size: 0.95rem; line-height: 1.5; }
 
   .case-toc { max-width: var(--narrow); margin: var(--space-8) auto var(--space-16); padding-block: var(--space-6); border-block: 1px solid var(--border); }
-  .case-toc__label { display: block; margin-bottom: var(--space-3); color: var(--portfolio-blue); font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.1em; line-height: 1.2; text-transform: uppercase; }
+  .case-toc__label { display: block; margin-bottom: var(--space-3); color: var(--muted); font-size: 0.6875rem; font-weight: 600; line-height: 1.2; text-transform: none; }
   .case-toc ul { display: flex; flex-wrap: wrap; gap: 0.5rem 0; margin: 0; list-style: none; }
-  .case-toc li { --toc-divider: var(--portfolio-coral); display: flex; align-items: center; }
+  .case-toc li { --toc-divider: var(--border); display: flex; align-items: center; }
   .case-toc li + li { margin-left: var(--space-4); }
   .case-toc li + li::before { content: ''; width: 2px; height: 16px; margin-right: var(--space-4); border-radius: 999px; background: var(--toc-divider); }
-  .case-toc li:nth-child(3n) { --toc-divider: var(--portfolio-yellow); }
-  .case-toc li:nth-child(3n + 1) { --toc-divider: var(--portfolio-blue); }
+  .case-toc li:nth-child(3n) { --toc-divider: var(--border); }
+  .case-toc li:nth-child(3n + 1) { --toc-divider: var(--border); }
   .case-toc a { display: inline-flex; min-height: 32px; align-items: center; color: var(--portfolio-ink); font-size: 0.875rem; font-weight: 650; line-height: 1.3; text-decoration: none; }
-  .case-toc a:hover { color: var(--portfolio-blue); text-decoration: underline; text-decoration-color: var(--portfolio-coral); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+  .case-toc a:hover { color: var(--portfolio-blue); text-decoration: underline; text-decoration-color: var(--portfolio-blue); text-decoration-thickness: 2px; text-underline-offset: 5px; }
 
   .evidence-figure { width: 100%; max-width: var(--narrow); margin: var(--space-12) auto var(--space-16); }
   .evidence-figure figcaption { width: 100%; margin-top: var(--space-4); color: var(--muted); font-size: var(--size-sm); }
@@ -366,30 +359,27 @@ const base = import.meta.env.BASE_URL;
 
   .workflow-compare { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: var(--space-3); align-items: stretch; padding: var(--space-4); border: 1px solid var(--border); border-radius: 20px; background: #fff; }
   .workflow-panel { padding: var(--space-6); border: 1px solid var(--border); border-radius: 14px; background: var(--portfolio-blue-soft); transition: transform 180ms ease, box-shadow 180ms ease; }
-  .workflow-panel--before { background: var(--portfolio-cream); }
-  .workflow-panel:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
+  .workflow-panel--before { background: var(--surface-tint); }
   .workflow-panel h3 { margin-block: var(--space-3) var(--space-4); color: var(--portfolio-blue); }
   .workflow-panel ul { margin-left: var(--space-4); }
   .workflow-panel li { margin-bottom: var(--space-2); color: var(--muted); font-size: var(--size-sm); }
-  .diagram-label { color: var(--portfolio-coral); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .diagram-label { color: var(--muted); font-size: 0.7rem; font-weight: 600; text-transform: none; }
   .tool-row { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4); }
   .tool-row span { padding: 0.3rem 0.55rem; border-radius: 999px; background: #fff; color: var(--portfolio-ink); font-size: 0.72rem; font-weight: 700; }
   .workflow-shift { display: grid; place-items: center; color: var(--portfolio-blue); font-size: 1.5rem; font-weight: 800; }
 
-  .system-flow, .operating-flow { --flow-gap: 1.5rem; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--flow-gap); margin: 0; padding: var(--space-4); border: 1px solid #b8c9ee; border-radius: 20px; background: var(--portfolio-blue-soft); list-style: none; }
+  .system-flow, .operating-flow { --flow-gap: 1.5rem; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--flow-gap); margin: 0; padding: var(--space-4); border: 1px solid var(--border); border-radius: 20px; background: var(--portfolio-blue-soft); list-style: none; }
   .system-flow li, .operating-flow li { position: relative; display: flex; min-height: 185px; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border-radius: 12px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
-  .system-flow li:hover, .operating-flow li:hover { z-index: 2; transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
   .system-flow li::after, .operating-flow li::after { content: ''; position: absolute; top: 50%; left: 100%; z-index: 1; width: var(--flow-gap); height: 2px; background: var(--portfolio-blue); transform: translateY(-50%); }
   .system-flow li::before, .operating-flow li::before { content: ''; position: absolute; top: 50%; left: calc(100% + var(--flow-gap) - 9px); z-index: 2; width: 9px; height: 9px; border-top: 2px solid var(--portfolio-blue); border-right: 2px solid var(--portfolio-blue); transform: translateY(-50%) rotate(45deg); }
   .system-flow li:last-child::after, .system-flow li:last-child::before, .operating-flow li:last-child::after, .operating-flow li:last-child::before { content: none; }
   .system-flow li > span, .operating-flow li > span { display: grid; width: 1.75rem; height: 1.75rem; place-items: center; border-radius: 50%; background: var(--portfolio-blue); color: #fff; font-size: 0.75rem; font-weight: 800; }
   .system-flow strong, .operating-flow strong { color: var(--portfolio-ink); font-size: 0.85rem; line-height: 1.35; }
   .system-flow small, .operating-flow small { color: var(--muted); font-size: 0.75rem; line-height: 1.45; }
-  .operating-flow { border-color: #e1c35f; background: #fff8da; }
+  .operating-flow { border-color: #e1c35f; background: var(--surface-tint); }
 
   .impact-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; max-width: var(--narrow); gap: var(--space-3); margin: var(--space-8) auto; }
   .impact-grid div { display: flex; min-height: 150px; flex-direction: column; gap: var(--space-3); padding: var(--space-6); border: 1px solid var(--border); border-radius: 14px; background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
-  .impact-grid div:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(16,26,45,0.1); }
   .impact-grid strong { color: var(--portfolio-blue); line-height: 1.35; }
   .impact-grid span { color: var(--muted); font-size: var(--size-sm); line-height: 1.5; }
 
@@ -432,5 +422,47 @@ const base = import.meta.env.BASE_URL;
     .system-flow li:hover,
     .operating-flow li:hover,
     .impact-grid div:hover { transform: none; }
+  }
+
+  /* ---- Visual refresh: open diagrams, no boxes inside boxes ---- */
+  .workflow-compare { grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr); gap: var(--space-4); align-items: center; padding: 0; border: 0; background: transparent; }
+  .workflow-panel { height: 100%; padding: 1.5rem; border: 1px solid var(--border); border-radius: 20px; background: #fff; box-shadow: var(--elev-1); }
+  .workflow-panel--before { background: #fff; box-shadow: none; }
+  .workflow-panel--after { border-color: rgba(17,85,204,0.35); box-shadow: var(--elev-2); }
+  .diagram-label { display: inline-flex; align-items: center; height: 24px; padding: 0 0.6rem; border-radius: 12px; background: var(--surface-tint); color: var(--muted); font-size: 0.75rem; font-weight: 600; }
+  .workflow-panel--after .diagram-label { background: var(--portfolio-blue); color: #fff; }
+  .workflow-panel h3 { margin-block: 0.75rem 0.75rem; color: var(--portfolio-ink); font-size: 1.15rem; }
+  .workflow-panel ul { margin: 0; list-style: none; }
+  .workflow-panel li { position: relative; margin-bottom: 0.5rem; padding-left: 1.6rem; color: var(--text); font-size: 0.9rem; }
+  .workflow-panel li::before { position: absolute; top: 0.1em; left: 0; display: grid; width: 1.1rem; height: 1.1rem; place-items: center; border-radius: 50%; font-size: 0.7rem; font-weight: 800; line-height: 1; }
+  .workflow-panel--before li { color: var(--muted); }
+  .workflow-panel--before li::before { content: '–'; background: #eef0f4; color: var(--muted); }
+  .workflow-panel--after li::before { content: '✓'; background: var(--portfolio-blue-soft); color: var(--portfolio-blue); }
+  .tool-row { gap: 0.35rem; margin-bottom: 1rem; }
+  .tool-row span { padding: 0.25rem 0.6rem; border: 1px solid var(--border); border-radius: 999px; background: #fff; color: var(--portfolio-ink); font-size: 0.75rem; font-weight: 600; }
+  .workflow-shift { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; background: var(--portfolio-blue); box-shadow: var(--elev-2); color: #fff; font-size: 1.15rem; }
+
+  /* Steppers: numbered nodes on one connecting line, text underneath */
+  .system-flow, .operating-flow { --node: 36px; gap: 0.75rem; padding: 0; border: 0; background: transparent; }
+  .system-flow li, .operating-flow li { min-height: 0; gap: 0.35rem; padding: 0; border-radius: 0; background: transparent; box-shadow: none; text-align: center; align-items: center; }
+  .system-flow li > span, .operating-flow li > span { position: relative; z-index: 1; width: var(--node); height: var(--node); margin-bottom: 0.6rem; border: 3px solid #fff; background: var(--portfolio-blue); box-shadow: var(--elev-1); font-size: 0.8rem; }
+  .system-flow li::after, .operating-flow li::after { top: calc(var(--node) / 2); left: 50%; width: calc(100% + 0.75rem); height: 2px; background: var(--portfolio-blue-soft); transform: translateY(-50%); z-index: 0; }
+  .system-flow li::before, .operating-flow li::before { content: none; }
+  .system-flow strong, .operating-flow strong { font-size: 0.9rem; }
+  .system-flow small, .operating-flow small { max-width: 18ch; font-size: 0.78rem; }
+  .operating-flow li > span { background: #fff; border-color: var(--portfolio-blue); color: var(--portfolio-blue); }
+  .impact-grid div { border-radius: 20px; box-shadow: var(--elev-1); }
+  .impact-grid strong { color: var(--portfolio-ink); }
+  @media (max-width: 900px) {
+    .system-flow, .operating-flow { grid-template-columns: 1fr; gap: 1.25rem; }
+    .system-flow li, .operating-flow li { display: grid; grid-template-columns: var(--node) 1fr; column-gap: 1rem; align-items: start; text-align: left; }
+    .system-flow li > span, .operating-flow li > span { grid-row: 1 / span 2; margin: 0; }
+    .system-flow li::after, .operating-flow li::after { top: var(--node); left: calc(var(--node) / 2); width: 2px; height: calc(100% - var(--node) + 1.25rem); transform: translateX(-50%); }
+    .system-flow li::before, .operating-flow li::before { content: none; }
+    .system-flow small, .operating-flow small { max-width: none; }
+  }
+  @media (max-width: 640px) {
+    .workflow-compare { grid-template-columns: 1fr; }
+    .workflow-shift { justify-self: center; transform: rotate(90deg); }
   }
 </style>
