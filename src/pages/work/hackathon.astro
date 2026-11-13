@@ -6,45 +6,42 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <Base
   title="Hackathon PM Agent | Jeremy Hoover"
-  description="How I designed a verified PRD-first agent workflow that won Best Use of AI and became a catalyst for an evolving system of product-management skills and agents."
+  description="In a three-day hackathon I built a set of agent skills that turns a PRD into a checked requirements report. We won Best Use of AI, and it fed into the PM skills and agents teams use now."
 >
   <article class="section case-study case-study--violet">
     <header class="case-hero">
       <div class="container case-hero__grid">
         <div class="case-hero__main">
         <a href={`${base}/#projects`} class="back"><span class="back-icon" aria-hidden="true"></span><span>Back to selected projects</span></a>
-        <h1>Replacing a requirements maze with a verified agent workflow</h1>
+        <h1>I turned a requirements maze into an agent that starts from your PRD</h1>
         <p class="lede">
-          In a three-day Microsoft hackathon, I turned a repeated wiki, form, routing, and manual
-          work-creation process into a skill that starts with a PRD. The agent extracts what it
-          can, asks targeted questions, produces a report for confirmation, and keeps downstream
-          actions under the product manager's control.
+          Every PM had to dig through a wiki, fill out a form, track down contacts, and create work by hand. In a three-day Microsoft hackathon, I built a package of skills and workflows that starts from the PM's PRD instead. The agent pulls out what it can, asks about the rest, and gives the PM a report to check. Nothing else happens until the PM says so.
         </p>
 
         <div class="outcomes-strip" aria-label="Project outcomes">
           <div class="outcome">
             <span class="outcome__num">Winner</span>
-            <span class="outcome__label">Best Use of AI, awarded to our three-person team</span>
+            <span class="outcome__label">Best Use of AI, for our three-person team</span>
           </div>
           <div class="outcome">
             <span class="outcome__num">3 days</span>
-            <span class="outcome__label">From product concept to working proof of concept</span>
+            <span class="outcome__label">From idea to working proof of concept</span>
           </div>
           <div class="outcome">
-            <span class="outcome__num">Catalyst</span>
-            <span class="outcome__label">Foundational contribution to evolving PM skills and agents</span>
+            <span class="outcome__num">Shared</span>
+            <span class="outcome__label">Across the PM org, and fed into its skills and agents</span>
           </div>
         </div>
         </div>
         <aside class="glance-card" aria-labelledby="glance-title">
           <h2 id="glance-title">At a glance</h2>
           <dl class="glance">
-              <div><dt>Role</dt><dd>Senior Content Designer; concept originator, product driver, and experience owner</dd></div>
-              <div><dt>Ownership</dt><dd>Skill, most agent instructions, complete interaction, full experience design, and demo video</dd></div>
+              <div><dt>Role</dt><dd>Senior Content Designer. It was my idea, and I drove it.</dd></div>
+              <div><dt>Ownership</dt><dd>The skills and workflows, most of the agent instructions, the full interaction, and the demo video</dd></div>
               <div><dt>Team</dt><dd>Three people: me, another designer, and a product manager</dd></div>
-              <div><dt>Constraint</dt><dd>Three-day official Microsoft hackathon</dd></div>
-              <div><dt>Status</dt><dd>Working proof of concept incorporated into an active, evolving PM system</dd></div>
-              <div><dt>Evidence</dt><dd>Best Use of AI, judges' assessment, broad PM sharing, and generic reconstructed artifacts</dd></div>
+              <div><dt>Constraint</dt><dd>Three days, official Microsoft hackathon</dd></div>
+              <div><dt>Status</dt><dd>Proof of concept, now part of a larger PM system that's still growing</dd></div>
+              <div><dt>Evidence</dt><dd>Best Use of AI, judges' feedback, and wide sharing across PMs. Examples are redrawn with generic content.</dd></div>
             </dl>
         </aside>
       </div>
@@ -54,73 +51,39 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <div class="container case-shell">
         <aside class="disclosure" aria-label="Project disclosure">
           <strong>About the evidence</strong>
-          <p>This project was completed inside Microsoft. I reconstructed the workflow and interaction with generic content and removed internal requirements, contacts, product details, and work-management data.</p>
+          <p>This is internal Microsoft work. I redrew the workflow and conversation with generic content and left out internal requirements, contacts, product details, and work items.</p>
         </aside>
 
         <nav class="case-toc" aria-label="Hackathon PM agent case study sections">
           <ul>
-            <li><a href="#problem">Workflow gap</a></li>
-            <li><a href="#decision">Product decision</a></li>
-            <li><a href="#interaction">Agent interaction</a></li>
-            <li><a href="#validation">Validation</a></li>
-            <li><a href="#evolution">Evolution</a></li>
-            <li><a href="#reflection">Reflection</a></li>
+            <li><a href="#problem">The problem</a></li>
+            <li><a href="#decision">The decision</a></li>
+            <li><a href="#interaction">How the agent works</a></li>
+            <li><a href="#validation">Testing it</a></li>
+            <li><a href="#evolution">What happened next</a></li>
+            <li><a href="#reflection">What I learned</a></li>
           </ul>
         </nav>
 
         <section id="problem" class="reading-column content-section">
-          <h2>The repeated operational problem</h2>
-          <p>
-            Product managers across teams followed the same manual sequence whenever they needed
-            to turn a product idea into assigned work.
-          </p>
-          <p>
-            They searched a wiki containing more than 50 fundamental requirements, completed a
-            form to determine which requirements applied, identified the right groups and
-            contacts, and then created and assigned work manually.
-          </p>
-          <p>
-            The information existed, but the workflow forced each product manager to repeatedly
-            locate, interpret, route, and recreate it. The form did not remove that work. It told
-            people where to look for more work.
-          </p>
+          <h2>The problem</h2>
+          <p>Every time a PM wanted to turn a product idea into assigned work, they went through the same manual steps.</p>
+          <p>They searched a wiki with more than 50 required "fundamentals," filled out a form to figure out which ones applied, tracked down the right groups and contacts, and then created and assigned the work by hand.</p>
+          <p>The information was all there. But every PM had to find it, interpret it, and route it again from scratch. The form didn't save any of that work. It just told you where to go look.</p>
         </section>
 
         <section class="reading-column content-section" aria-labelledby="role-title">
-          <h2 id="role-title">Acting as the product driver</h2>
-          <p>
-            The idea and product plan were mine. I created the skill, wrote most of the agent
-            instructions, designed the complete interaction and experience, and produced the demo
-            video used in our presentation.
-          </p>
-          <p>
-            The product manager gave me the domain foundation I needed. They explained how the
-            wiki, form, requirements, routing, and contacts worked, created test PRDs, and helped
-            with the agent runtime and work-management integration.
-          </p>
-          <p>
-            I was working as the designer and the product driver. I defined the problem, decided
-            how the interaction should work, and drove the proof of concept from idea to
-            presentation.
-          </p>
+          <h2 id="role-title">My role</h2>
+          <p>The idea and the plan were mine. I built the skills and workflows, wrote most of the agent instructions, designed the whole interaction, and made the demo video for our presentation.</p>
+          <p>Our PM teammate knew the domain. They walked me through how the wiki, form, requirements, routing, and contacts worked, wrote test PRDs, and helped hook the agent up to our runtime and work tracking.</p>
+          <p>So I was the designer and also the one driving the product. I defined the problem, decided how the interaction should work, and took it from idea to demo.</p>
         </section>
 
         <section id="decision" class="reading-column content-section">
-          <h2>The form was not the experience to preserve</h2>
-          <p>
-            We considered keeping the wiki as the primary experience, simplifying the form,
-            packaging the concept as a standalone application, and pursuing other hackathon ideas.
-          </p>
-          <p>
-            I did not think a shorter form solved the real problem. The product manager already
-            had a PRD containing useful context. Asking them to re-enter that information created
-            work without improving the result.
-          </p>
-          <p>
-            We used the wiki and form as source material for the agent instead. The skill starts
-            with the PRD, infers what it can, and asks only for missing information. This changed
-            the interaction from repeated data entry to focused verification.
-          </p>
+          <h2>Don't fix the form. Skip it.</h2>
+          <p>We looked at keeping the wiki as the main experience, simplifying the form, building a standalone app, and doing a different hackathon idea altogether.</p>
+          <p>A shorter form wouldn't have fixed much. The PM already had a PRD with most of the context in it. Making them type it all in again was busywork.</p>
+          <p>So we turned the wiki and form into source material for the agent. It starts with the PRD, figures out what it can, and only asks for what's missing. The PM goes from filling in data to checking it.</p>
         </section>
 
         <figure class="evidence-figure" aria-labelledby="workflow-caption">
@@ -148,31 +111,23 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             </section>
           </div>
           <figcaption id="workflow-caption">
-            <strong>Start with existing context.</strong> The PRD supplies the foundation, and the
-            agent asks only what is missing before producing a report for confirmation.
+            <strong>Start with what the PM already has.</strong> The PRD does most of the work. The agent asks only what's missing, then shows a report to confirm.
           </figcaption>
         </figure>
 
         <section id="interaction" class="reading-column content-section">
-          <h2>Designing the agent interaction</h2>
-          <p>
-            The agent reads the PRD and identifies available context such as the feature type,
-            release stage, schedule, dependencies, related team needs, and likely contacts.
-          </p>
-          <p>
-            It asks targeted follow-up questions where the PRD does not provide enough
-            information. The product manager does not need to repeat details the agent already
-            found.
-          </p>
-          <p>The agent then produces a complete draft report containing:</p>
+          <h2>How the agent works</h2>
+          <p>The agent reads the PRD and pulls out what it can: feature type, release stage, schedule, dependencies, what other teams need, and likely contacts.</p>
+          <p>When the PRD doesn't say enough, it asks a specific follow-up question. It never asks the PM for something it already found.</p>
+          <p>Then it writes a draft report with:</p>
           <ul>
-            <li>The applicable fundamentals</li>
-            <li>The source or rationale for each one</li>
-            <li>The responsible contact</li>
-            <li>Basic requirement information</li>
-            <li>The downstream work the system can help set up</li>
+            <li>The fundamentals that apply</li>
+            <li>Where each one came from, or why it applies</li>
+            <li>Who to contact</li>
+            <li>The basics of each requirement</li>
+            <li>The follow-on work it can help set up</li>
           </ul>
-          <p>The product manager can ask for deeper information from the agent's knowledge base before confirming the report.</p>
+          <p>The PM can ask the agent for more detail on anything before confirming.</p>
         </section>
 
         <figure class="evidence-figure" aria-labelledby="conversation-caption">
@@ -187,96 +142,60 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             </div>
           </div>
           <figcaption id="conversation-caption">
-            <strong>A reconstructed interaction.</strong> The agent combines PRD context with one
-            targeted answer, then shows its reasoning and proposed work for review.
+            <strong>A redrawn example.</strong> The agent combines the PRD with one answer, then shows its reasoning and proposed work for review.
           </figcaption>
         </figure>
 
         <section class="reading-column content-section" aria-labelledby="confirmation-title">
-          <h2 id="confirmation-title">Separating report approval from action</h2>
-          <p>The confirmation model was a key safety decision.</p>
-          <p>
-            First, the product manager verifies and confirms the complete report. Only then does
-            the system save it. After saving, the agent prompts the product manager to initiate
-            work setup and other action items separately.
-          </p>
-          <p>
-            Report approval is not blanket permission to perform every downstream action. The
-            product manager remains in control of each consequential next step.
-          </p>
+          <h2 id="confirmation-title">Approving the report isn't approving everything</h2>
+          <p>How confirmation works was the most important safety call.</p>
+          <p>First the PM checks and confirms the full report. Only then does it get saved. After that, the agent asks about setting up work and other follow-ups one at a time.</p>
+          <p>Saying yes to the report doesn't let the agent go do everything. The PM decides each step that matters.</p>
         </section>
 
         <figure class="evidence-figure" aria-labelledby="agent-flow-caption">
           <ol class="agent-flow">
             <li><span>1</span><strong>Read PRD</strong><small>Extract available context</small></li>
-            <li><span>2</span><strong>Infer</strong><small>Identify fundamentals, dependencies, and contacts</small></li>
-            <li><span>3</span><strong>Ask</strong><small>Gather only missing information</small></li>
+            <li><span>2</span><strong>Infer</strong><small>Find fundamentals, dependencies, and contacts</small></li>
+            <li><span>3</span><strong>Ask</strong><small>Only what's missing</small></li>
             <li><span>4</span><strong>Report</strong><small>Show rationale, contacts, and proposed work</small></li>
             <li><span>5</span><strong>Verify</strong><small>PM reviews, corrects, and confirms</small></li>
-            <li><span>6</span><strong>Act</strong><small>Initiate follow-on actions individually</small></li>
+            <li><span>6</span><strong>Act</strong><small>Start follow-ups one at a time</small></li>
           </ol>
           <figcaption id="agent-flow-caption">
-            <strong>Two layers of control.</strong> The report is approved and saved before the PM
-            chooses any downstream work-management action.
+            <strong>Two checkpoints.</strong> The report is approved and saved before the PM picks any follow-on action.
           </figcaption>
         </figure>
 
         <section id="validation" class="reading-column content-section">
-          <h2>Validation in three days</h2>
-          <p>
-            We tested the skill against sample PRDs created by the product manager. The
-            three-person team used those examples to check whether the agent extracted the right
-            context, asked useful follow-up questions, and produced a report that could guide
-            downstream work.
-          </p>
-          <p>
-            The hackathon judges recognized that the concept could eliminate hours of repeated
-            wiki search, form completion, contact routing, and manual work creation. That was
-            their assessment of the opportunity, not a measured production result.
-          </p>
-          <p>Our team won Best Use of AI.</p>
+          <h2>Testing it in three days</h2>
+          <p>We ran it against sample PRDs our PM wrote. We checked whether the agent pulled the right context, asked useful questions, and produced a report you could actually work from.</p>
+          <p>The judges said it could save PMs hours of wiki searching, form filling, contact hunting, and manual work setup. That's their read on the opportunity, not something we measured in production.</p>
+          <p>We won Best Use of AI.</p>
         </section>
 
         <section id="evolution" class="reading-column content-section">
-          <h2>From proof of concept to evolving system</h2>
-          <p>The hackathon version was a working proof of concept, not the unchanged final system.</p>
-          <p>
-            After the event, the skill was shared across the wider product-management organization
-            and became an input to a larger system of PM skills and agents. That broader effort
-            standardized more of the product-management workflow across the business group and
-            continued to evolve through contributions from multiple teams.
-          </p>
-          <p>
-            The proof of concept was a catalyst and foundational contribution during that shift.
-            It did not create the later ecosystem alone, but it demonstrated a different way to
-            handle the fundamentals and gave teams something concrete to build from.
-          </p>
+          <h2>What happened next</h2>
+          <p>What we built in three days was a proof of concept. It's changed a lot since.</p>
+          <p>After the hackathon, it was shared across the PM org and fed into a bigger set of PM skills and agents. That work standardized more of the PM workflow across our business group, and multiple teams keep adding to it.</p>
+          <p>Our project didn't build all of that on its own. But it was an early piece of it. It showed a different way to handle the fundamentals and gave teams something real to build on.</p>
         </section>
 
         <div class="evolution-grid" aria-label="Project evolution">
-          <div><span>01</span><strong>Proof of concept</strong><small>Three-day working skill and tested interaction</small></div>
-          <div><span>02</span><strong>Wider PM sharing</strong><small>A concrete workflow for teams to evaluate and extend</small></div>
-          <div><span>03</span><strong>Evolving system</strong><small>Standardized skills and agents shaped by multiple teams</small></div>
+          <div><span>01</span><strong>Proof of concept</strong><small>Working skills and workflows, tested in three days</small></div>
+          <div><span>02</span><strong>Wider PM sharing</strong><small>Something real for teams to try and extend</small></div>
+          <div><span>03</span><strong>Evolving system</strong><small>Shared skills and agents, built on by multiple teams</small></div>
         </div>
 
         <section id="reflection" class="reading-column content-section">
-          <h2>Reflection</h2>
-          <p>
-            The key product decision was not adding chat to a form. It was changing where the work
-            began, using the PRD as context, asking only what was missing, and preserving
-            confirmation before consequential actions.
-          </p>
-          <p>
-            I think the project also showed how quickly a useful system can emerge when the
-            interaction model is clear. Three days was enough to prove the concept because we
-            focused on one repeated problem, one meaningful source of context, and one safe path
-            from understanding to action.
-          </p>
+          <h2>What I learned</h2>
+          <p>The big call wasn't putting chat on top of a form. It was changing where the work starts: begin with the PRD, ask only what's missing, and get a yes before anything important happens.</p>
+          <p>I think it also showed how fast you can get somewhere when the interaction is clear. Three days was enough because we stuck to one repeated problem, one good source of context, and one safe path from understanding to action.</p>
         </section>
 
         <aside class="closing-panel" aria-labelledby="closing-title">
-          <h2 id="closing-title">From repeated process to reusable skill</h2>
-          <p>The proof of concept turned a manual requirements workflow into a verified agent interaction and helped establish a broader direction for how product managers could use skills and agents in their daily work.</p>
+          <h2 id="closing-title">From busywork to a reusable workflow</h2>
+          <p>We took a manual requirements process and turned it into an agent the PM stays in control of. It also helped set the direction for how PMs here use skills and agents day to day.</p>
         </aside>
 
         <hr class="divider" />
