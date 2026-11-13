@@ -2,7 +2,7 @@
 
 ## Development
 
-- This is an Astro static site served from the root of the custom domain `jeremydhoover.com` (no base path); build internal links with `import.meta.env.BASE_URL` so a base path can be reintroduced.
+- This is an Astro static site served from the root of the custom domain `jeremyhoover.ai` (no base path); build internal links with `import.meta.env.BASE_URL` so a base path can be reintroduced.
 - Start the development server in background mode with `npm run dev`.
 - Manage it with `npm run dev:status`, `npm run dev:logs`, and `npm run dev:stop`.
 - Run `npm run quality` before reporting a change as complete. This builds the site and runs the deterministic portfolio audit.

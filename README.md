@@ -2,7 +2,7 @@
 
 Career portfolio for Jeremy Hoover, focused on product strategy, design systems, and AI workflows. Built with Astro and deployed to GitHub Pages.
 
-**[View the live portfolio](https://jeremydhoover.com/)**
+**[View the live portfolio](https://jeremyhoover.ai/)**
 
 ## About the portfolio
 
@@ -24,7 +24,7 @@ I built this site to show how I connect design, product, and engineering through
 - GitHub Actions
 - GitHub Pages
 
-The site is static, responsive, and served from the root of `jeremydhoover.com`.
+The site is static, responsive, and served from the root of `jeremyhoover.ai`.
 
 ## Run locally
 

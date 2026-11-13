@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://jeremydhoover.com/portfolio-standards.schema.json",
+  "$id": "https://jeremyhoover.ai/portfolio-standards.schema.json",
   "title": "Jeremy Hoover portfolio quality standards",
   "type": "object",
   "required": ["version", "site", "brand", "content", "accessibility"],
