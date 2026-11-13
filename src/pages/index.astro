@@ -27,9 +27,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   </section>
 
   <!-- SELECTED PROJECTS -->
-  <section class="projects" id="projects">
+  <section class="projects">
     <div class="wrap">
-      <div class="section-header">
+      <div class="section-header" id="projects">
         <h2>Selected projects</h2>
       </div>
       <div class="projects__grid">
@@ -155,9 +155,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   </section>
 
   <!-- RECENT EXPERIENCE -->
-  <section class="experience" id="experience">
+  <section class="experience">
     <div class="wrap">
-      <div class="section-header">
+      <div class="section-header" id="experience">
         <h2>Recent experience</h2>
         <a href={`${base}/about`} class="section-header__link">Full background &#8594;</a>
       </div>
@@ -203,9 +203,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   </section>
 
   <!-- PROFESSIONAL RECOMMENDATIONS -->
-  <section class="recommendations" id="recommendations" aria-labelledby="recommendations-title">
+  <section class="recommendations" aria-labelledby="recommendations-title">
     <div class="wrap">
-      <div class="section-header recommendations__header">
+      <div class="section-header recommendations__header" id="recommendations">
         <div>
           <h2 id="recommendations-title">What colleagues say</h2>
         </div>
@@ -243,9 +243,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   </section>
 
   <!-- TECHNICAL CONTENT DESIGNER PROGRAM -->
-  <section class="program" id="program">
+  <section class="program">
     <div class="wrap">
-      <div class="section-header">
+      <div class="section-header" id="program">
         <h2>Technical Content Designer Program</h2>
         <a href="https://uxcontent.com/technical-content-designer-program/" target="_blank" rel="noopener" class="section-header__link">Explore the program &#8599;</a>
       </div>
@@ -330,9 +330,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   </section>
 
   <!-- PUBLISHED ARTICLES -->
-  <section class="writing" id="writing">
+  <section class="writing">
     <div class="wrap">
-      <div class="section-header">
+      <div class="section-header" id="writing">
         <h2>Published articles</h2>
       </div>
       <p class="writing__intro">Ideas and practical frameworks across AI systems, technical content design, product measurement, and no-code tools.</p>
@@ -510,6 +510,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   }
 
   /* ─ SECTION HEADER ─ */
+  .section-header[id] { scroll-margin-top: 88px; }
+  @media (max-width: 1080px) { .section-header[id] { scroll-margin-top: 120px; } }
   .section-header {
     display: flex;
     align-items: baseline;
