@@ -2,8 +2,7 @@
 import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
+// Served from the root of the custom domain (see public/CNAME).
 export default defineConfig({
-  site: 'https://jeremydhoover-blip.github.io',
-  base: '/portfolio',
+  site: 'https://jeremydhoover.com',
 });
-

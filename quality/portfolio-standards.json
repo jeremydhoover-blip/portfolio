@@ -2,8 +2,8 @@
   "$schema": "./portfolio-standards.schema.json",
   "version": 1,
   "site": {
-    "basePath": "/portfolio",
-    "canonicalOrigin": "https://jeremydhoover-blip.github.io",
+    "basePath": "",
+    "canonicalOrigin": "https://jeremydhoover.com",
     "requiredRoutes": [
       "index.html",
       "about/index.html",
