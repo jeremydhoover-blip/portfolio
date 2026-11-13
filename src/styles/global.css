@@ -714,3 +714,10 @@ body .case-study .outcome__label { margin-top: 0.2rem; font-size: 0.8125rem; lin
 @media (max-width: 640px) {
   body .case-study[class*='case-study--'] .outcome + .outcome { border-left: 0 !important; border-top: 1px solid rgba(255,255,255,0.18) !important; }
 }
+
+/* Header wordmark: the name in type, no icon tile */
+.nav__logo { color: var(--portfolio-ink); }
+.nav__logo:hover { color: var(--portfolio-ink); }
+.nav__wordmark { font-family: var(--f-heading); font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1; }
+.nav__dot { color: var(--portfolio-yellow); transition: color 160ms ease; }
+.nav__logo:hover .nav__dot { color: var(--portfolio-blue); }
