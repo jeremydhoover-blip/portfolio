@@ -35,7 +35,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <aside class="glance-card" aria-labelledby="glance-title">
           <h2 id="glance-title">At a glance</h2>
           <dl class="glance">
-              <div><dt>Role</dt><dd>Senior Content Designer. I led the efforts, own the KB review process, and train across the org.</dd></div>
+              <div><dt>Role</dt><dd>Senior Content Designer. I led the efforts, own the KB review process, train across the org, and wrote the playbook articles and prompt collections people learn from.</dd></div>
               <div><dt>Scope</dt><dd>A design org with multiple teams in multiple countries</dd></div>
               <div><dt>Pattern</dt><dd>Spot the gap, get leadership on board, build a v-team, prove it, ship it, make it required</dd></div>
               <div><dt>Status</dt><dd>All three are active and required</dd></div>
@@ -111,7 +111,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <p>The knowledge base had stalled. Years of design knowledge sat in a system nobody was adding to or maintaining.</p>
           <p>I took the problem to a senior leader in the design org, who connected me with the design manager overseeing it. With that manager and a small v-team, I defined the approach, built the proof of concept, and pushed it up the org. VPs liked it, and it became a full initiative.</p>
           <p>Now the KB is required. Every designer in the org is expected to contribute. Once we got it to general availability, I took on the governance plan: how people submit, review, improve, merge, and close contributions and gap logs.</p>
-          <p>I designed the whole process. That includes entry types and templates, a review rubric, workflows for contributors and reviewers, triage, who merges what, and how we bring in subject-matter experts when there's a gap nobody can fill. I also built skills and prompts in the repo that walk people through it while they're doing the work.</p>
+          <p>I designed the whole process. That includes entry types and templates, a review rubric, workflows for contributors and reviewers, triage, who merges what, and how we bring in subject-matter experts when there's a gap nobody can fill. I also wrote the skills and prompts in the repo that walk contributors and reviewers through each step while they're doing the work.</p>
           <p>I piloted it with a small group of reviewers, took their feedback, and fixed the process and the repo before rolling it out wider. I trained reviewers on the standard. I worked with principal design managers, DesignOps, and the owners of the broader design repo, where the KB is a core part of the org's AI strategy.</p>
           <p>I went from helping launch the KB to owning how contributions and quality work. I still run the process and keep adjusting it as new cases come up.</p>
         </section>
@@ -152,7 +152,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <section class="reading-column content-section" aria-labelledby="enablement-title">
           <h2 id="enablement-title">Put the help where the work happens</h2>
           <p>A process only works if people can follow it. We looked at office hours, regular support sessions, and a library of training videos. Those would help, but they all live somewhere other than where people are actually contributing or reviewing.</p>
-          <p>I pushed for putting skills, workflows, and prompts right in the repo, backed up by the org channel we already had. People can ask questions where everyone already hangs out, or set up time for something specific. The repo gives the same guidance every time.</p>
+          <p>I pushed for putting the guidance right in the repo, and then I wrote it: skills, workflows, and prompts, backed up by the org channel we already had. People can ask questions where everyone already hangs out, or set up time for something specific. The repo gives the same guidance every time.</p>
           <p>That way it doesn't depend on a recurring meeting or on me repeating myself. And when the process changes, we update the guidance in one place.</p>
         </section>
 
@@ -165,8 +165,23 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <section id="training" class="reading-column content-section">
           <h2>Training across the org</h2>
           <p>Building something and getting people to use it are two different jobs. I did both.</p>
-          <p>I'm one of the main AI trainers in my design org. I cover content design, the knowledge base, accessibility, gathering context, and research, for design managers and ICs. I don't just walk through tools. I teach when and how to use AI responsibly in the work people already do.</p>
-          <p>Some of that is formal sessions. Some is demos. When VPs came to see what the design team was doing with AI, I built those demos.</p>
+          <p>I'm one of the main AI trainers in my design org. I give talks, run workshops, and organize a recurring AI learning series for my local UX team. I teach design managers and ICs about content design, the knowledge base, accessibility, gathering context, research, and testing AI quality. I don't just walk through tools. I teach when and how to use AI responsibly in the work people already do.</p>
+          <p>A few of the sessions:</p>
+          <ul>
+            <li><strong>AI in content design work</strong> (August 2025, co-presented). Content patterns, choosing models, checking sources, maintenance, and evaluating quality. People from outside the design org came too.</li>
+            <li><strong>Testing LLM assistant quality</strong> (September 2025). I presented my own testing framework with a live demo: test, analyze, fix, and validate, using golden prompts, weighted rubrics, and human review.</li>
+            <li><strong>A prompting workshop for content designers</strong> (September 2025, co-created and co-delivered at an internal design week). Practical prompting, structured project context, reusable templates, and content-design workflows. One attendee's feedback: "Super helpful."</li>
+            <li><strong>An AI learning series for my UX team</strong> (2025 to now). I organize it, and it keeps going as the tools change.</li>
+          </ul>
+          <p>When VPs came to see what the design team was doing with AI, I built those demos.</p>
+          <h3>What I wrote for it</h3>
+          <p>The sessions are only part of it. I also wrote the material people use after a session, when I'm not around.</p>
+          <ul>
+            <li><strong>Articles for the org's AI playbook.</strong> "9 tips for testing and refining reusable prompts" (2025), "Introduction to using and creating skills," and "Introduction to evaluations for skills and agents" (both spring 2026). The last two are for everyone in the wider org, including PMs, designers, and engineers, and I've kept updating them.</li>
+            <li><strong>Prompt collections and templates.</strong> Reusable prompt and Markdown templates for turning research and PM input into strategy and UX content. Shared prompt collections for documentation, research, and content. A learning collection for content designers that pulls together prompts, articles, and courses.</li>
+            <li><strong>A semester-planning workflow.</strong> A core recipe plus eight reusable analysis blueprints that colleagues can run themselves. A design manager called it "invaluable."</li>
+          </ul>
+          <p>All of it lives where people already work, so the guidance is the same every time and doesn't depend on me repeating it.</p>
         </section>
 
         <section id="required" class="content-section">
@@ -185,7 +200,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             </div>
             <div>
               <strong>Training</strong>
-              <span>Responsible AI use for managers and ICs</span>
+              <span>Talks, workshops, playbook articles, and prompt collections</span>
             </div>
           </div>
         </section>
@@ -235,6 +250,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   .content-section p { margin-bottom: var(--space-4); }
   .content-section ul { margin: var(--space-4) 0 var(--space-6) var(--space-6); }
   .content-section li { margin-bottom: var(--space-2); }
+  .content-section h3 { margin: var(--space-8) 0 var(--space-4); }
 
   .disclosure { display: grid; grid-template-columns: 150px 1fr; gap: var(--space-6); width: 100%; max-width: var(--narrow); margin: 0 auto var(--space-12); padding: var(--space-6); border: 1px solid var(--portfolio-blue-soft); border-radius: 12px; background: #fff; }
   .disclosure strong { color: var(--muted); font-size: 0.75rem; text-transform: none; }
