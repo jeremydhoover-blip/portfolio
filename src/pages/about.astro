@@ -128,17 +128,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   .about-id { display: flex; align-items: center; gap: 1.25rem; }
   .about-id img { flex: 0 0 auto; width: 88px; height: 88px; border: 2px solid var(--portfolio-yellow); border-radius: 50%; object-fit: cover; object-position: 50% 30%; box-shadow: var(--elev-2); }
   .about-hero h1 { margin: 0; color: #fff; font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.1; }
-  .subtitle { margin: 0.35rem 0 0; color: rgba(255,255,255,0.82); font-size: 1rem; max-width: none; }
+  .subtitle { margin: 0.25rem 0 0; color: rgba(255,255,255,0.82); font-size: var(--size-base); max-width: none; }
   .about-content { padding-block: clamp(3rem, 6vw, 4.5rem); }
-  .about-body p { margin-bottom: var(--space-6); font-size: 1.0625rem; line-height: 1.75; }
+  .about-body p { margin-bottom: var(--space-6); font-size: var(--size-lg); line-height: 1.75; }
   h2 { margin-bottom: var(--space-6); color: var(--portfolio-ink); }
   .experience { display: flex; flex-direction: column; gap: 0.75rem; }
   .experience__item { padding: 1.25rem 1.5rem; border: 1px solid var(--border); border-radius: var(--portfolio-radius); background: #fff; box-shadow: var(--elev-1); }
-  .experience__meta { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.25rem 1rem; margin-bottom: 0.2rem; }
-  .experience__meta strong { color: var(--portfolio-ink); font-family: var(--f-heading); font-size: 1.05rem; }
-  .experience__meta span { color: var(--muted); font-size: 0.8125rem; }
-  .experience__role { margin-bottom: 0.4rem; color: var(--portfolio-ink); font-size: 0.9375rem; font-weight: 600; max-width: none; }
-  .experience__item p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+  .experience__meta { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.25rem 1rem; margin-bottom: 0.25rem; }
+  .experience__meta strong { color: var(--portfolio-ink); font-family: var(--f-heading); font-size: var(--size-lg); }
+  .experience__meta span { color: var(--muted); font-size: var(--size-xs); }
+  .experience__role { margin-bottom: 0.5rem; color: var(--portfolio-ink); font-size: var(--size-md); font-weight: 600; max-width: none; }
+  .experience__item p { color: var(--muted); font-size: var(--size-md); line-height: 1.6; }
   .cta-row { display: flex; flex-wrap: wrap; gap: var(--space-4); }
   @media (max-width: 560px) { .about-id img { width: 64px; height: 64px; } }
 </style>
