@@ -1,5 +1,4 @@
 ---
-import Icon from '../../components/Icon.astro';
 import Base from '../../layouts/Base.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -7,7 +6,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <Base
   title="Statecraft: Israel Content System | Jeremy Hoover"
-  description="My 20 merged contributions to an open-source strategy game about Israel: historical research, contributor guidance, AI skills, UX writing standards, and shipped UI copy."
+  description="My 20 merged contributions to a strategy game about Israel, made while it was open source: historical research, contributor guidance, AI skills, UX writing standards, and shipped UI copy."
 >
   <article class="section case-study case-study--violet">
     <header class="case-hero">
@@ -16,7 +15,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <a href={`${base}/#projects`} class="back"><span class="back-icon" aria-hidden="true"></span><span>Back to selected projects</span></a>
         <h1>Research, writing rules, and UI copy for a history game</h1>
         <p class="lede">
-          I have a background in history, so I started contributing to Statecraft: Israel, an open-source strategy game. I researched the history with sources, turned it into game data, wrote guidance and AI skills for other contributors, and rewrote player-facing copy. So far that's 20 merged pull requests.
+          I have a background in history, so I contributed to Statecraft: Israel, a strategy game, while it was open source. I researched the history with sources, turned it into game data, wrote guidance and AI skills for other contributors, and rewrote player-facing copy. In all, 20 of my pull requests merged.
         </p>
 
         <div class="outcomes-strip" aria-label="Project outcomes">
@@ -41,8 +40,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
               <div><dt>Contribution</dt><dd>I found the gaps, proposed fixes in public issues, and wrote 20 merged PRs</dd></div>
               <div><dt>Scope</dt><dd>Contributor guidance, AI skills, research, game data, UI copy, localization guidance, and release notes</dd></div>
               <div><dt>Collaboration</dt><dd>The project owner, maintainers, and other contributors</dd></div>
-              <div><dt>Timeframe</dt><dd>October 2026 to now</dd></div>
-              <div><dt>Evidence</dt><dd>Public issues, PRs, reviews, tests, and contributor credit</dd></div>
+              <div><dt>Timeframe</dt><dd>October 11 to 26, 2026, while the game was open source</dd></div>
+              <div><dt>Evidence</dt><dd>Issues, PRs, reviews, tests, and contributor credit from when the repo was public</dd></div>
             </dl>
         </aside>
       </div>
@@ -52,7 +51,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <div class="container case-shell">
         <aside class="disclosure" aria-label="Project disclosure">
           <strong>My role</strong>
-          <p>Eyal Golan created Statecraft: Israel. I don't own the game. This page only covers my own public issues and merged contributions. The repo uses different licenses for code, content, docs, and assets.</p>
+          <p>Eyal Golan created Statecraft: Israel. I don't own the game. It was open source while I contributed and is no longer public. This page only covers my own issues and merged contributions from that time.</p>
         </aside>
 
         <nav class="case-toc" aria-label="Statecraft: Israel case study sections">
@@ -61,7 +60,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             <li><a href="#foundation">Contributor guidance</a></li>
             <li><a href="#research">Research</a></li>
             <li><a href="#experience">UI copy</a></li>
-            <li><a href="#evidence">See the work</a></li>
+            <li><a href="#evidence">What I contributed</a></li>
             <li><a href="#reflection">What I learned</a></li>
           </ul>
         </nav>
@@ -76,14 +75,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <figure class="gameplay-figure">
           <img src={`${base}/images/case-studies/statecraft-israel.jpg`} alt="Statecraft: Israel gameplay showing the 1948 map, city labels, resource indicators, and the Tel Aviv city-management panel" width="1600" height="900" />
           <figcaption>
-            <strong>The game.</strong> The map, cities, resources, and player guidance. Screenshot from the Statecraft: Israel repo, used under its asset license.
+            <strong>The game.</strong> The map, cities, resources, and player guidance. Screenshot from the Statecraft: Israel repo, taken while it was open source.
           </figcaption>
         </figure>
 
         <section id="foundation" class="reading-column content-section">
           <h2>Contributor guidance first</h2>
           <p>My first big contribution didn't add anything to the game. It made the repo easier to contribute to. I added agent guidance, a writing guide, instructions for specific AI tools, reusable skills, templates, and validation scripts.</p>
-          <p>That made everything after it repeatable. Nobody has to figure out sourcing, voice, or project context again in every PR. Contributors and AI agents start from the same rules and the same trusted sources.</p>
+          <p>That made everything after it repeatable. Nobody had to figure out sourcing, voice, or project context again in every PR. Contributors and AI agents started from the same rules and the same trusted sources.</p>
         </section>
 
         <figure class="system-figure" aria-labelledby="system-caption">
@@ -100,8 +99,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
         <section id="research" class="reading-column content-section">
           <h2>From research to game data</h2>
-          <p>I wrote public research on the New Economic Policy, the Knesset vote on talks with Germany, the 1955 election, the 1948 war, the road to Suez, and the Sinai Campaign. I also checked the sources behind the quotes used in the trailer.</p>
-          <p>The notes don't just list facts. They separate what's verified, what's a lead, where sources disagree, and what's still unknown. So you can see the uncertainty before anything turns into game data or copy.</p>
+          <p>I wrote sourced research on the New Economic Policy, the Knesset vote on talks with Germany, the 1955 election, the 1948 war, the road to Suez, and the Sinai Campaign. I also checked the sources behind the quotes used in the trailer.</p>
+          <p>The notes didn't just list facts. They separated what's verified, what's a lead, where sources disagree, and what's still unknown. So you can see the uncertainty before anything turns into game data or copy.</p>
           <p>Then I put the research into the game: Third Knesset and 1955 election data, with source references and tests that check the new records fit the simulation.</p>
         </section>
 
@@ -121,22 +120,22 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <section id="experience" class="reading-column content-section">
           <h2>Making the game easier to understand</h2>
           <p>Before writing any standards, I audited the UI as it existed. That turned into a 49-term glossary, six shared conventions, and English and Hebrew UI-writing guidance based on the actual game, not generic style advice.</p>
-          <p>Then I used it in shipped UI changes. The save warnings now say what changed and what to do next. The How to play content explains unfamiliar training terms, ties facilities to outcomes, and says when worker changes take effect. My draft Hebrew stayed marked for native review instead of being passed off as final.</p>
-          <p>I also built skills for UX writing and for sourced video scripts, with templates and checks. They make good calls easier to repeat, but source review, native-speaker review, and maintainer approval still happen in the open.</p>
+          <p>Then I used it in shipped UI changes. I rewrote the save warnings to say what changed and what to do next. I revised the How to play content to explain unfamiliar training terms, tie facilities to outcomes, and say when worker changes take effect. My draft Hebrew stayed marked for native review instead of being passed off as final.</p>
+          <p>I also built skills for UX writing and for sourced video scripts, with templates and checks. They made good calls easier to repeat, but source review, native-speaker review, and maintainer approval still happened in the open.</p>
         </section>
 
         <section id="evidence" class="content-section">
           <div class="reading-column">
-            <h2>See the work</h2>
-            <p>Everything is public: the original proposals, review comments, revisions, tests, and merges.</p>
+            <h2>What I contributed</h2>
+            <p>The repo is no longer public. Here's a record of my main pull requests from when it was open source.</p>
           </div>
-          <div class="proof-list" aria-label="Public contribution evidence">
-            <a href="https://github.com/eyalgolan/statecraft-israel/pulls?q=is%3Apr+author%3Ajeremydhoover-blip+is%3Amerged" target="_blank" rel="noopener"><span>Complete record</span><strong>Review all 20 merged pull requests</strong><small>Research, systems, content, UX, and messaging ↗</small></a>
-            <a href="https://github.com/eyalgolan/statecraft-israel/pull/134" target="_blank" rel="noopener"><span>Foundation</span><strong>Inspect the repository guidance and skills</strong><small>Writing guide, agent instructions, templates, and checks ↗</small></a>
-            <a href="https://github.com/eyalgolan/statecraft-israel/pull/970" target="_blank" rel="noopener"><span>UX system</span><strong>Read the bilingual UX guidance contribution</strong><small>Glossary, conventions, English, and Hebrew guidance ↗</small></a>
-            <a href="https://github.com/eyalgolan/statecraft-israel/pull/1139" target="_blank" rel="noopener"><span>Shipped UI copy</span><strong>Compare the revised save and recovery messages</strong><small>Implementation evidence, review, and before-and-after captures ↗</small></a>
-            <a href="https://github.com/eyalgolan/statecraft-israel/pull/1140" target="_blank" rel="noopener"><span>Player guidance</span><strong>Inspect the revised How to play content</strong><small>Desktop and mobile evidence in English and Hebrew ↗</small></a>
-            <a href="https://github.com/eyalgolan/statecraft-israel/blob/main/site/src/data/contributors.yaml" target="_blank" rel="noopener"><span>Contributor credit</span><strong>View the project's public contributor record</strong><small>Repository-maintained attribution ↗</small></a>
+          <div class="proof-list" aria-label="Main contributions">
+            <div><span>Complete record</span><strong>20 merged pull requests</strong><small>Research, systems, content, UX, and messaging</small></div>
+            <div><span>Foundation · PR 134</span><strong>Repository guidance and skills</strong><small>Writing guide, agent instructions, templates, and checks</small></div>
+            <div><span>UX system · PR 970</span><strong>Bilingual UX guidance</strong><small>Glossary, conventions, English, and Hebrew guidance</small></div>
+            <div><span>Shipped UI copy · PR 1139</span><strong>Save and recovery messages</strong><small>Rewritten messages with before-and-after captures</small></div>
+            <div><span>Player guidance · PR 1140</span><strong>How to play content</strong><small>Desktop and mobile updates in English and Hebrew</small></div>
+            <div><span>Contributor credit</span><strong>Listed in the project's contributor record</strong><small>Attribution maintained in the repo</small></div>
           </div>
         </section>
 
@@ -146,16 +145,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <p>Doing it in public also kept the lines clear. Maintainers decided what merged. Native speakers had the final say on Hebrew. Open historical questions stayed open. AI sped things up, but it was always obvious where a person still had to make the call.</p>
         </section>
 
-        <aside class="inspect-work" aria-labelledby="inspect-title">
-          <div>
-            <h2 id="inspect-title">See the work and the game</h2>
-            <p>The repo has my contribution history, the current game, the source rules, tests, and the roadmap.</p>
-          </div>
-          <div class="inspect-work__actions">
-            <a href="https://github.com/eyalgolan/statecraft-israel/pulls?q=is%3Apr+author%3Ajeremydhoover-blip+is%3Amerged" target="_blank" rel="noopener" class="btn">View my pull requests<Icon name="arrow-outward" /></a>
-            <a href="https://github.com/eyalgolan/statecraft-israel" target="_blank" rel="noopener" class="btn btn--outline">Explore the repository<Icon name="arrow-outward" /></a>
-          </div>
-        </aside>
 
         <hr class="divider" />
         <nav class="case-pagination" aria-label="Case study navigation">
@@ -219,20 +208,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   .research-flow li { position: relative; display: flex; min-height: 165px; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border-radius: var(--radius-md); background: #fff; }
 
   .proof-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; max-width: var(--narrow); gap: var(--space-3); margin: var(--space-8) auto 0; }
-  .proof-list a { display: flex; min-height: 150px; flex-direction: column; gap: var(--space-2); padding: var(--space-6); border: 1px solid var(--border); border-radius: var(--radius-md); background: #fff; color: var(--portfolio-ink); text-decoration: none; transition: transform 180ms ease, box-shadow 180ms ease; }
-  .proof-list a:nth-child(2n) { border-top-color: var(--portfolio-coral); }
-  .proof-list a:hover { box-shadow: 0 8px 20px rgba(16,26,45,0.08); border-color: rgba(17,85,204,0.35); }
+  .proof-list > div { display: flex; min-height: 150px; flex-direction: column; gap: var(--space-2); padding: var(--space-6); border: 1px solid var(--border); border-radius: var(--radius-md); background: #fff; color: var(--portfolio-ink); text-decoration: none; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .proof-list > div:nth-child(2n) { border-top-color: var(--portfolio-coral); }
   .proof-list span { color: var(--muted); font-size: var(--size-2xs); font-weight: 600; text-transform: none; }
   .proof-list strong { color: var(--portfolio-blue); line-height: 1.4; }
   .proof-list small { margin-top: auto; color: var(--muted); font-size: var(--size-xs); line-height: 1.45; }
 
-  .inspect-work { display: grid; grid-template-columns: 1fr auto; gap: var(--space-8); align-items: center; width: 100%; max-width: var(--narrow); margin: var(--space-16) auto 0; padding: clamp(1.5rem, 5vw, 3rem); border-radius: var(--radius-lg); background: var(--portfolio-blue); }
-  .inspect-work .tag { color: var(--portfolio-yellow); }
-  .inspect-work h2 { margin-bottom: var(--space-3); color: #fff; }
-  .inspect-work p { color: rgba(255,255,255,0.82); }
-  .inspect-work__actions { display: flex; flex-direction: column; gap: var(--space-3); min-width: 215px; }
-  .inspect-work .btn { justify-content: center; text-align: center; }
-  .inspect-work .btn--outline { color: #fff; border-color: var(--portfolio-yellow); }
   .divider { margin-block: var(--space-16) var(--space-8); }
 
   @media (max-width: 900px) {
@@ -241,18 +222,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   }
   @media (max-width: 640px) {
     .content-section { scroll-margin-top: 130px; }
-    .disclosure, .case-meta, .system-grid, .proof-list, .inspect-work { grid-template-columns: 1fr; }
+    .disclosure, .case-meta, .system-grid, .proof-list { grid-template-columns: 1fr; }
     .disclosure { gap: var(--space-2); padding: var(--space-4); }
     .case-meta div { padding: var(--space-4); }
     .case-toc { margin-block: var(--space-6) var(--space-12); padding-block: var(--space-4); }
     .case-toc ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-1) var(--space-6); }
     .case-toc a { min-height: 44px; }
     .research-flow { grid-template-columns: 1fr; padding: var(--space-3); }
-    .research-flow li, .system-grid div, .proof-list a { min-height: auto; }
-    .inspect-work__actions { min-width: 0; }
-  }
+    .research-flow li, .system-grid div, .proof-list > div { min-height: auto; }
+    }
   @media (prefers-reduced-motion: reduce) {
-    .outcome:hover, .case-meta div:hover, .system-grid div:hover, .proof-list a:hover { transform: none; }
+    .outcome:hover, .case-meta div:hover, .system-grid div:hover { transform: none; }
   }
 
   /* ---- Visual refresh ---- */
