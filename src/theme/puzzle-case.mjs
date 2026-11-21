@@ -27,40 +27,74 @@ export function puzzleCase(document) {
 
   // HERO
   P.push(piece('pzc-title', 'B', 8, `<a class="pzc-back" href="${esc(back)}">← All work</a><h1 class="pz-serif pzc-h1">${esc(h1)}</h1><p class="pzc-lede lede">${esc(lede)}</p>`));
-  P.push(piece('pzc-glance', 'Y', 4, `<dl class="glance">${glance.map((g) => `<div><dt>${esc(g.dt)}</dt><dd>${esc(g.dd)}</dd></div>`).join('')}</dl>`, ' data-keep="1"'));
+  P.push(piece('pzc-glance', 'Y', 4, `<dl class="glance">${glance.map((g) => `<div><dt>${esc(g.dt)}</dt><dd>${esc(g.dd)}</dd></div>`).join('')}</dl>${disc ? `<p class="pzc-disc">${esc(disc)}</p>` : ''}`, ' data-keep="1"'));
   const oc = ['R', 'G', 'B'];
   outcomes.slice(0, 3).forEach((o, i) => P.push(piece('pzc-out outcome', oc[i], 4, `<p class="pz-serif pzc-out__n outcome__num">${esc(o.n)}</p><p class="pzc-out__l outcome__label">${esc(o.l)}</p>`, ' data-thick="70"')));
   if (toc.length) P.push(group('pzc-toc', 'Y', 12, toc.map((t, i) => [['Y', 'C', 'Y', 'C', 'Y', 'C'][i % 6], `<a href="${esc(t.href)}"><b>${String(i + 1).padStart(2, '0')}</b>${esc(t.t)}</a>`])));
 
   // BODY
-  let n = 0;
+  let n = 0, f = 0;
   const kids = [...shell.children];
-  const flowZones = (ol) => [...ol.children].map((li, i) => [RING[i % 4], `<b class="pzc-step__n">${String(i + 1).padStart(2, '0')}</b><strong>${esc(T($('strong', li)))}</strong><small>${esc(T($('small', li)))}</small>`, 'pzc-step']);
-  kids.forEach((k) => {
-    if (k.classList.contains('content-section')) {
-      const h2 = $('h2', k); const head = T(h2); if (h2) h2.remove();
-      // impact grids inside a section become their own piece after it
-      const grid = $('.impact-grid', k); if (grid) grid.remove();
-      const c = RING[n % 4], left = n % 2 === 0;
-      const headP = piece(left ? 'pzc-head' : 'pzc-head pzc-head--r', c, 4, `<span class="pzc-num">${String(n + 1).padStart(2, '0')}</span><h2 class="pz-serif pzc-h2">${esc(head)}</h2>`, ' data-thick="80"' + (k.id ? ` id="${esc(k.id)}"` : ''));
-      const textP = piece(left ? 'pzc-text' : 'pzc-text pzc-text--l', 'C', 8, `<div class="pzc-prose">${k.innerHTML}</div>`, ' data-keep="1" data-thick="90"');
-      P.push(headP + textP);
-      if (grid) P.push(group('pzc-impact', 'G', 12, [...grid.children].map((d, i) => [['G', 'Y', 'R'][i % 3], `<strong>${esc(T($('strong', d)))}</strong><span>${esc(T($('span', d)))}</span>`])));
-      n++;
-    } else if (k.classList.contains('evidence-figure')) {
-      const cap = $('figcaption', k); const capH = cap ? `<p class="pzc-cap"><strong>${esc(T($('strong', cap)))}</strong> ${esc(T(cap).replace(T($('strong', cap)), '').trim())}</p>` : '';
-      const ol = $('ol', k), cmp = $('.workflow-compare', k);
-      if (ol) P.push(group('pzc-flow pzc-flow--' + ol.children.length, 'C', 12, [['C', capH, 'pzc-capz'], ...flowZones(ol)]));
-      else if (cmp) {
-        const side = (p) => `<span class="pzc-tag">${esc(T($('.diagram-label', p)))}</span><h3 class="pz-serif">${esc(T($('h3', p)))}</h3><ul>${$$('li', p).map((li) => `<li>${esc(T(li))}</li>`).join('')}</ul>`;
-        const [b, a] = $$('.workflow-panel', cmp);
-        P.push(group('pzc-ba', 'C', 12, [['C', capH, 'pzc-capz'], ['R', side(b), 'pzc-ba__b'], ['G', side(a), 'pzc-ba__a']]));
-      }
+  const SKIP = ['case-toc', 'disclosure', 'case-pagination', 'divider', 'next-system'];
+  const isNum = (e) => e && /^\s*\d+\s*$/.test(e.textContent);
+  // one item of a flow or grid: number, title, description
+  const item = (e, i) => { const kidsE = [...e.children]; const num = kidsE.find(isNum); const st = $('strong, h3', e);
+    const desc = kidsE.filter((c) => c !== num && c !== st && !c.contains(st)).map(T).join(' ');
+    return { n: T(num) || String(i + 1), t: T(st), d: desc }; };
+  const capOf = (fig) => { const cap = $(':scope > figcaption', fig); if (!cap) return ''; const st = $('strong', cap); const rest = T(cap).replace(T(st), '').trim();
+    return `<p class="pzc-cap">${st ? `<strong>${esc(T(st))}</strong> ` : ''}${esc(rest)}</p>`; };
+  const steps = (els, cls) => els.map((e, i) => { const it = item(e, i); return [RING[(i + f) % 4], `<b class="pzc-step__n">${esc(it.n.padStart(2, '0'))}</b><strong>${esc(it.t)}</strong><small>${esc(it.d)}</small>`, 'pzc-step']; });
+  const withCap = (cap, zones) => (cap ? [['C', cap, 'pzc-capz'], ...zones] : zones);
+  const gridGroup = (els, cap) => group('pzc-flow pzc-flow--' + els.length, 'C', 12, withCap(cap, steps(els)));
+  const btns = (scope) => $$('a', scope).map((a, i) => `<a class="pz-btn${i ? ' pz-btn--light' : ''}" href="${esc(a.getAttribute('href'))}"${a.getAttribute('target') ? ' target="_blank" rel="noopener"' : ''}>${esc(T(a))} ↗</a>`).join('');
+  // a block that isn't plain reading text becomes its own piece (or pieces)
+  const block = (k) => {
+    const cl = k.classList;
+    if (cl.contains('impact-grid') || cl.contains('conditions-grid') || cl.contains('evolution-grid')) return [gridGroup([...k.children], '')];
+    if (cl.contains('proof-list')) return [group('pzc-proof pzc-flow--' + k.children.length, 'C', 12, [...k.children].map((a, i) => [RING[(i + 1) % 4], `<a href="${esc(a.getAttribute('href'))}" target="_blank" rel="noopener"><span class="pzc-tag">${esc(T($('span', a)))}</span><strong>${esc(T($('strong', a)))} ↗</strong><small>${esc(T($('small', a)))}</small></a>`, 'pzc-step']))];
+    if (cl.contains('response-quote')) return [piece('pzc-quote', 'Y', 12, `<blockquote class="pz-serif">${esc(T($('blockquote', k)))}</blockquote><p class="pzc-quote__by"><strong>${esc(T($('figcaption strong', k)))}</strong> · ${esc(T($('figcaption span', k)))}</p>`)];
+    if (k.tagName === 'FIGURE') {
+      const cap = capOf(k); f++;
+      const ol = $('ol', k), cmp = $('.workflow-compare, .before-after', k), grid = $('.architecture, .system-grid', k), chat = $('.conversation', k), img = $('img', k);
+      if (ol && !cmp) return [gridGroup([...ol.children], cap)];
+      if (grid) return [gridGroup([...grid.children], cap)];
+      if (cmp) { const side = (p) => `<span class="pzc-tag">${esc(T($('.diagram-label, .ba-label', p)))}</span><h3 class="pz-serif">${esc(T($('h3', p)))}</h3>${$$('.tool-row span', p).length ? `<p class="pzc-tools">${$$('.tool-row span', p).map((t) => `<span>${esc(T(t))}</span>`).join('')}</p>` : ''}<ul>${$$('li', p).map((li) => `<li>${esc(T(li))}</li>`).join('')}</ul>`;
+        const [b, a] = $$('.workflow-panel, .ba-panel', cmp); return [group('pzc-ba', 'C', 12, withCap(cap, [['R', side(b), 'pzc-ba__b'], ['G', side(a), 'pzc-ba__a']]))]; }
+      if (chat) { const rows = [...chat.children].map((m) => m.classList.contains('report-preview')
+          ? `<div class="pzc-chat__rep"><span class="pzc-tag">${esc(T($('span', m)))}</span><strong>${esc(T($('strong', m)))}</strong><p>${esc(T($('p', m)))}</p></div>`
+          : `<div class="pzc-chat__row${m.classList.contains('message--agent') ? ' is-agent' : ''}"><b>${esc(T($('span', m)))}</b><p>${esc(T($('p', m)))}</p></div>`).join('');
+        return [group('pzc-chat', 'C', 12, withCap(cap, [['B', rows, 'pzc-chat__z']]))]; }
+      if (img) return [group('pzc-img', 'C', 12, [['C', '', 'pzc-img__z'], ['Y', cap, 'pzc-img__cap']]).replace('class="z pz-zone pzc-img__z" data-z="C"', `class="z pz-zone pzc-img__z" data-z="C" data-img="${esc(img.getAttribute('src'))}" role="img" aria-label="${esc(img.getAttribute('alt'))}"`)];
+      return [];
     }
+    if (cl.contains('closing-panel') || cl.contains('inspect-work') || cl.contains('pattern-cta')) return [piece('pzc-nextsys', RING[n % 4], 12, `<h2 class="pz-serif pzc-h2">${esc(T($('h2', k)))}</h2><p class="pzc-lede">${esc(T($('p', k)))}</p>${btns(k) ? `<p class="pzc-btns">${btns(k)}</p>` : ''}`)];
+    return null; // plain reading content
+  };
+  const SPECIAL = '.impact-grid, .conditions-grid, .evolution-grid, .proof-list, .response-quote, figure';
+  const section = (k) => {
+    const h2 = $('h2', k); const head = T(h2); if (h2) h2.remove();
+    const extra = []; $$(SPECIAL, k).forEach((x) => { if (x.parentElement.closest(SPECIAL)) return; extra.push(...(block(x) || [])); x.remove(); });
+    const text = k.innerHTML.trim();
+    if (head) {
+      const c = RING[n % 4], left = n % 2 === 0;
+      const hz = [c, `<span class="pzc-num">${String(n + 1).padStart(2, '0')}</span><h2 class="pz-serif pzc-h2">${esc(head)}</h2>`, 'pzc-head'], tz = ['C', `<div class="pzc-prose">${text}</div>`, 'pzc-text'];
+      P.push(group('pzc-sec' + (left ? '' : ' pzc-sec--r'), c, 12, left ? [hz, tz] : [tz, hz], ' data-calm="1"' + (k.id ? ` id="${esc(k.id)}"` : ''))); n++;
+    } else if (T(k)) P.push(piece('pzc-text pzc-text--wide', 'C', 12, `<div class="pzc-prose">${text}</div>`, ' data-keep="1" data-thick="90"'));
+    P.push(...extra);
+  };
+  kids.forEach((k) => {
+    if (k.tagName === 'HR' || SKIP.some((c) => k.classList.contains(c))) return;
+    if (k.classList.contains('content-section') || k.classList.contains('reading-column')) return section(k);
+    const b = block(k); if (b) P.push(...b);
   });
   if (nextSys) P.push(piece('pzc-nextsys', RING[n % 4], 12, `<h2 class="pz-serif pzc-h2">${esc(T($('h2', nextSys)))}</h2><p class="pzc-lede">${esc(T($('p', nextSys)))}</p>`));
-  // NEXT
-  if (nx) P.push(group('pzc-next', 'R', 12, [['Y', `<a class="pzc-back" href="/#projects">← All work</a>`, 'pzc-next__back'], ['R', `<a class="pzc-next__a" href="${esc(nx.getAttribute('href'))}"><span>Next case study</span><strong class="pz-serif">${esc(T($('.case-pagination__title', nx)))} →</strong></a>`, 'pzc-next__go']]));
+  // NEXT: all work, previous and next case study
+  const links = pag ? $$('.case-pagination__link', pag).map((l) => ({ href: l.getAttribute('href'), dir: T($('.case-pagination__direction', l)), t: T($('.case-pagination__title', l)), next: l.classList.contains('case-pagination__link--next') })) : [];
+  const prev = links.find((l) => /previous/i.test(l.dir)), nxt = links.find((l) => l.next);
+  const navZ = [['Y', `<a class="pzc-back" href="/#projects">← All work</a>`, 'pzc-next__back']];
+  if (prev) navZ.push(['B', `<a class="pzc-next__a pzc-next__a--prev" href="${esc(prev.href)}"><span>Previous case study</span><strong class="pz-serif">← ${esc(prev.t)}</strong></a>`, 'pzc-next__prev']);
+  if (nxt) navZ.push(['R', `<a class="pzc-next__a" href="${esc(nxt.href)}"><span>Next case study</span><strong class="pz-serif">${esc(nxt.t)} →</strong></a>`, 'pzc-next__go']);
+  P.push(group('pzc-next pzc-next--' + navZ.length, 'R', 12, navZ));
 
   const pz = document.createElement('div');
   pz.className = 'pz pz--case'; pz.dataset.seed = '11';

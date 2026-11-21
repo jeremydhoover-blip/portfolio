@@ -79,7 +79,7 @@ if (page === 'home') {
 
 if (page === 'case') {
   const slug = path.split('/').pop();
-  if (slug === 'ai-design-repo' && puzzleCase(document)) return;
+  if (puzzleCase(document)) return;
   const art_ = $('article.case-study'), hero = $('.case-hero'), hm = $('.case-hero__main', hero), glance = $('.glance-card'), shell = $('.case-shell'), strip = $('.outcomes-strip');
   const h1 = $('h1', hm), lede = $('.lede', hm);
   const dds = {}; $$('.glance > div', glance).forEach(d => dds[$('dt', d).textContent.trim()] = $('dd', d).textContent.trim());

@@ -210,6 +210,11 @@ function draw(comp) {
     all.filter((o) => o.idx === idx).forEach((o) => { g += o.img ? imgPane(o.q, o.img, idx) : poly(o.q, o.c, 3); });
     svg += unit(p, idx, outlines[idx], g); });
   comp.insertAdjacentHTML('afterbegin', '<svg class="pz-svg" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" aria-hidden="true" focusable="false">' + svg + '</svg>');
+  // line the header up with the glass: its left with the first piece's top-left corner, its right with the sheet's top-right corner
+  const nav = document.querySelector('.nav__inner');
+  if (nav && comp === document.querySelector('.pz')) { const top = outlines.flat().filter((q) => q[1] < 60);
+    if (top.length) { const L0 = Math.min(...top.map((q) => q[0])), R0 = Math.max(...top.map((q) => q[0])), pr = nav.parentElement.getBoundingClientRect();
+      nav.style.width = (R0 - L0) + 'px'; nav.style.marginLeft = (cr.left + L0 - pr.left) + 'px'; nav.style.marginRight = '0'; } }
 }
 const comps = [...document.querySelectorAll('.pz')];
 let lastW = 0;
