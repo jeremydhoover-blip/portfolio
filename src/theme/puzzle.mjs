@@ -183,7 +183,7 @@ function draw(comp) {
     const ch = p.el.querySelector(':scope > .pz-chip');
     if (ch) { ch.style.transform = ''; ch.style.marginTop = ''; let dx = 0, ok = false;
       const fits = (dx) => { const q = ch.getBoundingClientRect(), x0 = q.left - cr.left - dx - 16, x1 = q.right - cr.left - dx + 16, y0 = q.top - cr.top - 16, y1 = q.bottom - cr.top + 16; return [[x0, y0], [x1, y0], [x1, y1], [x0, y1]].every((c) => inside(P, c)); };
-      for (let dy = 0; dy <= 48 && !ok; dy += 8) { if (dy) ch.style.marginTop = (-34 + dy) + 'px'; for (dx = 0; dx <= 200; dx += 5) if (fits(dx)) { ok = true; break; } }
+      for (let dy = 0; dy <= 48 && !ok; dy += 8) { if (dy) ch.style.marginTop = dy + 'px'; for (dx = 0; dx <= 200; dx += 5) if (fits(dx)) { ok = true; break; } }
       if (!ok) dx = 0; ch.style.transform = 'translateX(' + -dx + 'px) rotate(-2deg)'; }
     const boxes = textBoxes(p.el);
     const zs = [...p.el.querySelectorAll('.z')].map((e) => { const q = e.getBoundingClientRect(); return { el: e, c: e.dataset.z, x0: q.left - cr.left, y0: q.top - cr.top, x1: q.right - cr.left, y1: q.bottom - cr.top }; });
