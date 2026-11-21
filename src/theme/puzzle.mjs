@@ -39,10 +39,10 @@ export function puzzleHome(document, { prompt, icons, name, pitch }) {
     `<a class="pc pz-feat" data-c="B" style="grid-area:F" href="${esc(c0.href)}"><p class="pz-kick">Microsoft · Shared design repos</p><h2 class="pz-serif pz-feat__h">${esc(c0.title)}</h2><p class="pz-sub">${c0.point}</p>${read()}</a>`,
     `<a class="pc" data-c="Y" style="grid-area:Y" href="#open-source"><p class="pz-kick">Open source · Fievel</p><h3 class="pz-serif pz-side__h">A content system you can build on</h3><p class="pz-sub">${esc(firstSentence(hcsPs[0]?.textContent))}</p>${read()}</a>`,
     `<a class="pc" data-c="G" style="grid-area:H" href="${esc(c1.href)}"><p class="pz-kick">Microsoft · Hackathon winner</p><h3 class="pz-serif pz-side__h">${esc(c1.title)}</h3><p class="pz-sub">${c1.point}</p>${read()}</a>`,
-    `<div class="pc" data-c="C" style="grid-area:N"><p class="pz-serif pz-it pz-note__h">A note from Jeremy</p><div class="pz-note"><h1 class="pz-note__name">${esc(name)}</h1> ${esc(pitch)}</div><p class="pz-note__links"><a class="pz-link" href="#projects">More case studies ↓</a><a class="pz-link" href="/about">About me ↗</a></p></div>`,
-    `<div class="pc pz-agent" data-c="R" style="grid-area:A" role="button" tabindex="0" data-pz-copy="${esc(prompt)}" aria-label="Copy the Jeremy Hoover portfolio skill prompt for your AI agent">
-      <div class="pz-agent__row"><div class="z pz-agent__tag" data-z="Y">Give this to your AI agent</div><div class="z pz-agent__icons" data-z="R">${icons}</div></div>
-      <div class="pz-agent__row pz-agent__row--cmd"><div class="z pz-agent__cmd" data-z="C"><span aria-hidden="true">$</span> ${esc(prompt)}</div><div class="z pz-agent__copy" data-z="B"><span>COPY</span></div></div>
+    `<div class="pc pz-group pz-group--N" data-c="C" style="grid-area:N"><div class="z pz-zone pz-photo" data-z="img" data-img="/images/jeremy-hoover.jpg" style="grid-area:I" role="img" aria-label="Jeremy Hoover"></div><div class="z pz-zone pz-note" data-z="C" style="grid-area:N"><p class="pz-note__k">A note from Jeremy</p><h1 class="pz-serif pz-note__h1">${esc(name)}</h1><p class="pz-note__p">${esc(pitch)}</p><p class="pz-note__links"><a class="pz-link" href="#projects">More case studies ↓</a><a class="pz-link" href="/about">About me ↗</a></p></div></div>`,
+    `<div class="pc pz-agent" data-c="R" data-calm="1" style="grid-area:A" role="button" tabindex="0" data-pz-copy="${esc(prompt)}" aria-label="Copy the Jeremy Hoover portfolio skill prompt for your AI agent">
+      <div class="pz-agent__row"><div class="z pz-agent__tag" data-z="Y">Give this to<br>your AI agent</div><div class="z pz-agent__icons" data-z="R"><div><span class="pz-agent__works">Works with</span>${icons}</div><p class="pz-agent__say">One prompt. Your agent reads my skill file and tells you how I fit your role.</p></div><div class="z pz-agent__copy" data-z="B"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M8 8h11v13H8zM5 3h11v3H8a3 3 0 0 0-3 3v9H5z" fill="currentColor"/></svg><span>COPY</span></div></div>
+      <div class="pz-agent__row pz-agent__row--cmd"><div class="z pz-agent__cmd" data-z="C"><span class="pz-agent__ps" aria-hidden="true">$</span><span class="pz-agent__type" style="--n:${prompt.length}">${esc(prompt)}</span><span class="pz-agent__caret" aria-hidden="true"></span></div></div>
     </div>`,
     `<div class="pc pz-title" data-c="B" style="grid-area:T" id="projects"><h2 class="pz-serif pz-it pz-h2">More case studies</h2></div>`,
     ...rest.slice(0, 4).map((c, i) => `<a class="pc pz-case" data-c="${'CYGR'[i]}" style="grid-area:m${i + 1}" href="${esc(c.href)}"><h3 class="pz-serif">${esc(c.title)}</h3><p class="pz-sub">${c.point}</p>${read('Read case study')}</a>`),
@@ -103,8 +103,10 @@ function draw(comp) {
   const pcs = [...comp.querySelectorAll(':scope > .pc')].map((el) => { const b = el.getBoundingClientRect(); return { el, x0: Math.round(b.left - cr.left), y0: Math.round(b.top - cr.top), x1: Math.round(b.right - cr.left), y1: Math.round(b.bottom - cr.top) }; });
   const moved = new Map(), corners = [];
   pcs.forEach((p) => corners.push([p.x0, p.y0], [p.x1, p.y0], [p.x1, p.y1], [p.x0, p.y1]));
-  corners.forEach(([x, y]) => { const key = x + ',' + y; if (moved.has(key)) return; const ex = x <= 0 || x >= W, ey = y <= 0 || y >= H;
-    moved.set(key, [x + (r() - 0.5) * (ex ? (narrow ? 12 : 50) : jx), y + (r() - 0.5) * (ey ? 40 : jy)]); });
+  // a calm piece (the agent piece) keeps its corners near level, so its panes hug the content with no empty glass
+  const calm = new Set(); pcs.filter((p) => p.el.dataset.calm).forEach((p) => [[p.x0, p.y0], [p.x1, p.y0], [p.x1, p.y1], [p.x0, p.y1]].forEach((q) => calm.add(q.join(','))));
+  corners.forEach(([x, y]) => { const key = x + ',' + y; if (moved.has(key)) return; const ex = x <= 0 || x >= W, ey = y <= 0 || y >= H, cy = calm.has(key) ? 0.2 : 1;
+    moved.set(key, [x + (r() - 0.5) * (ex ? (narrow ? 12 : 50) : jx), y + (r() - 0.5) * (ey ? 40 : jy) * cy]); });
   const outline = (p) => { const c = [[p.x0, p.y0], [p.x1, p.y0], [p.x1, p.y1], [p.x0, p.y1]], out = [];
     for (let i = 0; i < 4; i++) { const a = c[i], b = c[(i + 1) % 4]; out.push(a);
       const on = corners.filter(([x, y]) => (a[1] === b[1] ? y === a[1] && x > Math.min(a[0], b[0]) && x < Math.max(a[0], b[0]) : x === a[0] && y > Math.min(a[1], b[1]) && y < Math.max(a[1], b[1])));
@@ -117,6 +119,10 @@ function draw(comp) {
     const ox = (p.x0 + p.x1) / 2, oy = (p.y0 + p.y1) / 2;
     return '<g id="pzu' + idx + '" class="pz-unit" style="transform-origin:' + ox + 'px ' + oy + 'px"><polygon class="lift" points="' + pts(P) + '" fill="#141414" transform="translate(9,9)"/>' + inner
       + '<polygon points="' + pts(P) + '" fill="none" stroke="#141414" stroke-width="7" stroke-linejoin="round"/></g>'; };
+  // a pane filled with a photo instead of a color
+  const imgPane = (q, src, idx) => { const xs = q.map((v) => v[0]), ys = q.map((v) => v[1]), x0 = Math.min(...xs), y0 = Math.min(...ys), w = Math.max(...xs) - x0, h = Math.max(...ys) - y0, id = 'pzimg' + idx;
+    return '<clipPath id="' + id + '"><polygon points="' + pts(q) + '"/></clipPath><image href="' + src + '" x="' + x0 + '" y="' + y0 + '" width="' + w + '" height="' + h + '" preserveAspectRatio="xMidYMin slice" clip-path="url(#' + id + ')"/>'
+      + '<polygon points="' + pts(q) + '" fill="none" stroke="#141414" stroke-width="3" stroke-linejoin="round"/>'; };
   // text boxes of an element, padded, so no lead line ever crosses a word
   const textBoxes = (el) => { const boxes = []; const tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let tn;
     while ((tn = tw.nextNode())) { if (!tn.textContent.trim() || tn.parentElement.closest('dialog')) continue; const rg = document.createRange(); rg.selectNodeContents(tn); for (const q of rg.getClientRects()) boxes.push([q.left - cr.left - 12, q.top - cr.top - 10, q.right - cr.left + 12, q.bottom - cr.top + 10]); }
@@ -169,7 +175,7 @@ function draw(comp) {
     let g = '';
     if (zs.length) {
       // one unit made of several blocks: each block is its own pane (big ones get a few panes of their own)
-      zoneSplit(P, zs, boxes).forEach(([q, z]) => { const c = z ? z.c : p.el.dataset.c, big = z && area(q) > 250000 * k * k ? 1 : 0; g += big ? panes(q, c, big, boxes) : poly(q, c, 3); });
+      zoneSplit(P, zs, boxes).forEach(([q, z]) => { const c = z ? z.c : p.el.dataset.c, big = z && area(q) > 250000 * k * k ? 1 : 0; g += c === 'img' ? imgPane(q, z.el.dataset.img, idx) : big ? panes(q, c, big, boxes) : poly(q, c, 3); });
     } else g = panes(P, p.el.dataset.c, area(P) > 500000 * k * k ? 2 : 1, boxes);
     svg += unit(p, idx, P, g);
   });

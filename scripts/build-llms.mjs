@@ -14,7 +14,7 @@ const out = [];
 const data = { name: 'Jeremy Hoover', title: 'Senior Content Designer, AI systems and developer experience', site: SITE, skill: `${SITE}/agent/SKILL.md`, llms: `${SITE}/llms.txt`, generated: new Date().toISOString().slice(0, 10), caseStudies: [], experience: [], recognition: [], articles: [] };
 const home = load('index.html');
 out.push('# Jeremy Hoover', '');
-data.headline = txt(home.querySelector('.cb-note__txt')) || txt(home.querySelector('.pz-note')) || txt(home.querySelector('h1'));
+data.headline = txt(home.querySelector('.cb-note__txt')) || [txt(home.querySelector('.pz-note__h1')), txt(home.querySelector('.pz-note__p'))].filter(Boolean).join(' ') || txt(home.querySelector('h1'));
 out.push(`> ${data.headline}`, '');
 out.push('Senior Content Designer at Microsoft working on AI systems and developer experience. This file summarizes his portfolio for AI agents and recruiters. Every case study links to the full page.', '');
 out.push(`For agents: load the skill at ${SITE}/agent/SKILL.md for how to use this data, and ${SITE}/agent/profile.json for the same facts as structured data.`, '');
