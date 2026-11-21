@@ -790,7 +790,7 @@ html body.cb-home .pz .pz-rec figcaption { margin: 16px 0 8px !important; }
 html body.cb-home .pz .pz-rec[style*="grid-area:L"] { padding: 150px 84px 78px 70px; }
 html body.cb-home .pz .pz-fv__h { font-size: 56px; line-height: 1; } html body.cb-home .pz .pz-fv__p { font-size: 17px; line-height: 1.5; margin: 16px 0 22px !important; }
 html body.cb-home .pz [style*="grid-area:S"] { padding: 76px 70px 70px 56px; }
-html body.cb-home .pz .pz-fvfacts dl { margin: 0; display: grid; gap: 22px; }
+html body.cb-home .pz .pz-fvfacts dl { margin: 0; display: grid; gap: 18px; }
 html body.cb-home .pz .pz-fvfacts dt { font: 900 22px/1.1 var(--serif); margin-bottom: 4px; }
 html body.cb-home .pz .pz-fvfacts dd { margin: 0; font-size: 15px; line-height: 1.45; }
 html body.cb-home .pz .pz-fv__logo { width: 56px; height: 56px; border-radius: 12px; border: 3px solid var(--K); vertical-align: middle; margin: -6px 18px 0 0; display: inline-block; background: #fff; }
