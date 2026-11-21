@@ -36,12 +36,12 @@ export function puzzleHome(document, { prompt, icons, name, pitch }) {
   const read = (label = 'Read the story') => `<span class="pz-link">${label} ↗</span>`;
 
   const pieces = [
-    `<a class="pc pz-feat" data-c="B" style="grid-area:F" href="${esc(c0.href)}"><p class="pz-kick">Microsoft · Shared design repos</p><h2 class="pz-serif pz-feat__h">${esc(c0.title)}</h2><p class="pz-sub">${c0.point}</p>${read()}</a>`,
+    `<a class="pc pz-feat" data-c="B" data-alt="R" style="grid-area:F" href="${esc(c0.href)}"><p class="pz-kick">Microsoft · Shared design repos</p><h2 class="pz-serif pz-feat__h">${esc(c0.title)}</h2><p class="pz-sub">${c0.point}</p>${read()}</a>`,
     `<a class="pc" data-c="G" style="grid-area:H" href="${esc(c1.href)}"><p class="pz-kick">Microsoft · Hackathon winner</p><h3 class="pz-serif pz-side__h">${esc(c1.title)}</h3><p class="pz-sub">${c1.point}</p>${read()}</a>`,
-    `<div class="pc pz-note" data-c="Y" data-keep="1" style="grid-area:N"><p class="pz-note__k">A note from Jeremy</p><h1 class="pz-serif pz-note__h1">${esc(name)}</h1><p class="pz-note__p">${esc(pitch)}</p><p class="pz-note__links"><a class="pz-link" href="#projects">More case studies ↓</a><a class="pz-link" href="/about">About me ↗</a></p></div>`,
+    `<div class="pc pz-note" data-c="Y" data-keep="1" data-alt="R" style="grid-area:N"><p class="pz-note__k">A note from Jeremy</p><h1 class="pz-serif pz-note__h1">${esc(name)}</h1><p class="pz-note__p">${esc(pitch)}</p><p class="pz-note__links"><a class="pz-link" href="#projects">More case studies ↓</a><a class="pz-link" href="/about">About me ↗</a></p></div>`,
     `<div class="pc pz-agent" data-c="R" data-calm="1" style="grid-area:A" role="button" tabindex="0" data-pz-copy="${esc(prompt)}" aria-label="Copy the Jeremy Hoover portfolio skill prompt for your AI agent">
-      <div class="pz-agent__row"><div class="z pz-agent__tag" data-z="Y">Give this to<br>your AI agent</div><div class="z pz-agent__icons" data-z="R"><div><span class="pz-agent__works">Works with</span>${icons}</div><p class="pz-agent__say">One prompt. Your agent reads my skill file and tells you how I fit your role.</p></div><div class="z pz-agent__copy" data-z="B"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M8 8h11v13H8zM5 3h11v3H8a3 3 0 0 0-3 3v9H5z" fill="currentColor"/></svg><span>COPY</span></div></div>
-      <div class="pz-agent__row pz-agent__row--cmd"><div class="z pz-agent__cmd" data-z="C"><span class="pz-agent__q">“${esc(prompt)}”</span></div></div>
+      <div class="pz-agent__row"><div class="z pz-agent__tag" data-z="Y">Give this to<br>your AI agent</div><div class="z pz-agent__icons" data-z="B"><span class="pz-agent__works">Works with</span>${icons}</div></div>
+      <div class="pz-agent__row pz-agent__row--cmd"><div class="z pz-agent__cmd" data-z="C"><code class="pz-agent__code"><span class="pz-agent__dollar" aria-hidden="true">$</span> <span class="pz-agent__line">${esc(prompt.replace('https://', ''))}</span></code></div><div class="z pz-agent__copy" data-z="R"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M8 8h11v13H8zM5 3h11v3H8a3 3 0 0 0-3 3v9H5z" fill="currentColor"/></svg><span>COPY</span></div></div>
     </div>`,
     `<div class="pc pz-title" data-c="B" style="grid-area:T" id="projects"><h2 class="pz-serif pz-it pz-h2">More case studies</h2></div>`,
     ...rest.slice(0, 4).map((c, i) => `<a class="pc pz-case" data-c="${'RYGB'[i]}" style="grid-area:m${i + 1}" href="${esc(c.href)}"><h3 class="pz-serif">${esc(c.title)}</h3><p class="pz-sub">${c.point}</p>${read('Read case study')}</a>`),
@@ -130,7 +130,7 @@ function draw(comp) {
   // cut a piece into its main pane plus up to n more. Returns panes; only the main one has a color yet.
   // keep: all the words stay in one pane, so the other pane is an empty corner of glass
   const perim = (P) => P.reduce((s, q, i) => { const n = P[(i + 1) % P.length]; return s + Math.hypot(n[0] - q[0], n[1] - q[1]); }, 0);
-  const panes = (P, c, n, boxes, keep) => { const parts = [P];
+  const panes = (P, c, n, boxes, keep, alt) => { const parts = [P];
     for (let m = 0; m < n; m++) {
       parts.sort((u, v) => area(v) - area(u));
       for (let tries = 0; tries < 800; tries++) {
@@ -147,7 +147,7 @@ function draw(comp) {
       }
     }
     const ctr = boxes.map((bx) => [(bx[0] + bx[2]) / 2, (bx[1] + bx[3]) / 2]);
-    return parts.sort((u, v) => area(v) - area(u)).map((q, i) => ({ q, c: i === 0 ? c : null, fam: ctr.some((t) => inside(q, t)) ? FAM[c] : ['B', 'R', 'Y', 'G', 'C'] })); };
+    return parts.sort((u, v) => area(v) - area(u)).map((q, i) => ({ q, c: i === 0 ? c : null, alt, fam: ctr.some((t) => inside(q, t)) ? FAM[c] : ['B', 'R', 'Y', 'G', 'C'] })); };
   // split a piece between its zones (blocks that belong together), cutting along the gaps between them
   const zoneSplit = (part, zz, boxes) => {
     if (zz.length <= 1) return [[part, zz[0]]];
@@ -179,7 +179,7 @@ function draw(comp) {
     const boxes = textBoxes(p.el);
     const zs = [...p.el.querySelectorAll('.z')].map((e) => { const q = e.getBoundingClientRect(); return { el: e, c: e.dataset.z, x0: q.left - cr.left, y0: q.top - cr.top, x1: q.right - cr.left, y1: q.bottom - cr.top }; });
     if (zs.length) zoneSplit(P, zs, boxes).forEach(([q, z]) => all.push({ idx, q, c: z ? z.c : p.el.dataset.c, img: z && z.el.dataset.img }));
-    else panes(P, p.el.dataset.c, p.el.dataset.panes != null ? +p.el.dataset.panes : 1, boxes, !!p.el.dataset.keep).forEach((o) => all.push({ idx, ...o }));
+    else panes(P, p.el.dataset.c, p.el.dataset.panes != null ? +p.el.dataset.panes : 1, boxes, !!p.el.dataset.keep, p.el.dataset.alt).forEach((o) => all.push({ idx, ...o }));
   });
   // 2) color the free panes so no two touching panes share a color, and the colors stay evenly spread
   const near = (a, b) => { let hits = 0;
@@ -192,7 +192,7 @@ function draw(comp) {
   all.filter((o) => !o.c).sort((u, v) => cen(u.q)[1] - cen(v.q)[1]).forEach((o) => {
     const taken = new Set(all.filter((x) => x !== o && x.c && near(o.q, x.q)).map((x) => x.c));
     const ok = o.fam.filter((c) => !taken.has(c));
-    const pick = (ok.length ? ok : o.fam).slice().sort((u, v) => used[u] - used[v])[0];
+    const pick = o.alt && ok.includes(o.alt) ? o.alt : (ok.length ? ok : o.fam).slice().sort((u, v) => used[u] - used[v])[0];
     o.c = pick; used[pick] += area(o.q);
   });
   // 3) draw

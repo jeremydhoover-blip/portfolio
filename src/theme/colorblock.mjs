@@ -5,7 +5,7 @@ import ART from './art.json';
 import { shard, SHARD_JS } from './shards.mjs';
 import { puzzleHome } from './puzzle.mjs';
 
-const AGENT_PROMPT = "Load Jeremy Hoover's portfolio skill from https://jeremyhoover.ai/agent/SKILL.md and tell me how he fits my role.";
+const AGENT_PROMPT = "Check how Jeremy Hoover fits my role: https://jeremyhoover.ai/agent/SKILL.md";
 
 export function colorblock(document, pathname) {
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
