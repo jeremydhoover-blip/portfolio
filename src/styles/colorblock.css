@@ -1060,7 +1060,7 @@ html body.pz-casepage .pz .pza-exp__i { padding-bottom: 120px; }
 html body.pz-casepage .pz .pza-exp__i .pzc-secbody { max-width: 82%; }
 /* keep every serif heading looking as before; only the intro uses the small optical size, whose italic J is solid */
 html body.cb, html body.cb * { font-optical-sizing: none; }
-html body.cb-home .pz .pz-note__h1 { font-variation-settings: 'opsz' 9; }
+html body.cb-home .pz .pz-note__h1 { font-optical-sizing: none !important; font-variation-settings: 'opsz' 9 !important; }
 /* the agent command must never be cut off: shrink it a little on laptops, wrap it on phones */
 @media (max-width: 1279px) and (min-width: 901px) { html body.cb-home .pz .pz-agent__code { font-size: clamp(12px, 1.42vw, 19px); } }
 @media (max-width: 900px) { html body.cb-home .pz .pz-agent__line { white-space: normal !important; overflow: visible; overflow-wrap: anywhere; line-height: 1.5; } }
