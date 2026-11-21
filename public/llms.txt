@@ -1,0 +1,164 @@
+# Jeremy Hoover
+
+> Hi, I’m Jeremy. I design AI systems and developer tools: content, AI workflows, and product experiences that connect design, product, and engineering.
+
+Senior Content Designer at Microsoft working on AI systems and developer experience. This file summarizes his portfolio for AI agents and recruiters. Every case study links to the full page.
+
+For agents: load the skill at https://jeremyhoover.ai/agent/SKILL.md for how to use this data, and https://jeremyhoover.ai/agent/profile.json for the same facts as structured data.
+
+## Case studies
+
+### I build the repos our teams use to design with AI
+
+URL: https://jeremyhoover.ai/work/ai-design-repo/
+
+Our designers were prototyping in Figma and their own separate repos, and nobody could build on anyone else's work. I proposed one shared repo, built it, and still own it. It's now required for designers across multiple teams, and PMs and engineers work in it too. I've since built several more, and hundreds of people use them.
+
+- Role: Senior Content Designer
+- Ownership: I proposed it, built it, and own the architecture and roadmap
+- Collaboration: My design manager, designers, PMs, and engineers
+- Scope: The prototyping workflow for multiple teams
+- Status: Required for designers. Engineering handoff is in progress.
+- Evidence: Internal use. Diagrams redrawn with generic labels.
+
+Outcomes:
+- Hundreds: Designers, PMs, and engineers using the repos I've built
+- Required: The standard way our designers prototype
+- Active: Used for ideation, demos, customer concepts, and handoff
+
+### I turned a requirements maze into an agent that starts from your PRD
+
+URL: https://jeremyhoover.ai/work/hackathon/
+
+Every PM had to dig through a wiki, fill out a form, track down contacts, and create work by hand. In a three-day Microsoft hackathon, I built a package of skills and workflows that starts from the PM's PRD instead. The agent pulls out what it can, asks about the rest, and gives the PM a report to check. Nothing else happens until the PM says so.
+
+- Role: Senior Content Designer. It was my idea, and I drove it.
+- Ownership: The skills and workflows, most of the agent instructions, the full interaction, and the demo video
+- Team: Three people: me, another designer, and a product manager
+- Constraint: Three days, official Microsoft hackathon
+- Status: Proof of concept, now part of a larger PM system that's still growing
+- Evidence: Best Use of AI, judges' feedback, and wide sharing across PMs. Examples are redrawn with generic content.
+
+Outcomes:
+- Winner: Best Use of AI, for our three-person team
+- 3 days: From idea to working proof of concept
+- Shared: Across the PM org, and fed into its skills and agents
+
+### How I got my design org actually using AI
+
+URL: https://jeremyhoover.ai/work/org-ai-initiatives/
+
+I didn't wait for an AI strategy. Three times I spotted something missing, took it to leadership, drove it from proof of concept to required workflow, and trained the people using it. That's a content-design agent, a shared knowledge base, and training across the org.
+
+- Role: Senior Content Designer. I led the efforts, own the KB review process, train across the org, and wrote the playbook articles and prompt collections people learn from.
+- Scope: A design org with multiple teams in multiple countries
+- Pattern: Spot the gap, get leadership on board, build a v-team, prove it, ship it, make it required
+- Status: All three are active and required
+- Collaboration: Senior org leaders, principal design managers, DesignOps, repository owners, reviewers, and subject-matter experts
+- Evidence: Internal adoption, VP-level recognition, and an internal showcase talk
+
+Outcomes:
+- Hundreds: Designers using the content-design agent I created
+- Three: Efforts I took from idea to required workflow
+- Owner: Of the review process for the org's shared knowledge base
+
+### I built the AI skills that shipped with Fabric CLI
+
+URL: https://jeremyhoover.ai/work/fabric-cli/
+
+People were already using AI assistants to run the Fabric CLI, but the assistants didn't understand Fabric, and everyone was writing their own instructions. Before GA, I proposed a shared set of AI assets, shaped it with the PM, and wrote it: agent context, a custom mode, a prompt, skills, references, and scripts. It's all public.
+
+- Role: Senior Content Designer
+- Ownership: I proposed it, designed it, and wrote the files in my PRs
+- Collaboration: The Fabric CLI PM and engineering team
+- Timeframe: December 2025 – March 2026
+- Status: Shipped at GA. The public repo has kept changing since.
+- Evidence: Public PRs, commits, release notes, and the GA article
+
+Outcomes:
+- March 2026: Shipped with Fabric CLI at GA
+- 36 files: In my main AI assets pull request
+- Public: PRs, release notes, and a launch article I co-wrote
+
+### Research, writing rules, and UI copy for a history game
+
+URL: https://jeremyhoover.ai/work/statecraft-israel/
+
+I have a background in history, so I started contributing to Statecraft: Israel, an open-source strategy game. I researched the history with sources, turned it into game data, wrote guidance and AI skills for other contributors, and rewrote player-facing copy. So far that's 20 merged pull requests.
+
+- Role: Contributor: historical research, writing guidance, and UX writing
+- Contribution: I found the gaps, proposed fixes in public issues, and wrote 20 merged PRs
+- Scope: Contributor guidance, AI skills, research, game data, UI copy, localization guidance, and release notes
+- Collaboration: The project owner, maintainers, and other contributors
+- Timeframe: October 2026 to now
+- Evidence: Public issues, PRs, reviews, tests, and contributor credit
+
+Outcomes:
+- 20 PRs: Merged into the project
+- 8 studies: Historical research and source checks
+- 4 skills: For research, writing, UX copy, and video scripts
+
+### I pitched Wix’s first accessibility checker and helped turn it into a product
+
+URL: https://jeremyhoover.ai/work/wix-accessibility/
+
+Wix had no accessibility tool. I took an idea people were talking about, built it on the editor’s existing SEO checker, and led a hackathon team to a working demo. That demo got us in front of the CEO, which led to funding, a dedicated product team, and an accessibility checker that shipped inside the Wix editor.
+
+- Role: Concept lead and team lead, then UX writer on the product team
+- Company: Wix.com
+- Team: Designers, product marketers, and one PM. I led it.
+- Ownership: The concept, the pitch, the demo, and the CEO presentation
+- Timeline: A hackathon, then six months on the new product team
+- Outcome: Shipped in the Wix editor as its accessibility checker
+
+Outcomes:
+- First: Accessibility tool in the Wix editor
+- CEO buy-in: The demo led to funding and a product team
+- 6 months: As the product team’s UX writer, alongside my Wix Code work
+
+## About
+
+I design customer-facing developer tools, content experiences, and product workflows, as well as internal systems that teams depend on. At Microsoft Fabric, my work spans content and product design for CI/CD, CLI, and MCP experiences. I also own the design automation repo our 30-person design and PM team uses, a system I built from scratch that saw immediate adoption and now supports everything from daily prototyping to senior leadership demos.
+
+My background is unusual for someone doing this work. I started in journalism and history, moved into content and UX writing, and kept pushing further into the technical side until I was building agentic workflows, shipping skills to production, and contributing to open-source Microsoft tooling. I think that path is a feature: I bridge the human side of product problems with the technical side of building systems.
+
+On top of that, I've driven org-wide AI initiatives at Microsoft. I initiated a content design agent that was adopted and used by 150+ designers, and I was a key contributor to the Fabric CLI's AI assets layer, the part the Corporate VP of Product highlighted when it shipped GA. I'm also an instructor at the UX Content Collective, where I created the Technical Content Designer program.
+
+I'm part of Content Design Leaders Upstream, an invite-only workgroup shaping what UX content becomes in an AI-driven world. We compare active fieldwork and build frameworks the broader field can use.
+
+Full page: https://jeremyhoover.ai/about/
+
+## Experience
+
+- **Microsoft** (February 2022 – present): Senior Content Designer, AI systems and developer experiences. Designing customer-facing content and product experiences for CI/CD, CLI, and MCP tools. Building AI-powered workflows and evaluation frameworks for developer and design tools. Owner of the team's AI design automation repo and a key contributor to org-wide AI initiatives.
+- **UX Content Collective** (May 2026 – present): Creator and instructor, Technical Content Designer Program. Creator and instructor of the Technical Content Designer program, helping content designers build confidence with developer tools and AI systems.
+- **Wix.com** (2018 – 2022): Senior UX Writer → Accessibility Champion. Lead UX writer and editor for Wix Code. Led content strategy across products, coordinated localization for 15+ languages, ran usability testing, and contributed to the Words Matter blog. Accessibility champion across the org and hackathon winner.
+- **Natural Intelligence** (2016 – 2018): Content Manager. Managed, wrote, and edited content for multiple websites. Used Tableau to run content tests, analyze results, and drive data-informed content decisions.
+
+## Education and recognition
+
+- BA, History, Minor in Journalism, Metropolitan State University of Denver
+- Hackathon winner, Best Use of AI, Microsoft
+- Hackathon winner, Accessibility, Wix.com
+
+## Published articles
+
+- [Common AI-Generated Design Mistakes and Easy Solutions](https://medium.com/@jeremyd.hoover/common-ai-generated-design-mistakes-and-easy-solutions-284e5dc30872)
+- [10 New Things Content Designers Can Do Today With AI](https://www.linkedin.com/pulse/10-new-things-content-designers-can-do-today-ai-jeremy-hoover-p3xvf/)
+- [What You Need to Know About Designing AI Agents in 2027](https://www.linkedin.com/pulse/what-you-need-know-designing-ai-agents-2027-jeremy-hoover-cma6f/)
+- [How My Role in Content Design Is Expanding Into Systems](https://www.linkedin.com/pulse/how-my-role-content-design-expanding-systems-jeremy-hoover-arhpe/)
+- [My Personal Evolution: Creating Agentic Skills](https://www.linkedin.com/pulse/my-personal-evolution-creating-agentic-skills-jeremy-hoover-nhckf/)
+- [How AI Is Changing the Way I Work](https://www.linkedin.com/pulse/how-ai-changing-way-i-work-content-designer-jeremy-hoover-qz4gf/)
+- [The Missing Link: AI and Your Web Knowledge](https://www.linkedin.com/pulse/missing-link-ai-your-web-knowledge-jeremy-hoover-29kvf/)
+- [Beyond Style Guides: Build a Living Content System](https://www.linkedin.com/pulse/beyond-style-guides-build-living-content-system-developer-hoover-efhtf/)
+- [Essential AI Concepts for Content Designers](https://uxcontent.com/essential-ai-concepts-for-content-designers/)
+- [Technical Content Design](https://uxcontent.com/technical-content-design/)
+- [The Renaissance of No-Code for Web Designers](https://www.smashingmagazine.com/2020/07/renaissance-no-code-web-designers/)
+- [KPI Is an Imperative Tool for UX Designers](https://uxdesign.cc/kpi-is-the-most-important-tool-ux-designers-should-be-learning-to-use-af31651120fc)
+
+## Contact
+
+- Email: jeremyd.hoover@gmail.com
+- LinkedIn: https://www.linkedin.com/in/jeremydhoover/
+- GitHub: https://github.com/jeremydhoover-blip
+- Portfolio: https://jeremyhoover.ai/

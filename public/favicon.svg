@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <title>Jeremy Hoover</title>
+  <rect width="32" height="32" rx="6" fill="#141414"/>
+  <g stroke="#141414" stroke-width="1.6" stroke-linejoin="round">
+    <path d="M2 2H17L14.6 30H2Z" fill="#2d62c9"/>
+    <path d="M17 2H30V30H14.6Z" fill="#f4c21b"/>
+    <path d="M2 2H9.5L2 8.5Z" fill="#78b13b"/>
+    <path d="M30 26L30 30H24.5Z" fill="#e1412e"/>
+  </g>
+  <path d="M9.6 6.5H13.2V22.4Q13.2 26 9.4 26H5.2V22.6H8.6Q9.6 22.6 9.6 21.6Z" fill="#fff"/>
+  <path d="M17.8 6.5H21V14.6H24.6V6.5H27.8V25.8H24.6V17.8H21V25.8H17.8Z" fill="#141414"/>
+</svg>

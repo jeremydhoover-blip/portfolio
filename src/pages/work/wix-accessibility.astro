@@ -1,0 +1,316 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Base
+  title="Wix Accessibility Checker | Jeremy Hoover"
+  description="Wix had no accessibility tool. I pitched one built on the editor's SEO checker, led a hackathon team to a demo, presented it to the CEO, and helped turn it into a shipped product."
+>
+  <article class="section case-study">
+    <header class="case-hero">
+      <div class="container case-hero__grid">
+        <div class="case-hero__main">
+        <a href={`${base}/#projects`} class="back"><span class="back-icon" aria-hidden="true"></span><span>Back to selected projects</span></a>
+        <h1>I pitched Wix’s first accessibility checker and helped turn it into a product</h1>
+        <p class="lede">
+          Wix had no accessibility tool. I took an idea people were talking about, built it on the editor’s existing SEO checker, and led a hackathon team to a working demo. That demo got us in front of the CEO, which led to funding, a dedicated product team, and an accessibility checker that shipped inside the Wix editor.
+        </p>
+
+        <div class="outcomes-strip" aria-label="Project outcomes">
+          <div class="outcome">
+            <span class="outcome__num">First</span>
+            <span class="outcome__label">Accessibility tool in the Wix editor</span>
+          </div>
+          <div class="outcome">
+            <span class="outcome__num">CEO buy-in</span>
+            <span class="outcome__label">The demo led to funding and a product team</span>
+          </div>
+          <div class="outcome">
+            <span class="outcome__num">6 months</span>
+            <span class="outcome__label">As the product team’s UX writer, alongside my Wix Code work</span>
+          </div>
+        </div>
+        </div>
+        <aside class="glance-card" aria-labelledby="glance-title">
+          <h2 id="glance-title">At a glance</h2>
+          <dl class="glance">
+              <div><dt>Role</dt><dd>Concept lead and team lead, then UX writer on the product team</dd></div>
+              <div><dt>Company</dt><dd>Wix.com</dd></div>
+              <div><dt>Team</dt><dd>Designers, product marketers, and one PM. I led it.</dd></div>
+              <div><dt>Ownership</dt><dd>The concept, the pitch, the demo, and the CEO presentation</dd></div>
+              <div><dt>Timeline</dt><dd>A hackathon, then six months on the new product team</dd></div>
+              <div><dt>Outcome</dt><dd>Shipped in the Wix editor as its accessibility checker</dd></div>
+            </dl>
+        </aside>
+      </div>
+    </header>
+
+    <div class="case-body">
+      <div class="container case-shell">
+        <nav class="case-toc" aria-label="Wix accessibility checker case study sections">
+          <ul>
+            <li><a href="#problem">The problem</a></li>
+            <li><a href="#role">My role</a></li>
+            <li><a href="#reuse">The idea</a></li>
+            <li><a href="#checks">The checks</a></li>
+            <li><a href="#pitch">The pitch</a></li>
+            <li><a href="#product">Becoming a product</a></li>
+            <li><a href="#reflection">What I learned</a></li>
+          </ul>
+        </nav>
+
+        <section id="problem" class="reading-column content-section">
+          <h2>The problem</h2>
+          <p>Millions of people build sites on Wix, but nothing in the editor told them whether those sites worked for someone using a screen reader or a keyboard.</p>
+          <p>I’d been reading up on WCAG and the W3C’s accessibility guidance, and I wasn’t the only one who saw the gap. People inside the company were talking about needing an accessibility tool. There was interest, but no plan and no owner.</p>
+        </section>
+
+        <section id="role" class="reading-column content-section">
+          <h2>My role</h2>
+          <p>It was my concept, and I pushed for it. I led a mixed team of designers, product marketers, and one PM, built the demo, and presented it, first at the hackathon and then to the CEO.</p>
+          <p>Once it was funded, I stayed on as the product team’s UX writer for the first six months, on top of my main job writing for Wix Code.</p>
+        </section>
+
+        <figure class="evidence-figure" aria-labelledby="shift-caption">
+          <div class="workflow-compare">
+            <section class="workflow-panel workflow-panel--before">
+              <span class="diagram-label">Before</span>
+              <h3>No accessibility tool</h3>
+              <ul><li>Accessibility done on the side</li><li>Interest, but no owner</li><li>Nothing in the editor</li></ul>
+            </section>
+            <div class="workflow-shift" aria-hidden="true">→</div>
+            <section class="workflow-panel workflow-panel--after">
+              <span class="diagram-label">After</span>
+              <h3>A checker in the editor</h3>
+              <ul><li>Heading structure</li><li>Color contrast</li><li>Image alt text</li></ul>
+            </section>
+          </div>
+          <figcaption id="shift-caption"><strong>From talk to a tool.</strong> Checks run in the editor’s side panel while people build.</figcaption>
+        </figure>
+
+        <section id="reuse" class="reading-column content-section">
+          <h2>Start from something the company already trusts</h2>
+          <p>Wix already had an SEO checker in the editor. People understood it, and its components and architecture already worked.</p>
+          <p>Instead of pitching a brand-new system, I pitched accessibility checks built on the same foundation. That made the idea feel buildable, not like a research project.</p>
+        </section>
+
+        <figure class="evidence-figure" aria-labelledby="layers-caption">
+          <div class="architecture">
+            <div class="architecture__item"><span class="architecture__number">01</span><h3>Foundation</h3><p>The SEO checker’s existing components and architecture</p></div>
+            <div class="architecture__item"><span class="architecture__number">02</span><h3>Checks</h3><p>Rules a machine can confirm without guessing</p></div>
+            <div class="architecture__item"><span class="architecture__number">03</span><h3>Side panel</h3><p>Results inside the editor while you work</p></div>
+            <div class="architecture__item"><span class="architecture__number">04</span><h3>Guidance</h3><p>Plain-language explanations of each issue and how to fix it</p></div>
+          </div>
+          <figcaption id="layers-caption"><strong>Four layers, one reused base.</strong> The checker sat on top of what the SEO checker had already proven.</figcaption>
+        </figure>
+
+        <section id="checks" class="reading-column content-section">
+          <h2>Pick checks a machine can be sure about</h2>
+          <p>The first version stuck to deterministic checks, things the editor could confirm with no judgment calls:</p>
+          <ul>
+            <li>Heading structure: H1, H2, H3, and the order they appear in</li>
+            <li>Color contrast between text and background</li>
+            <li>Alt text on images</li>
+          </ul>
+          <p>Each one runs as the person edits and shows up in the side panel, so issues get fixed while the page is being built, not after it’s live.</p>
+        </section>
+
+        <section id="pitch" class="reading-column content-section">
+          <h2>Win the room, then the CEO</h2>
+          <p>We built the demo during the hackathon and placed among the top teams. That got us invited to present at an internal conference.</p>
+          <p>I presented to the CEO for the group, walked through the demo, and showed what we’d built. That presentation got the buy-in.</p>
+        </section>
+
+        <figure class="evidence-figure" aria-labelledby="path-caption">
+          <ol class="system-flow">
+            <li><span>1</span><strong>Concept</strong><small>Accessibility checks on the SEO checker</small></li>
+            <li><span>2</span><strong>Hackathon demo</strong><small>A working version in the editor</small></li>
+            <li><span>3</span><strong>Ranked</strong><small>Placed among the top teams</small></li>
+            <li><span>4</span><strong>CEO demo</strong><small>Presented for the group at an internal conference</small></li>
+            <li><span>5</span><strong>Funded</strong><small>A product team to build it</small></li>
+            <li><span>6</span><strong>Shipped</strong><small>Released inside the Wix editor</small></li>
+          </ol>
+          <figcaption id="path-caption"><strong>From hackathon to product.</strong> Each step needed the one before it.</figcaption>
+        </figure>
+
+        <section id="product" class="reading-column content-section">
+          <h2>From demo to product team</h2>
+          <p>After the CEO presentation, the company funded a team. It started with a PM who’d been at Wix a long time and was already doing accessibility on the side, plus new hires, including a legally blind developer.</p>
+          <p>I was the UX writer from the start, shaping the vision and writing how each check explains a problem and its fix. After six months I handed off to a full-time UX writer. The checker became part of the product and shipped in the Wix editor.</p>
+        </section>
+
+        <section id="reflection" class="reading-column content-section">
+          <h2>What I learned</h2>
+          <p>The idea wasn’t new. People already wanted an accessibility tool. What moved it was a working demo built on something the company already trusted, and someone willing to stand up and own the pitch.</p>
+          <p>It also taught me how to hand off well. Getting a product started and running it for years are different jobs, and the checker was in better shape once it had a full-time writer.</p>
+        </section>
+
+        <hr class="divider" />
+        <nav class="case-pagination" aria-label="Case study navigation">
+          <a href={`${base}/work/statecraft-israel`} class="case-pagination__link">
+            <span class="case-pagination__icon" aria-hidden="true"></span>
+            <span class="case-pagination__content"><span class="case-pagination__direction">Previous project</span><span class="case-pagination__title">Statecraft: Israel</span></span>
+          </a>
+          <a href={`${base}/#projects`} class="case-pagination__link">
+            <span class="case-pagination__icon case-pagination__icon--index" aria-hidden="true"></span>
+            <span class="case-pagination__content"><span class="case-pagination__direction">Project index</span><span class="case-pagination__title">All selected projects</span></span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .case-study { padding-top: 0; }
+  .tag { display: inline-block; margin-bottom: var(--space-4); }
+  h1 { margin-block: var(--space-4) var(--space-6); }
+  .lede { max-width: 58ch; margin-bottom: var(--space-12); font-size: var(--size-xl); line-height: 1.6; }
+  .outcome { display: flex; flex-direction: column; gap: var(--space-1); transition: transform 180ms ease, box-shadow 180ms ease; }
+  .outcome__num { font-size: clamp(1.3rem, 11cqw, 2rem); line-height: 1.1; }
+  .outcome__label { max-width: 25ch; font-size: var(--size-sm); color: var(--muted); }
+  .case-shell { max-width: calc(var(--narrow) + 6rem); }
+  .reading-column { width: 100%; max-width: var(--narrow); margin-inline: auto; }
+  .content-section { scroll-margin-top: 90px; }
+  .content-section h2, .case-summary h2 { margin-bottom: var(--space-6); }
+  .content-section:not(:first-child) h2 { margin-top: var(--space-16); }
+  .content-section p { margin-bottom: var(--space-4); }
+  .content-section ul { margin: var(--space-4) 0 var(--space-6) var(--space-6); }
+  .content-section li { margin-bottom: var(--space-2); }
+
+  .disclosure { display: grid; grid-template-columns: 150px 1fr; gap: var(--space-6); width: 100%; max-width: var(--narrow); margin: 0 auto var(--space-12); padding: var(--space-6); border: 1px solid var(--portfolio-blue-soft); border-radius: var(--radius-md); background: #fff; }
+  .disclosure strong { color: var(--muted); font-size: var(--size-2xs); text-transform: none; }
+  .disclosure p { color: var(--muted); font-size: var(--size-sm); }
+
+  .case-meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+  .case-meta div { padding: var(--space-6); border: 1px solid var(--border); border-radius: var(--radius-md); background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .case-meta dt { margin-bottom: var(--space-2); color: var(--muted); font-size: var(--size-2xs); font-weight: 600; text-transform: none; }
+  .case-meta dd { color: var(--portfolio-ink); font-size: var(--size-md); line-height: 1.5; }
+
+  .case-toc { max-width: var(--narrow); margin: var(--space-8) auto var(--space-16); padding-block: var(--space-6); border-block: 1px solid var(--border); }
+  .case-toc__label { display: block; margin-bottom: var(--space-3); color: var(--muted); font-size: var(--size-2xs); font-weight: 600; line-height: 1.2; text-transform: none; }
+  .case-toc ul { display: flex; flex-wrap: wrap; gap: 0.5rem 0; margin: 0; list-style: none; }
+  .case-toc li { --toc-divider: var(--border); display: flex; align-items: center; }
+  .case-toc li + li { margin-left: var(--space-4); }
+  .case-toc li + li::before { content: ''; width: 2px; height: 16px; margin-right: var(--space-4); border-radius: 999px; background: var(--toc-divider); }
+  .case-toc li:nth-child(3n) { --toc-divider: var(--border); }
+  .case-toc li:nth-child(3n + 1) { --toc-divider: var(--border); }
+  .case-toc a { display: inline-flex; min-height: 32px; align-items: center; color: var(--portfolio-ink); font-size: var(--size-sm); font-weight: 600; line-height: 1.3; text-decoration: none; }
+  .case-toc a:hover { color: var(--portfolio-blue); text-decoration: underline; text-decoration-color: var(--portfolio-blue); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+
+  .evidence-figure { width: 100%; max-width: var(--narrow); margin: var(--space-12) auto var(--space-16); }
+  .evidence-figure figcaption { width: 100%; margin-top: var(--space-4); color: var(--muted); font-size: var(--size-sm); }
+  .evidence-figure figcaption strong { color: var(--portfolio-ink); }
+
+  .workflow-compare { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: var(--space-3); align-items: stretch; padding: var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-lg); background: #fff; }
+  .workflow-panel { padding: var(--space-6); border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--portfolio-blue-soft); transition: transform 180ms ease, box-shadow 180ms ease; }
+  .workflow-panel--before { background: var(--surface-tint); }
+  .workflow-panel h3 { margin-block: var(--space-3) var(--space-4); color: var(--portfolio-blue); }
+  .workflow-panel ol { margin-left: var(--space-5, 1.25rem); }
+  .workflow-panel li { margin-bottom: var(--space-2); color: var(--muted); font-size: var(--size-sm); }
+  .diagram-label { color: var(--muted); font-size: var(--size-2xs); font-weight: 600; text-transform: none; }
+  .workflow-shift { display: grid; place-items: center; color: var(--portfolio-blue); font-size: var(--size-2xl); font-weight: 700; }
+
+  .conversation { display: grid; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--portfolio-blue-soft); }
+  .message, .report-preview { max-width: 78%; padding: var(--space-4) var(--space-6); border-radius: var(--radius-md); background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .message--user { justify-self: end; border-bottom-right-radius: 4px; }
+  .message--agent { justify-self: start; border-bottom-left-radius: 4px; }
+  .message span, .report-preview > span { color: var(--muted); font-size: var(--size-2xs); font-weight: 600; text-transform: none; }
+  .message p, .report-preview p { margin-top: var(--space-2); color: var(--muted); font-size: var(--size-sm); }
+  .report-preview { max-width: 100%; }
+  .report-preview strong { display: block; margin-top: var(--space-2); color: var(--portfolio-ink); }
+
+  .agent-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); margin: 0; padding: var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface-tint); list-style: none; }
+  .agent-flow li { position: relative; display: flex; min-height: 185px; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border-radius: var(--radius-md); background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .agent-flow li > span { display: grid; width: 1.75rem; height: 1.75rem; place-items: center; border-radius: 50%; background: var(--portfolio-blue); color: #fff; font-size: var(--size-2xs); font-weight: 700; }
+  .agent-flow strong { color: var(--portfolio-ink); font-size: var(--size-xs); line-height: 1.35; }
+  .agent-flow small { color: var(--muted); font-size: var(--size-2xs); line-height: 1.45; }
+
+  .evolution-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; max-width: var(--narrow); gap: var(--space-3); margin: var(--space-8) auto var(--space-16); }
+  .evolution-grid div { display: flex; min-height: 165px; flex-direction: column; gap: var(--space-3); padding: var(--space-6); border: 1px solid var(--border); border-radius: var(--radius-md); background: #fff; transition: transform 180ms ease, box-shadow 180ms ease; }
+  .evolution-grid span { color: var(--portfolio-coral); font-size: var(--size-2xs); font-weight: 700; letter-spacing: 0.08em; }
+  .evolution-grid strong { color: var(--portfolio-blue); line-height: 1.35; }
+  .evolution-grid small { color: var(--muted); font-size: var(--size-sm); line-height: 1.5; }
+
+  .closing-panel { width: 100%; max-width: var(--narrow); margin: var(--space-16) auto 0; padding: clamp(1.5rem, 5vw, 3rem); border-radius: var(--radius-lg); background: var(--portfolio-blue); }
+  .closing-panel .tag { color: var(--portfolio-yellow); }
+  .closing-panel h2 { margin-bottom: var(--space-3); color: #fff; }
+  .closing-panel p { color: rgba(255,255,255,0.82); }
+  .divider { margin-block: var(--space-16) var(--space-8); }
+
+  @media (max-width: 900px) {
+    .case-toc ul { gap: 0.5rem 1.5rem; }
+    .case-toc li + li { margin-left: 0; }
+    .case-toc li + li::before { content: none; }
+    .agent-flow li { min-height: 150px; }
+    .evolution-grid { grid-template-columns: 1fr; }
+    .evolution-grid div { min-height: 0; }
+  }
+
+  @media (max-width: 640px) {
+    .content-section { scroll-margin-top: 130px; }
+    .disclosure { grid-template-columns: 1fr; gap: var(--space-2); padding: var(--space-4); }
+    .case-meta { grid-template-columns: 1fr; }
+    .case-meta div { padding: var(--space-4); }
+    .case-toc { margin-top: var(--space-6); margin-bottom: var(--space-12); padding-block: var(--space-4); }
+    .case-toc ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; gap: var(--space-1) var(--space-6); }
+    .case-toc a { min-height: 44px; }
+    .workflow-compare { grid-template-columns: 1fr; padding: var(--space-3); }
+    .workflow-shift { transform: rotate(90deg); }
+    .message, .report-preview { max-width: 100%; }
+    .agent-flow { grid-template-columns: 1fr; padding: var(--space-3); }
+    .agent-flow li { min-height: auto; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .outcome:hover,
+    .case-meta div:hover,
+    .workflow-panel:hover,
+    .message:hover,
+    .report-preview:hover,
+    .agent-flow li:hover,
+    .evolution-grid div:hover { transform: none; }
+  }
+
+  /* ---- Visual refresh ---- */
+  /* before / after: two open cards with an arrow badge */
+  .workflow-compare { grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr); gap: var(--space-4); align-items: center; padding: 0; border: 0; background: transparent; }
+  .workflow-panel { height: 100%; padding: 1.5rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: #fff; box-shadow: none; }
+  .workflow-panel--after { border-color: rgba(17,85,204,0.35); background: #fff; box-shadow: var(--elev-2); }
+  .diagram-label { display: inline-flex; align-items: center; height: 24px; padding: 0 0.5rem; border-radius: var(--radius-md); background: var(--surface-tint); color: var(--muted); font-size: var(--size-2xs); font-weight: 600; text-transform: none; letter-spacing: 0; }
+  .workflow-panel--after .diagram-label { background: var(--portfolio-blue); color: #fff; }
+  .workflow-panel h3 { margin-block: 0.75rem; color: var(--portfolio-ink); font-size: var(--size-lg); }
+  .workflow-panel ul, .workflow-panel ol { margin: 0; list-style: none; }
+  .workflow-panel li { position: relative; margin-bottom: 0.5rem; padding-left: 1.5rem; color: var(--text); font-size: var(--size-md); }
+  .workflow-panel li::before { position: absolute; top: 0.1em; left: 0; display: grid; width: 1.1rem; height: 1.1rem; place-items: center; border-radius: 50%; font-size: var(--size-2xs); font-weight: 700; line-height: 1; }
+  .workflow-panel--before li { color: var(--muted); }
+  .workflow-panel--before li::before { content: '–'; background: #eef0f4; color: var(--muted); }
+  .workflow-panel--after li::before { content: '✓'; background: var(--portfolio-blue-soft); color: var(--portfolio-blue); }
+  .workflow-shift { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; background: var(--portfolio-blue); box-shadow: var(--elev-2); color: #fff; font-size: var(--size-lg); }
+  @media (max-width: 640px) { .workflow-compare { grid-template-columns: 1fr; } .workflow-shift { justify-self: center; transform: rotate(90deg); } }
+
+  /* stepper: numbered nodes on one line */
+  .agent-flow { --node: 36px; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0.75rem; padding: 0; border: 0; background: transparent; list-style: none; }
+  .agent-flow li { position: relative; display: flex; min-height: 0; flex-direction: column; align-items: center; gap: 0.25rem; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; text-align: center; }
+  .agent-flow li > span:first-child { position: relative; z-index: 1; display: grid; width: var(--node); height: var(--node); margin-bottom: 0.5rem; place-items: center; border: 3px solid #fff; border-radius: 50%; background: var(--portfolio-blue); box-shadow: var(--elev-1); color: #fff; font-size: var(--size-xs); font-weight: 700; }
+  .agent-flow li::after { content: ''; position: absolute; top: calc(var(--node) / 2); left: 50%; z-index: 0; width: calc(100% + 0.75rem); height: 2px; background: var(--portfolio-blue-soft); transform: translateY(-50%); }
+  .agent-flow li:last-child::after { content: none; }
+  .agent-flow li::before { content: none; }
+  .agent-flow strong { color: var(--portfolio-ink); font-size: var(--size-md); line-height: 1.3; }
+  .agent-flow li > small:last-child { max-width: 18ch; color: var(--muted); font-size: var(--size-xs); line-height: 1.45; }
+  @media (max-width: 900px) {
+    .agent-flow { grid-template-columns: 1fr; gap: 1.25rem; }
+    .agent-flow li { display: grid; grid-template-columns: var(--node) 1fr; column-gap: 1rem; align-items: start; text-align: left; }
+    .agent-flow li > span:first-child { grid-row: 1 / span 2; margin: 0; }
+    .agent-flow li::after { top: var(--node); left: calc(var(--node) / 2); width: 2px; height: calc(100% - var(--node) + 1.25rem); transform: translateX(-50%); }
+    .agent-flow li > small:last-child { max-width: none; }
+  }
+
+  /* card grid: open white cards, no outer box */
+  .evolution-grid { padding: 0; border: 0; background: transparent; }
+  .evolution-grid > div, .evolution-grid > li { border: 1px solid var(--border); border-radius: var(--radius-lg); background: #fff; box-shadow: var(--elev-1); }
+  .evolution-grid strong { color: var(--portfolio-ink); }
+  .evolution-grid span { color: var(--muted); font-size: var(--size-xs); font-weight: 600; letter-spacing: 0; text-transform: none; }
+</style>
