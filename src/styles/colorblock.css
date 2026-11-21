@@ -580,3 +580,16 @@ html body.cb .cb-agent__copy:hover { background: var(--K) !important; }
 html body.cb .cb-agent__copy.is-copied { background: var(--G) !important; color: var(--K) !important; }
 html body.cb .cb-agent__prompt { white-space: normal !important; text-overflow: clip !important; line-height: 1.45; }
 html body.cb .cb-agent__copy { align-self: flex-end; padding: .55rem .9rem !important; }
+
+/* agent block v3: one line, native kicker, no sticker */
+html body.cb .cb-agent { padding: 1rem 1.6rem 1.1rem !important; background: var(--C); color: var(--K); outline: 4px solid var(--K); outline-offset: -4px; display: flex; flex-direction: column; gap: .5rem; }
+html body.cb .cb-agent__row { display: flex; align-items: stretch; gap: 10px; min-width: 0; }
+html body.cb .cb-agent__prompt { flex: 1; min-width: 0; white-space: nowrap !important; overflow: hidden; text-overflow: ellipsis !important; display: flex !important; align-items: center; line-height: 1.2; font-size: .95rem !important; }
+html body.cb .cb-agent__copy { align-self: stretch !important; padding: 0 .9rem !important; }
+html body.cb .cb-agent__prompt { font-size: .84rem !important; padding: .5rem .6rem !important; letter-spacing: -.02em; }
+html body.cb .cb-agent__prompt span { margin-right: .15rem; }
+@media (max-width: 900px) { html body.cb .cb-agent { padding: .9rem 1rem 1rem !important; } html body.cb .cb-agent__prompt { font-size: .78rem !important; } html body.cb .cb-agent__copy { padding: 0 .7rem !important; } }
+/* scale the one-line prompt to whatever width the block gets */
+html body.cb .cb-agent { container-type: inline-size; }
+html body.cb .cb-agent .cb-agent__prompt { font-size: clamp(.66rem, calc((100cqi - 150px) / 19), .86rem) !important; }
+@container (max-width: 380px) { html body.cb .cb-agent__copy > span { display: none; } html body.cb .cb-agent .cb-agent__prompt { font-size: clamp(.64rem, calc((100cqi - 90px) / 19), .86rem) !important; } }
