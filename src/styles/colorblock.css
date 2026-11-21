@@ -736,7 +736,7 @@ html body.cb .projects.sh .project__points strong, html body.cb .projects.sh .pr
    and draws the glass behind the content as an SVG, so the pieces lock together like a puzzle. */
 html body.cb-home main { max-width: none !important; padding: 0 0 56px !important; display: block !important; }
 html body.cb-home .pz { position: relative; width: min(1280px, calc(100vw - 48px)); margin: 8px auto 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-template-areas: 'F F F F F F F Y Y Y Y Y' 'F F F F F F F H H H H H' 'N N N N N N N H H H H H' 'A A A A A A A A A A A A'
+  grid-template-areas: 'F F F F F F F N N N N N' 'F F F F F F F H H H H H' 'A A A A A A A A A A A A'
     'T T T T m1 m1 m1 m1 m2 m2 m2 m2' 'm3 m3 m3 m3 m3 m3 m4 m4 m4 m4 m4 m4' 'P P P P P P P P P P P P'
     'W W W W W W W W W W W W' 'X X X X X X X X X X X X' 'K K K K K K K K K K K K' 'V V V V V V V V V V V V' 'Z Z Z Z Z Z Z Z Z Z Z Z'; }
 html body.cb-home .pz > .pz-svg { position: absolute; left: 0; top: 0; overflow: visible; z-index: 0; pointer-events: none; }
@@ -754,7 +754,7 @@ html body.cb-home .pz .pz-link { font-weight: 700; font-size: 16px; text-decorat
 html body.cb-home .pz a.pc:hover .pz-link, html body.cb-home .pz a.pz-link:hover { text-decoration-thickness: 4px; }
 html body.cb-home .pz .pz-h2 { font-size: 50px; line-height: 1; }
 html body.cb-home .pz .pz-head { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; margin-bottom: 26px; }
-html body.cb-home .pz .pz-feat { padding: 96px 90px 90px; } html body.cb-home .pz .pz-feat__h { font-size: 60px; line-height: 1.03; } html body.cb-home .pz .pz-feat .pz-sub { font-size: 17px; }
+html body.cb-home .pz .pz-feat { padding: 96px 90px 90px; display: flex; flex-direction: column; justify-content: center; } html body.cb-home .pz .pz-feat__h { font-size: 60px; line-height: 1.03; } html body.cb-home .pz .pz-feat .pz-sub { font-size: 17px; }
 html body.cb-home .pz .pz-side__h { font-size: 32px; line-height: 1.06; }
 html body.cb-home .pz [style*="grid-area:Y"] { padding: 84px 70px 70px; } html body.cb-home .pz [style*="grid-area:H"] { padding: 70px 70px 80px; }
 
@@ -802,11 +802,9 @@ html body.cb-home .pz .pz-zone[data-z="B"], html body.cb-home .pz .pz-zone[data-
 html body.cb-home .pz .pz-group--prog { grid-template-columns: 7fr 5fr; grid-template-areas: 'P Q' 'P R'; }
 html body.cb-home .pz .pz-group--X { grid-template-columns: 8fr 4fr; grid-template-areas: 'X D'; }
 html body.cb-home .pz .pz-group--K { grid-template-columns: 1fr 1fr; grid-template-areas: 'K L'; }
-html body.cb-home .pz .pz-group--N { grid-template-columns: 34% 1fr; grid-template-areas: 'I N'; }
-html body.cb-home .pz .pz-photo { padding: 0 !important; min-height: 300px; }
-html body.cb-home .pz .pz-note { padding: 56px 70px 60px 48px !important; margin: 0 !important; }
+html body.cb-home .pz .pz-note { padding: 84px 70px 70px !important; margin: 0 !important; }
 html body.cb-home .pz .pz-note__k { font: italic 900 20px var(--serif); margin-bottom: 10px; }
-html body.cb-home .pz .pz-note__h1 { font-size: 46px !important; line-height: 1.02 !important; letter-spacing: -.02em !important; }
+html body.cb-home .pz .pz-note__h1 { font-size: 40px !important; line-height: 1.02 !important; letter-spacing: -.02em !important; }
 html body.cb-home .pz .pz-note__p { font-size: 17px; line-height: 1.5; margin-top: 14px; }
 html body.cb-home .pz .pz-group--V { grid-template-columns: 8fr 4fr; grid-template-areas: 'V S'; }
 html body.cb-home .pz .pz-agent { padding: 40px 48px 44px; cursor: pointer; outline: none; }
@@ -848,10 +846,10 @@ html body.cb-home .pz .pz-agent:focus-visible .pz-agent__copy span { outline: 3p
 /* phone: the pieces stack in one column, and the agent unit stacks its panes */
 @media (max-width: 900px) {
   html body.cb-home .pz { width: calc(100vw - 24px); grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: 'F' 'Y' 'H' 'N' 'A' 'T' 'm1' 'm2' 'm3' 'm4' 'P' 'W' 'X' 'K' 'V' 'Z'; }
+    grid-template-areas: 'F' 'N' 'H' 'A' 'T' 'm1' 'm2' 'm3' 'm4' 'P' 'W' 'X' 'K' 'V' 'Z'; }
   html body.cb-home .pz .pz-group { grid-template-columns: minmax(0, 1fr) !important; }
   html body.cb-home .pz .pz-group--prog { grid-template-areas: 'P' 'Q' 'R' !important; } html body.cb-home .pz .pz-group--X { grid-template-areas: 'X' 'D' !important; }
-  html body.cb-home .pz .pz-group--N { grid-template-areas: 'I' 'N' !important; } html body.cb-home .pz .pz-photo { min-height: 320px; } html body.cb-home .pz .pz-note { padding: 48px 34px 58px !important; } html body.cb-home .pz .pz-note__h1 { font-size: 36px !important; }
+  html body.cb-home .pz .pz-note { padding: 48px 34px 58px !important; } html body.cb-home .pz .pz-note__h1 { font-size: 36px !important; }
   html body.cb-home .pz .pz-group--K { grid-template-areas: 'K' 'L' !important; } html body.cb-home .pz .pz-group--V { grid-template-areas: 'V' 'S' !important; }
   html body.cb-home .pz .pz-zone { padding: 58px 34px !important; }
   html body.cb-home .pz .pc:not(.pz-group) { padding: 58px 34px !important; }
