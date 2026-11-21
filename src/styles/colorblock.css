@@ -630,3 +630,8 @@ html body.cb .nav__wordmark { display: block; line-height: .9 !important; margin
 html body.cb .cb-tag { display: block; margin: 0; padding: 0; }
 html body.cb .cb-logo__photo { width: 72px; height: 72px; object-fit: cover; border: 4px solid var(--Y); box-shadow: 4px 4px 0 var(--R); flex: none; display: block; }
 @media (max-width: 900px) { html body.cb .cb-logo__photo { width: 48px; height: 48px; border-width: 3px; box-shadow: 3px 3px 0 var(--R); } html body.cb .nav__logo { gap: .7rem !important; } }
+/* big featured tile: shorter art so the story sits above the fold */
+@media (min-width: 901px) {
+  html body.cb .cb-tile--big .cb-tile__art { flex: none !important; height: 340px; min-height: 0 !important; }
+  html body.cb .cb-tile--big .cb-tile__txt { flex: 1; justify-content: flex-start; }
+}
