@@ -845,7 +845,7 @@ html body.cb-home .pz .pz-agent:focus-visible .pz-agent__copy span { outline: 3p
 /* phone: the pieces stack in one column, and the agent unit stacks its panes */
 @media (max-width: 900px) {
   html body.cb-home .pz { width: calc(100vw - 24px); grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: 'F' 'N' 'H' 'A' 'T' 'm1' 'm2' 'm3' 'm4' 'P' 'W' 'X' 'D' 'K' 'V' 'Z'; }
+    grid-template-areas: 'F' 'N' 'H' 'A' 'T' 'm1' 'm2' 'm3' 'm4' 'P' 'W' 'D' 'X' 'K' 'V' 'Z'; }
   html body.cb-home .pz .pz-group { grid-template-columns: minmax(0, 1fr) !important; }
   html body.cb-home .pz .pz-group--prog { grid-template-areas: 'P' 'Q' 'R' !important; } html body.cb-home .pz .pz-group--X { grid-template-areas: 'X' 'D' !important; }
   html body.cb-home .pz .pz-note { padding: 48px 34px 58px !important; } html body.cb-home .pz .pz-note__h1 { font-size: 36px !important; }
