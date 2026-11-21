@@ -38,7 +38,7 @@ export function puzzleHome(document, { prompt, icons, name, pitch }) {
   const pieces = [
     `<a class="pc pz-feat" data-c="B" data-alt="R" style="grid-area:F" href="${esc(c0.href)}"><h2 class="pz-serif pz-feat__h">${esc(c0.title)}</h2><p class="pz-sub">${c0.point.replace("engineers use", "engineers at Microsoft use")}</p>${read()}</a>`,
     `<a class="pc" data-c="G" style="grid-area:H" href="${esc(c1.href)}"><h3 class="pz-serif pz-side__h">${esc(c1.title)}</h3><p class="pz-sub">${c1.point.replace("Best Use of AI,", "Best Use of AI at Microsoft,")}</p>${read()}</a>`,
-    `<div class="pc pz-note" data-c="Y" data-keep="1" data-alt="R" style="grid-area:N"><h1 class="pz-serif pz-note__h1">${esc(name)}</h1><p class="pz-note__p">${esc(pitch)}</p><p class="pz-note__links"><a class="pz-link" href="#projects">More case studies ↓</a><a class="pz-link" href="/about">About me ↗</a></p></div>`,
+    `<div class="pc pz-note" data-c="Y" data-keep="1" data-alt="C" style="grid-area:N"><h1 class="pz-serif pz-note__h1">${esc(name)}</h1><p class="pz-note__p">${esc(pitch)}</p><p class="pz-note__links"><a class="pz-link" href="#projects">More case studies ↓</a><a class="pz-link" href="/about">About me ↗</a></p></div>`,
     `<div class="pc pz-agent" data-c="R" data-calm="1" style="grid-area:A" role="button" tabindex="0" data-pz-copy="${esc(prompt)}" aria-label="Copy the Jeremy Hoover portfolio skill prompt for your AI agent">
       <div class="pz-agent__row"><div class="z pz-agent__tag" data-z="Y">Give this to<br>your AI agent</div><div class="z pz-agent__icons" data-z="B"><span class="pz-agent__works">Works with</span>${icons}</div></div>
       <div class="pz-agent__row pz-agent__row--cmd"><div class="z pz-agent__cmd" data-z="C"><code class="pz-agent__code"><span class="pz-agent__dollar" aria-hidden="true">$</span> <span class="pz-agent__line">${esc(prompt.replace('https://', ''))}</span></code></div><div class="z pz-agent__copy" data-z="R"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M8 8h11v13H8zM5 3h11v3H8a3 3 0 0 0-3 3v9H5z" fill="currentColor"/></svg><span>COPY</span></div></div>
@@ -194,7 +194,7 @@ function draw(comp) {
   all.filter((o) => !o.c).sort((u, v) => cen(u.q)[1] - cen(v.q)[1]).forEach((o) => {
     const taken = new Set(all.filter((x) => x !== o && x.c && near(o.q, x.q)).map((x) => x.c));
     const ok = o.fam.filter((c) => !taken.has(c));
-    const pick = o.alt && ok.includes(o.alt) ? o.alt : (ok.length ? ok : ['C']).slice().sort((u, v) => used[u] - used[v])[0];
+    const pick = o.alt && !taken.has(o.alt) ? o.alt : (ok.length ? ok : ['C']).slice().sort((u, v) => used[u] - used[v])[0];
     o.c = pick; used[pick] += area(o.q);
   });
   // 3) draw
