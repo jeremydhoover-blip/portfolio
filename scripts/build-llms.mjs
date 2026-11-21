@@ -41,17 +41,17 @@ for (const slug of CASES) {
 
 const about = load('about/index.html');
 out.push('## About', '');
-const aboutText = [about.querySelector('.cb-intro__lede'), ...all(about, '.cb-intro__cols p')].map(txt).filter(Boolean);
+const aboutText = [about.querySelector('.cb-intro__lede, .pza-lede'), ...all(about, '.cb-intro__cols p, .pza-cols p')].map(txt).filter(Boolean);
 data.about = aboutText;
 out.push(...aboutText.flatMap((p) => [p, '']));
 out.push(`Full page: ${SITE}/about/`, '');
 
 out.push('## Experience', '');
-for (const item of all(about, '.experience__item').filter((i) => !i.closest('.cb-edu-card'))) {
-  const org = txt(item.querySelector('.experience__meta strong'));
-  const when = txt(item.querySelector('.experience__meta span'));
-  const role = txt(item.querySelector('.experience__role'));
-  const desc = all(item, ':scope > p:not(.experience__role)').map(txt).join(' ');
+for (const item of all(about, '.experience__item, .pza-item').filter((i) => !i.closest('.cb-edu-card, .pza-edu'))) {
+  const org = txt(item.querySelector('.experience__meta strong, .pza-meta strong'));
+  const when = txt(item.querySelector('.experience__meta span, .pza-meta span'));
+  const role = txt(item.querySelector('.experience__role, .pza-role'));
+  const desc = all(item, ':scope > p:not(.experience__role):not(.pza-role):not(.pza-meta)').map(txt).join(' ');
   data.experience.push({ org, when, role, description: desc });
   out.push(`- **${org}**${when ? ` (${when})` : ''}${role ? `: ${role}.` : ''} ${desc}`.trim());
 }

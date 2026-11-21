@@ -2,7 +2,7 @@
 // Runs server-side from src/middleware.ts (in dev and at build), so the shipped HTML is static.
 // Page copy still lives in src/pages; this file only rearranges it and adds art and labels.
 import ART from './art.json';
-import { puzzleCase } from './puzzle-case.mjs';
+import { puzzleCase, puzzleAbout } from './puzzle-case.mjs';
 import { shard, SHARD_JS } from './shards.mjs';
 import { puzzleHome } from './puzzle.mjs';
 
@@ -195,6 +195,7 @@ if (page === 'case') {
 }
 
 if (page === 'about') {
+  if (puzzleAbout(document)) return;
   const main = $('main'), hero = $('.about-hero'), body = $('.about-body');
   const img = $('.about-id img', hero).getAttribute('src'), name = $('h1', hero).textContent, sub = $('.subtitle', hero).textContent;
   const heroP = panel('cbp--hero', el('div', 'cb-hero cb-hero--about', `<div class="cb-hero__txt"><p class="cb-crumb"><a href="/">Home</a> / About</p><div class="cb-aboutid"><img src="${img}" alt=""><div><h1>${name}</h1><p class="cb-lede">${sub}</p></div></div></div><div class="cb-hero__art"></div>`));

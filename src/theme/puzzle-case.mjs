@@ -104,3 +104,34 @@ export function puzzleCase(document) {
   const s = document.createElement('script'); s.textContent = PUZZLE_JS; document.body.appendChild(s);
   return true;
 }
+
+// Puzzle About page: intro, story, experience, education and contact as glass pieces on one sheet.
+export function puzzleAbout(document) {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const T = (e) => (e ? e.textContent.trim() : '');
+  const page = $('.about-page'); if (!page) return false;
+  const body = $('.about-body');
+  const name = T($('.about-hero h1')), sub = T($('.about-hero .subtitle'));
+  const ps = []; for (const n of [...body.children]) { if (n.tagName === 'P') ps.push(T(n)); else break; }
+  const blocks = {}; $$('h2', body).forEach((h) => { blocks[T(h).toLowerCase()] = h.nextElementSibling; });
+  const exp = blocks.experience ? $$('.experience__item', blocks.experience) : [];
+  const edu = blocks.education ? $$('.experience__item', blocks.education) : [];
+  const mail = $('.cta-row a[href^="mailto:"]', body)?.getAttribute('href') || '#';
+  const item = (it) => `<div class="pza-item"><p class="pza-meta"><strong class="pz-serif">${esc(T($('.experience__meta strong', it)))}</strong> <span>${esc(T($('.experience__meta span', it)))}</span></p><p class="pza-role">${esc(T($('.experience__role', it)))}</p>${$$(':scope > p:not(.experience__role)', it).map((p) => `<p>${esc(T(p))}</p>`).join('')}</div>`;
+  const piece = (cls, c, span, inner, extra = '') => `<div class="pc ${cls}" data-c="${c}" style="grid-column:span ${span}"${extra}>${inner}</div>`;
+  const group = (cls, c, span, zones, extra = ' data-calm="1"') => `<div class="pc pz-group ${cls}" data-c="${c}" style="grid-column:span ${span}"${extra}>${zones.map(([z, h, zc = '']) => `<div class="z pz-zone ${zc}" data-z="${z}">${h}</div>`).join('')}</div>`;
+  const P = [];
+  P.push(piece('pzc-title pza-title', 'B', 7, `<a class="pzc-back" href="/">← Home</a><h1 class="pz-serif pzc-h1">${esc(name)}</h1><p class="pza-sub">${esc(sub)}</p><p class="pzc-lede pza-lede">${esc(ps[0] || '')}</p>`, ' data-thick="80"'));
+  if (ps[1]) P.push(piece('pza-side', 'R', 5, `<div class="pza-cols"><p class="pza-p">${esc(ps[1])}</p></div>`, ' data-keep="1" data-thick="70"'));
+  if (ps.length > 2) P.push(group('pza-story pzc-flow--' + (ps.length - 2), 'C', 12, ps.slice(2).map((t, i) => [['C', 'G', 'Y'][i % 3], `<div class="pza-cols"><p class="pza-p">${esc(t)}</p></div>`])));
+  if (exp.length) P.push(group('pza-exp', 'Y', 12, [['B', `<h2 class="pz-serif pz-it pzc-h2">Experience</h2>`, 'pza-exp__h'], ...exp.map((it) => ['Y', item(it), 'pza-exp__i'])]));
+  if (edu.length) P.push(piece('pza-edu', 'G', 6, `<h2 class="pz-serif pz-it pzc-h2">Education</h2>${edu.map(item).join('')}`, ' data-keep="1" data-thick="70"'));
+  P.push(piece('pza-cta', 'R', edu.length ? 6 : 12, `<h2 class="pz-serif pz-it pzc-h2">Let’s build something useful.</h2><p class="pza-p">Questions about content design, AI systems or developer tools are always welcome.</p><p class="pzc-btns"><a class="pz-btn pz-btn--y" href="${esc(mail)}">Get in touch</a></p>`, ' data-thick="70"'));
+  const pz = document.createElement('div');
+  pz.className = 'pz pz--case pz--about'; pz.dataset.seed = '5';
+  pz.innerHTML = P.join('\n');
+  page.replaceWith(pz);
+  document.body.classList.add('cb-home', 'pz-casepage');
+  const s = document.createElement('script'); s.textContent = PUZZLE_JS; document.body.appendChild(s);
+  return true;
+}

@@ -994,3 +994,27 @@ html body.pz-casepage .pz .pzc-next__a--prev strong { font-size: 32px; }
 html body.pz-casepage .pz .pzc-next--3 .pzc-next__a strong { font-size: 32px; }
 @media (max-width: 900px) { html body.pz-casepage .pz .pzc-next { grid-template-columns: 1fr !important; } }
 html body.cb-home .pz .pz-zone:is([data-z="C"], [data-z="Y"], [data-z="G"]) { color: var(--K); }
+
+/* ---- Puzzle About page ---- */
+html body.pz-casepage .pz .pza-sub { font: 700 20px/1.35 var(--sans); margin-top: 14px !important; }
+html body.pz-casepage .pz .pza-side { padding: 70px 52px 64px; }
+html body.pz-casepage .pz .pza-p { font-size: 18px; line-height: 1.6; }
+html body.pz-casepage .pz .pza-story .pz-zone { padding: 56px 60px 60px; }
+html body.pz-casepage .pz .pza-exp { grid-template-columns: 4fr 4fr 4fr; grid-template-areas: 'h a b' 'h c d'; }
+html body.pz-casepage .pz .pza-exp__h { grid-area: h; padding: 64px 56px; }
+html body.pz-casepage .pz .pza-exp__i { padding: 48px 48px 52px; }
+html body.pz-casepage .pz .pza-exp__i:nth-child(2) { grid-area: a; } html body.pz-casepage .pz .pza-exp__i:nth-child(3) { grid-area: b; }
+html body.pz-casepage .pz .pza-exp__i:nth-child(4) { grid-area: c; } html body.pz-casepage .pz .pza-exp__i:nth-child(5) { grid-area: d; }
+html body.pz-casepage .pz .pza-meta { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+html body.pz-casepage .pz .pza-meta strong { font-size: 24px; line-height: 1.1; }
+html body.pz-casepage .pz .pza-meta span { font-size: 14px; font-weight: 700; white-space: nowrap; }
+html body.pz-casepage .pz .pza-role { font-weight: 800; font-size: 15px; line-height: 1.4; margin-top: 8px !important; }
+html body.pz-casepage .pz .pza-item > p:not(.pza-meta):not(.pza-role) { font-size: 15px; line-height: 1.55; margin-top: 8px !important; }
+html body.pz-casepage .pz .pza-edu, html body.pz-casepage .pz .pza-cta { padding: 64px 64px 66px; }
+html body.pz-casepage .pz .pza-edu .pzc-h2, html body.pz-casepage .pz .pza-cta .pzc-h2 { margin-bottom: 20px !important; }
+@media (max-width: 900px) {
+  html body.pz-casepage .pz .pza-exp { grid-template-columns: 1fr !important; grid-template-areas: 'h' 'a' 'b' 'c' 'd' !important; }
+}
+html body.pz-casepage .pz .pza-item + .pza-item { margin-top: 26px; }
+html body.pz-casepage .pz .pza-lede { font: 500 19px/1.55 var(--sans); margin-top: 22px !important; }
+html body.pz-casepage .pz .pza-edu, html body.pz-casepage .pz .pza-cta { padding: 80px 72px 72px; }
