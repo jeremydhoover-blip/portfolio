@@ -953,3 +953,6 @@ html body.pz-casepage .pz .pzc-glance dt { color: inherit !important; }
   html body.pz-casepage .pz .pzc-text--l { grid-column: 1 / span 8 !important; }
 }
 @media (min-width: 901px) and (max-width: 1279px) { html body.pz-casepage .pz .pc.pzc-head { padding: 80px 56px 64px 66px !important; } }
+/* header lines up with the glass sheet's edges */
+html body.cb-home .nav__inner { max-width: none !important; width: calc(min(1280px, calc(100vw - 48px)) + 26px); margin-inline: auto !important; padding-inline: 0 !important; }
+@media (max-width: 900px) { html body.cb-home .nav__inner { width: calc(100vw - 18px); } }
