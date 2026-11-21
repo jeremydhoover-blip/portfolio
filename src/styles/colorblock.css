@@ -795,7 +795,7 @@ html body.cb-home .pz .pz-stat b { font-size: 80px; line-height: .9; } html body
 html body.cb-home .pz [style*="grid-area:Z"] { padding: 90px 100px 96px; }
 html body.cb-home .pz .pz-cta__h { font-size: 64px; line-height: 1; } html body.cb-home .pz [style*="grid-area:Z"] .pz-sub { font-size: 17px; margin: 18px 0 22px; }
 /* agent piece: one unit of four panes */
-html body.cb-home .pz .pz-agent { padding: 66px 70px 70px; cursor: pointer; transition: transform .15s; outline: none; }
+html body.cb-home .pz .pz-agent { padding: 66px 70px 70px; cursor: pointer; outline: none; }
 html body.cb-home .pz .pz-agent__row { display: flex; align-items: center; gap: 56px; }
 html body.cb-home .pz .pz-agent__row--cmd { margin-top: 60px; }
 html body.cb-home .pz .pz-agent__tag { font: italic 700 26px 'Archivo Narrow', sans-serif; text-transform: uppercase; color: var(--K); white-space: nowrap; }
@@ -805,9 +805,13 @@ html body.cb-home .pz .pz-agent__icons .cb-agent__ico svg { width: 22px; height:
 html body.cb-home .pz .pz-agent__cmd { flex: 1; color: var(--K); font: 500 14px/1.3 ui-monospace, Menlo, Consolas, monospace; white-space: nowrap; }
 html body.cb-home .pz .pz-agent__cmd span { color: var(--R); font-weight: 700; }
 html body.cb-home .pz .pz-agent__copy { font: italic 700 24px 'Archivo Narrow', sans-serif; color: #fff; }
-html body.cb-home .pz .pz-agent.on { transform: translate(-4px, -4px); }
-html body.cb-home .pz .pz-unit { transition: transform .15s; } html body.cb-home .pz .pz-unit .lift { opacity: 0; transition: opacity .15s; }
-html body.cb-home .pz .pz-unit.on { transform: translate(-4px, -4px); } html body.cb-home .pz .pz-unit.on .lift { opacity: 1; }
+/* every piece: hover lights it up and grows it a little, glass and words together */
+html body.cb-home .pz > .pc { transition: transform .18s ease-out; }
+html body.cb-home .pz > .pc.on { transform: scale(1.025); z-index: 2; }
+html body.cb-home .pz .pz-unit { transition: transform .18s ease-out, filter .18s; }
+html body.cb-home .pz .pz-unit .lift { opacity: 0; transition: opacity .18s; }
+html body.cb-home .pz .pz-unit.on { transform: scale(1.025); filter: brightness(1.08) saturate(1.08); } html body.cb-home .pz .pz-unit.on .lift { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { html body.cb-home .pz > .pc.on, html body.cb-home .pz .pz-unit.on { transform: none; } }
 html body.cb-home .pz .pz-unit polygon { transition: fill .2s; } html body.cb-home .pz .pz-unit.done polygon[fill="#f6eedf"] { fill: var(--Y); }
 html body.cb-home .pz .pz-agent:focus-visible .pz-agent__copy span { outline: 3px solid #fff; outline-offset: 6px; }
 /* between desktop and phone: same puzzle, smaller type and padding */

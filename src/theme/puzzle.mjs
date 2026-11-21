@@ -102,6 +102,12 @@ function draw(comp) {
       const uniq = [...new Map(on.map((q) => [q.join(','), q])).values()].sort((u, v) => (a[1] === b[1] ? (u[0] - v[0]) * Math.sign(b[0] - a[0]) : (u[1] - v[1]) * Math.sign(b[1] - a[1])));
       out.push(...uniq); }
     return out.map((q) => moved.get(q.join(','))); };
+  // every piece is one unit: thin lead between its own panes, the full lead only around its outside,
+  // and a hidden shadow that shows when the piece is hovered
+  const unit = (p, idx, P, inner) => { p.el.dataset.g = 'pzu' + idx;
+    const ox = (p.x0 + p.x1) / 2, oy = (p.y0 + p.y1) / 2;
+    return '<g id="pzu' + idx + '" class="pz-unit" style="transform-origin:' + ox + 'px ' + oy + 'px"><polygon class="lift" points="' + pts(P) + '" fill="#141414" transform="translate(9,9)"/>' + inner
+      + '<polygon points="' + pts(P) + '" fill="none" stroke="#141414" stroke-width="7" stroke-linejoin="round"/></g>'; };
   let svg = '';
   pcs.forEach((p, idx) => {
     const P = outline(p); p.el.dataset.poly = JSON.stringify(P);
@@ -114,10 +120,9 @@ function draw(comp) {
       const split = (pt, t) => { const i = parts.findIndex((q) => inside(q, pt)); if (i < 0) return; const [A, B] = cut(parts[i], pt, t); if (A.length > 2 && B.length > 2) parts.splice(i, 1, A, B); };
       for (let i = 1; i < rows.length; i++) { const yb = Math.max(...rows[i - 1].map((z) => z.y1)), yt = Math.min(...rows[i].map((z) => z.y0)); split([cen(P)[0], (yb + yt) / 2], (r() - 0.5) * 0.04); }
       rows.forEach((row) => { row.sort((u, v) => u.x0 - v.x0); for (let i = 1; i < row.length; i++) split([(row[i - 1].x1 + row[i].x0) / 2, (row[i].y0 + row[i].y1) / 2], Math.PI / 2 + (r() - 0.5) * 0.5); });
-      let g = '<polygon class="lift" points="' + pts(P) + '" fill="#141414" transform="translate(8,8)"/>';
+      let g = '';
       parts.forEach((q) => { const z = zs.find((z) => inside(q, [(z.x0 + z.x1) / 2, (z.y0 + z.y1) / 2])); g += poly(q, z ? z.c : p.el.dataset.c, 3); });
-      g += '<polygon points="' + pts(P) + '" fill="none" stroke="#141414" stroke-width="7" stroke-linejoin="round"/>';
-      p.el.dataset.g = 'pzu' + idx; svg += '<g id="pzu' + idx + '" class="pz-unit">' + g + '</g>'; return;
+      svg += unit(p, idx, P, g); return;
     }
     const boxes = []; const tw = document.createTreeWalker(p.el, NodeFilter.SHOW_TEXT); let tn;
     while ((tn = tw.nextNode())) { if (!tn.textContent.trim()) continue; const rg = document.createRange(); rg.selectNodeContents(tn); for (const q of rg.getClientRects()) boxes.push([q.left - cr.left - 12, q.top - cr.top - 10, q.right - cr.left + 12, q.bottom - cr.top + 10]); }
@@ -134,8 +139,8 @@ function draw(comp) {
       }
     }
     const fam = FAM[p.el.dataset.c]; let prev = '', g = '';
-    parts.sort((u, v) => area(v) - area(u)).forEach((q, i) => { let c = i === 0 ? fam[0] : fam[1 + Math.floor(r() * (fam.length - 1))]; if (c === prev) c = fam[(fam.indexOf(c) + 1) % fam.length]; prev = c; g += poly(q, c, 7); });
-    svg += '<g>' + g + '</g>';
+    parts.sort((u, v) => area(v) - area(u)).forEach((q, i) => { let c = i === 0 ? fam[0] : fam[1 + Math.floor(r() * (fam.length - 1))]; if (c === prev) c = fam[(fam.indexOf(c) + 1) % fam.length]; prev = c; g += poly(q, c, 3); });
+    svg += unit(p, idx, P, g);
   });
   comp.insertAdjacentHTML('afterbegin', '<svg class="pz-svg" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" aria-hidden="true" focusable="false">' + svg + '</svg>');
 }
@@ -144,12 +149,18 @@ let lastW = 0;
 const run = () => { const w = window.innerWidth; if (w === lastW) return; lastW = w; comps.forEach(draw); };
 (document.fonts ? document.fonts.ready : Promise.resolve()).then(run);
 let tm; window.addEventListener('resize', () => { clearTimeout(tm); tm = setTimeout(run, 150); });
-// the agent piece is one unit: hover lifts all its panes together, and a click anywhere on it copies
-document.querySelectorAll('.pz-agent').forEach((u) => {
+// hover (or keyboard focus): the whole piece, glass and words together, lights up and grows a little.
+// Both scale around the piece's own center, so the glass and the text stay lined up; neighbors don't move.
+const hover = matchMedia('(hover: hover)').matches;
+document.querySelectorAll('.pz > .pc').forEach((u) => {
   const g = () => document.getElementById(u.dataset.g);
   const on = (v) => { const e = g(); if (!e) return; if (v) e.parentNode.appendChild(e); e.classList.toggle('on', v); u.classList.toggle('on', v); };
-  u.addEventListener('mouseenter', () => on(true)); u.addEventListener('mouseleave', () => on(false));
-  u.addEventListener('focus', () => on(true)); u.addEventListener('blur', () => on(false));
+  if (hover) { u.addEventListener('mouseenter', () => on(true)); u.addEventListener('mouseleave', () => on(false)); }
+  u.addEventListener('focusin', () => on(true)); u.addEventListener('focusout', () => on(false));
+});
+// the agent piece: a click anywhere on it copies the command
+document.querySelectorAll('.pz-agent').forEach((u) => {
+  const g = () => document.getElementById(u.dataset.g);
   const copy = async () => { const label = u.querySelector('.pz-agent__copy span');
     try { await navigator.clipboard.writeText(u.dataset.pzCopy); } catch { return; }
     const e = g(); e && e.classList.add('done'); label.textContent = 'COPIED';
