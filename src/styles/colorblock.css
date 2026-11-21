@@ -671,43 +671,46 @@ html body.cb .cb-tile--big { flex-direction: column-reverse !important; }
 html body.cb .cb-tile--big .cb-tile__art { border-bottom: 0 !important; border-top: 4px solid var(--K); }
 
 /* ===================== Shard layout =====================
-   One layer of flat-color shapes. Every block is its own color with a jagged strip of colored
-   pieces along its top edge (src/theme/shards.mjs). Blocks meet along black lead lines. */
+   The page is one field of stained glass. Each block's main shape is an irregular polygon with
+   slanted sides; the corners it leaves are filled with empty colored shards, all outlined in black
+   (drawn by SHARD_JS in src/theme/shards.mjs). Blocks sit edge to edge, nothing is layered. */
 :root { --pad: max(24px, calc((100vw - 1240px) / 2)); }
 html body.cb { background: #141414 !important; }
 html body.cb main, html body.cb .cb-case { max-width: none !important; padding: 0 !important; gap: 0 !important; background: #141414 !important; filter: none !important; }
-html body.cb .sh { position: relative !important; outline: 0 !important; border: 0 !important; box-shadow: none !important; border-radius: 0 !important; clip-path: none !important; margin: 0 !important; padding-top: calc(var(--sh-top, 64px) + 26px) !important; }
-html body.cb .sh--B { background: var(--B) !important; color: #fff; } html body.cb .sh--R { background: var(--R) !important; } html body.cb .sh--Y { background: var(--Y) !important; color: var(--K); } html body.cb .sh--G { background: var(--G) !important; color: var(--K); } html body.cb .sh--C { background: var(--C) !important; color: var(--K); }
-html body.cb .sh > .sh-strip { position: absolute; left: 0; top: 0; width: 100%; display: block; z-index: 1; pointer-events: none; }
-html body.cb .sh > .sh-strip--bottom { top: auto; bottom: 0; }
-html body.cb main > section.sh, html body.cb .cb-case > .sh:not(.cbp--hero) { padding-left: var(--pad) !important; padding-right: var(--pad) !important; }
+html body.cb .sh { position: relative !important; isolation: isolate; outline: 0 !important; border: 0 !important; box-shadow: none !important; border-radius: 0 !important; clip-path: none !important; margin: 0 !important; }
+html body.cb .sh--B { background: var(--B) !important; color: #fff; } html body.cb .sh--R { background: var(--R) !important; color: #fff; } html body.cb .sh--Y { background: var(--Y) !important; color: var(--K); } html body.cb .sh--G { background: var(--G) !important; color: var(--K); } html body.cb .sh--C { background: var(--C) !important; color: var(--K); }
+html body.cb .sh > .sh-svg { position: absolute !important; inset: 0; width: 100%; height: 100%; z-index: 0 !important; pointer-events: none; display: block; }
+html body.cb .sh > :not(.sh-svg) { position: relative; z-index: 1; }
+/* sections: generous padding, which is where the empty shards live */
+html body.cb main > section.sh, html body.cb .cb-case > .sh { padding: 118px var(--pad) 104px !important; }
 html body.cb main > section.sh > * { max-width: none !important; margin-left: 0 !important; margin-right: 0 !important; }
-html body.cb main > section.sh > .sh-strip { margin: 0 !important; }
-/* featured: three shards that meet along lead lines, no pictures */
+/* featured: three content shards that fill the first screen */
 html body.cb main > section.cb-feat { padding: 0 !important; background: #141414; }
 html body.cb .cb-feat .cb-label { display: none !important; }
 html body.cb .cb-feat__grid { gap: 0 !important; max-width: none !important; }
 html body.cb .cb-tile__art { display: none !important; }
-html body.cb .cb-tile { display: flex !important; flex-direction: column !important; justify-content: flex-start; }
-html body.cb .cb-tile__txt { background: transparent !important; padding: 0 0 2.4rem !important; }
-html body.cb .cb-tile--big { padding-left: var(--pad) !important; padding-right: 3rem !important; }
+html body.cb .cb-tile { display: flex !important; flex-direction: column !important; justify-content: center; }
+html body.cb .cb-tile__txt { background: transparent !important; padding: 0 !important; }
+html body.cb .cb-tile--big { padding: 120px 90px 110px var(--pad) !important; }
 html body.cb .cb-tile--big strong { font-size: clamp(2.4rem, 4.2vw, 3.9rem) !important; line-height: 1.02 !important; }
-html body.cb .cb-tile--side { padding-left: 2.6rem !important; padding-right: var(--pad) !important; }
+html body.cb .cb-tile--side { padding: 92px var(--pad) 84px 84px !important; }
 html body.cb .cb-tile .cb-sub { font-size: 1.05rem; }
 @media (min-width: 901px) {
   html body.cb .cb-feat__grid { grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr) !important; grid-template-rows: auto auto !important; }
   html body.cb .cb-tile--big { grid-row: 1 / span 2 !important; }
-  html body.cb .cb-tile--side { border-left: 7px solid #141414 !important; }
 }
-/* note, agent band */
-html body.cb main > section.cb-note { padding-bottom: 1.6rem !important; }
+/* note and agent band */
+html body.cb main > section.cb-note.sh { padding-top: 84px !important; padding-bottom: 72px !important; }
 html body.cb main > section.cb-agentband { padding: 0 !important; background: #141414; }
-html body.cb .cb-agentband .cb-agent { padding-left: var(--pad) !important; padding-right: var(--pad) !important; padding-bottom: 2.4rem !important; }
+html body.cb .cb-agentband .cb-agent.sh { padding: 104px var(--pad) 92px !important; }
 html body.cb .cb-agentband .cb-agent__head { top: 0 !important; margin-bottom: 14px !important; }
-/* case pages: the hero keeps its two halves, inside one shard */
-html body.cb .cb-case > .cbp--hero { padding-top: calc(var(--sh-top) + 0px) !important; }
-html body.cb .cb-case > .cbp--hero .cb-hero { padding-left: calc(var(--pad) - 2.4rem); }
-@media (max-width: 900px) { html body.cb .cb-tile--big, html body.cb .cb-tile--side { padding-left: 22px !important; padding-right: 22px !important; } html body.cb .sh { padding-top: calc(var(--sh-top, 64px) * .7 + 18px) !important; } html body.cb .sh > .sh-strip { height: calc(var(--sh-top) * .7) !important; } }
+/* case-study hero: the text is a blue shard, the glass art its neighbor */
+html body.cb .cb-case > .cbp--hero { padding: 0 !important; }
+html body.cb .cb-hero__txt.sh { padding: 104px 80px 96px var(--pad) !important; }
+html body.cb .cb-hero__art { border: 0 !important; }
+/* case list on blue */
+html body.cb .projects.sh, html body.cb .projects.sh h3, html body.cb .projects.sh .project__points li, html body.cb .projects.sh .project__link, html body.cb .projects.sh .cb-band { color: #fff !important; }
+html body.cb .projects.sh .project { border-bottom-color: #141414 !important; border-bottom-width: 4px !important; }
 /* no pictures of glass inside the shapes: the shapes are the glass */
 html body.cb .cb-band__strip, html body.cb .cb-thumb, html body.cb .cb-laptop, html body.cb .cb-wthumb, html body.cb .cb-contact-art { display: none !important; }
 html body.cb .sh .cb-band { background: transparent !important; color: inherit !important; padding: 0 0 .7rem !important; min-height: 0 !important; border-bottom: 5px solid #141414 !important; margin-bottom: 2rem !important; }
@@ -719,3 +722,11 @@ html body.cb .sh .projects__grid .project__body, html body.cb .projects.sh .proj
 html body.cb .projects.sh .project__head, html body.cb .projects.sh .project__points { grid-column: 1 !important; border-left: 0 !important; padding-left: 0 !important; }
 html body.cb .projects.sh .project__link { grid-column: 2 !important; grid-row: 1 / span 2 !important; }
 html body.cb main > section.sh > .wrap, html body.cb main > section.sh > .container, html body.cb .cb-case > .sh > .wrap { padding-left: 0 !important; padding-right: 0 !important; width: auto !important; }
+@media (max-width: 900px) {
+  html body.cb main > section.sh, html body.cb .cb-case > .sh { padding: 68px 34px 60px !important; }
+  html body.cb .cb-tile--big, html body.cb .cb-tile--side { padding: 66px 34px 58px !important; }
+  html body.cb main > section.cb-note.sh { padding: 58px 34px 50px !important; }
+  html body.cb .cb-agentband .cb-agent.sh { padding: 66px 34px 58px !important; }
+  html body.cb .cb-hero__txt.sh { padding: 66px 34px 58px !important; }
+}
+html body.cb .projects.sh .project__points strong, html body.cb .projects.sh .project__points b { color: #fff !important; }

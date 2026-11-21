@@ -2,7 +2,7 @@
 // Runs server-side from src/middleware.ts (in dev and at build), so the shipped HTML is static.
 // Page copy still lives in src/pages; this file only rearranges it and adds art and labels.
 import ART from './art.json';
-import { shard } from './shards.mjs';
+import { shard, SHARD_JS } from './shards.mjs';
 
 const AGENT_PROMPT = "Load Jeremy Hoover's portfolio skill from https://jeremyhoover.ai/agent/SKILL.md and tell me how he fits my role.";
 
@@ -212,11 +212,12 @@ if (page === 'about') {
 const SH = [
   ['.cb-tile--big', 'B', 84], ['.cb-feat .cb-tile--side:nth-of-type(2)', 'Y', 64], ['.cb-feat .cb-tile--side:nth-of-type(3)', 'G', 64],
   ['main > .cb-note', 'C', 44], ['.cb-agentband .cb-agent', 'R', 56],
-  ['main > .projects', 'C', 70], ['main > .program', 'Y', 70], ['main > .writing', 'C', 70], ['main > .experience', 'C', 70],
+  ['main > .projects', 'B', 70], ['main > .program', 'Y', 70], ['main > .writing', 'C', 70], ['main > .experience', 'C', 70],
   ['main > .recommendations', 'C', 70], ['main > .hcs', 'C', 70], ['main > .contact', 'R', 70],
-  ['.cb-case > .cbp--hero', 'B', 70], ['.cb-case > .cbp--ship', 'Y', 64], ['.cb-case > .cbp--contact', 'R', 64], ['.cb-case > .cbp', 'C', 64],
+  ['.cb-case > .cbp--hero .cb-hero__txt', 'B', 70], ['.cb-case > .cbp--ship', 'Y', 64], ['.cb-case > .cbp--contact', 'R', 64], ['.cb-case > .cbp', 'C', 64],
 ];
 let seed = 11;
-for (const [sel, main, h] of SH) for (const e of $$(sel)) { if (e.classList.contains('sh')) continue; shard(e, { main, h, seed: seed += 7, n: h > 70 ? 6 : 8 }); }
+for (const [sel, main] of SH) for (const e of $$(sel)) { if (e.classList.contains('sh') || e.classList.contains('cbp--hero')) continue; shard(e, { main, seed: seed += 7 }); }
+if ($$('.sh').length) { const s = document.createElement('script'); s.textContent = SHARD_JS; document.body.appendChild(s); }
 
 }
