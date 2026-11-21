@@ -10,7 +10,7 @@
     "dev:stop": "astro dev stop",
     "dev:status": "astro dev status",
     "dev:logs": "astro dev logs",
-    "build": "astro build",
+    "build": "astro build && node scripts/build-llms.mjs",
     "audit": "python scripts/audit_portfolio.py",
     "quality": "npm run build && npm run audit",
     "preview": "astro preview",

@@ -68,6 +68,13 @@ const favicon = `${base}/images/brand-icon.svg?v=4`;
     <script is:inline>
       // Color-block: long sections collapse behind "Keep reading" on phones; open them on wider screens.
       if (matchMedia('(min-width: 901px)').matches) document.querySelectorAll('details.cb-keep').forEach((d) => { d.open = true; });
+      // Color-block: "Give this to your AI agent" copy button.
+      document.querySelectorAll('[data-copy]').forEach((btn) => btn.addEventListener('click', async () => {
+        const label = btn.querySelector('span');
+        try { await navigator.clipboard.writeText(btn.dataset.copy); } catch { return; }
+        btn.classList.add('is-copied'); if (label) label.textContent = 'Copied';
+        setTimeout(() => { btn.classList.remove('is-copied'); if (label) label.textContent = 'Copy'; }, 1800);
+      }));
     </script>
   </body>
 </html>

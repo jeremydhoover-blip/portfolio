@@ -3,6 +3,8 @@
 // Page copy still lives in src/pages; this file only rearranges it and adds art and labels.
 import ART from './art.json';
 
+const AGENT_PROMPT = 'Read https://jeremyhoover.ai/llms.txt and tell me how Jeremy Hoover fits the role I am hiring for.';
+
 export function colorblock(document, pathname) {
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
@@ -24,6 +26,7 @@ if (page === 'home') {
   const feat = el('section', 'cb-feat', `<p class="cb-label"><em>Featured work</em></p><div class="cb-feat__grid">
     <a class="cb-tile cb-tile--big" href="${c0.getAttribute('href')}"><span class="cb-tile__art"></span><span class="cb-tile__txt cb-tile__txt--blue"><span class="cb-kicker">Microsoft · Shared design repos</span><strong>${$('h3', c0).textContent}</strong><span class="cb-sub">${pt(c0)}</span><span class="cb-link">Read the story ↗</span></span></a>
     <a class="cb-tile cb-tile--side" href="#open-source"><span class="cb-tile__art"></span><span class="cb-tile__txt cb-tile__txt--yellow"><span class="cb-kicker">Open source · Fievel</span><strong>A content system you can build on</strong><span class="cb-sub">${firstSentence($('.hcs__content > p', hcs)?.textContent)}</span><span class="cb-link">Read the story ↗</span></span></a>
+    <div class="cb-agent"><p class="cb-agent__tag">Give this to your AI agent</p><div class="cb-agent__box"><code class="cb-agent__prompt" title="${AGENT_PROMPT}"><span aria-hidden="true">$</span> ${AGENT_PROMPT}</code><button type="button" class="cb-agent__copy" data-copy="${AGENT_PROMPT}"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M8 8h11v13H8zM5 3h11v3H8a3 3 0 0 0-3 3v9H5z" fill="currentColor"/></svg><span>Copy</span></button></div></div>
     <a class="cb-tile cb-tile--side" href="${c1.getAttribute('href')}"><span class="cb-tile__art"></span><span class="cb-tile__txt cb-tile__txt--green"><span class="cb-kicker">Microsoft · Hackathon winner</span><strong>${$('h3', c1).textContent}</strong><span class="cb-sub">${pt(c1)}</span><span class="cb-link">Read the story ↗</span></span></a>
   </div>`);
   const arts = $$('.cb-tile__art', feat); bg(arts[0], 'hero'); bg(arts[1], 'fievel'); bg(arts[2], 'case-hackathon');
@@ -42,12 +45,12 @@ if (page === 'home') {
   // writing thumbs
   $$('.writing__group').forEach((g, i) => g.prepend(bg(el('span', 'cb-wthumb'), 'thumb' + [0, 5, 6][i % 3])));
   // education becomes its own green card w/ band look
-  const cred = $('.cred-card'); if (cred) { const h = $('h3', cred); if (h) h.textContent = 'Education'; }
+  const cred = $('.cred-card'); if (cred) { const h = $('h3', cred); if (h) h.textContent = 'Education & recognition'; }
   // colleagues: short pull quotes
   $$('.recommendation-card', R).forEach((f, i) => {
     const ps = $$('blockquote p', f); const q = firstSentence(ps[0].textContent).replace(/^Jeremy Hoover is/, 'Jeremy is');
     const name = $('figcaption strong', f)?.textContent || ''; const role = $('figcaption small', f)?.textContent || ''; const img = $('figcaption img', f)?.getAttribute('src') || '';
-    f.innerHTML = `<span class="cb-qmark cb-qmark--${i % 2 ? 'red' : 'blue'}">“</span><blockquote>${q}</blockquote><figcaption>${img ? `<img src="${img}" alt="">` : ''}<span><b>${name}</b><small>${role} · LinkedIn recommendation</small></span></figcaption><a class="cb-more" href="https://www.linkedin.com/in/jeremydhoover/details/recommendations/">Read recommendation ↗</a>`;
+    f.innerHTML = `<span class="cb-qmark cb-qmark--${i % 2 ? 'red' : 'blue'}" aria-hidden="true"><svg viewBox="0 0 44 34" width="30" height="23" aria-hidden="true"><path d="M2 2h16v16l-7 14H4l6-14H2zM26 2h16v16l-7 14h-7l6-14h-8z" fill="currentColor"/></svg></span><blockquote>${q}</blockquote><figcaption>${img ? `<img src="${img}" alt="">` : ''}<span><b>${name}</b><small>${role} · LinkedIn recommendation</small></span></figcaption><a class="cb-more" href="https://www.linkedin.com/in/jeremydhoover/details/recommendations/">Read recommendation ↗</a>`;
   });
   // fievel panel
   if (hcs) { hcs.classList.add('cbp', 'cbp--fievel'); const h = $('h2', hcs); const b = band(h.textContent, 'green', 'strip5'); b.id = 'open-source'; h.remove(); $$('[id="open-source"]', hcs).forEach(x => x.removeAttribute('id')); hcs.prepend(b); }
