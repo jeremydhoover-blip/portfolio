@@ -593,3 +593,32 @@ html body.cb .cb-agent__prompt span { margin-right: .15rem; }
 html body.cb .cb-agent { container-type: inline-size; }
 html body.cb .cb-agent .cb-agent__prompt { font-size: clamp(.66rem, calc((100cqi - 150px) / 19), .86rem) !important; }
 @container (max-width: 380px) { html body.cb .cb-agent__copy > span { display: none; } html body.cb .cb-agent .cb-agent__prompt { font-size: clamp(.64rem, calc((100cqi - 90px) / 19), .86rem) !important; } }
+
+/* agent block v4: a full red color block with agent badges */
+html body.cb .cb-agent { background: var(--R) !important; color: #fff !important; }
+html body.cb .cb-agent .cb-kicker { color: #fff !important; }
+html body.cb .cb-agent__head { display: flex; align-items: center; justify-content: space-between; gap: .8rem; }
+html body.cb .cb-agent__icons { display: flex; }
+html body.cb .cb-agent__ico { width: 30px; height: 30px; border-radius: 50%; border: 3px solid var(--K); display: grid; place-items: center; margin-left: -6px; color: var(--K); }
+html body.cb .cb-agent__ico--Y { background: var(--Y); } html body.cb .cb-agent__ico--B { background: var(--B); color: #fff; }
+html body.cb .cb-agent__ico--G { background: var(--G); } html body.cb .cb-agent__ico--C { background: var(--C); }
+html body.cb .cb-agent__prompt { background: #fff !important; }
+html body.cb .cb-agent__copy, html body.cb .cb-agent__copy:hover { background: var(--Y) !important; color: var(--K) !important; }
+html body.cb .cb-agent__copy:hover { background: #fff !important; }
+
+/* agent block v5: tilted tag with agent badges, framed prompt, skewed copy button */
+html body.cb .cb-agent { position: relative; padding: 0 1.3rem 1.2rem !important; margin-top: 18px; box-shadow: 6px 6px 0 var(--K); }
+html body.cb .cb-agent__head { position: relative; top: -16px; margin-bottom: -4px; justify-content: flex-start; }
+html body.cb .cb-agent__head { display: inline-flex !important; align-self: flex-start; align-items: center; gap: .55rem; background: var(--Y); border: 3px solid var(--K); box-shadow: 4px 4px 0 var(--K); padding: .3rem .55rem .3rem .75rem; transform: rotate(-2deg); }
+html body.cb .cb-agent__tag { position: static !important; transform: none !important; box-shadow: none !important; border: 0 !important; padding: 0 !important; background: none !important; font-family: 'Archivo Narrow', var(--sans) !important; font-style: italic !important; font-weight: 700 !important; text-transform: uppercase; letter-spacing: .01em; font-size: 1.05rem !important; color: var(--K) !important; white-space: nowrap; }
+html body.cb .cb-agent__ico { width: 26px; height: 26px; border-width: 2.5px; margin-left: -5px; background-clip: padding-box; }
+html body.cb .cb-agent__ico svg { width: 14px; height: 14px; }
+html body.cb .cb-agent__row { background: var(--C); border: 3px solid var(--K); box-shadow: 5px 5px 0 var(--K); padding: .55rem .55rem .55rem .9rem; align-items: center; }
+html body.cb .cb-agent__prompt { background: none !important; border: 0 !important; padding: 0 !important; }
+html body.cb .cb-agent__copy { align-self: center !important; padding: .4rem .8rem !important; transform: rotate(-2deg); background: var(--B) !important; color: #fff !important; font-family: 'Archivo Narrow', var(--sans) !important; font-style: italic !important; font-weight: 700 !important; text-transform: uppercase; font-size: 1.05rem !important; box-shadow: 3px 3px 0 var(--K) !important; }
+html body.cb .cb-agent__copy:hover { background: var(--K) !important; color: #fff !important; }
+html body.cb .cb-agent__copy.is-copied { background: var(--G) !important; color: var(--K) !important; }
+@container (max-width: 380px) { html body.cb .cb-agent__tag { font-size: .9rem !important; } html body.cb .cb-agent__ico { width: 22px; height: 22px; } }
+html body.cb .cb-agent__icons { padding-left: 6px; }
+@container (max-width: 340px) { html body.cb .cb-agent__ico:nth-child(n+4) { display: none; } }
+@container (max-width: 300px) { html body.cb .cb-agent .cb-agent__prompt { font-size: .6rem !important; } html body.cb .cb-agent__row { padding-left: .6rem; } }
