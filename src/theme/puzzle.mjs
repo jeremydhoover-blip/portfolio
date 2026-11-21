@@ -36,9 +36,9 @@ export function puzzleHome(document, { prompt, icons, name, pitch }) {
   const read = (label = 'Read the story') => `<span class="pz-link">${label} ↗</span>`;
 
   const pieces = [
-    `<a class="pc pz-feat" data-c="B" data-panes="0" style="grid-area:F" href="${esc(c0.href)}"><p class="pz-kick">Microsoft · Shared design repos</p><h2 class="pz-serif pz-feat__h">${esc(c0.title)}</h2><p class="pz-sub">${c0.point}</p>${read()}</a>`,
-    `<a class="pc" data-c="G" style="grid-area:H" href="${esc(c1.href)}"><p class="pz-kick">Microsoft · Hackathon winner</p><h3 class="pz-serif pz-side__h">${esc(c1.title)}</h3><p class="pz-sub">${c1.point}</p>${read()}</a>`,
-    `<div class="pc pz-note" data-c="Y" data-panes="0" style="grid-area:N"><p class="pz-note__k">A note from Jeremy</p><h1 class="pz-serif pz-note__h1">${esc(name)}</h1><p class="pz-note__p">${esc(pitch)}</p><p class="pz-note__links"><a class="pz-link" href="#projects">More case studies ↓</a><a class="pz-link" href="/about">About me ↗</a></p></div>`,
+    `<a class="pc pz-feat" data-c="B" style="grid-area:F" href="${esc(c0.href)}"><p class="pz-kick">Microsoft · Shared design repos</p><h2 class="pz-serif pz-feat__h">${esc(c0.title)}</h2><p class="pz-sub">${c0.point}</p>${read()}</a>`,
+    `<a class="pc" data-c="R" style="grid-area:H" href="${esc(c1.href)}"><p class="pz-kick">Microsoft · Hackathon winner</p><h3 class="pz-serif pz-side__h">${esc(c1.title)}</h3><p class="pz-sub">${c1.point}</p>${read()}</a>`,
+    `<div class="pc pz-note" data-c="Y" data-keep="1" style="grid-area:N"><p class="pz-note__k">A note from Jeremy</p><h1 class="pz-serif pz-note__h1">${esc(name)}</h1><p class="pz-note__p">${esc(pitch)}</p><p class="pz-note__links"><a class="pz-link" href="#projects">More case studies ↓</a><a class="pz-link" href="/about">About me ↗</a></p></div>`,
     `<div class="pc pz-agent" data-c="R" data-calm="1" style="grid-area:A" role="button" tabindex="0" data-pz-copy="${esc(prompt)}" aria-label="Copy the Jeremy Hoover portfolio skill prompt for your AI agent">
       <div class="pz-agent__row"><div class="z pz-agent__tag" data-z="Y">Give this to<br>your AI agent</div><div class="z pz-agent__icons" data-z="R"><div><span class="pz-agent__works">Works with</span>${icons}</div><p class="pz-agent__say">One prompt. Your agent reads my skill file and tells you how I fit your role.</p></div><div class="z pz-agent__copy" data-z="B"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M8 8h11v13H8zM5 3h11v3H8a3 3 0 0 0-3 3v9H5z" fill="currentColor"/></svg><span>COPY</span></div></div>
       <div class="pz-agent__row pz-agent__row--cmd"><div class="z pz-agent__cmd" data-z="C"><span class="pz-agent__q">“${esc(prompt)}”</span></div></div>
@@ -49,10 +49,10 @@ export function puzzleHome(document, { prompt, icons, name, pitch }) {
       <h3 class="pz-serif pz-prog__h">Technical Content Designer Program</h3><p class="pz-small"><b>${esc(orgRole)}</b> · ${esc(orgName)}</p>
       <p class="pz-sub">${esc(txt('.program__summary', prog))}</p><p class="pz-tags">${topics.map((t) => `<span class="pz-tag">${esc(t)}</span>`).join('')}</p></div>
       ${pqs.slice(0, 2).map((q, i) => `<figure class="z pz-zone pz-pq" data-z="${i ? 'B' : 'C'}" style="grid-area:${i ? 'R' : 'Q'}"><p class="pz-stars" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="pz-serif pz-q">${esc(q.q)}</blockquote><figcaption class="pz-small"><b>${esc(q.name)}</b> · ${esc(q.role)}</figcaption></figure>`).join('')}</div>`,
-    `<div class="pc" data-c="C" style="grid-area:W" id="writing"><h2 class="pz-serif pz-it pz-h2">Published articles</h2><div class="pz-cols">${groups.map((g, i) => `<div class="pz-col" data-g="${i}"><p class="pz-lbl">${esc(g.src)}</p>${g.items.map((a) => `<a class="pz-art" href="${esc(a.href)}" ${ext}>${esc(a.t)} <span aria-hidden="true">↗</span></a>`).join('')}</div>`).join('')}</div></div>`,
-    `<div class="pc" data-c="C" data-panes="0" style="grid-area:X" id="experience"><div class="pz-head"><h2 class="pz-serif pz-it pz-h2">Experience</h2><a class="pz-link" href="${esc(expLink)}">Full background ↗</a></div>
+    `<div class="pc" data-c="C" data-alt="Y" style="grid-area:W" id="writing"><h2 class="pz-serif pz-it pz-h2">Published articles</h2><div class="pz-cols">${groups.map((g, i) => `<div class="pz-col" data-g="${i}"><p class="pz-lbl">${esc(g.src)}</p>${g.items.map((a) => `<a class="pz-art" href="${esc(a.href)}" ${ext}>${esc(a.t)} <span aria-hidden="true">↗</span></a>`).join('')}</div>`).join('')}</div></div>`,
+    `<div class="pc" data-c="C" data-keep="1" data-alt="Y" style="grid-area:X" id="experience"><div class="pz-head"><h2 class="pz-serif pz-it pz-h2">Experience</h2><a class="pz-link" href="${esc(expLink)}">Full background ↗</a></div>
       ${exp.map((e) => `<div class="pz-exp"><p class="pz-exp__top"><b class="pz-serif">${esc(e.co)}</b><b>${esc(e.when)}</b></p><p class="pz-exp__title">${esc(e.title)}</p><p class="pz-exp__desc">${esc(e.desc)}</p></div>`).join('')}</div>`,
-    `<div class="pc" data-c="G" data-panes="0" style="grid-area:D" id="education"><h3 class="pz-serif pz-it pz-edu__h">Education &amp; recognition</h3>${edu.map((e) => `<p class="pz-edu__dt">${esc(e.dt)}</p><p class="pz-edu__dd">${esc(e.dd)}</p>`).join('')}</div>`,
+    `<div class="pc" data-c="G" data-keep="1" data-alt="Y" style="grid-area:D" id="education"><h3 class="pz-serif pz-it pz-edu__h">Education &amp; recognition</h3>${edu.map((e) => `<p class="pz-edu__dt">${esc(e.dt)}</p><p class="pz-edu__dd">${esc(e.dd)}</p>`).join('')}</div>`,
     ...recs.slice(0, 2).map((r, i) => `<figure class="pc pz-rec" data-c="${i ? 'R' : 'B'}" style="grid-area:${i ? 'L' : 'K'}"${i ? '' : ' id="recommendations"'}>${i ? '' : '<h2 class="pz-serif pz-it pz-h2">From colleagues</h2>'}<blockquote class="pz-serif pz-rec__q">“${esc(r.q)}”</blockquote><figcaption class="pz-small"><b>${esc(r.name)}</b> · ${esc(r.role)}</figcaption><a class="pz-link" href="${recUrl}" ${ext}>Read recommendation ↗</a></figure>`),
     `<div class="pc" data-c="G" style="grid-area:V" id="open-source"><h2 class="pz-serif pz-it pz-fv__h"><img class="pz-fv__logo" src="https://fievel.ai/assets/fievel-logo.png" alt="" width="56" height="56">Fievel</h2><p class="pz-fv__p">${esc(hcsPs[0]?.textContent.trim())}</p><p><a class="pz-btn" href="${esc(hcsLinks[0] || 'https://fievel.ai/')}" ${ext}>Visit fievel.ai ↗</a><a class="pz-btn pz-btn--light" href="${esc(hcsLinks[1] || '#')}" ${ext}>View on GitHub</a></p></div>`,
     `<div class="pc pz-fvfacts" data-c="Y" style="grid-area:S"><p class="pz-lbl">What ships</p><dl><div><dt>6 skills</dt><dd>in one plugin</dd></div><div><dt>7-stage workflow</dt><dd>and a local CLI that checks it</dd></div><div><dt>MCP server</dt><dd>Local in Claude Code, hosted in Codex</dd></div><div><dt>Works in</dt><dd>Claude Code, Codex, and GitHub Copilot</dd></div></dl></div>`,
@@ -128,7 +128,8 @@ function draw(comp) {
     el.querySelectorAll('.pz-btn,.pz-tag,svg,img').forEach((e) => { const q = e.getBoundingClientRect(); if (q.width) boxes.push([q.left - cr.left - 12, q.top - cr.top - 12, q.right - cr.left + 16, q.bottom - cr.top + 16]); });
     return boxes; };
   // a few extra panes inside one pane, in its color family
-  const panes = (P, c, n, boxes) => { const parts = [P];
+  // keep: all the words stay in one pane, so the second pane is an empty corner of glass
+  const panes = (P, c, n, boxes, keep, alt) => { const parts = [P];
     for (let m = 0; m < n; m++) {
       parts.sort((u, v) => area(v) - area(u));
       for (let tries = 0; tries < 600; tries++) {
@@ -136,11 +137,12 @@ function draw(comp) {
         const o = [ce[0] + (r() - 0.5) * 800 * k, ce[1] + (r() - 0.5) * 400];
         const [A, B, seg] = cut(big, o, t);
         if (A.length < 3 || B.length < 3 || Math.min(area(A), area(B)) < area(big) * 0.12 || seg.length !== 2 || boxes.some((bx) => segHits(seg[0], seg[1], bx))) continue;
+        if (keep) { const ctr = boxes.map((bx) => [(bx[0] + bx[2]) / 2, (bx[1] + bx[3]) / 2]); if (!ctr.every((q) => inside(A, q)) && !ctr.every((q) => inside(B, q))) continue; }
         parts.shift(); parts.push(A, B); break;
       }
     }
     const fam = FAM[c]; let prev = '', g = '';
-    parts.sort((u, v) => area(v) - area(u)).forEach((q, i) => { let cc = i === 0 ? fam[0] : fam[1 + Math.floor(r() * (fam.length - 1))]; if (cc === prev) cc = fam[(fam.indexOf(cc) + 1) % fam.length]; prev = cc; g += poly(q, cc, 3); });
+    parts.sort((u, v) => area(v) - area(u)).forEach((q, i) => { let cc = i === 0 ? fam[0] : alt || fam[1 + Math.floor(r() * (fam.length - 1))]; if (cc === prev) cc = fam[(fam.indexOf(cc) + 1) % fam.length]; prev = cc; g += poly(q, cc, 3); });
     return g; };
   // split a piece between its zones (blocks that belong together), cutting along the gaps between them
   const zoneSplit = (part, zz, boxes) => {
@@ -175,7 +177,7 @@ function draw(comp) {
     if (zs.length) {
       // one unit made of several blocks: each block is its own pane (big ones get a few panes of their own)
       zoneSplit(P, zs, boxes).forEach(([q, z]) => { const c = z ? z.c : p.el.dataset.c, big = 0; g += c === 'img' ? imgPane(q, z.el.dataset.img, idx) : big ? panes(q, c, big, boxes) : poly(q, c, 3); });
-    } else g = panes(P, p.el.dataset.c, p.el.dataset.panes != null ? +p.el.dataset.panes : 1, boxes);
+    } else g = panes(P, p.el.dataset.c, p.el.dataset.panes != null ? +p.el.dataset.panes : 1, boxes, !!p.el.dataset.keep, p.el.dataset.alt);
     svg += unit(p, idx, P, g);
   });
   comp.insertAdjacentHTML('afterbegin', '<svg class="pz-svg" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" aria-hidden="true" focusable="false">' + svg + '</svg>');
