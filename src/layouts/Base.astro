@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import '../styles/colorblock.css';
 import Icon from '../components/Icon.astro';
 
 interface Props {
@@ -31,7 +32,7 @@ const favicon = `${base}/images/brand-icon.svg?v=4`;
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&family=Fraunces:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Archivo+Narrow:wght@700&display=swap" rel="stylesheet" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -64,5 +65,9 @@ const favicon = `${base}/images/brand-icon.svg?v=4`;
         </ul>
       </div>
     </footer>
+    <script is:inline>
+      // Color-block: long sections collapse behind "Keep reading" on phones; open them on wider screens.
+      if (matchMedia('(min-width: 901px)').matches) document.querySelectorAll('details.cb-keep').forEach((d) => { d.open = true; });
+    </script>
   </body>
 </html>

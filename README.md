@@ -17,6 +17,16 @@ I built this site to show how I connect design, product, and engineering through
 - **Statecraft: Israel:** Public contributions spanning historical research, content systems, player UX, and release messaging
 - **Hoover Content System:** An independent, open-source content system for developer products
 
+## Color-block theme
+
+The layout is a color-block theme applied at render time:
+
+- `src/middleware.ts` runs `src/theme/colorblock.mjs` on every page, both in `npm run dev` and at build. It rearranges each page into the color-block layout, so the shipped HTML is still static.
+- `src/styles/colorblock.css` has the theme styles.
+- `src/theme/art.json` has the stained-glass illustrations as SVG data.
+
+Page copy still lives in `src/pages`. Edit copy there, and edit the layout and visuals in the theme files.
+
 ## Built with
 
 - [Astro](https://astro.build/)
