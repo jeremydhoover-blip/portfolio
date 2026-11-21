@@ -14,7 +14,7 @@ const out = [];
 const data = { name: 'Jeremy Hoover', title: 'Senior Content Designer, AI systems and developer experience', site: SITE, skill: `${SITE}/agent/SKILL.md`, llms: `${SITE}/llms.txt`, generated: new Date().toISOString().slice(0, 10), caseStudies: [], experience: [], recognition: [], articles: [] };
 const home = load('index.html');
 out.push('# Jeremy Hoover', '');
-data.headline = txt(home.querySelector('.cb-note__txt')) || txt(home.querySelector('h1'));
+data.headline = txt(home.querySelector('.cb-note__txt')) || txt(home.querySelector('.pz-note')) || txt(home.querySelector('h1'));
 out.push(`> ${data.headline}`, '');
 out.push('Senior Content Designer at Microsoft working on AI systems and developer experience. This file summarizes his portfolio for AI agents and recruiters. Every case study links to the full page.', '');
 out.push(`For agents: load the skill at ${SITE}/agent/SKILL.md for how to use this data, and ${SITE}/agent/profile.json for the same facts as structured data.`, '');
@@ -57,13 +57,15 @@ for (const item of all(about, '.experience__item').filter((i) => !i.closest('.cb
 }
 out.push('');
 
-const recog = all(home, '.cred-card dl > div').map((g) => `- ${txt(g.querySelector('dt'))}, ${txt(g.querySelector('dd'))}`);
+// the puzzle home lists education as .pz-edu__dt / .pz-edu__dd pairs; the older layout used .cred-card
 data.recognition = all(home, '.cred-card dl > div').map((g) => ({ item: txt(g.querySelector('dt')), from: txt(g.querySelector('dd')) }));
+if (!data.recognition.length) data.recognition = all(home, '.pz-edu__dt').map((dt) => ({ item: txt(dt), from: txt(dt.nextElementSibling) }));
+const recog = data.recognition.map((r) => `- ${r.item}, ${r.from}`);
 if (recog.length) out.push('## Education and recognition', '', ...recog, '');
 
 const seen = new Set();
 const linkTitle = (a) => { const own = [...a.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent).join(' ').replace(/\s+/g, ' ').trim(); return own || txt(a.querySelector('span, strong')) || txt(a); };
-const articles = all(home, '.writing a[href^="http"]').filter((a) => !seen.has(a.getAttribute('href')) && seen.add(a.getAttribute('href'))).map((a) => `- [${linkTitle(a)}](${a.getAttribute('href')})`).filter((l) => !l.startsWith('- [Show'));
+const articles = all(home, '.writing a[href^="http"], #writing a[href^="http"]').filter((a) => !seen.has(a.getAttribute('href')) && seen.add(a.getAttribute('href'))).map((a) => `- [${linkTitle(a)}](${a.getAttribute('href')})`).filter((l) => !l.startsWith('- [Show'));
 data.articles = articles.map((l) => { const m = l.match(/^- \[(.*)\]\((.*)\)$/); return { title: m[1], url: m[2] }; });
 if (articles.length) out.push('## Published articles', '', ...articles, '');
 
