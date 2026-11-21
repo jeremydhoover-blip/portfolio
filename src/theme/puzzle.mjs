@@ -36,8 +36,8 @@ export function puzzleHome(document, { prompt, icons, name, pitch }) {
   const read = (label = 'Read the story') => `<span class="pz-link">${label} ↗</span>`;
 
   const pieces = [
-    `<a class="pc pz-feat" data-c="B" data-alt="R" style="grid-area:F" href="${esc(c0.href)}"><p class="pz-kick">Microsoft · Shared design repos</p><h2 class="pz-serif pz-feat__h">${esc(c0.title)}</h2><p class="pz-sub">${c0.point}</p>${read()}</a>`,
-    `<a class="pc" data-c="G" style="grid-area:H" href="${esc(c1.href)}"><p class="pz-kick">Microsoft · Hackathon winner</p><h3 class="pz-serif pz-side__h">${esc(c1.title)}</h3><p class="pz-sub">${c1.point}</p>${read()}</a>`,
+    `<a class="pc pz-feat" data-c="B" data-alt="R" style="grid-area:F" href="${esc(c0.href)}"><h2 class="pz-serif pz-feat__h">${esc(c0.title)}</h2><p class="pz-sub">${c0.point.replace("engineers use", "engineers at Microsoft use")}</p>${read()}</a>`,
+    `<a class="pc" data-c="G" style="grid-area:H" href="${esc(c1.href)}"><h3 class="pz-serif pz-side__h">${esc(c1.title)}</h3><p class="pz-sub">${c1.point.replace("Best Use of AI,", "Best Use of AI at Microsoft,")}</p>${read()}</a>`,
     `<div class="pc pz-note" data-c="Y" data-keep="1" data-alt="R" style="grid-area:N"><h1 class="pz-serif pz-note__h1">${esc(name)}</h1><p class="pz-note__p">${esc(pitch)}</p><p class="pz-note__links"><a class="pz-link" href="#projects">More case studies ↓</a><a class="pz-link" href="/about">About me ↗</a></p></div>`,
     `<div class="pc pz-agent" data-c="R" data-calm="1" style="grid-area:A" role="button" tabindex="0" data-pz-copy="${esc(prompt)}" aria-label="Copy the Jeremy Hoover portfolio skill prompt for your AI agent">
       <div class="pz-agent__row"><div class="z pz-agent__tag" data-z="Y">Give this to<br>your AI agent</div><div class="z pz-agent__icons" data-z="B"><span class="pz-agent__works">Works with</span>${icons}</div></div>
@@ -49,13 +49,13 @@ export function puzzleHome(document, { prompt, icons, name, pitch }) {
       <h3 class="pz-serif pz-prog__h">Technical Content Designer Program</h3><p class="pz-small"><b>${esc(orgRole)}</b> · ${esc(orgName)}</p>
       <p class="pz-sub">${esc(txt('.program__summary', prog))}</p><p class="pz-tags">${topics.map((t) => `<span class="pz-tag">${esc(t)}</span>`).join('')}</p></div>
       ${pqs.slice(0, 2).map((q, i) => `<figure class="z pz-zone pz-pq" data-z="${i ? 'B' : 'C'}" style="grid-area:${i ? 'R' : 'Q'}"><p class="pz-stars" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="pz-serif pz-q">${esc(q.q)}</blockquote><figcaption class="pz-small"><b>${esc(q.name)}</b> · ${esc(q.role)}</figcaption></figure>`).join('')}</div>`,
-    `<div class="pc" data-c="G" style="grid-area:W" id="writing"><h2 class="pz-serif pz-it pz-h2">Published articles</h2><div class="pz-cols">${groups.map((g, i) => `<div class="pz-col" data-g="${i}"><p class="pz-lbl">${esc(g.src)}</p>${g.items.map((a) => `<a class="pz-art" href="${esc(a.href)}" ${ext}>${esc(a.t)} <span aria-hidden="true">↗</span></a>`).join('')}</div>`).join('')}</div></div>`,
+    `<div class="pc" data-c="G" style="grid-area:W" id="writing"><h2 class="pz-serif pz-it pz-h2">Published articles</h2><div class="pz-cols">${groups.map((g, i) => `<div class="pz-col" data-g="${i}">${g.items.map((a) => `<a class="pz-art" href="${esc(a.href)}" ${ext}>${esc(a.t)} <span aria-hidden="true">↗</span></a>`).join('')}</div>`).join('')}</div></div>`,
     `<div class="pc" data-c="Y" data-keep="1" style="grid-area:X" id="experience"><div class="pz-head"><h2 class="pz-serif pz-it pz-h2">Experience</h2><a class="pz-link" href="${esc(expLink)}">Full background ↗</a></div>
       ${exp.map((e) => `<div class="pz-exp"><p class="pz-exp__top"><b class="pz-serif">${esc(e.co)}</b><b>${esc(e.when)}</b></p><p class="pz-exp__title">${esc(e.title)}</p><p class="pz-exp__desc">${esc(e.desc)}</p></div>`).join('')}</div>`,
     `<div class="pc" data-c="B" data-keep="1" style="grid-area:D" id="education"><h3 class="pz-serif pz-it pz-edu__h">Education &amp; recognition</h3>${edu.map((e) => `<p class="pz-edu__dt">${esc(e.dt)}</p><p class="pz-edu__dd">${esc(e.dd)}</p>`).join('')}</div>`,
     ...recs.slice(0, 2).map((r, i) => `<figure class="pc pz-rec" data-c="${i ? 'R' : 'B'}" style="grid-area:${i ? 'L' : 'K'}"${i ? '' : ' id="recommendations"'}>${i ? '' : '<h2 class="pz-serif pz-it pz-h2">From colleagues</h2>'}<blockquote class="pz-serif pz-rec__q">“${esc(r.q)}”</blockquote><figcaption class="pz-small"><b>${esc(r.name)}</b> · ${esc(r.role)}</figcaption><a class="pz-link" href="${recUrl}" ${ext}>Read recommendation ↗</a></figure>`),
     `<div class="pc" data-c="G" style="grid-area:V" id="open-source"><h2 class="pz-serif pz-it pz-fv__h"><img class="pz-fv__logo" src="https://fievel.ai/assets/fievel-logo.png" alt="" width="56" height="56">Fievel</h2><p class="pz-fv__p">${esc(hcsPs[0]?.textContent.trim())}</p><p><a class="pz-btn" href="${esc(hcsLinks[0] || 'https://fievel.ai/')}" ${ext}>Visit fievel.ai ↗</a><a class="pz-btn pz-btn--light" href="${esc(hcsLinks[1] || '#')}" ${ext}>View on GitHub</a></p></div>`,
-    `<div class="pc pz-fvfacts" data-c="Y" style="grid-area:S"><p class="pz-lbl">What ships</p><dl><div><dt>6 skills</dt><dd>in one plugin</dd></div><div><dt>7-stage workflow</dt><dd>and a local CLI that checks it</dd></div><div><dt>MCP server</dt><dd>Local in Claude Code, hosted in Codex</dd></div><div><dt>Works in</dt><dd>Claude Code, Codex, and GitHub Copilot</dd></div></dl></div>`,
+    `<div class="pc pz-fvfacts" data-c="Y" style="grid-area:S"><dl><div><dt>6 skills</dt><dd>in one plugin</dd></div><div><dt>7-stage workflow</dt><dd>and a local CLI that checks it</dd></div><div><dt>MCP server</dt><dd>Local in Claude Code, hosted in Codex</dd></div><div><dt>Works in</dt><dd>Claude Code, Codex, and GitHub Copilot</dd></div></dl></div>`,
     `<div class="pc" data-c="R" style="grid-area:Z" id="contact"><h2 class="pz-serif pz-it pz-cta__h">Let’s build something useful.</h2><p class="pz-sub">${esc(contactP)}</p><p><a class="pz-btn pz-btn--y" href="${esc(mail)}">Email me</a><a class="pz-btn pz-btn--light" href="${esc(li)}" ${ext}>Connect on LinkedIn</a></p></div>`,
   ];
 
@@ -124,7 +124,7 @@ function draw(comp) {
       + '<polygon points="' + pts(q) + '" fill="none" stroke="#141414" stroke-width="3" stroke-linejoin="round"/>'; };
   // text boxes of an element, padded, so no lead line ever crosses a word
   const textBoxes = (el) => { const boxes = []; const tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let tn;
-    while ((tn = tw.nextNode())) { if (!tn.textContent.trim() || tn.parentElement.closest('dialog')) continue; const rg = document.createRange(); rg.selectNodeContents(tn); for (const q of rg.getClientRects()) boxes.push([q.left - cr.left - 12, q.top - cr.top - 10, q.right - cr.left + 12, q.bottom - cr.top + 10]); }
+    while ((tn = tw.nextNode())) { if (!tn.textContent.trim() || tn.parentElement.closest('dialog')) continue; const rg = document.createRange(); rg.selectNodeContents(tn); const clip = tn.parentElement.closest('.pz-agent__line'), cb = clip && clip.getBoundingClientRect(); for (let q of rg.getClientRects()) { if (cb) q = { left: Math.max(q.left, cb.left), right: Math.min(q.right, cb.right), top: q.top, bottom: q.bottom }; if (q.right <= q.left) continue; boxes.push([q.left - cr.left - 12, q.top - cr.top - 10, q.right - cr.left + 12, q.bottom - cr.top + 10]); } }
     el.querySelectorAll('.pz-btn,.pz-tag,svg,img').forEach((e) => { const q = e.getBoundingClientRect(); if (q.width) boxes.push([q.left - cr.left - 12, q.top - cr.top - 12, q.right - cr.left + 16, q.bottom - cr.top + 16]); });
     return boxes; };
   // cut a piece into its main pane plus up to n more. Returns panes; only the main one has a color yet.
@@ -147,7 +147,9 @@ function draw(comp) {
       }
     }
     const ctr = boxes.map((bx) => [(bx[0] + bx[2]) / 2, (bx[1] + bx[3]) / 2]);
-    return parts.sort((u, v) => area(v) - area(u)).map((q, i) => ({ q, c: i === 0 ? c : null, alt, fam: ctr.some((t) => inside(q, t)) ? FAM[c] : ['B', 'R', 'Y', 'G', 'C'] })); };
+    const nT = (q) => ctr.filter((t) => inside(q, t)).length;
+    parts.sort((u, v) => nT(v) - nT(u) || area(v) - area(u)); // the main color goes to the pane with the words
+    return parts.map((q, i) => ({ q, c: i === 0 ? c : null, alt, fam: nT(q) ? FAM[c] : ['B', 'R', 'Y', 'G'] })); };
   // split a piece between its zones (blocks that belong together), cutting along the gaps between them
   const zoneSplit = (part, zz, boxes) => {
     if (zz.length <= 1) return [[part, zz[0]]];
@@ -192,7 +194,7 @@ function draw(comp) {
   all.filter((o) => !o.c).sort((u, v) => cen(u.q)[1] - cen(v.q)[1]).forEach((o) => {
     const taken = new Set(all.filter((x) => x !== o && x.c && near(o.q, x.q)).map((x) => x.c));
     const ok = o.fam.filter((c) => !taken.has(c));
-    const pick = o.alt && ok.includes(o.alt) ? o.alt : (ok.length ? ok : o.fam).slice().sort((u, v) => used[u] - used[v])[0];
+    const pick = o.alt && ok.includes(o.alt) ? o.alt : (ok.length ? ok : ['C']).slice().sort((u, v) => used[u] - used[v])[0];
     o.c = pick; used[pick] += area(o.q);
   });
   // 3) draw
