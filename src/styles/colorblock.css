@@ -659,3 +659,13 @@ html body.cb .cb-agent__ico { background: #fff !important; color: var(--K) !impo
 html body.cb .cb-agent__ico svg { width: 18px !important; height: 18px !important; }
 @container (max-width: 520px) { html body.cb .cb-agent__ico { width: 26px !important; height: 26px !important; margin-left: -7px; } html body.cb .cb-agent__ico svg { width: 15px !important; height: 15px !important; } html body.cb .cb-agent__ico:nth-child(n+4) { display: grid !important; } }
 @container (max-width: 340px) { html body.cb .cb-agent__head { flex-wrap: wrap; } }
+
+/* agent band: its own section after the case-study list */
+html body.cb .cb-agentband { padding-top: 18px; }
+html body.cb .cb-agentband .cb-agent { margin-top: 0 !important; }
+@media (min-width: 901px) { html body.cb .cb-feat__grid { grid-template-rows: auto auto !important; } }
+/* case rows: metric line flush with the title */
+html body.cb .projects .project__points li { padding-left: 0 !important; margin-left: 0 !important; }
+/* big featured tile: story on top, repo branch art below */
+html body.cb .cb-tile--big { flex-direction: column-reverse !important; }
+html body.cb .cb-tile--big .cb-tile__art { border-bottom: 0 !important; border-top: 4px solid var(--K); }
