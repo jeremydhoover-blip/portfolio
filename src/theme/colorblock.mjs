@@ -2,6 +2,7 @@
 // Runs server-side from src/middleware.ts (in dev and at build), so the shipped HTML is static.
 // Page copy still lives in src/pages; this file only rearranges it and adds art and labels.
 import ART from './art.json';
+import { puzzleCase } from './puzzle-case.mjs';
 import { shard, SHARD_JS } from './shards.mjs';
 import { puzzleHome } from './puzzle.mjs';
 
@@ -78,6 +79,7 @@ if (page === 'home') {
 
 if (page === 'case') {
   const slug = path.split('/').pop();
+  if (slug === 'ai-design-repo' && puzzleCase(document)) return;
   const art_ = $('article.case-study'), hero = $('.case-hero'), hm = $('.case-hero__main', hero), glance = $('.glance-card'), shell = $('.case-shell'), strip = $('.outcomes-strip');
   const h1 = $('h1', hm), lede = $('.lede', hm);
   const dds = {}; $$('.glance > div', glance).forEach(d => dds[$('dt', d).textContent.trim()] = $('dd', d).textContent.trim());
