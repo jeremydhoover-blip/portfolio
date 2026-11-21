@@ -35,7 +35,9 @@ const favicon = `${base}/favicon.svg?v=5`;
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,700;1,9..144,800;1,9..144,900&family=Archivo+Narrow:wght@700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&family=Fraunces:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Archivo+Narrow:wght@700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet" />
+    <!-- Fraunces' black italic J has a kink where the stem meets the tail; this one-letter font swaps in a smoothed J. Declared after the Google Fonts link so it wins for U+004A only. -->
+    <style is:inline>@font-face { font-family: 'Fraunces'; font-style: italic; font-weight: 900; font-display: swap; src: url('/fonts/fraunces-j-black-italic.woff2') format('woff2'); unicode-range: U+004A; }</style>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
