@@ -628,8 +628,8 @@ html body.cb .nav__logo { flex-direction: row !important; align-items: center !i
 html body.cb .cb-logo__words { display: flex; flex-direction: column; align-items: flex-start; gap: .35rem; text-align: left; }
 html body.cb .nav__wordmark { display: block; line-height: .9 !important; margin: 0 !important; padding: 0 !important; }
 html body.cb .cb-tag { display: block; margin: 0; padding: 0; }
-html body.cb .cb-logo__photo { width: 72px; height: 72px; object-fit: cover; border: 4px solid var(--Y); box-shadow: 4px 4px 0 var(--R); flex: none; display: block; }
-@media (max-width: 900px) { html body.cb .cb-logo__photo { width: 48px; height: 48px; border-width: 3px; box-shadow: 3px 3px 0 var(--R); } html body.cb .nav__logo { gap: .7rem !important; } }
+html body.cb .cb-logo__photo { width: 90px; height: 80px; flex: none; display: block; overflow: visible; }
+@media (max-width: 900px) { html body.cb .cb-logo__photo { width: 56px; height: 50px; } html body.cb .nav__logo { gap: .7rem !important; } }
 /* big featured tile: shorter art so the story sits above the fold */
 @media (min-width: 901px) {
   html body.cb .cb-tile--big .cb-tile__art { flex: none !important; height: 340px; min-height: 0 !important; }
@@ -737,8 +737,8 @@ html body.cb .projects.sh .project__points strong, html body.cb .projects.sh .pr
 html body.cb-home main { max-width: none !important; padding: 0 0 56px !important; display: block !important; }
 html body.cb-home .pz { position: relative; width: min(1280px, calc(100vw - 48px)); margin: 8px auto 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr));
   grid-template-areas: 'F F F F F F F Y Y Y Y Y' 'F F F F F F F H H H H H' 'N N N N N N N H H H H H' 'A A A A A A A A A A A A'
-    'T T T T m1 m1 m1 m1 m2 m2 m2 m2' 'm3 m3 m3 m3 m3 m3 m4 m4 m4 m4 m4 m4' 'P P P P P P P Q Q Q Q Q' 'P P P P P P P R R R R R'
-    'W W W W W W W W W W W W' 'X X X X X X X X D D D D' 'K K K K K K L L L L L L' 'V V V V V V V V S S S S' 'Z Z Z Z Z Z Z Z Z Z Z Z'; }
+    'T T T T m1 m1 m1 m1 m2 m2 m2 m2' 'm3 m3 m3 m3 m3 m3 m4 m4 m4 m4 m4 m4' 'P P P P P P P P P P P P'
+    'W W W W W W W W W W W W' 'X X X X X X X X X X X X' 'K K K K K K K K K K K K' 'V V V V V V V V V V V V' 'Z Z Z Z Z Z Z Z Z Z Z Z'; }
 html body.cb-home .pz > .pz-svg { position: absolute; left: 0; top: 0; overflow: visible; z-index: 0; pointer-events: none; }
 html body.cb-home .pz .pc { position: relative; z-index: 1; display: block; min-width: 0; margin: 0; padding: 78px 84px; color: var(--K); text-decoration: none; }
 html body.cb-home .pz .pc[data-c="B"], html body.cb-home .pz .pc[data-c="R"] { color: #fff; }
@@ -795,6 +795,14 @@ html body.cb-home .pz .pz-stat b { font-size: 80px; line-height: .9; } html body
 html body.cb-home .pz [style*="grid-area:Z"] { padding: 90px 100px 96px; }
 html body.cb-home .pz .pz-cta__h { font-size: 64px; line-height: 1; } html body.cb-home .pz [style*="grid-area:Z"] .pz-sub { font-size: 17px; margin: 18px 0 22px; }
 /* agent piece: one unit of four panes */
+/* a piece made of several related blocks: each block is a zone with its own padding */
+html body.cb-home .pz .pz-group { padding: 0 !important; display: grid; }
+html body.cb-home .pz .pz-zone { padding: 78px 84px; min-width: 0; margin: 0; }
+html body.cb-home .pz .pz-zone[data-z="B"], html body.cb-home .pz .pz-zone[data-z="R"] { color: #fff; }
+html body.cb-home .pz .pz-group--prog { grid-template-columns: 7fr 5fr; grid-template-areas: 'P Q' 'P R'; }
+html body.cb-home .pz .pz-group--X { grid-template-columns: 8fr 4fr; grid-template-areas: 'X D'; }
+html body.cb-home .pz .pz-group--K { grid-template-columns: 1fr 1fr; grid-template-areas: 'K L'; }
+html body.cb-home .pz .pz-group--V { grid-template-columns: 8fr 4fr; grid-template-areas: 'V S'; }
 html body.cb-home .pz .pz-agent { padding: 66px 70px 70px; cursor: pointer; outline: none; }
 html body.cb-home .pz .pz-agent__row { display: flex; align-items: center; gap: 56px; }
 html body.cb-home .pz .pz-agent__row--cmd { margin-top: 60px; }
@@ -816,15 +824,19 @@ html body.cb-home .pz .pz-unit polygon { transition: fill .2s; } html body.cb-ho
 html body.cb-home .pz .pz-agent:focus-visible .pz-agent__copy span { outline: 3px solid #fff; outline-offset: 6px; }
 /* between desktop and phone: same puzzle, smaller type and padding */
 @media (max-width: 1279px) {
-  html body.cb-home .pz .pc { padding: 64px 56px !important; }
+  html body.cb-home .pz .pc:not(.pz-group), html body.cb-home .pz .pz-zone { padding: 64px 56px !important; }
   html body.cb-home .pz .pz-feat__h { font-size: 46px; } html body.cb-home .pz .pz-h2 { font-size: 42px; } html body.cb-home .pz .pz-cta__h { font-size: 52px; }
   html body.cb-home .pz .pz-agent__cmd { white-space: normal; }
 }
 /* phone: the pieces stack in one column, and the agent unit stacks its panes */
 @media (max-width: 900px) {
   html body.cb-home .pz { width: calc(100vw - 24px); grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: 'F' 'Y' 'H' 'N' 'A' 'T' 'm1' 'm2' 'm3' 'm4' 'P' 'Q' 'R' 'W' 'X' 'D' 'K' 'L' 'V' 'S' 'Z'; }
-  html body.cb-home .pz .pc { padding: 58px 34px !important; }
+    grid-template-areas: 'F' 'Y' 'H' 'N' 'A' 'T' 'm1' 'm2' 'm3' 'm4' 'P' 'W' 'X' 'K' 'V' 'Z'; }
+  html body.cb-home .pz .pz-group { grid-template-columns: minmax(0, 1fr) !important; }
+  html body.cb-home .pz .pz-group--prog { grid-template-areas: 'P' 'Q' 'R' !important; } html body.cb-home .pz .pz-group--X { grid-template-areas: 'X' 'D' !important; }
+  html body.cb-home .pz .pz-group--K { grid-template-areas: 'K' 'L' !important; } html body.cb-home .pz .pz-group--V { grid-template-areas: 'V' 'S' !important; }
+  html body.cb-home .pz .pz-zone { padding: 58px 34px !important; }
+  html body.cb-home .pz .pc:not(.pz-group) { padding: 58px 34px !important; }
   html body.cb-home .pz .pz-feat__h { font-size: 36px; } html body.cb-home .pz .pz-side__h, html body.cb-home .pz .pz-case h3 { font-size: 26px; }
   html body.cb-home .pz .pz-h2 { font-size: 36px; } html body.cb-home .pz .pz-cta__h, html body.cb-home .pz .pz-fv__h { font-size: 40px; }
   html body.cb-home .pz .pz-head { flex-direction: column; align-items: flex-start; gap: 8px; }

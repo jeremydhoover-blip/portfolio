@@ -46,10 +46,10 @@ export function puzzleHome(document, { prompt, icons, name, pitch }) {
     </div>`,
     `<div class="pc pz-title" data-c="B" style="grid-area:T" id="projects"><h2 class="pz-serif pz-it pz-h2">More case studies</h2></div>`,
     ...rest.slice(0, 4).map((c, i) => `<a class="pc pz-case" data-c="${'CYGR'[i]}" style="grid-area:m${i + 1}" href="${esc(c.href)}"><h3 class="pz-serif">${esc(c.title)}</h3><p class="pz-sub">${c.point}</p>${read('Read case study')}</a>`),
-    `<div class="pc" data-c="Y" style="grid-area:P" id="program"><div class="pz-head"><h2 class="pz-serif pz-it pz-h2">Teaching</h2><a class="pz-link" href="${esc(progLink)}" ${ext}>Explore the program ↗</a></div>
+    `<div class="pc pz-group pz-group--prog" data-c="Y" style="grid-area:P" id="program"><div class="z pz-zone pz-zone--prog" data-z="Y" style="grid-area:P"><div class="pz-head"><h2 class="pz-serif pz-it pz-h2">Teaching</h2><a class="pz-link" href="${esc(progLink)}" ${ext}>Explore the program ↗</a></div>
       <h3 class="pz-serif pz-prog__h">Technical Content Designer Program</h3><p class="pz-small"><b>${esc(orgRole)}</b> · ${esc(orgName)}</p>
-      <p class="pz-sub">${esc(txt('.program__summary', prog))}</p><p class="pz-tags">${topics.map((t) => `<span class="pz-tag">${esc(t)}</span>`).join('')}</p></div>`,
-    ...pqs.slice(0, 2).map((q, i) => `<figure class="pc pz-pq" data-c="${i ? 'B' : 'C'}" style="grid-area:${i ? 'R' : 'Q'}"><p class="pz-stars" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="pz-serif pz-q">${esc(q.q)}</blockquote><figcaption class="pz-small"><b>${esc(q.name)}</b> · ${esc(q.role)}</figcaption></figure>`),
+      <p class="pz-sub">${esc(txt('.program__summary', prog))}</p><p class="pz-tags">${topics.map((t) => `<span class="pz-tag">${esc(t)}</span>`).join('')}</p></div>
+      ${pqs.slice(0, 2).map((q, i) => `<figure class="z pz-zone pz-pq" data-z="${i ? 'B' : 'C'}" style="grid-area:${i ? 'R' : 'Q'}"><p class="pz-stars" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="pz-serif pz-q">${esc(q.q)}</blockquote><figcaption class="pz-small"><b>${esc(q.name)}</b> · ${esc(q.role)}</figcaption></figure>`).join('')}</div>`,
     `<div class="pc" data-c="C" style="grid-area:W" id="writing"><h2 class="pz-serif pz-it pz-h2">Published articles</h2><div class="pz-cols">${groups.map((g, i) => `<div class="pz-col" data-g="${i}"><p class="pz-lbl">${esc(g.src)}</p>${g.items.map((a) => `<a class="pz-art" href="${esc(a.href)}" ${ext}>${esc(a.t)} <span aria-hidden="true">↗</span></a>`).join('')}</div>`).join('')}</div></div>`,
     `<div class="pc" data-c="C" style="grid-area:X" id="experience"><div class="pz-head"><h2 class="pz-serif pz-it pz-h2">Experience</h2><a class="pz-link" href="${esc(expLink)}">Full background ↗</a></div>
       ${exp.map((e) => `<div class="pz-exp"><p class="pz-exp__top"><b class="pz-serif">${esc(e.co)}</b><b>${esc(e.when)}</b></p><p class="pz-exp__title">${esc(e.title)}</p><p class="pz-exp__desc">${esc(e.desc)}</p></div>`).join('')}</div>`,
@@ -63,6 +63,15 @@ export function puzzleHome(document, { prompt, icons, name, pitch }) {
   const pz = document.createElement('div');
   pz.className = 'pz'; pz.dataset.seed = '7';
   pz.innerHTML = pieces.join('\n');
+  // blocks that belong together become one piece: each block turns into a zone (one pane) of a shared piece
+  [['X', 'D'], ['K', 'L'], ['V', 'S']].forEach((names) => {
+    const els = names.map((n) => pz.querySelector(`:scope > .pc[style*="grid-area:${n}"]`)).filter(Boolean);
+    if (els.length < 2) return;
+    const grp = document.createElement('div');
+    grp.className = `pc pz-group pz-group--${names[0]}`; grp.dataset.c = els[0].dataset.c; grp.setAttribute('style', `grid-area:${names[0]}`);
+    els[0].before(grp);
+    els.forEach((e) => { e.classList.remove('pc'); e.classList.add('z', 'pz-zone'); e.dataset.z = e.dataset.c; e.removeAttribute('data-c'); grp.appendChild(e); });
+  });
   // keep the "Show all 8 articles" button and its dialog working
   groups.forEach((g, i) => { const col = pz.querySelector(`.pz-col[data-g="${i}"]`); if (g.more && col) { g.more.className = 'pz-btn pz-btn--sm'; col.appendChild(g.more); } if (g.dialog && col) col.appendChild(g.dialog); });
   [...main.children].forEach((k) => { if (k.tagName !== 'SCRIPT') k.remove(); });
@@ -108,38 +117,60 @@ function draw(comp) {
     const ox = (p.x0 + p.x1) / 2, oy = (p.y0 + p.y1) / 2;
     return '<g id="pzu' + idx + '" class="pz-unit" style="transform-origin:' + ox + 'px ' + oy + 'px"><polygon class="lift" points="' + pts(P) + '" fill="#141414" transform="translate(9,9)"/>' + inner
       + '<polygon points="' + pts(P) + '" fill="none" stroke="#141414" stroke-width="7" stroke-linejoin="round"/></g>'; };
-  let svg = '';
-  pcs.forEach((p, idx) => {
-    const P = outline(p); p.el.dataset.poly = JSON.stringify(P);
-    const zs = [...p.el.querySelectorAll('.z')].map((e) => { const q = e.getBoundingClientRect(); return { c: e.dataset.z, x0: q.left - cr.left, y0: q.top - cr.top, x1: q.right - cr.left, y1: q.bottom - cr.top }; });
-    if (zs.length) {
-      // one unit: its own content is the glass. Thin lead between its panes, full lead around the outside.
-      const rows = []; zs.forEach((z) => { const row = rows.find((w) => z.y0 < w[0].y1 && z.y1 > w[0].y0); row ? row.push(z) : rows.push([z]); });
-      rows.sort((u, v) => u[0].y0 - v[0].y0);
-      const parts = [P];
-      const split = (pt, t) => { const i = parts.findIndex((q) => inside(q, pt)); if (i < 0) return; const [A, B] = cut(parts[i], pt, t); if (A.length > 2 && B.length > 2) parts.splice(i, 1, A, B); };
-      for (let i = 1; i < rows.length; i++) { const yb = Math.max(...rows[i - 1].map((z) => z.y1)), yt = Math.min(...rows[i].map((z) => z.y0)); split([cen(P)[0], (yb + yt) / 2], (r() - 0.5) * 0.04); }
-      rows.forEach((row) => { row.sort((u, v) => u.x0 - v.x0); for (let i = 1; i < row.length; i++) split([(row[i - 1].x1 + row[i].x0) / 2, (row[i].y0 + row[i].y1) / 2], Math.PI / 2 + (r() - 0.5) * 0.5); });
-      let g = '';
-      parts.forEach((q) => { const z = zs.find((z) => inside(q, [(z.x0 + z.x1) / 2, (z.y0 + z.y1) / 2])); g += poly(q, z ? z.c : p.el.dataset.c, 3); });
-      svg += unit(p, idx, P, g); return;
-    }
-    const boxes = []; const tw = document.createTreeWalker(p.el, NodeFilter.SHOW_TEXT); let tn;
-    while ((tn = tw.nextNode())) { if (!tn.textContent.trim()) continue; const rg = document.createRange(); rg.selectNodeContents(tn); for (const q of rg.getClientRects()) boxes.push([q.left - cr.left - 12, q.top - cr.top - 10, q.right - cr.left + 12, q.bottom - cr.top + 10]); }
-    p.el.querySelectorAll('.pz-btn,.pz-tag,svg,img').forEach((e) => { const q = e.getBoundingClientRect(); boxes.push([q.left - cr.left - 12, q.top - cr.top - 12, q.right - cr.left + 16, q.bottom - cr.top + 16]); });
-    const n = area(P) > 500000 * k * k ? 2 : 1; let parts = [P];
+  // text boxes of an element, padded, so no lead line ever crosses a word
+  const textBoxes = (el) => { const boxes = []; const tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let tn;
+    while ((tn = tw.nextNode())) { if (!tn.textContent.trim() || tn.parentElement.closest('dialog')) continue; const rg = document.createRange(); rg.selectNodeContents(tn); for (const q of rg.getClientRects()) boxes.push([q.left - cr.left - 12, q.top - cr.top - 10, q.right - cr.left + 12, q.bottom - cr.top + 10]); }
+    el.querySelectorAll('.pz-btn,.pz-tag,svg,img').forEach((e) => { const q = e.getBoundingClientRect(); if (q.width) boxes.push([q.left - cr.left - 12, q.top - cr.top - 12, q.right - cr.left + 16, q.bottom - cr.top + 16]); });
+    return boxes; };
+  // a few extra panes inside one pane, in its color family
+  const panes = (P, c, n, boxes) => { const parts = [P];
     for (let m = 0; m < n; m++) {
       parts.sort((u, v) => area(v) - area(u));
       for (let tries = 0; tries < 600; tries++) {
-        const big = parts[0], c = cen(big), steep = r() < 0.5, t = steep ? Math.PI / 2 + (r() - 0.5) * 1.0 : (r() - 0.5) * 0.6;
-        const o = [c[0] + (r() - 0.5) * 800 * k, c[1] + (r() - 0.5) * 400];
+        const big = parts[0], ce = cen(big), steep = r() < 0.5, t = steep ? Math.PI / 2 + (r() - 0.5) * 1.0 : (r() - 0.5) * 0.6;
+        const o = [ce[0] + (r() - 0.5) * 800 * k, ce[1] + (r() - 0.5) * 400];
         const [A, B, seg] = cut(big, o, t);
         if (A.length < 3 || B.length < 3 || Math.min(area(A), area(B)) < area(big) * 0.12 || seg.length !== 2 || boxes.some((bx) => segHits(seg[0], seg[1], bx))) continue;
         parts.shift(); parts.push(A, B); break;
       }
     }
-    const fam = FAM[p.el.dataset.c]; let prev = '', g = '';
-    parts.sort((u, v) => area(v) - area(u)).forEach((q, i) => { let c = i === 0 ? fam[0] : fam[1 + Math.floor(r() * (fam.length - 1))]; if (c === prev) c = fam[(fam.indexOf(c) + 1) % fam.length]; prev = c; g += poly(q, c, 3); });
+    const fam = FAM[c]; let prev = '', g = '';
+    parts.sort((u, v) => area(v) - area(u)).forEach((q, i) => { let cc = i === 0 ? fam[0] : fam[1 + Math.floor(r() * (fam.length - 1))]; if (cc === prev) cc = fam[(fam.indexOf(cc) + 1) % fam.length]; prev = cc; g += poly(q, cc, 3); });
+    return g; };
+  // split a piece between its zones (blocks that belong together), cutting along the gaps between them
+  const zoneSplit = (part, zz, boxes) => {
+    if (zz.length <= 1) return [[part, zz[0]]];
+    for (const ax of ['y', 'x']) {
+      const s = [...zz].sort((u, v) => u[ax + '0'] - v[ax + '0']);
+      for (let i = 1; i < s.length; i++) {
+        const m = Math.max(...s.slice(0, i).map((z) => z[ax + '1'])), n = Math.min(...s.slice(i).map((z) => z[ax + '0']));
+        if (m > n + 1) continue;
+        const A = s.slice(0, i), B = s.slice(i), mid = (m + n) / 2;
+        const zb = [Math.min(...zz.map((z) => z.x0)), Math.min(...zz.map((z) => z.y0)), Math.max(...zz.map((z) => z.x1)), Math.max(...zz.map((z) => z.y1))];
+        const pt = ax === 'x' ? [mid, (zb[1] + zb[3]) / 2] : [(zb[0] + zb[2]) / 2, mid];
+        const has = (Q, Z) => Z.every((z) => inside(Q, [(z.x0 + z.x1) / 2, (z.y0 + z.y1) / 2]));
+        for (let tries = 0; tries < 60; tries++) {
+          const tilt = (r() - 0.5) * (ax === 'x' ? 0.5 : 0.08) * (1 - tries / 60), t = ax === 'x' ? Math.PI / 2 + tilt : tilt;
+          const [P1, P2, seg] = cut(part, pt, t);
+          if (P1.length < 3 || P2.length < 3 || seg.length !== 2 || boxes.some((bx) => segHits(seg[0], seg[1], bx))) continue;
+          const [QA, QB] = has(P1, A) ? [P1, P2] : [P2, P1];
+          if (!has(QA, A) || !has(QB, B)) continue;
+          return [...zoneSplit(QA, A, boxes), ...zoneSplit(QB, B, boxes)];
+        }
+      }
+    }
+    return [[part, zz[0]]];
+  };
+  let svg = '';
+  pcs.forEach((p, idx) => {
+    const P = outline(p); p.el.dataset.poly = JSON.stringify(P);
+    const boxes = textBoxes(p.el);
+    const zs = [...p.el.querySelectorAll('.z')].map((e) => { const q = e.getBoundingClientRect(); return { el: e, c: e.dataset.z, x0: q.left - cr.left, y0: q.top - cr.top, x1: q.right - cr.left, y1: q.bottom - cr.top }; });
+    let g = '';
+    if (zs.length) {
+      // one unit made of several blocks: each block is its own pane (big ones get a few panes of their own)
+      zoneSplit(P, zs, boxes).forEach(([q, z]) => { const c = z ? z.c : p.el.dataset.c, big = z && area(q) > 250000 * k * k ? 1 : 0; g += big ? panes(q, c, big, boxes) : poly(q, c, 3); });
+    } else g = panes(P, p.el.dataset.c, area(P) > 500000 * k * k ? 2 : 1, boxes);
     svg += unit(p, idx, P, g);
   });
   comp.insertAdjacentHTML('afterbegin', '<svg class="pz-svg" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" aria-hidden="true" focusable="false">' + svg + '</svg>');
