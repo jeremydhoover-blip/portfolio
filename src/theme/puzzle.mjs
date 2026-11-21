@@ -36,12 +36,12 @@ export function puzzleHome(document, { prompt, icons, name, pitch }) {
   const read = (label = 'Read the story') => `<span class="pz-link">${label} ↗</span>`;
 
   const pieces = [
-    `<a class="pc pz-feat" data-c="B" style="grid-area:F" href="${esc(c0.href)}"><p class="pz-kick">Microsoft · Shared design repos</p><h2 class="pz-serif pz-feat__h">${esc(c0.title)}</h2><p class="pz-sub">${c0.point}</p>${read()}</a>`,
+    `<a class="pc pz-feat" data-c="B" data-panes="0" style="grid-area:F" href="${esc(c0.href)}"><p class="pz-kick">Microsoft · Shared design repos</p><h2 class="pz-serif pz-feat__h">${esc(c0.title)}</h2><p class="pz-sub">${c0.point}</p>${read()}</a>`,
     `<a class="pc" data-c="G" style="grid-area:H" href="${esc(c1.href)}"><p class="pz-kick">Microsoft · Hackathon winner</p><h3 class="pz-serif pz-side__h">${esc(c1.title)}</h3><p class="pz-sub">${c1.point}</p>${read()}</a>`,
     `<div class="pc pz-note" data-c="C" style="grid-area:N"><p class="pz-note__k">A note from Jeremy</p><h1 class="pz-serif pz-note__h1">${esc(name)}</h1><p class="pz-note__p">${esc(pitch)}</p><p class="pz-note__links"><a class="pz-link" href="#projects">More case studies ↓</a><a class="pz-link" href="/about">About me ↗</a></p></div>`,
     `<div class="pc pz-agent" data-c="R" data-calm="1" style="grid-area:A" role="button" tabindex="0" data-pz-copy="${esc(prompt)}" aria-label="Copy the Jeremy Hoover portfolio skill prompt for your AI agent">
       <div class="pz-agent__row"><div class="z pz-agent__tag" data-z="Y">Give this to<br>your AI agent</div><div class="z pz-agent__icons" data-z="R"><div><span class="pz-agent__works">Works with</span>${icons}</div><p class="pz-agent__say">One prompt. Your agent reads my skill file and tells you how I fit your role.</p></div><div class="z pz-agent__copy" data-z="B"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M8 8h11v13H8zM5 3h11v3H8a3 3 0 0 0-3 3v9H5z" fill="currentColor"/></svg><span>COPY</span></div></div>
-      <div class="pz-agent__row pz-agent__row--cmd"><div class="z pz-agent__cmd" data-z="C"><span class="pz-agent__ps" aria-hidden="true">$</span><span class="pz-agent__type" style="--n:${prompt.length}">${esc(prompt)}</span><span class="pz-agent__caret" aria-hidden="true"></span></div></div>
+      <div class="pz-agent__row pz-agent__row--cmd"><div class="z pz-agent__cmd" data-z="C"><span class="pz-agent__q">“${esc(prompt)}”</span></div></div>
     </div>`,
     `<div class="pc pz-title" data-c="B" style="grid-area:T" id="projects"><h2 class="pz-serif pz-it pz-h2">More case studies</h2></div>`,
     ...rest.slice(0, 4).map((c, i) => `<a class="pc pz-case" data-c="${'CYGR'[i]}" style="grid-area:m${i + 1}" href="${esc(c.href)}"><h3 class="pz-serif">${esc(c.title)}</h3><p class="pz-sub">${c.point}</p>${read('Read case study')}</a>`),
@@ -103,7 +103,7 @@ function draw(comp) {
   const moved = new Map(), corners = [];
   pcs.forEach((p) => corners.push([p.x0, p.y0], [p.x1, p.y0], [p.x1, p.y1], [p.x0, p.y1]));
   // a calm piece (the agent piece) keeps its corners near level, so its panes hug the content with no empty glass
-  const calm = new Set(); pcs.filter((p) => p.el.dataset.calm).forEach((p) => [[p.x0, p.y0], [p.x1, p.y0], [p.x1, p.y1], [p.x0, p.y1]].forEach((q) => calm.add(q.join(','))));
+  const calm = new Set(); pcs.filter((p) => p.el.dataset.calm).forEach((p) => corners.forEach(([x, y]) => { if ((y === p.y0 || y === p.y1) && x >= p.x0 && x <= p.x1) calm.add(x + ',' + y); }));
   corners.forEach(([x, y]) => { const key = x + ',' + y; if (moved.has(key)) return; const ex = x <= 0 || x >= W, ey = y <= 0 || y >= H, cy = calm.has(key) ? 0.2 : 1;
     moved.set(key, [x + (r() - 0.5) * (ex ? (narrow ? 12 : 50) : jx), y + (r() - 0.5) * (ey ? 40 : jy) * cy]); });
   const outline = (p) => { const c = [[p.x0, p.y0], [p.x1, p.y0], [p.x1, p.y1], [p.x0, p.y1]], out = [];
@@ -175,7 +175,7 @@ function draw(comp) {
     if (zs.length) {
       // one unit made of several blocks: each block is its own pane (big ones get a few panes of their own)
       zoneSplit(P, zs, boxes).forEach(([q, z]) => { const c = z ? z.c : p.el.dataset.c, big = z && area(q) > 250000 * k * k ? 1 : 0; g += c === 'img' ? imgPane(q, z.el.dataset.img, idx) : big ? panes(q, c, big, boxes) : poly(q, c, 3); });
-    } else g = panes(P, p.el.dataset.c, area(P) > 500000 * k * k ? 2 : 1, boxes);
+    } else g = panes(P, p.el.dataset.c, p.el.dataset.panes != null ? +p.el.dataset.panes : area(P) > 500000 * k * k ? 2 : 1, boxes);
     svg += unit(p, idx, P, g);
   });
   comp.insertAdjacentHTML('afterbegin', '<svg class="pz-svg" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" aria-hidden="true" focusable="false">' + svg + '</svg>');
