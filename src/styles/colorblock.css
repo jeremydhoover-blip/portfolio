@@ -654,3 +654,8 @@ html body.cb .cb-agent .cb-agent__prompt { font-size: .86rem !important; display
 @media (max-width: 900px) { html body.cb .cb-agent { order: 10; margin-top: 22px; } }
 html body.cb .cb-agent__ico { width: 32px !important; height: 32px !important; margin-left: -4px; }
 html body.cb .cb-agent__ico svg { width: 17px !important; height: 17px !important; }
+/* agent badges v3: shared 7-mark set on white badges (same set as the Content Design Report) */
+html body.cb .cb-agent__ico { background: #fff !important; color: var(--K) !important; border-color: var(--K) !important; }
+html body.cb .cb-agent__ico svg { width: 18px !important; height: 18px !important; }
+@container (max-width: 520px) { html body.cb .cb-agent__ico { width: 26px !important; height: 26px !important; margin-left: -7px; } html body.cb .cb-agent__ico svg { width: 15px !important; height: 15px !important; } html body.cb .cb-agent__ico:nth-child(n+4) { display: grid !important; } }
+@container (max-width: 340px) { html body.cb .cb-agent__head { flex-wrap: wrap; } }
