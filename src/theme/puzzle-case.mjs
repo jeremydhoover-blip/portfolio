@@ -70,23 +70,38 @@ export function puzzleCase(document) {
     if (cl.contains('closing-panel') || cl.contains('inspect-work') || cl.contains('pattern-cta')) return [piece('pzc-nextsys', RING[n % 4], 12, `<h2 class="pz-serif pzc-h2">${esc(T($('h2', k)))}</h2><p class="pzc-lede">${esc(T($('p', k)))}</p>${btns(k) ? `<p class="pzc-btns">${btns(k)}</p>` : ''}`)];
     return null; // plain reading content
   };
+  // sections are laid out like the home page: two side by side in uneven widths, or one wide piece
+  // whose wedge falls on a different side each time, so the page reads as one puzzle, not a stack.
+  const pend = []; let rowN = 0, oneN = 0;
+  const ONE = ['pzc-sec2--l', 'pzc-sec2--b', 'pzc-sec2--r', 'pzc-sec2--t'];
+  const flush = () => {
+    if (pend.length === 2) {
+      const [x, y] = pend, big = x.len >= y.len, ratio = Math.max(x.len, y.len) / Math.max(1, Math.min(x.len, y.len));
+      const wide = ratio > 1.8 ? 8 : rowN++ % 2 ? 7 : 6, sp = big ? [wide, 12 - wide] : [12 - wide, wide];
+      pend.forEach((o, i) => P.push(piece('pzc-sec2 pzc-sec2--pair', o.c, sp[i], o.inner, o.attr)));
+    } else if (pend.length === 1) P.push(piece('pzc-sec2 ' + ONE[oneN++ % 4], pend[0].c, 12, pend[0].inner, pend[0].attr + (oneN % 2 ? ' data-steep="1"' : '')));
+    pend.length = 0;
+  };
   const SPECIAL = '.impact-grid, .conditions-grid, .evolution-grid, .proof-list, .response-quote, figure';
   const section = (k) => {
     const h2 = $('h2', k); const head = T(h2); if (h2) h2.remove();
     const extra = []; $$(SPECIAL, k).forEach((x) => { if (x.parentElement.closest(SPECIAL)) return; extra.push(...(block(x) || [])); x.remove(); });
     const text = k.innerHTML.trim();
+    const sid = k.id ? ` id="${esc(k.id)}"` : '';
     if (head) {
-      const left = n % 2 === 0;
-      const c = ['Y', 'B', 'G', 'C', 'R'][n % 5];
-      P.push(piece('pzc-sec2' + (left ? '' : ' pzc-sec2--r'), c, 12, `<div class="pzc-secbody"><span class="pzc-num">${String(n + 1).padStart(2, '0')}</span><h2 class="pz-serif pzc-h2">${esc(head)}</h2><div class="pzc-prose">${text}</div></div>`, ' data-keep="1" data-thick="80"' + (k.id ? ` id="${esc(k.id)}"` : ''))); n++;
-    } else if (T(k)) P.push(piece('pzc-sec2 pzc-sec2--plain', ['C', 'Y'][n % 2], 12, `<div class="pzc-secbody"><div class="pzc-prose">${text}</div></div>`, ' data-keep="1" data-thick="80"'));
+      const c = ['Y', 'B', 'G', 'R'][n % 4];
+      const one = { c, len: T(k).length, inner: `<div class="pzc-secbody"><span class="pzc-num">${String(n + 1).padStart(2, '0')}</span><h2 class="pz-serif pzc-h2">${esc(head)}</h2><div class="pzc-prose">${text}</div></div>`, attr: ' data-keep="1" data-thick="70"' + sid }; n++;
+      if (!extra.length) { pend.push(one); if (pend.length === 2) flush(); return; }
+      flush(); pend.push(one); flush();
+    } else if (T(k)) { flush(); pend.push({ c: ['C', 'Y'][n % 2], len: 0, inner: `<div class="pzc-secbody"><div class="pzc-prose">${text}</div></div>`, attr: ' data-keep="1" data-thick="70"' }); flush(); }
     P.push(...extra);
   };
   kids.forEach((k) => {
     if (k.tagName === 'HR' || SKIP.some((c) => k.classList.contains(c))) return;
     if (k.classList.contains('content-section') || k.classList.contains('reading-column')) return section(k);
-    const b = block(k); if (b) P.push(...b);
+    const b = block(k); if (b) { flush(); P.push(...b); }
   });
+  flush();
   if (nextSys) P.push(piece('pzc-nextsys', RING[n % 4], 12, `<h2 class="pz-serif pzc-h2">${esc(T($('h2', nextSys)))}</h2><p class="pzc-lede">${esc(T($('p', nextSys)))}</p>`));
   // NEXT: all work, previous and next case study
   const links = pag ? $$('.case-pagination__link', pag).map((l) => ({ href: l.getAttribute('href'), dir: T($('.case-pagination__direction', l)), t: T($('.case-pagination__title', l)), next: l.classList.contains('case-pagination__link--next') })) : [];
@@ -122,15 +137,16 @@ export function puzzleAbout(document) {
   const group = (cls, c, span, zones, extra = ' data-calm="1"') => `<div class="pc pz-group ${cls}" data-c="${c}" style="grid-column:span ${span}"${extra}>${zones.map(([z, h, zc = '']) => `<div class="z pz-zone ${zc}" data-z="${z}">${h}</div>`).join('')}</div>`;
   const P = [];
   const body2 = (h, cls = '') => `<div class="pzc-secbody ${cls}">${h}</div>`;
-  const W = ' data-keep="1" data-thick="70" data-steep="1"';
+  const W = ' data-keep="1" data-thick="60"';
   P.push(piece('pzc-title pza-title', 'B', 8, body2(`<a class="pzc-back" href="/">← Home</a><h1 class="pz-serif pzc-h1">${esc(name)}</h1><p class="pza-sub">${esc(sub)}</p><p class="pzc-lede pza-lede">${esc(ps[0] || '')}</p>`, 'pzc-titlebody'), ' data-keep="1" data-thick="80" data-alt="R" data-steep="1"'));
   if (ps[1]) P.push(piece('pza-side', 'Y', 4, `<div class="pza-cols"><p class="pza-p">${esc(ps[1])}</p></div>`, ' data-keep="1" data-thick="70"'));
-  ps.slice(2).forEach((t, i) => P.push(piece('pzc-sec2 pza-sec' + (i % 2 ? ' pzc-sec2--r' : ''), ['G', 'C', 'Y'][i % 3], 12, body2(`<div class="pza-cols"><p class="pza-p">${esc(t)}</p></div>`), ' data-keep="1" data-thick="80" data-steep="1"')));
+  const st = ps.slice(2), sp = st.length === 2 ? (st[0].length >= st[1].length ? [7, 5] : [5, 7]) : st.map(() => 12);
+  st.forEach((t, i) => P.push(piece('pzc-sec2 pza-sec ' + (st.length === 2 ? 'pzc-sec2--pair' : 'pzc-sec2--b'), ['G', 'R', 'Y'][i % 3], sp[i], body2(`<div class="pza-cols"><p class="pza-p">${esc(t)}</p></div>`), ' data-keep="1" data-thick="70"')));
   const EC = ['Y', 'B', 'G', 'C', 'R', 'Y'], ES = [8, 6, 6, 6, 6, 6];
   if (exp.length) P.push(piece('pza-exp__h', 'R', 4, `<h2 class="pz-serif pz-it pzc-h2">Experience</h2>`, ' data-keep="1" data-thick="60"'));
   exp.forEach((it, i) => P.push(piece('pza-exp__i', EC[i % 6], ES[i] || 6, body2(item(it)), W)));
   if (edu.length) P.push(piece('pza-exp__i pza-edu', 'R', (exp.length - 1) % 2 ? 6 : 12, body2(`<h2 class="pz-serif pz-it pzc-h2">Education</h2>${edu.map(item).join('')}`), W));
-  P.push(piece('pzc-sec2 pza-cta', 'Y', 12, body2(`<h2 class="pz-serif pz-it pzc-h2">Let’s build something useful.</h2><p class="pza-p">Questions about content design, AI systems or developer tools are always welcome.</p><p class="pzc-btns"><a class="pz-btn" href="${esc(mail)}">Get in touch</a></p>`), ' data-keep="1" data-thick="80" data-steep="1"'));
+  P.push(piece('pzc-sec2 pzc-sec2--t pza-cta', 'Y', 12, body2(`<h2 class="pz-serif pz-it pzc-h2">Let’s build something useful.</h2><p class="pza-p">Questions about content design, AI systems or developer tools are always welcome.</p><p class="pzc-btns"><a class="pz-btn" href="${esc(mail)}">Get in touch</a></p>`), ' data-keep="1" data-thick="80" data-steep="1"'));
   const pz = document.createElement('div');
   pz.className = 'pz pz--case pz--about'; pz.dataset.seed = '5';
   pz.innerHTML = P.join('\n');
