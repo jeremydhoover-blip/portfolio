@@ -808,8 +808,9 @@ html body.cb-home .pz .pz-group--X { grid-template-columns: 8fr 4fr; grid-templa
 html body.cb-home .pz .pz-group--K { grid-template-columns: 1fr 1fr; grid-template-areas: 'K L'; }
 html body.cb-home .pz .pz-note { padding: 84px 70px 70px !important; margin: 0 !important; }
 html body.cb-home .pz .pz-note__k { font: italic 900 20px var(--serif); margin-bottom: 10px; }
-html body.cb-home .pz .pz-note__h1 { font-size: 40px !important; line-height: 1.02 !important; letter-spacing: -.02em !important; }
-html body.cb-home .pz .pz-note__p { font-size: 17px; line-height: 1.5; margin-top: 14px; }
+html body.cb-home .pz .pz-note__h1 { font: italic 900 64px/1 var(--serif) !important; letter-spacing: -.03em !important; }
+html body.cb-home .pz .pz-note__p { font: 500 21px/1.45 var(--sans); margin-top: 18px; max-width: 470px; }
+html body.cb-home .pz .pz-note__links { margin-top: 24px !important; gap: 0; } html body.cb-home .pz .pz-btn--light { background: #fff; color: var(--K) !important; }
 html body.cb-home .pz .pz-group--V { grid-template-columns: 8fr 4fr; grid-template-areas: 'V S'; }
 html body.cb-home .pz .pz-agent { padding: 30px 40px 26px; cursor: pointer; outline: none; }
 html body.cb-home .pz .pz-agent__row { display: flex; align-items: center; gap: 40px; }
@@ -847,7 +848,7 @@ html body.cb-home .pz .pz-agent:focus-visible .pz-agent__copy span { outline: 3p
     grid-template-areas: 'F' 'N' 'H' 'A' 'T' 'm1' 'm2' 'm3' 'm4' 'P' 'W' 'D' 'X' 'K' 'V' 'Z'; }
   html body.cb-home .pz .pz-group { grid-template-columns: minmax(0, 1fr) !important; }
   html body.cb-home .pz .pz-group--prog { grid-template-areas: 'P' 'Q' 'R' !important; } html body.cb-home .pz .pz-group--X { grid-template-areas: 'X' 'D' !important; }
-  html body.cb-home .pz .pz-note { padding: 48px 34px 58px !important; } html body.cb-home .pz .pz-note__h1 { font-size: 36px !important; }
+  html body.cb-home .pz .pz-note { padding: 48px 34px 58px !important; } html body.cb-home .pz .pz-note__h1 { font-size: 48px !important; } html body.cb-home .pz .pz-note__p { font-size: 18px; }
   html body.cb-home .pz .pz-group--K { grid-template-areas: 'K' 'L' !important; } html body.cb-home .pz .pz-group--V { grid-template-areas: 'V' 'S' !important; }
   html body.cb-home .pz .pz-zone { padding: 58px 34px !important; }
   html body.cb-home .pz .pc:not(.pz-group) { padding: 58px 34px !important; }
