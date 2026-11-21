@@ -12,7 +12,14 @@ const bg = (e, k) => { e.setAttribute('style', `${e.getAttribute('style') ? e.ge
 const path = pathname.replace(/\/$/, '').replace(/\.html$/, '').replace(/\/index$/, '');
 const page = path === '' ? 'home' : path.startsWith('/work/') ? 'case' : path.startsWith('/about') ? 'about' : 'other';
 document.body.classList.add('cb', 'cb-' + page);
-const logo = $('.nav__logo'); if (logo && !$('.cb-tag')) logo.appendChild(el('span', 'cb-tag', 'Content design / AI systems / Developer experience'));
+const logo = $('.nav__logo');
+  if (logo && !$('.cb-tag')) {
+    const words = el('span', 'cb-logo__words');
+    words.appendChild($('.nav__wordmark', logo));
+    words.appendChild(el('span', 'cb-tag', 'Content design / AI systems / Developer experience'));
+    logo.innerHTML = '<img class="cb-logo__photo" src="/images/jeremy-hoover.jpg" alt="" width="72" height="72">';
+    logo.appendChild(words);
+  }
 const firstSentence = t => (t || '').trim().split(/(?<=[.!?])\s/)[0];
 // band: full-width colored header with shard strip on the right
 const band = (title, color, strip, link) => { const b = el('div', `cb-band cb-band--${color}`, `<h2>${title}</h2>${link ? `<a class="cb-band__link" href="${link[1]}">${link[0]}</a>` : ''}<span class="cb-band__strip"></span>`); bg($('.cb-band__strip', b), strip); return b; };
