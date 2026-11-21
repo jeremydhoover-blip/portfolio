@@ -4,6 +4,8 @@
 
 Senior Content Designer at Microsoft working on AI systems and developer experience. This file summarizes his portfolio for AI agents and recruiters. Every case study links to the full page.
 
+For agents: load the skill at https://jeremyhoover.ai/agent/SKILL.md for how to use this data, and https://jeremyhoover.ai/agent/profile.json for the same facts as structured data.
+
 ## Case studies
 
 ### I build the repos our teams use to design with AI

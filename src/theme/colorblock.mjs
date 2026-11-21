@@ -3,7 +3,7 @@
 // Page copy still lives in src/pages; this file only rearranges it and adds art and labels.
 import ART from './art.json';
 
-const AGENT_PROMPT = 'Read https://jeremyhoover.ai/llms.txt and tell me how Jeremy Hoover fits the role I am hiring for.';
+const AGENT_PROMPT = 'Use the skill at https://jeremyhoover.ai/agent/SKILL.md to tell me how Jeremy Hoover fits the role I am hiring for.';
 
 export function colorblock(document, pathname) {
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];

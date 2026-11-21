@@ -572,3 +572,11 @@ html body.cb .cb-feat__grid > * { min-width: 0; }
 }
 
 html body.cb .cb-qmark svg { transform: rotate(180deg); }
+
+/* agent block: straight tag, solid palette colors */
+html body.cb .cb-agent__tag { transform: none !important; background: var(--Y) !important; color: var(--K) !important; }
+html body.cb .cb-agent__copy { background: var(--B) !important; color: #fff !important; }
+html body.cb .cb-agent__copy:hover { background: var(--K) !important; }
+html body.cb .cb-agent__copy.is-copied { background: var(--G) !important; color: var(--K) !important; }
+html body.cb .cb-agent__prompt { white-space: normal !important; text-overflow: clip !important; line-height: 1.45; }
+html body.cb .cb-agent__copy { align-self: flex-end; padding: .55rem .9rem !important; }
