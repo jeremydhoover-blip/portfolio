@@ -33,18 +33,19 @@ export function puzzleHome(document, { prompt, icons, name, pitch }) {
   const contactP = txt('.contact__inner p', contact);
   const recUrl = 'https://www.linkedin.com/in/jeremydhoover/details/recommendations/';
   const ext = 'target="_blank" rel="noopener"';
+  const chip = '<span class="pz-chip" aria-hidden="true"><svg viewBox="0 0 132 34" preserveAspectRatio="none"><polygon points="6,3 129,1 126,31 2,33" fill="#141414" stroke="#141414" stroke-width="3" stroke-linejoin="round"/></svg><span>Case study</span></span>';
   const read = (label = 'Read case study') => `<span class="pz-link">${label} ↗</span>`;
 
   const pieces = [
-    `<a class="pc pz-feat" data-c="B" data-alt="R" style="grid-area:F" href="${esc(c0.href)}"><h2 class="pz-serif pz-feat__h">${esc(c0.title)}</h2><p class="pz-sub">${c0.point.replace("engineers use", "engineers at Microsoft use")}</p>${read()}</a>`,
-    `<a class="pc" data-c="G" style="grid-area:H" href="${esc(c1.href)}"><h3 class="pz-serif pz-side__h">${esc(c1.title)}</h3><p class="pz-sub">${c1.point.replace("Best Use of AI,", "Best Use of AI at Microsoft,")}</p>${read()}</a>`,
+    `<a class="pc pz-feat" data-c="B" data-alt="R" style="grid-area:F" href="${esc(c0.href)}">${chip}<h2 class="pz-serif pz-feat__h">${esc(c0.title)}</h2><p class="pz-sub">${c0.point.replace("engineers use", "engineers at Microsoft use")}</p>${read()}</a>`,
+    `<a class="pc" data-c="G" style="grid-area:H" href="${esc(c1.href)}">${chip}<h3 class="pz-serif pz-side__h">${esc(c1.title)}</h3><p class="pz-sub">${c1.point.replace("Best Use of AI,", "Best Use of AI at Microsoft,")}</p>${read()}</a>`,
     `<div class="pc pz-note" data-c="Y" data-keep="1" data-alt="C" style="grid-area:N"><h1 class="pz-serif pz-note__h1">Hi, I’m Jeremy.</h1><p class="pz-note__p">${esc(name.replace(/\.$/, '') + ': ' + pitch.charAt(0).toLowerCase() + pitch.slice(1))}</p><p class="pz-note__links"><a class="pz-btn" href="#projects">See the work ↓</a><a class="pz-btn pz-btn--light" href="/about">About me</a></p></div>`,
     `<div class="pc pz-agent" data-c="R" data-calm="1" style="grid-area:A" role="button" tabindex="0" data-pz-copy="${esc(prompt)}" aria-label="Copy the Jeremy Hoover portfolio skill prompt for your AI agent">
       <div class="pz-agent__row"><div class="z pz-agent__tag" data-z="Y">Give this to<br>your AI agent</div><div class="z pz-agent__icons" data-z="B"><span class="pz-agent__works">Works with</span>${icons}</div></div>
       <div class="pz-agent__row pz-agent__row--cmd"><div class="z pz-agent__cmd" data-z="C"><code class="pz-agent__code"><span class="pz-agent__dollar" aria-hidden="true">$</span> <span class="pz-agent__line">${esc(prompt.replace('https://', ''))}</span></code></div><div class="z pz-agent__copy" data-z="R"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M8 8h11v13H8zM5 3h11v3H8a3 3 0 0 0-3 3v9H5z" fill="currentColor"/></svg><span>COPY</span></div></div>
     </div>`,
     `<div class="pc pz-title" data-c="B" style="grid-area:T" id="projects"><h2 class="pz-serif pz-it pz-h2">More case studies</h2></div>`,
-    ...rest.slice(0, 4).map((c, i) => `<a class="pc pz-case" data-c="${'RYGB'[i]}" style="grid-area:m${i + 1}" href="${esc(c.href)}"><h3 class="pz-serif">${esc(c.title)}</h3><p class="pz-sub">${c.point}</p>${read('Read case study')}</a>`),
+    ...rest.slice(0, 4).map((c, i) => `<a class="pc pz-case" data-c="${'RYGB'[i]}" style="grid-area:m${i + 1}" href="${esc(c.href)}">${chip}<h3 class="pz-serif">${esc(c.title)}</h3><p class="pz-sub">${c.point}</p>${read('Read case study')}</a>`),
     `<div class="pc pz-group pz-group--prog" data-c="Y" style="grid-area:P" id="program"><div class="z pz-zone pz-zone--prog" data-z="Y" style="grid-area:P"><div class="pz-head"><h2 class="pz-serif pz-it pz-h2">Teaching</h2><a class="pz-link" href="${esc(progLink)}" ${ext}>Explore the program ↗</a></div>
       <h3 class="pz-serif pz-prog__h">Technical Content Designer Program</h3><p class="pz-small"><b>${esc(orgRole)}</b> · ${esc(orgName)}</p>
       <p class="pz-sub">${esc(txt('.program__summary', prog))}</p><p class="pz-tags">${topics.map((t) => `<span class="pz-tag">${esc(t)}</span>`).join('')}</p></div>
@@ -178,6 +179,12 @@ function draw(comp) {
   const all = [], outlines = [];
   pcs.forEach((p, idx) => {
     const P = outline(p); p.el.dataset.poly = JSON.stringify(P); outlines.push(P);
+    // keep the case study chip well inside the glass: nudge it in from the corner until all its corners clear the outline
+    const ch = p.el.querySelector(':scope > .pz-chip');
+    if (ch) { ch.style.transform = ''; ch.style.marginTop = ''; let dx = 0, ok = false;
+      const fits = (dx) => { const q = ch.getBoundingClientRect(), x0 = q.left - cr.left - dx - 16, x1 = q.right - cr.left - dx + 16, y0 = q.top - cr.top - 16, y1 = q.bottom - cr.top + 16; return [[x0, y0], [x1, y0], [x1, y1], [x0, y1]].every((c) => inside(P, c)); };
+      for (let dy = 0; dy <= 48 && !ok; dy += 8) { if (dy) ch.style.marginTop = (-34 + dy) + 'px'; for (dx = 0; dx <= 200; dx += 5) if (fits(dx)) { ok = true; break; } }
+      if (!ok) dx = 0; ch.style.transform = 'translateX(' + -dx + 'px) rotate(-2deg)'; }
     const boxes = textBoxes(p.el);
     const zs = [...p.el.querySelectorAll('.z')].map((e) => { const q = e.getBoundingClientRect(); return { el: e, c: e.dataset.z, x0: q.left - cr.left, y0: q.top - cr.top, x1: q.right - cr.left, y1: q.bottom - cr.top }; });
     if (zs.length) zoneSplit(P, zs, boxes).forEach(([q, z]) => all.push({ idx, q, c: z ? z.c : p.el.dataset.c, img: z && z.el.dataset.img }));
