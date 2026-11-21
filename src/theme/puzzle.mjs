@@ -54,10 +54,11 @@ export function puzzleHome(document, { prompt, icons, name, pitch }) {
     `<div class="pc" data-c="Y" data-keep="1" style="grid-area:X" id="experience"><div class="pz-head"><h2 class="pz-serif pz-it pz-h2">Experience</h2><a class="pz-link" href="${esc(expLink)}">Full background ↗</a></div>
       ${exp.map((e) => `<div class="pz-exp"><p class="pz-exp__top"><b class="pz-serif">${esc(e.co)}</b><b>${esc(e.when)}</b></p><p class="pz-exp__title">${esc(e.title)}</p><p class="pz-exp__desc">${esc(e.desc)}</p></div>`).join('')}</div>`,
     `<div class="pc" data-c="B" data-keep="1" style="grid-area:D" id="education"><h3 class="pz-serif pz-it pz-edu__h">Education &amp; recognition</h3>${edu.map((e) => `<p class="pz-edu__dt">${esc(e.dt)}</p><p class="pz-edu__dd">${esc(e.dd)}</p>`).join('')}</div>`,
-    ...recs.slice(0, 2).map((r, i) => `<figure class="pc pz-rec" data-c="${i ? 'R' : 'B'}" style="grid-area:${i ? 'L' : 'K'}"${i ? '' : ' id="recommendations"'}>${i ? '' : '<h2 class="pz-serif pz-it pz-h2">From colleagues</h2>'}<blockquote class="pz-serif pz-rec__q">“${esc(r.q)}”</blockquote><figcaption class="pz-small"><b>${esc(r.name)}</b> · ${esc(r.role)}</figcaption><a class="pz-link" href="${recUrl}" ${ext}>Read recommendation ↗</a></figure>`),
+    ...recs.slice(0, 2).map((r, i) => `<figure class="pc pz-rec" data-c="${i ? 'R' : 'B'}" data-panes="1" data-thick="60" style="grid-area:${i ? 'L' : 'K'}"${i ? '' : ' id="recommendations"'}>${i ? '' : '<h2 class="pz-serif pz-it pz-h2">From colleagues</h2>'}<blockquote class="pz-serif pz-rec__q">“${esc(r.q)}”</blockquote><figcaption class="pz-small"><b>${esc(r.name)}</b> · ${esc(r.role)}</figcaption><a class="pz-link" href="${recUrl}" ${ext}>Read recommendation ↗</a></figure>`),
     `<div class="pc" data-c="G" style="grid-area:V" id="open-source"><h2 class="pz-serif pz-it pz-fv__h"><img class="pz-fv__logo" src="https://fievel.ai/assets/fievel-logo.png" alt="" width="56" height="56">Fievel</h2><p class="pz-fv__p">${esc(hcsPs[0]?.textContent.trim())}</p><p><a class="pz-btn" href="${esc(hcsLinks[0] || 'https://fievel.ai/')}" ${ext}>Visit fievel.ai ↗</a><a class="pz-btn pz-btn--light" href="${esc(hcsLinks[1] || '#')}" ${ext}>View on GitHub</a></p></div>`,
     `<div class="pc pz-fvfacts" data-c="Y" style="grid-area:S"><dl><div><dt>6 skills</dt><dd>in one plugin</dd></div><div><dt>7-stage workflow</dt><dd>and a local CLI that checks it</dd></div><div><dt>MCP server</dt><dd>Local in Claude Code, hosted in Codex</dd></div><div><dt>Works in</dt><dd>Claude Code, Codex, and GitHub Copilot</dd></div></dl></div>`,
-    `<div class="pc" data-c="R" style="grid-area:Z" id="contact"><h2 class="pz-serif pz-it pz-cta__h">Let’s build something useful.</h2><p class="pz-sub">${esc(contactP)}</p><p><a class="pz-btn pz-btn--y" href="${esc(mail)}">Email me</a><a class="pz-btn pz-btn--light" href="${esc(li)}" ${ext}>Connect on LinkedIn</a></p></div>`,
+    `<div class="pc" data-c="R" data-alt="C" data-keep="1" style="grid-area:Z" id="contact"><h2 class="pz-serif pz-it pz-cta__h">Let’s build something useful.</h2><p class="pz-sub">${esc(contactP)}</p><p><a class="pz-btn pz-btn--y" href="${esc(mail)}">Email me</a><a class="pz-btn pz-btn--light" href="${esc(li)}" ${ext}>Connect on LinkedIn</a></p></div>`,
+    `<div class="pc pz-more" data-c="B" data-alt="Y" data-keep="1" style="grid-area:E"><h2 class="pz-serif pz-it pz-more__h">More of my work</h2><p class="pz-more__links"><a class="pz-link" href="/about">Full background →</a><a class="pz-link" href="https://github.com/jeremydhoover-blip" ${ext}>GitHub ↗</a><a class="pz-link" href="#writing">Published articles ↓</a></p></div>`,
   ];
 
   const pz = document.createElement('div');
@@ -187,7 +188,10 @@ function draw(comp) {
       if (!ok) dx = 0; ch.style.transform = 'translateX(' + -dx + 'px) rotate(-2deg)'; }
     const boxes = textBoxes(p.el);
     const zs = [...p.el.querySelectorAll('.z')].map((e) => { const q = e.getBoundingClientRect(); return { el: e, c: e.dataset.z, x0: q.left - cr.left, y0: q.top - cr.top, x1: q.right - cr.left, y1: q.bottom - cr.top }; });
-    if (zs.length) zoneSplit(P, zs, boxes).forEach(([q, z]) => all.push({ idx, q, c: z ? z.c : p.el.dataset.c, img: z && z.el.dataset.img }));
+    if (zs.length) zoneSplit(P, zs, boxes).forEach(([q, z]) => { const zp = z && z.el.dataset.panes;
+      if (!zp) return all.push({ idx, q, c: z ? z.c : p.el.dataset.c, img: z && z.el.dataset.img });
+      const zb = boxes.filter((bx) => bx[0] >= z.x0 - 4 && bx[2] <= z.x1 + 4 && bx[1] >= z.y0 - 4 && bx[3] <= z.y1 + 4);
+      panes(q, z.c, +zp, zb, true, z.el.dataset.alt, +z.el.dataset.thick || 46).forEach((o) => all.push({ idx, ...o })); });
     else panes(P, p.el.dataset.c, p.el.dataset.panes != null ? +p.el.dataset.panes : 1, boxes, !!p.el.dataset.keep, p.el.dataset.alt, +p.el.dataset.thick || 46, !!p.el.dataset.steep && innerWidth > 900).forEach((o) => all.push({ idx, ...o }));
   });
   // 2) color the free panes so no two touching panes share a color, and the colors stay evenly spread

@@ -738,7 +738,7 @@ html body.cb-home main { max-width: none !important; padding: 0 0 56px !importan
 html body.cb-home .pz { position: relative; width: min(1280px, calc(100vw - 48px)); margin: 8px auto 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr));
   grid-template-areas: 'F F F F F F F N N N N N' 'F F F F F F F H H H H H' 'A A A A A A A A A A A A'
     'T T T T m1 m1 m1 m1 m2 m2 m2 m2' 'm3 m3 m3 m3 m3 m3 m4 m4 m4 m4 m4 m4' 'P P P P P P P P P P P P'
-    'W W W W W W W W W W W W' 'X X X X X X X X D D D D' 'K K K K K K K K K K K K' 'V V V V V V V V V V V V' 'Z Z Z Z Z Z Z Z Z Z Z Z'; }
+    'W W W W W W W W W W W W' 'X X X X X X X X D D D D' 'K K K K K K K K K K K K' 'V V V V V V V V V V V V' 'Z Z Z Z Z Z Z Z E E E E'; }
 html body.cb-home .pz > .pz-svg { position: absolute; left: 0; top: 0; overflow: visible; z-index: 0; pointer-events: none; }
 html body.cb-home .pz .pc { position: relative; z-index: 1; display: block; min-width: 0; margin: 0; padding: 78px 84px; color: var(--K); text-decoration: none; }
 html body.cb-home .pz .pc[data-c="B"], html body.cb-home .pz .pc[data-c="R"] { color: #fff; }
@@ -845,7 +845,7 @@ html body.cb-home .pz .pz-agent:focus-visible .pz-agent__copy span { outline: 3p
 /* phone: the pieces stack in one column, and the agent unit stacks its panes */
 @media (max-width: 900px) {
   html body.cb-home .pz { width: calc(100vw - 24px); grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: 'F' 'N' 'H' 'A' 'T' 'm1' 'm2' 'm3' 'm4' 'P' 'W' 'D' 'X' 'K' 'V' 'Z'; }
+    grid-template-areas: 'F' 'N' 'H' 'A' 'T' 'm1' 'm2' 'm3' 'm4' 'P' 'W' 'D' 'X' 'K' 'V' 'Z' 'E'; }
   html body.cb-home .pz .pz-group { grid-template-columns: minmax(0, 1fr) !important; }
   html body.cb-home .pz .pz-group--prog { grid-template-areas: 'P' 'Q' 'R' !important; } html body.cb-home .pz .pz-group--X { grid-template-areas: 'X' 'D' !important; }
   html body.cb-home .pz .pz-note { padding: 48px 34px 58px !important; } html body.cb-home .pz .pz-note__h1 { font-size: 48px !important; } html body.cb-home .pz .pz-note__p { font-size: 18px; }
@@ -1041,3 +1041,28 @@ html body.pz-casepage .pz .pza-sec .pza-p { font-size: 20px; line-height: 1.6; }
 }
 html body.pz-casepage .pz .pc.pza-exp__i { padding-left: 76px; }
 @media (max-width: 900px) { html body.pz-casepage .pz .pc.pza-exp__i { padding-left: 34px !important; } }
+/* section layouts: pairs side by side, and single pieces with the wedge on the left, right, top or bottom */
+html body.pz-casepage .pz .pzc-sec2--l .pzc-secbody { max-width: 62%; }
+html body.pz-casepage .pz .pzc-sec2--r .pzc-secbody { max-width: 62%; margin-left: auto; }
+html body.pz-casepage .pz .pzc-sec2--b { padding-bottom: 190px; }
+html body.pz-casepage .pz .pzc-sec2--b .pzc-secbody { max-width: 78%; }
+html body.pz-casepage .pz .pzc-sec2--t { padding-top: 190px; }
+html body.pz-casepage .pz .pzc-sec2--t .pzc-secbody { max-width: 78%; margin-left: auto; }
+html body.pz-casepage .pz .pzc-sec2--pair { padding: 64px 60px 130px; }
+html body.pz-casepage .pz .pzc-sec2--pair .pzc-secbody { max-width: none; }
+html body.pz-casepage .pz .pzc-sec2--pair .pzc-h2 { font-size: 38px !important; }
+html body.pz-casepage .pz .pzc-sec2--pair[style*="span 4"] .pzc-h2, html body.pz-casepage .pz .pzc-sec2--pair[style*="span 5"] .pzc-h2 { font-size: 32px !important; }
+@media (max-width: 900px) {
+  html body.pz-casepage .pz .pc.pzc-sec2 { padding: 58px 34px 150px !important; }
+  html body.pz-casepage .pz .pc.pzc-sec2 .pzc-secbody { max-width: none; margin-left: 0; }
+}
+html body.pz-casepage .pz .pza-exp__i { padding-bottom: 120px; }
+html body.pz-casepage .pz .pza-exp__i .pzc-secbody { max-width: 82%; }
+/* colleagues: room for each quote's own wedge; new "More of my work" piece beside contact */
+html body.cb-home .pz .pz-rec { padding-bottom: 120px; }
+html body.cb-home .pz .pz-more { padding: 78px 56px; }
+html body.cb-home .pz .pz-more__h { font-size: 38px; line-height: 1.05; margin-bottom: 22px !important; }
+html body.cb-home .pz .pz-more__links { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+html body.cb-home .pz .pz-more .pz-link { color: #fff; }
+@media (max-width: 1279px) and (min-width: 901px) { html body.cb-home .pz .pz-agent__code { font-size: clamp(12px, 1.42vw, 19px); } }
+@media (max-width: 900px) { html body.cb-home .pz .pz-agent__line { white-space: normal !important; overflow: visible; overflow-wrap: anywhere; line-height: 1.5; } }
