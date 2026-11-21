@@ -26,7 +26,7 @@ export function puzzleCase(document) {
   const group = (cls, c, span, zones, extra = ' data-calm="1"') => `<div class="pc pz-group ${cls}" data-c="${c}" style="grid-column:span ${span}"${extra}>${zones.map(([z, h, zc = '']) => `<div class="z pz-zone ${zc}" data-z="${z}">${h}</div>`).join('')}</div>`;
 
   // HERO
-  P.push(piece('pzc-title', 'B', 8, `<a class="pzc-back" href="${esc(back)}">← All work</a><h1 class="pz-serif pzc-h1">${esc(h1)}</h1><p class="pzc-lede lede">${esc(lede)}</p>`));
+  P.push(piece('pzc-title', 'B', 8, `<div class="pzc-secbody pzc-titlebody"><a class="pzc-back" href="${esc(back)}">← All work</a><h1 class="pz-serif pzc-h1">${esc(h1)}</h1><p class="pzc-lede lede">${esc(lede)}</p></div>`, ' data-keep="1" data-thick="80" data-alt="R" data-steep="1"'));
   P.push(piece('pzc-glance', 'Y', 4, `<dl class="glance">${glance.map((g) => `<div><dt>${esc(g.dt)}</dt><dd>${esc(g.dd)}</dd></div>`).join('')}</dl>${disc ? `<p class="pzc-disc">${esc(disc)}</p>` : ''}`, ' data-keep="1"'));
   const oc = ['R', 'G', 'B'];
   outcomes.slice(0, 3).forEach((o, i) => P.push(piece('pzc-out outcome', oc[i], 4, `<p class="pz-serif pzc-out__n outcome__num">${esc(o.n)}</p><p class="pzc-out__l outcome__label">${esc(o.l)}</p>`, ' data-thick="70"')));
@@ -76,10 +76,10 @@ export function puzzleCase(document) {
     const extra = []; $$(SPECIAL, k).forEach((x) => { if (x.parentElement.closest(SPECIAL)) return; extra.push(...(block(x) || [])); x.remove(); });
     const text = k.innerHTML.trim();
     if (head) {
-      const c = RING[n % 4], left = n % 2 === 0;
-      const hz = [c, `<span class="pzc-num">${String(n + 1).padStart(2, '0')}</span><h2 class="pz-serif pzc-h2">${esc(head)}</h2>`, 'pzc-head'], tz = ['C', `<div class="pzc-prose">${text}</div>`, 'pzc-text'];
-      P.push(group('pzc-sec' + (left ? '' : ' pzc-sec--r'), c, 12, left ? [hz, tz] : [tz, hz], ' data-calm="1"' + (k.id ? ` id="${esc(k.id)}"` : ''))); n++;
-    } else if (T(k)) P.push(piece('pzc-text pzc-text--wide', 'C', 12, `<div class="pzc-prose">${text}</div>`, ' data-keep="1" data-thick="90"'));
+      const left = n % 2 === 0;
+      const c = ['Y', 'B', 'G', 'C', 'R'][n % 5];
+      P.push(piece('pzc-sec2' + (left ? '' : ' pzc-sec2--r'), c, 12, `<div class="pzc-secbody"><span class="pzc-num">${String(n + 1).padStart(2, '0')}</span><h2 class="pz-serif pzc-h2">${esc(head)}</h2><div class="pzc-prose">${text}</div></div>`, ' data-keep="1" data-thick="80"' + (k.id ? ` id="${esc(k.id)}"` : ''))); n++;
+    } else if (T(k)) P.push(piece('pzc-sec2 pzc-sec2--plain', ['C', 'Y'][n % 2], 12, `<div class="pzc-secbody"><div class="pzc-prose">${text}</div></div>`, ' data-keep="1" data-thick="80"'));
     P.push(...extra);
   };
   kids.forEach((k) => {
@@ -121,12 +121,16 @@ export function puzzleAbout(document) {
   const piece = (cls, c, span, inner, extra = '') => `<div class="pc ${cls}" data-c="${c}" style="grid-column:span ${span}"${extra}>${inner}</div>`;
   const group = (cls, c, span, zones, extra = ' data-calm="1"') => `<div class="pc pz-group ${cls}" data-c="${c}" style="grid-column:span ${span}"${extra}>${zones.map(([z, h, zc = '']) => `<div class="z pz-zone ${zc}" data-z="${z}">${h}</div>`).join('')}</div>`;
   const P = [];
-  P.push(piece('pzc-title pza-title', 'B', 7, `<a class="pzc-back" href="/">← Home</a><h1 class="pz-serif pzc-h1">${esc(name)}</h1><p class="pza-sub">${esc(sub)}</p><p class="pzc-lede pza-lede">${esc(ps[0] || '')}</p>`, ' data-thick="80"'));
-  if (ps[1]) P.push(piece('pza-side', 'R', 5, `<div class="pza-cols"><p class="pza-p">${esc(ps[1])}</p></div>`, ' data-keep="1" data-thick="70"'));
-  if (ps.length > 2) P.push(group('pza-story pzc-flow--' + (ps.length - 2), 'C', 12, ps.slice(2).map((t, i) => [['C', 'G', 'Y'][i % 3], `<div class="pza-cols"><p class="pza-p">${esc(t)}</p></div>`])));
-  if (exp.length) P.push(group('pza-exp', 'Y', 12, [['B', `<h2 class="pz-serif pz-it pzc-h2">Experience</h2>`, 'pza-exp__h'], ...exp.map((it) => ['Y', item(it), 'pza-exp__i'])]));
-  if (edu.length) P.push(piece('pza-edu', 'G', 6, `<h2 class="pz-serif pz-it pzc-h2">Education</h2>${edu.map(item).join('')}`, ' data-keep="1" data-thick="70"'));
-  P.push(piece('pza-cta', 'R', edu.length ? 6 : 12, `<h2 class="pz-serif pz-it pzc-h2">Let’s build something useful.</h2><p class="pza-p">Questions about content design, AI systems or developer tools are always welcome.</p><p class="pzc-btns"><a class="pz-btn pz-btn--y" href="${esc(mail)}">Get in touch</a></p>`, ' data-thick="70"'));
+  const body2 = (h, cls = '') => `<div class="pzc-secbody ${cls}">${h}</div>`;
+  const W = ' data-keep="1" data-thick="70" data-steep="1"';
+  P.push(piece('pzc-title pza-title', 'B', 8, body2(`<a class="pzc-back" href="/">← Home</a><h1 class="pz-serif pzc-h1">${esc(name)}</h1><p class="pza-sub">${esc(sub)}</p><p class="pzc-lede pza-lede">${esc(ps[0] || '')}</p>`, 'pzc-titlebody'), ' data-keep="1" data-thick="80" data-alt="R" data-steep="1"'));
+  if (ps[1]) P.push(piece('pza-side', 'Y', 4, `<div class="pza-cols"><p class="pza-p">${esc(ps[1])}</p></div>`, ' data-keep="1" data-thick="70"'));
+  ps.slice(2).forEach((t, i) => P.push(piece('pzc-sec2 pza-sec' + (i % 2 ? ' pzc-sec2--r' : ''), ['G', 'C', 'Y'][i % 3], 12, body2(`<div class="pza-cols"><p class="pza-p">${esc(t)}</p></div>`), ' data-keep="1" data-thick="80" data-steep="1"')));
+  const EC = ['Y', 'B', 'G', 'C', 'R', 'Y'], ES = [8, 6, 6, 6, 6, 6];
+  if (exp.length) P.push(piece('pza-exp__h', 'R', 4, `<h2 class="pz-serif pz-it pzc-h2">Experience</h2>`, ' data-keep="1" data-thick="60"'));
+  exp.forEach((it, i) => P.push(piece('pza-exp__i', EC[i % 6], ES[i] || 6, body2(item(it)), W)));
+  if (edu.length) P.push(piece('pza-exp__i pza-edu', 'R', (exp.length - 1) % 2 ? 6 : 12, body2(`<h2 class="pz-serif pz-it pzc-h2">Education</h2>${edu.map(item).join('')}`), W));
+  P.push(piece('pzc-sec2 pza-cta', 'Y', 12, body2(`<h2 class="pz-serif pz-it pzc-h2">Let’s build something useful.</h2><p class="pza-p">Questions about content design, AI systems or developer tools are always welcome.</p><p class="pzc-btns"><a class="pz-btn" href="${esc(mail)}">Get in touch</a></p>`), ' data-keep="1" data-thick="80" data-steep="1"'));
   const pz = document.createElement('div');
   pz.className = 'pz pz--case pz--about'; pz.dataset.seed = '5';
   pz.innerHTML = P.join('\n');

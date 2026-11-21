@@ -131,11 +131,11 @@ function draw(comp) {
   // cut a piece into its main pane plus up to n more. Returns panes; only the main one has a color yet.
   // keep: all the words stay in one pane, so the other pane is an empty corner of glass
   const perim = (P) => P.reduce((s, q, i) => { const n = P[(i + 1) % P.length]; return s + Math.hypot(n[0] - q[0], n[1] - q[1]); }, 0);
-  const panes = (P, c, n, boxes, keep, alt, minT = 46) => { const parts = [P];
+  const panes = (P, c, n, boxes, keep, alt, minT = 46, sd = false) => { const parts = [P];
     for (let m = 0; m < n; m++) {
       parts.sort((u, v) => area(v) - area(u));
       for (let tries = 0; tries < 800; tries++) {
-        const big = parts[0], ce = cen(big), steep = r() < 0.5, t = steep ? Math.PI / 2 + (r() - 0.5) * 1.0 : (r() - 0.5) * 0.6;
+        const big = parts[0], ce = cen(big), steep = sd || r() < 0.5, t = steep ? Math.PI / 2 + (r() - 0.5) * 1.0 : (r() - 0.5) * 0.6;
         const o = [ce[0] + (r() - 0.5) * 800 * k, ce[1] + (r() - 0.5) * 400];
         const [A, B, seg] = cut(big, o, t);
         if (A.length < 3 || B.length < 3 || seg.length !== 2) continue;
@@ -188,7 +188,7 @@ function draw(comp) {
     const boxes = textBoxes(p.el);
     const zs = [...p.el.querySelectorAll('.z')].map((e) => { const q = e.getBoundingClientRect(); return { el: e, c: e.dataset.z, x0: q.left - cr.left, y0: q.top - cr.top, x1: q.right - cr.left, y1: q.bottom - cr.top }; });
     if (zs.length) zoneSplit(P, zs, boxes).forEach(([q, z]) => all.push({ idx, q, c: z ? z.c : p.el.dataset.c, img: z && z.el.dataset.img }));
-    else panes(P, p.el.dataset.c, p.el.dataset.panes != null ? +p.el.dataset.panes : 1, boxes, !!p.el.dataset.keep, p.el.dataset.alt, +p.el.dataset.thick || 46).forEach((o) => all.push({ idx, ...o }));
+    else panes(P, p.el.dataset.c, p.el.dataset.panes != null ? +p.el.dataset.panes : 1, boxes, !!p.el.dataset.keep, p.el.dataset.alt, +p.el.dataset.thick || 46, !!p.el.dataset.steep && innerWidth > 900).forEach((o) => all.push({ idx, ...o }));
   });
   // 2) color the free panes so no two touching panes share a color, and the colors stay evenly spread
   const near = (a, b) => { let hits = 0;

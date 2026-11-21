@@ -1000,11 +1000,7 @@ html body.pz-casepage .pz .pza-sub { font: 700 20px/1.35 var(--sans); margin-top
 html body.pz-casepage .pz .pza-side { padding: 70px 52px 64px; }
 html body.pz-casepage .pz .pza-p { font-size: 18px; line-height: 1.6; }
 html body.pz-casepage .pz .pza-story .pz-zone { padding: 56px 60px 60px; }
-html body.pz-casepage .pz .pza-exp { grid-template-columns: 4fr 4fr 4fr; grid-template-areas: 'h a b' 'h c d'; }
-html body.pz-casepage .pz .pza-exp__h { grid-area: h; padding: 64px 56px; }
 html body.pz-casepage .pz .pza-exp__i { padding: 48px 48px 52px; }
-html body.pz-casepage .pz .pza-exp__i:nth-child(2) { grid-area: a; } html body.pz-casepage .pz .pza-exp__i:nth-child(3) { grid-area: b; }
-html body.pz-casepage .pz .pza-exp__i:nth-child(4) { grid-area: c; } html body.pz-casepage .pz .pza-exp__i:nth-child(5) { grid-area: d; }
 html body.pz-casepage .pz .pza-meta { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; flex-wrap: wrap; }
 html body.pz-casepage .pz .pza-meta strong { font-size: 24px; line-height: 1.1; }
 html body.pz-casepage .pz .pza-meta span { font-size: 14px; font-weight: 700; white-space: nowrap; }
@@ -1013,8 +1009,35 @@ html body.pz-casepage .pz .pza-item > p:not(.pza-meta):not(.pza-role) { font-siz
 html body.pz-casepage .pz .pza-edu, html body.pz-casepage .pz .pza-cta { padding: 64px 64px 66px; }
 html body.pz-casepage .pz .pza-edu .pzc-h2, html body.pz-casepage .pz .pza-cta .pzc-h2 { margin-bottom: 20px !important; }
 @media (max-width: 900px) {
-  html body.pz-casepage .pz .pza-exp { grid-template-columns: 1fr !important; grid-template-areas: 'h' 'a' 'b' 'c' 'd' !important; }
 }
 html body.pz-casepage .pz .pza-item + .pza-item { margin-top: 26px; }
 html body.pz-casepage .pz .pza-lede { font: 500 19px/1.55 var(--sans); margin-top: 22px !important; }
 html body.pz-casepage .pz .pza-edu, html body.pz-casepage .pz .pza-cta { padding: 80px 72px 72px; }
+/* sections: one piece each, words in one wedge and a colored wedge beside them (like the home page) */
+html body.pz-casepage .pz .pzc-sec2 { padding: 76px 84px 84px; scroll-margin-top: 90px; }
+html body.pz-casepage .pz .pzc-secbody { max-width: 62%; }
+html body.pz-casepage .pz .pzc-sec2--r .pzc-secbody { margin-left: auto; }
+html body.pz-casepage .pz .pzc-sec2 .pzc-h2 { font-size: 44px !important; margin-bottom: 22px !important; max-width: 16ch; }
+html body.pz-casepage .pz .pzc-sec2 .pzc-prose { max-width: none; }
+html body.pz-casepage .pz .pzc-sec2[data-c="B"] a, html body.pz-casepage .pz .pzc-sec2[data-c="R"] a { color: #fff; }
+@media (max-width: 1100px) { html body.pz-casepage .pz .pzc-secbody { max-width: 70%; } }
+@media (max-width: 900px) {
+  html body.pz-casepage .pz .pc.pzc-sec2 { padding: 58px 34px 150px !important; }
+  html body.pz-casepage .pz .pzc-secbody { max-width: none; }
+  html body.pz-casepage .pz .pzc-sec2 .pzc-h2 { font-size: 34px !important; }
+}
+html body.pz-casepage .pz .pzc-titlebody { max-width: 74%; }
+@media (max-width: 900px) { html body.pz-casepage .pz .pc.pzc-title { padding-bottom: 130px !important; } html body.pz-casepage .pz .pzc-titlebody { max-width: none; } }
+/* About: each piece keeps its words in one pane and leaves room for a colored wedge */
+html body.pz-casepage .pz .pza-exp__h { padding: 72px 56px 150px; }
+html body.pz-casepage .pz .pza-exp__i { padding: 64px 64px 70px; }
+html body.pz-casepage .pz .pza-exp__i .pzc-secbody { max-width: 68%; }
+html body.pz-casepage .pz .pza-exp__i[style*="span 8"] .pzc-secbody { max-width: 62%; }
+html body.pz-casepage .pz .pza-sec .pza-p { font-size: 20px; line-height: 1.6; }
+@media (max-width: 900px) {
+  html body.pz-casepage .pz .pc.pza-exp__i { padding: 52px 34px 130px !important; }
+  html body.pz-casepage .pz .pza-exp__i .pzc-secbody { max-width: none !important; }
+  html body.pz-casepage .pz .pc.pza-exp__h { padding: 52px 34px 110px !important; }
+}
+html body.pz-casepage .pz .pc.pza-exp__i { padding-left: 76px; }
+@media (max-width: 900px) { html body.pz-casepage .pz .pc.pza-exp__i { padding-left: 34px !important; } }
