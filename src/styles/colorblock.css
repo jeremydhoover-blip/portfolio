@@ -1061,3 +1061,6 @@ html body.pz-casepage .pz .pza-exp__i .pzc-secbody { max-width: 82%; }
 /* the agent command must never be cut off: shrink it a little on laptops, wrap it on phones */
 @media (max-width: 1279px) and (min-width: 901px) { html body.cb-home .pz .pz-agent__code { font-size: clamp(12px, 1.42vw, 19px); } }
 @media (max-width: 900px) { html body.cb-home .pz .pz-agent__line { white-space: normal !important; overflow: visible; overflow-wrap: anywhere; line-height: 1.5; } }
+/* Teaching: program title leads, link sits after the topics */
+html body.cb-home .pz .pz-prog__h { font-size: 44px; line-height: 1.04; margin: 0 0 12px; }
+html body.cb-home .pz .pz-prog__more { margin-top: 30px !important; }
