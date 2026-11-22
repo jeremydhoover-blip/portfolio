@@ -2,6 +2,7 @@
 // Each section is a piece. Neighboring pieces share corners, so they lock together with no filler.
 // Built server-side from the page's own copy (src/pages/index.astro); PUZZLE_JS draws the glass in the browser.
 
+export const BUILT_LAYOUT = 'a'; // 'a': title across the top, two products side by side. 'b': title on the left, products stacked
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const firstSentence = (t) => (t || '').trim().split(/(?<=[.!?])\s/)[0];
 
@@ -54,16 +55,18 @@ export function puzzleHome(document, { prompt, icons, name, pitch }) {
       ${exp.map((e) => `<div class="pz-exp"><p class="pz-exp__top"><b class="pz-serif">${esc(e.co)}</b><b>${esc(e.when)}</b></p><p class="pz-exp__title">${esc(e.title)}</p><p class="pz-exp__desc">${esc(e.desc)}</p></div>`).join('')}</div>`,
     `<div class="pc" data-mw="r" data-c="B" data-keep="1" style="grid-area:D" id="education"><h3 class="pz-serif pz-it pz-edu__h">Education &amp; recognition</h3>${edu.map((e) => `<p class="pz-edu__dt">${esc(e.dt)}</p><p class="pz-edu__dd">${esc(e.dd)}</p>`).join('')}</div>`,
     ...recs.slice(0, 2).map((r, i) => `<figure class="pc pz-rec" data-c="${i ? 'R' : 'B'}" data-mpanes="1" style="grid-area:${i ? 'L' : 'K'}"${i ? '' : ' id="recommendations"'}>${i ? '' : '<h2 class="pz-serif pz-it pz-h2">From colleagues</h2>'}<blockquote class="pz-serif pz-rec__q">“${esc(r.q)}”</blockquote><figcaption class="pz-small"><b>${esc(r.name)}</b> · ${esc(r.role)}</figcaption><a class="pz-link" href="${recUrl}" ${ext}>Read recommendation ↗</a></figure>`),
-    `<div class="pc" data-c="G" data-panes="1" data-alt="C" style="grid-area:V" id="open-source"><h2 class="pz-serif pz-it pz-fv__h"><img class="pz-fv__logo" src="https://fievel.ai/assets/fievel-logo.png" alt="" width="56" height="56">Fievel</h2><p class="pz-fv__p">${esc(hcsPs[0]?.textContent.trim())}</p><p><a class="pz-btn" href="${esc(hcsLinks[0] || 'https://fievel.ai/')}" ${ext}>Visit fievel.ai ↗</a><a class="pz-btn pz-btn--light" href="${esc(hcsLinks[1] || '#')}" ${ext}>View on GitHub</a></p></div>`,
-    `<div class="pc pz-fvfacts" data-c="Y" data-mpanes="1" style="grid-area:S"><dl><div><dt>6 skills</dt><dd>in one plugin</dd></div><div><dt>7-stage workflow</dt><dd>and a local CLI that checks it</dd></div><div><dt>MCP server</dt><dd>Local in Claude Code, hosted in Codex</dd></div><div><dt>Works in</dt><dd>Claude Code, Codex, and GitHub Copilot</dd></div></dl></div>`,
+    // Things I've built: Fievel and the Content Design Report share one piece. BUILT_LAYOUT picks the mockup.
+    `<div class="pc pz-built__intro" data-c="${BUILT_LAYOUT === 'b' ? 'Y' : 'C'}"${BUILT_LAYOUT === 'b' ? ' data-panes="1" data-alt="C"' : ''} style="grid-area:V" id="open-source"><h2 class="pz-serif pz-it pz-h2">Things I’ve built</h2><p class="pz-built__lede">Side projects for the content design community. I design, build, and maintain both with AI coding agents.</p></div>`,
+    `<div class="pc pz-built" data-c="G" style="grid-area:S"><h3 class="pz-serif pz-built__h"><img class="pz-fv__logo" src="https://fievel.ai/assets/fievel-logo.png" alt="" width="56" height="56">Fievel</h3><p class="pz-built__p">Your AI content systems architect. A plugin for Claude Code, Codex, and GitHub Copilot that helps content designers turn their standards, sources, and AI behavior into a content system they own.</p><p class="pz-built__facts"><span>6 skills</span><span>7-stage workflow</span><span>MCP server</span></p><p><a class="pz-btn" href="${esc(hcsLinks[0] || 'https://fievel.ai/')}" ${ext}>Visit fievel.ai ↗</a><a class="pz-btn pz-btn--light" href="${esc(hcsLinks[1] || '#')}" ${ext}>View on GitHub</a></p></div>`,
+    `<div class="pc pz-built" data-c="B" style="grid-area:U" id="content-design-report"><h3 class="pz-serif pz-built__h"><span class="pz-cdr__logo" aria-hidden="true"><svg viewBox="0 0 122 122"><g transform="translate(-9.66 -9.66) scale(1.1040)"><path d="M52 20.81A40 40 0 0 0 52 99.19L52 88.91A30 30 0 0 1 52 31.09Z" fill="#141414" stroke="#141414" stroke-width="8" stroke-linejoin="round"/><path d="M68 20.81A40 40 0 0 1 68 99.19Z" fill="#2d62c9" stroke="#141414" stroke-width="8" stroke-linejoin="round"/></g></svg></span>Content Design Report</h3><p class="pz-built__p">An ongoing analysis of content design, built from job postings, surveys, research, and voices from the community. It answers what content designers keep asking: is the field growing, what does it pay, and where can I go next?</p><p class="pz-built__facts"><span>Quick answers</span><span>Sources A–Z</span><span>Agent-ready</span></p><p><a class="pz-btn pz-btn--y" href="https://contentdesignreport.com" ${ext}>Read the report ↗</a></p></div>`,
     `<div class="pc" data-mw="r" data-c="R" data-alt="B" style="grid-area:Z" id="contact"><h2 class="pz-serif pz-it pz-cta__h">Let’s build something useful.</h2><p class="pz-sub">${esc(contactP)}</p><p><a class="pz-btn pz-btn--y" href="${esc(mail)}">Email me</a><a class="pz-btn pz-btn--light" href="${esc(li)}" ${ext}>Connect on LinkedIn</a></p></div>`,
   ];
 
   const pz = document.createElement('div');
-  pz.className = 'pz'; pz.dataset.seed = '7';
+  pz.className = 'pz'; pz.dataset.seed = '7'; pz.dataset.built = BUILT_LAYOUT;
   pz.innerHTML = pieces.join('\n');
   // blocks that belong together become one piece: each block turns into a zone (one pane) of a shared piece
-  [['K', 'L'], ['V', 'S']].forEach((names) => {
+  [['K', 'L'], ['V', 'S', 'U']].forEach((names) => {
     const els = names.map((n) => pz.querySelector(`:scope > .pc[style*="grid-area:${n}"]`)).filter(Boolean);
     if (els.length < 2) return;
     const grp = document.createElement('div');
