@@ -1138,4 +1138,7 @@ html body.cb-home .pz .pz-agent:hover .pz-agent__key, html body.cb-home .pz .pz-
 html body.cb-home .pz .pz-agent.on .pz-agent__copy span { text-decoration: none; }
 @media (max-width: 900px) { html body.cb-home .pz .pz-agent__copy { font-size: inherit; } html body.cb-home .pz .pz-agent__key { font-size: 22px; } html body.cb-home .pz .pz-agent__tag { font-size: 28px; } html body.cb-home .pz .pz-agent__works { font-size: 14px; } html body.cb-home .pz .pz-agent__icons .cb-agent__ico { width: 44px !important; height: 44px !important; margin-left: 0; } html body.cb-home .pz .pz-agent__icons .cb-agent__ico svg { width: 24px !important; height: 24px !important; } }
 html body.cb-home .pz .pz-agent__key svg { width: 22px !important; height: 22px !important; flex: none; }
-html body.cb-home .pz .pz-agent__key span { display: inline-block; min-width: 3.9em; text-align: center; }
+html body.cb-home .pz .pz-agent__key span { display: inline-block; min-width: 2.8em; text-align: center; }
+html body.cb-home .pz .pz-agent__copy { flex: none; width: 260px; }
+@media (max-width: 900px) { html body.cb-home .pz .pz-agent__copy { width: auto; } }
+html body.cb-home .pz .pz-unit.done { filter: none; }
