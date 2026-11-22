@@ -1122,3 +1122,19 @@ html body.cb-home main, html body.cb-home .footer { overflow-x: clip; }
   html body.cb-home .pz #writing .pz-art:last-of-type { border-bottom: 2px solid rgba(20,20,20,.28); }
   html body.cb-home .pz #writing .pz-btn[data-dialog] { order: 99; align-self: flex-start; margin-top: 22px; }
 }
+/* agent band: smaller headline, bigger "works with" and logos, copy as a tilted yellow glass key */
+@media (min-width: 901px) {
+  html body.cb-home .pz .pz-agent__tag { font-size: 30px; }
+  html body.cb-home .pz .pz-agent__works { font-size: 15px; }
+  html body.cb-home .pz .pz-agent__icons .cb-agent__icons { gap: 14px; }
+  html body.cb-home .pz .pz-agent__icons .cb-agent__ico { width: 54px !important; height: 54px !important; margin-left: 0; }
+  html body.cb-home .pz .pz-agent__icons .cb-agent__ico svg { width: 28px !important; height: 28px !important; }
+}
+html body.cb-home .pz .pz-agent__copy { font: inherit; padding: 0 10px; justify-content: center; }
+html body.cb-home .pz .pz-agent__key { position: relative; display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px 14px 20px; font: italic 700 24px/1 'Archivo Narrow', sans-serif; text-transform: uppercase; letter-spacing: .01em; color: var(--K); background: var(--K); clip-path: polygon(4% 0, 100% 8%, 96% 100%, 0 90%); transform: rotate(-3deg); transition: transform .15s; white-space: nowrap; }
+html body.cb-home .pz .pz-agent__key::before { content: ''; position: absolute; inset: 3px; background: var(--Y); clip-path: polygon(4% 0, 100% 8%, 96% 100%, 0 90%); }
+html body.cb-home .pz .pz-agent__key > * { position: relative; }
+html body.cb-home .pz .pz-agent:hover .pz-agent__key, html body.cb-home .pz .pz-agent:focus-visible .pz-agent__key { transform: rotate(0deg) scale(1.06); }
+html body.cb-home .pz .pz-agent.on .pz-agent__copy span { text-decoration: none; }
+@media (max-width: 900px) { html body.cb-home .pz .pz-agent__copy { font-size: inherit; } html body.cb-home .pz .pz-agent__key { font-size: 22px; } html body.cb-home .pz .pz-agent__tag { font-size: 28px; } html body.cb-home .pz .pz-agent__works { font-size: 14px; } html body.cb-home .pz .pz-agent__icons .cb-agent__ico { width: 44px !important; height: 44px !important; margin-left: 0; } html body.cb-home .pz .pz-agent__icons .cb-agent__ico svg { width: 24px !important; height: 24px !important; } }
+html body.cb-home .pz .pz-agent__key svg { width: 22px !important; height: 22px !important; flex: none; }
