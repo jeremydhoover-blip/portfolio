@@ -46,16 +46,16 @@ export function puzzleHome(document, { prompt, icons, name, pitch }) {
     </div>`,
     `<div class="pc pz-title" data-c="B" style="grid-area:T" id="projects"><h2 class="pz-serif pz-it pz-h2">More case studies</h2></div>`,
     ...rest.slice(0, 4).map((c, i) => `<a class="pc pz-case" data-c="${'RYGB'[i]}" style="grid-area:m${i + 1}" href="${esc(c.href)}">${chip}<h3 class="pz-serif">${esc(c.title)}</h3><p class="pz-sub">${c.point}</p>${read('Read case study')}</a>`),
-    `<div class="pc pz-group pz-group--prog" data-c="Y" style="grid-area:P" id="program"><div class="z pz-zone pz-zone--prog" data-z="Y" style="grid-area:P"><h2 class="pz-serif pz-prog__h">Technical Content Designer Program</h2><p class="pz-small"><b>${esc(orgRole)}</b> · ${esc(orgName)}</p>
+    `<div class="pc pz-group pz-group--prog" data-c="Y" style="grid-area:P" id="program"><div class="z pz-zone pz-zone--prog" data-z="Y" data-mpanes="1" style="grid-area:P"><h2 class="pz-serif pz-prog__h">Technical Content Designer Program</h2><p class="pz-small"><b>${esc(orgRole)}</b> · ${esc(orgName)}</p>
       <p class="pz-sub">${esc(txt('.program__summary', prog))}</p><p class="pz-tags">${topics.map((t) => `<span class="pz-tag">${esc(t)}</span>`).join('')}</p><p class="pz-prog__more"><a class="pz-btn" href="${esc(progLink)}" ${ext}>Explore the program ↗</a></p></div>
-      ${pqs.slice(0, 2).map((q, i) => `<figure class="z pz-zone pz-pq" data-z="${i ? 'B' : 'C'}" style="grid-area:${i ? 'R' : 'Q'}"><p class="pz-stars" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="pz-serif pz-q">${esc(q.q)}</blockquote><figcaption class="pz-small"><b>${esc(q.name)}</b> · ${esc(q.role)}</figcaption></figure>`).join('')}</div>`,
-    `<div class="pc" data-c="G" style="grid-area:W" id="writing"><h2 class="pz-serif pz-it pz-h2">Published articles</h2><div class="pz-cols">${groups.map((g, i) => `<div class="pz-col" data-g="${i}">${g.items.map((a) => `<a class="pz-art" href="${esc(a.href)}" ${ext}>${esc(a.t)} <span aria-hidden="true">↗</span></a>`).join('')}</div>`).join('')}</div></div>`,
+      ${pqs.slice(0, 2).map((q, i) => `<figure class="z pz-zone pz-pq" data-z="${i ? 'B' : 'C'}" data-mpanes="1" style="grid-area:${i ? 'R' : 'Q'}"><p class="pz-stars" aria-label="5 out of 5 stars">★★★★★</p><blockquote class="pz-serif pz-q">${esc(q.q)}</blockquote><figcaption class="pz-small"><b>${esc(q.name)}</b> · ${esc(q.role)}</figcaption></figure>`).join('')}</div>`,
+    `<div class="pc" data-c="G" data-keep="1" style="grid-area:W" id="writing"><h2 class="pz-serif pz-it pz-h2">Published articles</h2><div class="pz-cols">${groups.map((g, i) => `<div class="pz-col" data-g="${i}">${g.items.map((a) => `<a class="pz-art" href="${esc(a.href)}" ${ext}>${esc(a.t)} <span aria-hidden="true">↗</span></a>`).join('')}</div>`).join('')}</div></div>`,
     `<div class="pc" data-c="Y" data-keep="1" style="grid-area:X" id="experience"><div class="pz-head"><h2 class="pz-serif pz-it pz-h2">Experience</h2><a class="pz-link" href="${esc(expLink)}">Full background ↗</a></div>
       ${exp.map((e) => `<div class="pz-exp"><p class="pz-exp__top"><b class="pz-serif">${esc(e.co)}</b><b>${esc(e.when)}</b></p><p class="pz-exp__title">${esc(e.title)}</p><p class="pz-exp__desc">${esc(e.desc)}</p></div>`).join('')}</div>`,
     `<div class="pc" data-c="B" data-keep="1" style="grid-area:D" id="education"><h3 class="pz-serif pz-it pz-edu__h">Education &amp; recognition</h3>${edu.map((e) => `<p class="pz-edu__dt">${esc(e.dt)}</p><p class="pz-edu__dd">${esc(e.dd)}</p>`).join('')}</div>`,
-    ...recs.slice(0, 2).map((r, i) => `<figure class="pc pz-rec" data-c="${i ? 'R' : 'B'}" style="grid-area:${i ? 'L' : 'K'}"${i ? '' : ' id="recommendations"'}>${i ? '' : '<h2 class="pz-serif pz-it pz-h2">From colleagues</h2>'}<blockquote class="pz-serif pz-rec__q">“${esc(r.q)}”</blockquote><figcaption class="pz-small"><b>${esc(r.name)}</b> · ${esc(r.role)}</figcaption><a class="pz-link" href="${recUrl}" ${ext}>Read recommendation ↗</a></figure>`),
+    ...recs.slice(0, 2).map((r, i) => `<figure class="pc pz-rec" data-c="${i ? 'R' : 'B'}" data-mpanes="1" style="grid-area:${i ? 'L' : 'K'}"${i ? '' : ' id="recommendations"'}>${i ? '' : '<h2 class="pz-serif pz-it pz-h2">From colleagues</h2>'}<blockquote class="pz-serif pz-rec__q">“${esc(r.q)}”</blockquote><figcaption class="pz-small"><b>${esc(r.name)}</b> · ${esc(r.role)}</figcaption><a class="pz-link" href="${recUrl}" ${ext}>Read recommendation ↗</a></figure>`),
     `<div class="pc" data-c="G" data-panes="1" data-alt="C" style="grid-area:V" id="open-source"><h2 class="pz-serif pz-it pz-fv__h"><img class="pz-fv__logo" src="https://fievel.ai/assets/fievel-logo.png" alt="" width="56" height="56">Fievel</h2><p class="pz-fv__p">${esc(hcsPs[0]?.textContent.trim())}</p><p><a class="pz-btn" href="${esc(hcsLinks[0] || 'https://fievel.ai/')}" ${ext}>Visit fievel.ai ↗</a><a class="pz-btn pz-btn--light" href="${esc(hcsLinks[1] || '#')}" ${ext}>View on GitHub</a></p></div>`,
-    `<div class="pc pz-fvfacts" data-c="Y" style="grid-area:S"><dl><div><dt>6 skills</dt><dd>in one plugin</dd></div><div><dt>7-stage workflow</dt><dd>and a local CLI that checks it</dd></div><div><dt>MCP server</dt><dd>Local in Claude Code, hosted in Codex</dd></div><div><dt>Works in</dt><dd>Claude Code, Codex, and GitHub Copilot</dd></div></dl></div>`,
+    `<div class="pc pz-fvfacts" data-c="Y" data-mpanes="1" style="grid-area:S"><dl><div><dt>6 skills</dt><dd>in one plugin</dd></div><div><dt>7-stage workflow</dt><dd>and a local CLI that checks it</dd></div><div><dt>MCP server</dt><dd>Local in Claude Code, hosted in Codex</dd></div><div><dt>Works in</dt><dd>Claude Code, Codex, and GitHub Copilot</dd></div></dl></div>`,
     `<div class="pc" data-c="R" data-alt="B" style="grid-area:Z" id="contact"><h2 class="pz-serif pz-it pz-cta__h">Let’s build something useful.</h2><p class="pz-sub">${esc(contactP)}</p><p><a class="pz-btn pz-btn--y" href="${esc(mail)}">Email me</a><a class="pz-btn pz-btn--light" href="${esc(li)}" ${ext}>Connect on LinkedIn</a></p></div>`,
   ];
 
@@ -135,12 +135,12 @@ function draw(comp) {
       parts.sort((u, v) => area(v) - area(u));
       for (let tries = 0; tries < 800; tries++) {
         const big = parts[0], ce = cen(big), steep = sd || r() < 0.5, t = steep ? Math.PI / 2 + (r() - 0.5) * 1.0 : (r() - 0.5) * 0.6;
-        const o = [ce[0] + (r() - 0.5) * 800 * k, ce[1] + (r() - 0.5) * 400];
+        const ys = big.map((q) => q[1]), o = [ce[0] + (r() - 0.5) * 800 * k, ce[1] + (r() - 0.5) * (innerWidth <= 900 ? Math.max(400, Math.max(...ys) - Math.min(...ys)) : 400)];
         const [A, B, seg] = cut(big, o, t);
         if (A.length < 3 || B.length < 3 || seg.length !== 2) continue;
         const small = Math.min(area(A), area(B)) === area(A) ? A : B;
         // no thin slivers: the smaller pane must be a real shape, not a strip
-        if (area(small) < area(big) * 0.14 || (2 * area(small)) / perim(small) < minT) continue;
+        if (area(small) < area(big) * (innerWidth <= 900 ? 0.03 : 0.14) || (2 * area(small)) / perim(small) < minT) continue;
         if (boxes.some((bx) => segHits(seg[0], seg[1], bx))) continue;
         if (keep) { const ctr = boxes.map((bx) => [(bx[0] + bx[2]) / 2, (bx[1] + bx[3]) / 2]); if (!ctr.every((q) => inside(A, q)) && !ctr.every((q) => inside(B, q))) continue; }
         parts.shift(); parts.push(A, B); break;
@@ -186,7 +186,7 @@ function draw(comp) {
       if (!ok) dx = 0; ch.style.transform = 'translateX(' + -dx + 'px) rotate(-2deg)'; }
     const boxes = textBoxes(p.el);
     const zs = [...p.el.querySelectorAll('.z')].map((e) => { const q = e.getBoundingClientRect(); return { el: e, c: e.dataset.z, x0: q.left - cr.left, y0: q.top - cr.top, x1: q.right - cr.left, y1: q.bottom - cr.top }; });
-    if (zs.length) zoneSplit(P, zs, boxes).forEach(([q, z]) => { const zp = z && z.el.dataset.panes;
+    if (zs.length) zoneSplit(P, zs, boxes).forEach(([q, z]) => { const zp = z && (z.el.dataset.panes || (innerWidth <= 900 && z.el.dataset.mpanes));
       if (!zp) return all.push({ idx, q, c: z ? z.c : p.el.dataset.c, img: z && z.el.dataset.img });
       const zb = boxes.filter((bx) => bx[0] >= z.x0 - 4 && bx[2] <= z.x1 + 4 && bx[1] >= z.y0 - 4 && bx[3] <= z.y1 + 4);
       panes(q, z.c, +zp, zb, true, z.el.dataset.alt, +z.el.dataset.thick || 46).forEach((o) => all.push({ idx, ...o })); });
