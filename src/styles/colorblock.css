@@ -812,7 +812,6 @@ html body.cb-home .pz .pz-note__h1 { font: italic 900 64px/1 var(--serif) !impor
 html body.cb-home .pz .pz-note__p { font: 500 21px/1.45 var(--sans); margin-top: 18px; max-width: 470px; }
 html body.cb-home .pz .pz-note__links { margin-top: 24px !important; gap: 0; } html body.cb-home .pz .pz-btn--light { background: #fff; color: var(--K) !important; }
 html body.cb-home .pz .pz-group--V { grid-template-columns: 1fr 1fr; grid-template-areas: 'V V' 'S U'; }
-html body.cb-home .pz[data-built="b"] .pz-group--V { grid-template-columns: 5fr 7fr; grid-template-areas: 'V S' 'V U'; }
 html body.cb-home .pz .pz-agent { padding: 30px 40px 26px; cursor: pointer; outline: none; }
 html body.cb-home .pz .pz-agent__row { display: flex; align-items: center; gap: 40px; }
 html body.cb-home .pz .pz-agent__row--cmd { margin-top: 30px; gap: 48px; }
@@ -1156,12 +1155,8 @@ html body.cb-home .pz .pz-built__p { font-size: 16px; line-height: 1.5; margin: 
 html body.cb-home .pz .pz-built__facts { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px !important; }
 html body.cb-home .pz .pz-built__facts span { font: 800 13px var(--sans); letter-spacing: .02em; padding: 5px 10px; border: 2px solid var(--K); background: #fff; color: var(--K); }
 html body.cb-home .pz .pz-built > p:last-child { margin-top: auto !important; }
-html body.cb-home .pz[data-built="b"] .pz-built__intro { padding: 96px 64px 84px 84px; }
-html body.cb-home .pz[data-built="b"] .pz-built__intro .pz-h2 { font-size: 56px; line-height: 1; }
-html body.cb-home .pz[data-built="b"] .pz-built { padding: 70px 84px 70px 70px; }
 @media (max-width: 900px) {
   html body.cb-home .pz .pz-built__intro { padding: 58px 34px 34px !important; }
-  html body.cb-home .pz[data-built="b"] .pz-built__intro .pz-h2 { font-size: 40px; }
   html body.cb-home .pz .pz-built__h { font-size: 30px; gap: 12px; }
   html body.cb-home .pz .pz-built__h .pz-fv__logo, html body.cb-home .pz .pz-cdr__logo { width: 44px; height: 44px; }
   html body.cb-home .pz .pz-cdr__logo svg { width: 28px; height: 28px; }
