@@ -1091,6 +1091,9 @@ html body.cb .nav__toggle { display: none; }
 /* phones: leave room under the words in every piece so each one gets its own wedge, like on desktop */
 @media (max-width: 900px) {
   html body.cb-home .pz .pc:not(.pz-group):not(.pz-agent) { padding-bottom: 120px !important; }
+  /* vary where the wedge lands: top band, bottom band, or the right-hand corner */
+  html body.cb-home .pz > .pc:not(.pz-group):not(.pz-agent)[data-mw="t"] { padding-top: 130px !important; padding-bottom: 56px !important; }
+  html body.cb-home .pz > .pc:not(.pz-group):not(.pz-agent)[data-mw="r"] { padding-bottom: 96px !important; padding-right: 96px !important; }
   html body.cb-home .pz .pz-group--prog > .pz-zone, html body.cb-home .pz .pz-group--K > .pz-zone, html body.cb-home .pz .pz-group--V > .pz-zone { padding-bottom: 120px !important; }
 }
 /* "Show all 8 articles": the list opens as a glass panel in the site's style */
