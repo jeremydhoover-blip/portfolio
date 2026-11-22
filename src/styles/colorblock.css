@@ -1114,3 +1114,11 @@ html body.cb-home .articles-dialog a em { grid-column: 2; font: 700 11px/1 var(-
 /* the glass outlines can reach a few px past the right edge on narrow screens: never let them make the page scroll sideways */
 html:has(> body.cb-home), html body.cb-home { overflow-x: clip; }
 html body.cb-home main, html body.cb-home .footer { overflow-x: clip; }
+/* mobile articles: one tidy list with dividers, the "Show all" button at the end */
+@media (max-width: 900px) {
+  html body.cb-home .pz #writing .pz-cols { display: flex; flex-direction: column; gap: 0; margin-top: 22px; }
+  html body.cb-home .pz #writing .pz-col { display: contents; }
+  html body.cb-home .pz #writing .pz-art { margin: 0; padding: 13px 0; border-top: 2px solid rgba(20,20,20,.28); font-size: 18px; }
+  html body.cb-home .pz #writing .pz-art:last-of-type { border-bottom: 2px solid rgba(20,20,20,.28); }
+  html body.cb-home .pz #writing .pz-btn[data-dialog] { order: 99; align-self: flex-start; margin-top: 22px; }
+}
