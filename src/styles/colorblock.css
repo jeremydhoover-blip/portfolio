@@ -1162,3 +1162,13 @@ html body.cb-home .pz .pz-built > p:last-child { margin-top: auto !important; }
   html body.cb-home .pz .pz-cdr__logo svg { width: 28px; height: 28px; }
   html body.cb-home .pz .pz-built__lede { font-size: 17px; }
 }
+/* side by side, the two products share rows, so the logos, titles, descriptions, tags and buttons line up across both */
+@media (min-width: 901px) {
+  html body.cb-home .pz .pz-group--V { grid-template-areas: 'V V' 'S U' 'S U' 'S U' 'S U'; }
+  html body.cb-home .pz .pz-built { display: grid; grid-template-rows: subgrid; grid-row: span 4; row-gap: 0; }
+  html body.cb-home .pz .pz-built > * { margin: 0 !important; }
+  html body.cb-home .pz .pz-built__h { align-self: center; }
+  html body.cb-home .pz .pz-built__p { margin-top: 18px !important; }
+  html body.cb-home .pz .pz-built__facts { margin-top: 18px !important; align-self: start; }
+  html body.cb-home .pz .pz-built > p:last-child { margin-top: 24px !important; align-self: end; }
+}
