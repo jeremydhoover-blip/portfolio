@@ -789,7 +789,7 @@ html body.cb-home .pz .pz-rec__q { font-size: 24px; line-height: 1.22; font-weig
 html body.cb-home .pz .pz-rec figcaption { margin: 16px 0 8px !important; }
 html body.cb-home .pz .pz-rec[style*="grid-area:L"] { padding: 150px 84px 78px 70px; }
 html body.cb-home .pz .pz-fv__h { font-size: 56px; line-height: 1; } html body.cb-home .pz .pz-fv__p { font-size: 17px; line-height: 1.5; margin: 16px 0 22px !important; }
-html body.cb-home .pz [style*="grid-area:S"] { padding: 76px 70px 70px 56px; }
+html body.cb-home .pz .pz-fvfacts[style*="grid-area:S"] { padding: 76px 70px 70px 56px; }
 html body.cb-home .pz .pz-fvfacts dl { margin: 0; display: grid; gap: 18px; }
 html body.cb-home .pz .pz-fvfacts dt { font: 900 22px/1.1 var(--serif); margin-bottom: 4px; }
 html body.cb-home .pz .pz-fvfacts dd { margin: 0; font-size: 15px; line-height: 1.45; }
@@ -811,7 +811,7 @@ html body.cb-home .pz .pz-note__k { font: italic 900 20px var(--serif); margin-b
 html body.cb-home .pz .pz-note__h1 { font: italic 900 64px/1 var(--serif) !important; letter-spacing: -.03em !important; }
 html body.cb-home .pz .pz-note__p { font: 500 21px/1.45 var(--sans); margin-top: 18px; max-width: 470px; }
 html body.cb-home .pz .pz-note__links { margin-top: 24px !important; gap: 0; } html body.cb-home .pz .pz-btn--light { background: #fff; color: var(--K) !important; }
-html body.cb-home .pz .pz-group--V { grid-template-columns: 8fr 4fr; grid-template-areas: 'V S'; }
+html body.cb-home .pz .pz-group--V { grid-template-columns: 1fr 1fr; grid-template-areas: 'V V' 'S U'; }
 html body.cb-home .pz .pz-agent { padding: 30px 40px 26px; cursor: pointer; outline: none; }
 html body.cb-home .pz .pz-agent__row { display: flex; align-items: center; gap: 40px; }
 html body.cb-home .pz .pz-agent__row--cmd { margin-top: 30px; gap: 48px; }
@@ -849,7 +849,7 @@ html body.cb-home .pz .pz-agent:focus-visible .pz-agent__copy span { outline: 3p
   html body.cb-home .pz .pz-group { grid-template-columns: minmax(0, 1fr) !important; }
   html body.cb-home .pz .pz-group--prog { grid-template-areas: 'P' 'Q' 'R' !important; } html body.cb-home .pz .pz-group--X { grid-template-areas: 'X' 'D' !important; }
   html body.cb-home .pz .pz-note { padding: 48px 34px 58px !important; } html body.cb-home .pz .pz-note__h1 { font-size: 48px !important; } html body.cb-home .pz .pz-note__p { font-size: 18px; }
-  html body.cb-home .pz .pz-group--K { grid-template-areas: 'K' 'L' !important; } html body.cb-home .pz .pz-group--V { grid-template-areas: 'V' 'S' !important; }
+  html body.cb-home .pz .pz-group--K { grid-template-areas: 'K' 'L' !important; } html body.cb-home .pz .pz-group--V { grid-template-areas: 'V' 'S' 'U' !important; }
   html body.cb-home .pz .pz-zone { padding: 58px 34px !important; }
   html body.cb-home .pz .pc:not(.pz-group) { padding: 58px 34px !important; }
   html body.cb-home .pz .pz-feat__h { font-size: 36px; } html body.cb-home .pz .pz-side__h, html body.cb-home .pz .pz-case h3 { font-size: 26px; }
@@ -1142,3 +1142,33 @@ html body.cb-home .pz .pz-agent__key span { display: inline-block; min-width: 2.
 html body.cb-home .pz .pz-agent__copy { flex: none; width: 260px; }
 @media (max-width: 900px) { html body.cb-home .pz .pz-agent__copy { width: auto; } }
 html body.cb-home .pz .pz-unit.done { filter: none; }
+
+/* Things I've built: Fievel and the Content Design Report in one piece */
+html body.cb-home .pz .pz-built__intro { padding: 84px 84px 40px; }
+html body.cb-home .pz .pz-built__lede { font: 500 19px/1.45 var(--sans); margin-top: 14px !important; max-width: 560px; }
+html body.cb-home .pz .pz-built { padding: 64px 84px 84px; display: flex; flex-direction: column; }
+html body.cb-home .pz .pz-built__h { font-size: 40px; line-height: 1.05; display: flex; align-items: center; gap: 16px; }
+html body.cb-home .pz .pz-built__h .pz-fv__logo { margin: 0; flex: none; }
+html body.cb-home .pz .pz-cdr__logo { width: 56px; height: 56px; border-radius: 12px; border: 3px solid var(--K); background: #fff; display: grid; place-items: center; flex: none; }
+html body.cb-home .pz .pz-cdr__logo svg { width: 36px; height: 36px; }
+html body.cb-home .pz .pz-built__p { font-size: 16px; line-height: 1.5; margin: 18px 0 18px !important; max-width: 520px; }
+html body.cb-home .pz .pz-built__facts { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px !important; }
+html body.cb-home .pz .pz-built__facts span { font: 800 13px var(--sans); letter-spacing: .02em; padding: 5px 10px; border: 2px solid var(--K); background: #fff; color: var(--K); }
+html body.cb-home .pz .pz-built > p:last-child { margin-top: auto !important; }
+@media (max-width: 900px) {
+  html body.cb-home .pz .pz-built__intro { padding: 58px 34px 34px !important; }
+  html body.cb-home .pz .pz-built__h { font-size: 30px; gap: 12px; }
+  html body.cb-home .pz .pz-built__h .pz-fv__logo, html body.cb-home .pz .pz-cdr__logo { width: 44px; height: 44px; }
+  html body.cb-home .pz .pz-cdr__logo svg { width: 28px; height: 28px; }
+  html body.cb-home .pz .pz-built__lede { font-size: 17px; }
+}
+/* side by side, the two products share rows, so the logos, titles, descriptions, tags and buttons line up across both */
+@media (min-width: 901px) {
+  html body.cb-home .pz .pz-group--V { grid-template-areas: 'V V' 'S U' 'S U' 'S U' 'S U'; }
+  html body.cb-home .pz .pz-built { display: grid; grid-template-rows: subgrid; grid-row: span 4; row-gap: 0; }
+  html body.cb-home .pz .pz-built > * { margin: 0 !important; }
+  html body.cb-home .pz .pz-built__h { align-self: center; }
+  html body.cb-home .pz .pz-built__p { margin-top: 18px !important; }
+  html body.cb-home .pz .pz-built__facts { margin-top: 18px !important; align-self: start; }
+  html body.cb-home .pz .pz-built > p:last-child { margin-top: 24px !important; align-self: end; }
+}
