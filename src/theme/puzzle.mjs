@@ -42,7 +42,7 @@ export function puzzleHome(document, { prompt, icons, name, pitch }) {
     `<div class="pc pz-note" data-mw="r" data-c="Y" data-keep="1" data-alt="C" style="grid-area:N"><h1 class="pz-serif pz-note__h1">Hi, I’m Jeremy.</h1><p class="pz-note__p">${esc(name.replace(/\.$/, '') + ': ' + pitch.charAt(0).toLowerCase() + pitch.slice(1))}</p><p class="pz-note__links"><a class="pz-btn" href="#projects">See the work ↓</a><a class="pz-btn pz-btn--light" href="/about">About me</a></p></div>`,
     `<div class="pc pz-agent" data-c="R" data-calm="1" style="grid-area:A" role="button" tabindex="0" data-pz-copy="${esc(prompt)}" aria-label="Copy the Jeremy Hoover portfolio skill prompt for your AI agent">
       <div class="pz-agent__row"><div class="z pz-agent__tag" data-z="Y">Give this to<br>your AI agent</div><div class="z pz-agent__icons" data-z="B"><span class="pz-agent__works">Works with</span>${icons}</div></div>
-      <div class="pz-agent__row pz-agent__row--cmd"><div class="z pz-agent__cmd" data-z="C"><code class="pz-agent__code"><span class="pz-agent__dollar" aria-hidden="true">$</span> <span class="pz-agent__line">${esc(prompt.replace('https://', ''))}</span></code></div><div class="z pz-agent__copy" data-z="R"><i class="pz-agent__key"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M8 8h11v13H8zM5 3h11v3H8a3 3 0 0 0-3 3v9H5z" fill="currentColor"/></svg><span>Copy prompt</span></i></div></div>
+      <div class="pz-agent__row pz-agent__row--cmd"><div class="z pz-agent__cmd" data-z="C"><code class="pz-agent__code"><span class="pz-agent__dollar" aria-hidden="true">$</span> <span class="pz-agent__line">${esc(prompt.replace('https://', ''))}</span></code></div><div class="z pz-agent__copy" data-z="R"><i class="pz-agent__key"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M8 8h11v13H8zM5 3h11v3H8a3 3 0 0 0-3 3v9H5z" fill="currentColor"/></svg><span>Copy</span></i></div></div>
     </div>`,
     `<div class="pc pz-title" data-mw="r" data-c="B" style="grid-area:T" id="projects"><h2 class="pz-serif pz-it pz-h2">More case studies</h2></div>`,
     ...rest.slice(0, 4).map((c, i) => `<a class="pc pz-case" data-mw="${['t', 'b', 'r', 't'][i]}" data-c="${'RYGB'[i]}" style="grid-area:m${i + 1}" href="${esc(c.href)}">${chip}<h3 class="pz-serif">${esc(c.title)}</h3><p class="pz-sub">${c.point}</p>${read('Read case study')}</a>`),
@@ -238,7 +238,7 @@ document.querySelectorAll('.pz-agent').forEach((u) => {
   const copy = async () => { const label = u.querySelector('.pz-agent__copy span');
     try { await navigator.clipboard.writeText(u.dataset.pzCopy); } catch { return; }
     const e = g(); e && e.classList.add('done'); label.textContent = 'Copied!';
-    setTimeout(() => { e && e.classList.remove('done'); label.textContent = 'Copy prompt'; }, 1600); };
+    setTimeout(() => { e && e.classList.remove('done'); label.textContent = 'Copy'; }, 1600); };
   u.addEventListener('click', copy); u.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); copy(); } });
 });
 })();`;
