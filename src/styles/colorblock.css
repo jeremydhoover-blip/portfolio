@@ -1064,3 +1064,10 @@ html body.pz-casepage .pz .pza-exp__i .pzc-secbody { max-width: 82%; }
 /* Teaching: program title leads, link sits after the topics */
 html body.cb-home .pz .pz-prog__h { font-size: 44px; line-height: 1.04; margin: 0 0 12px; }
 html body.cb-home .pz .pz-prog__more { margin-top: 30px !important; }
+/* Teaching topics: tiny glass shards in the site colors, each with a black edge */
+html body.cb-home .pz .pz-tags { gap: 10px; }
+html body.cb-home .pz .pz-tag { position: relative; isolation: isolate; border: 0; background: var(--K); padding: 9px 15px; font: 700 14px var(--sans); color: var(--K); clip-path: polygon(3% 0, 100% 6%, 96% 100%, 0 92%); }
+html body.cb-home .pz .pz-tag::before { content: ''; position: absolute; inset: 3px; z-index: -1; clip-path: polygon(3% 0, 100% 6%, 96% 100%, 0 92%); }
+html body.cb-home .pz .pz-tag:nth-child(4n+1)::before { background: var(--B); } html body.cb-home .pz .pz-tag:nth-child(4n+2)::before { background: var(--R); }
+html body.cb-home .pz .pz-tag:nth-child(4n+3)::before { background: var(--G); } html body.cb-home .pz .pz-tag:nth-child(4n)::before { background: var(--C); }
+html body.cb-home .pz .pz-tag:nth-child(4n+1), html body.cb-home .pz .pz-tag:nth-child(4n+2) { color: #fff; }
