@@ -1071,3 +1071,20 @@ html body.cb-home .pz .pz-tag::before { content: ''; position: absolute; inset: 
 html body.cb-home .pz .pz-tag:nth-child(4n+1)::before { background: var(--B); } html body.cb-home .pz .pz-tag:nth-child(4n+2)::before { background: var(--R); }
 html body.cb-home .pz .pz-tag:nth-child(4n+3)::before { background: var(--G); } html body.cb-home .pz .pz-tag:nth-child(4n)::before { background: var(--C); }
 html body.cb-home .pz .pz-tag:nth-child(4n+1), html body.cb-home .pz .pz-tag:nth-child(4n+2) { color: #fff; }
+/* Phone menu: a yellow glass-shard hamburger opens the links as a full-width list */
+html body.cb .nav__toggle { display: none; }
+@media (max-width: 600px) {
+  html body.cb .nav__inner { flex-wrap: wrap !important; position: relative; }
+  html body.cb .nav__toggle { display: grid; place-items: center; position: absolute; right: 10px; top: 18px; width: 48px; height: 48px; padding: 0; border: 0; background: var(--Y); cursor: pointer; clip-path: polygon(6% 0, 100% 5%, 94% 100%, 0 94%); }
+  html body.cb .nav__toggle span, html body.cb .nav__toggle span::before, html body.cb .nav__toggle span::after { display: block; width: 22px; height: 3px; background: var(--K); transition: transform .2s, opacity .2s; }
+  html body.cb .nav__toggle span { position: relative; }
+  html body.cb .nav__toggle span::before, html body.cb .nav__toggle span::after { content: ''; position: absolute; left: 0; }
+  html body.cb .nav__toggle span::before { top: -7px; } html body.cb .nav__toggle span::after { top: 7px; }
+  html body.cb .nav--open .nav__toggle span { background: transparent; }
+  html body.cb .nav--open .nav__toggle span::before { transform: translateY(7px) rotate(45deg); } html body.cb .nav--open .nav__toggle span::after { transform: translateY(-7px) rotate(-45deg); }
+  html body.cb .nav__logo { padding-right: 64px; }
+  html body.cb .nav__links { display: none !important; }
+  html body.cb .nav--open .nav__links { display: flex !important; flex-direction: column; align-items: stretch !important; flex-basis: 100%; width: 100%; gap: 0 !important; margin: 10px 0 14px !important; padding: 0 !important; text-align: left; }
+  html body.cb .nav--open .nav__links li { display: block !important; width: 100%; border-top: 2px solid #333; }
+  html body.cb .nav--open .nav__links a { display: block; text-align: left; padding: 14px 4px; font-size: 1.25rem !important; font-weight: 700 !important; }
+}
