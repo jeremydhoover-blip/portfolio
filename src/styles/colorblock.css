@@ -834,7 +834,7 @@ html body.cb-home .pz .pz-unit { transition: transform .18s ease-out, filter .18
 html body.cb-home .pz .pz-unit .lift { opacity: 0; transition: opacity .18s; }
 html body.cb-home .pz .pz-unit.on { transform: scale(1.025); filter: brightness(1.08) saturate(1.08); } html body.cb-home .pz .pz-unit.on .lift { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { html body.cb-home .pz > .pc.on, html body.cb-home .pz .pz-unit.on { transform: none; } }
-html body.cb-home .pz .pz-unit polygon { transition: fill .2s; } html body.cb-home .pz .pz-unit.done polygon[fill="#f6eedf"] { fill: var(--Y); }
+html body.cb-home .pz .pz-unit polygon { transition: fill .2s; }
 html body.cb-home .pz .pz-agent:focus-visible .pz-agent__copy span { outline: 3px solid #fff; outline-offset: 6px; }
 /* between desktop and phone: same puzzle, smaller type and padding */
 @media (max-width: 1279px) {
