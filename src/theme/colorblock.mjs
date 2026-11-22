@@ -74,7 +74,7 @@ if (page === 'home') {
   // reorder: projects, program, writing, experience, recommendations, hcs, contact
   [G, W, E, R, hcs, C].forEach(s => s && main.appendChild(s));
   // contact: colorful split
-  if (C) { const h = $('h2', C); h.textContent = 'Let’s build something useful.'; C.classList.add('cbp', 'cbp--contact'); C.prepend(bg(el('span', 'cb-contact-art'), 'contact')); }
+  if (C) { const h = $('h2', C); h.textContent = 'Let’s build something together'; C.classList.add('cbp', 'cbp--contact'); C.prepend(bg(el('span', 'cb-contact-art'), 'contact')); }
 }
 
 if (page === 'case') {
@@ -211,7 +211,7 @@ if (page === 'about') {
     if (edu) { const card = el('aside', 'cb-edu-card', `<h3>${edu[0]}</h3>`); const bodyE = el('div', 'cb-edu-card__body'); edu[1].forEach(x => bodyE.appendChild(x)); card.appendChild(bodyE); grid.appendChild(card); }
     out.push(panel('cbp--exp', band(exp[0], 'blue', 'strip3'), inner(grid))); }
   const cta = $('.cta-row', body);
-  const ctaP = el('section', 'cbp cbp--contact cbp--contact-about', `<div class="wrap"><div class="contact__inner"><div><h2>Let’s build something useful.</h2><p>Questions about content design, AI systems or developer tools are always welcome.</p></div><div class="contact__cta"></div></div></div>`); if (cta) [...cta.children].forEach(c => $('.contact__cta', ctaP).appendChild(c)); ctaP.prepend(bg(el('span', 'cb-contact-art'), 'contact'));
+  const ctaP = el('section', 'cbp cbp--contact cbp--contact-about', `<div class="wrap"><div class="contact__inner"><div><h2>Let’s build something together</h2><p>Questions about content design, AI systems or developer tools are always welcome.</p></div><div class="contact__cta"></div></div></div>`); if (cta) [...cta.children].forEach(c => $('.contact__cta', ctaP).appendChild(c)); ctaP.prepend(bg(el('span', 'cb-contact-art'), 'contact'));
   out.push(ctaP);
   const wrap = el('div', 'cb-case'); out.forEach(p => wrap.appendChild(p)); $('.about-page').replaceWith(wrap);
 }

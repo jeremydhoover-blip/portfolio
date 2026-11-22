@@ -146,7 +146,7 @@ export function puzzleAbout(document) {
   if (exp.length) P.push(piece('pza-exp__h', 'R', 4, `<h2 class="pz-serif pz-it pzc-h2">Experience</h2>`, ' data-keep="1" data-thick="60"'));
   exp.forEach((it, i) => P.push(piece('pza-exp__i', EC[i % 6], ES[i] || 6, body2(item(it)), W)));
   if (edu.length) P.push(piece('pza-exp__i pza-edu', 'R', (exp.length - 1) % 2 ? 6 : 12, body2(`<h2 class="pz-serif pz-it pzc-h2">Education</h2>${edu.map(item).join('')}`), W));
-  P.push(piece('pzc-sec2 pzc-sec2--t pza-cta', 'Y', 12, body2(`<h2 class="pz-serif pz-it pzc-h2">Let’s build something useful.</h2><p class="pza-p">Questions about content design, AI systems or developer tools are always welcome.</p><p class="pzc-btns"><a class="pz-btn" href="${esc(mail)}">Get in touch</a></p>`), ' data-keep="1" data-thick="80" data-steep="1"'));
+  P.push(piece('pzc-sec2 pzc-sec2--t pza-cta', 'Y', 12, body2(`<h2 class="pz-serif pz-it pzc-h2">Let’s build something together</h2><p class="pza-p">Questions about content design, AI systems or developer tools are always welcome.</p><p class="pzc-btns"><a class="pz-btn" href="${esc(mail)}">Get in touch</a></p>`), ' data-keep="1" data-thick="80" data-steep="1"'));
   const pz = document.createElement('div');
   pz.className = 'pz pz--case pz--about'; pz.dataset.seed = '5';
   pz.innerHTML = P.join('\n');
