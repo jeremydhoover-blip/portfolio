@@ -1074,8 +1074,8 @@ html body.cb-home .pz .pz-tag:nth-child(4n+1), html body.cb-home .pz .pz-tag:nth
 /* Phone menu: a yellow glass-shard hamburger opens the links as a full-width list */
 html body.cb .nav__toggle { display: none; }
 @media (max-width: 600px) {
-  html body.cb .nav__inner { flex-wrap: wrap !important; position: relative; }
-  html body.cb .nav__toggle { display: grid; place-items: center; position: absolute; right: 10px; top: 18px; width: 48px; height: 48px; padding: 0; border: 0; background: var(--Y); cursor: pointer; clip-path: polygon(6% 0, 100% 5%, 94% 100%, 0 94%); }
+  html body.cb .nav__inner { flex-wrap: wrap !important; position: static !important; }
+  html body.cb .nav__toggle { display: grid; place-items: center; position: absolute; right: 16px; top: 18px; width: 48px; height: 48px; padding: 0; border: 0; background: var(--Y); cursor: pointer; clip-path: polygon(6% 0, 100% 5%, 94% 100%, 0 94%); }
   html body.cb .nav__toggle span, html body.cb .nav__toggle span::before, html body.cb .nav__toggle span::after { display: block; width: 22px; height: 3px; background: var(--K); transition: transform .2s, opacity .2s; }
   html body.cb .nav__toggle span { position: relative; }
   html body.cb .nav__toggle span::before, html body.cb .nav__toggle span::after { content: ''; position: absolute; left: 0; }

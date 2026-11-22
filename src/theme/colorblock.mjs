@@ -19,7 +19,7 @@ const logo = $('.nav__logo');
   if (logo && !$('.cb-tag')) {
     const words = el('span', 'cb-logo__words');
     words.appendChild($('.nav__wordmark', logo));
-    words.appendChild(el('span', 'cb-tag', 'Content design / AI systems / Developer experience'));
+    words.appendChild(el('span', 'cb-tag', 'Content design · AI systems · Developer experience'));
     // the photo is set into a glass pane, with three small colored panes leaded around it
     logo.innerHTML = `<svg class="cb-logo__photo" viewBox="0 0 104 92" width="104" height="92" aria-hidden="true" focusable="false"><defs><clipPath id="cb-ph"><path d="M7 4L80 2L85 88L3 86Z"/></clipPath></defs>
       <g stroke="#141414" stroke-width="3.5" stroke-linejoin="round"><path d="M80 2L101 7L99 47L82.6 42.5Z" fill="#f4c21b"/><path d="M82.6 42.5L99 47L97 89L85 88Z" fill="#e1412e"/>
