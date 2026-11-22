@@ -10,7 +10,7 @@ export function puzzleHome(document, { prompt, icons, name, pitch }) {
   const txt = (s, r) => ($(s, r)?.textContent || '').trim();
   const main = $('main');
   const cards = $$('.projects__grid .project');
-  const card = (c) => ({ href: c.getAttribute('href'), title: txt('h3', c), point: $('.project__points li', c)?.innerHTML.trim() || '' });
+  const card = (c) => ({ href: c.getAttribute('href'), title: txt('h3', c), point: ($('.project__points li', c)?.innerHTML.trim() || '').replace(/<\/?(strong|b)>/g, '') });
   const [c0, c1, ...rest] = cards.map(card);
   const hcs = $('.hcs'), hcsPs = $$('.hcs__content > p', hcs);
   const hcsLinks = $$('.hcs__links a', hcs).map((a) => a.getAttribute('href'));
