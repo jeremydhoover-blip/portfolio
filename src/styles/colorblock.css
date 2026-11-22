@@ -1108,3 +1108,5 @@ html body.cb-home .articles-dialog a { display: grid !important; grid-template-c
 html body.cb-home .articles-dialog a:hover span { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; }
 html body.cb-home .articles-dialog a svg, html body.cb-home .articles-dialog a img { width: 20px; height: 20px; margin-top: 2px; color: var(--B); }
 html body.cb-home .articles-dialog a em { grid-column: 2; font: 700 11px/1 var(--sans); font-style: normal; letter-spacing: .12em; text-transform: uppercase; color: #555; margin-top: 6px; }
+/* the glass outlines can reach a few px past the right edge on narrow screens: never let them make the page scroll sideways */
+html:has(> body.cb-home), html body.cb-home { overflow-x: clip; }
