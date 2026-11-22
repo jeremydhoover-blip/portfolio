@@ -1110,3 +1110,4 @@ html body.cb-home .articles-dialog a svg, html body.cb-home .articles-dialog a i
 html body.cb-home .articles-dialog a em { grid-column: 2; font: 700 11px/1 var(--sans); font-style: normal; letter-spacing: .12em; text-transform: uppercase; color: #555; margin-top: 6px; }
 /* the glass outlines can reach a few px past the right edge on narrow screens: never let them make the page scroll sideways */
 html:has(> body.cb-home), html body.cb-home { overflow-x: clip; }
+html body.cb-home main, html body.cb-home .footer { overflow-x: clip; }
