@@ -1,6 +1,6 @@
 # Jeremy Hoover
 
-> Hi, I’m Jeremy. I design AI systems and developer tools: content, AI workflows, and product experiences that connect design, product, and engineering.
+> Hi, I’m Jeremy I design AI systems and developer tools: content, AI workflows, and product experiences that connect design, product, and engineering.
 
 Senior Content Designer at Microsoft working on AI systems and developer experience. This file summarizes his portfolio for AI agents and recruiters. Every case study links to the full page.
 
@@ -98,11 +98,11 @@ Outcomes:
 - 8 studies: Historical research and source checks
 - 4 skills: For research, writing, UX copy, and video scripts
 
-### I pitched Wix’s first accessibility checker and helped turn it into a product
+### I took Wix’s first accessibility checker from idea to product
 
 URL: https://jeremyhoover.ai/work/wix-accessibility/
 
-Wix had no accessibility tool. I took an idea people were talking about, built it on the editor’s existing SEO checker, and led a hackathon team to a working demo. That demo got us in front of the CEO, which led to funding, a dedicated product team, and an accessibility checker that shipped inside the Wix editor.
+Wix had no accessibility tool. It was my idea to build one on the editor’s existing SEO checker, and I led a hackathon team to a working demo. That demo got us in front of the CEO, which led to funding, a dedicated product team, and an accessibility checker that shipped inside the Wix editor.
 
 - Role: Concept lead and team lead, then UX writer on the product team
 - Company: Wix.com
