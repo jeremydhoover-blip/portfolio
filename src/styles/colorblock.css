@@ -1061,3 +1061,64 @@ html body.pz-casepage .pz .pza-exp__i .pzc-secbody { max-width: 82%; }
 /* the agent command must never be cut off: shrink it a little on laptops, wrap it on phones */
 @media (max-width: 1279px) and (min-width: 901px) { html body.cb-home .pz .pz-agent__code { font-size: clamp(12px, 1.42vw, 19px); } }
 @media (max-width: 900px) { html body.cb-home .pz .pz-agent__line { white-space: normal !important; overflow: visible; overflow-wrap: anywhere; line-height: 1.5; } }
+/* Teaching: program title leads, link sits after the topics */
+html body.cb-home .pz .pz-prog__h { font-size: 44px; line-height: 1.04; margin: 0 0 12px; }
+html body.cb-home .pz .pz-prog__more { margin-top: 30px !important; }
+/* Teaching topics: tiny glass shards in the site colors, each with a black edge */
+html body.cb-home .pz .pz-tags { gap: 10px; }
+html body.cb-home .pz .pz-tag { position: relative; isolation: isolate; border: 0; background: var(--K); padding: 9px 15px; font: 700 14px var(--sans); color: var(--K); clip-path: polygon(3% 0, 100% 6%, 96% 100%, 0 92%); }
+html body.cb-home .pz .pz-tag::before { content: ''; position: absolute; inset: 3px; z-index: -1; clip-path: polygon(3% 0, 100% 6%, 96% 100%, 0 92%); }
+html body.cb-home .pz .pz-tag:nth-child(4n+1)::before { background: var(--B); } html body.cb-home .pz .pz-tag:nth-child(4n+2)::before { background: var(--R); }
+html body.cb-home .pz .pz-tag:nth-child(4n+3)::before { background: var(--G); } html body.cb-home .pz .pz-tag:nth-child(4n)::before { background: var(--C); }
+html body.cb-home .pz .pz-tag:nth-child(4n+1), html body.cb-home .pz .pz-tag:nth-child(4n+2) { color: #fff; }
+/* Phone menu: a yellow glass-shard hamburger opens the links as a full-width list */
+html body.cb .nav__toggle { display: none; }
+@media (max-width: 600px) {
+  html body.cb .nav__inner { flex-wrap: wrap !important; position: static !important; }
+  html body.cb .nav__toggle { display: grid; place-items: center; position: absolute; right: 16px; top: 18px; width: 48px; height: 48px; padding: 0; border: 0; background: var(--Y); cursor: pointer; clip-path: polygon(6% 0, 100% 5%, 94% 100%, 0 94%); }
+  html body.cb .nav__toggle span, html body.cb .nav__toggle span::before, html body.cb .nav__toggle span::after { display: block; width: 22px; height: 3px; background: var(--K); transition: transform .2s, opacity .2s; }
+  html body.cb .nav__toggle span { position: relative; }
+  html body.cb .nav__toggle span::before, html body.cb .nav__toggle span::after { content: ''; position: absolute; left: 0; }
+  html body.cb .nav__toggle span::before { top: -7px; } html body.cb .nav__toggle span::after { top: 7px; }
+  html body.cb .nav--open .nav__toggle span { background: transparent; }
+  html body.cb .nav--open .nav__toggle span::before { transform: translateY(7px) rotate(45deg); } html body.cb .nav--open .nav__toggle span::after { transform: translateY(-7px) rotate(-45deg); }
+  html body.cb .nav__logo { padding-right: 64px; }
+  html body.cb .nav__links { display: none !important; }
+  html body.cb .nav--open .nav__links { display: flex !important; flex-direction: column; align-items: stretch !important; flex-basis: 100%; width: 100%; gap: 0 !important; margin: 10px 0 14px !important; padding: 0 !important; text-align: left; }
+  html body.cb .nav--open .nav__links li { display: block !important; width: 100%; border-top: 2px solid #333; }
+  html body.cb .nav--open .nav__links a { display: block; text-align: left; padding: 14px 4px; font-size: 1.25rem !important; font-weight: 700 !important; }
+}
+/* phones: leave room under the words in every piece so each one gets its own wedge, like on desktop */
+@media (max-width: 900px) {
+  html body.cb-home .pz .pc:not(.pz-group):not(.pz-agent) { padding-bottom: 120px !important; }
+  /* vary where the wedge lands: top band, bottom band, or the right-hand corner */
+  html body.cb-home .pz > .pc:not(.pz-group):not(.pz-agent)[data-mw="t"] { padding-top: 130px !important; padding-bottom: 56px !important; }
+  html body.cb-home .pz > .pc:not(.pz-group):not(.pz-agent)[data-mw="r"] { padding-bottom: 64px !important; padding-right: 100px !important; }
+  html body.cb-home .pz .pz-group--prog > .pz-zone, html body.cb-home .pz .pz-group--K > .pz-zone, html body.cb-home .pz .pz-group--V > .pz-zone { padding-bottom: 120px !important; }
+}
+/* "Show all 8 articles": the list opens as a glass panel in the site's style */
+html body.cb-home .articles-dialog { border: 4px solid var(--K) !important; border-radius: 0 !important; background: var(--C) !important; box-shadow: 10px 10px 0 var(--K) !important; width: min(560px, calc(100vw - 40px)) !important; color: var(--K) !important; }
+html body.cb-home .articles-dialog::backdrop { background: rgba(20, 20, 20, .72); backdrop-filter: none; }
+html body.cb-home .articles-dialog__head { background: var(--Y) !important; border-bottom: 4px solid var(--K) !important; padding: 16px 16px 16px 22px !important; }
+html body.cb-home .articles-dialog__head h3 { font: italic 900 26px/1.1 var(--serif) !important; margin: 0; color: var(--K); }
+html body.cb-home .articles-dialog__close { width: 44px !important; height: 44px !important; border-radius: 0 !important; background: var(--K) !important; color: #fff !important; font-size: 28px !important; }
+html body.cb-home .articles-dialog__close:hover { background: var(--R) !important; }
+html body.cb-home .articles-dialog ul { list-style: none !important; padding: 4px 22px 14px !important; }
+html body.cb-home .articles-dialog li { margin: 0; padding: 0; }
+html body.cb-home .articles-dialog li + li { border-top: 2px solid rgba(20, 20, 20, .14); }
+html body.cb-home .articles-dialog li::marker { content: none; }
+html body.cb-home .articles-dialog a { display: grid !important; grid-template-columns: 22px 1fr; column-gap: 12px; align-items: start; padding: 14px 0 !important; color: var(--K) !important; font: 800 17px/1.3 var(--serif) !important; text-decoration: none !important; background: none !important; }
+html body.cb-home .articles-dialog a:hover span { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; }
+html body.cb-home .articles-dialog a svg, html body.cb-home .articles-dialog a img { width: 20px; height: 20px; margin-top: 2px; color: var(--B); }
+html body.cb-home .articles-dialog a em { grid-column: 2; font: 700 11px/1 var(--sans); font-style: normal; letter-spacing: .12em; text-transform: uppercase; color: #555; margin-top: 6px; }
+/* the glass outlines can reach a few px past the right edge on narrow screens: never let them make the page scroll sideways */
+html:has(> body.cb-home), html body.cb-home { overflow-x: clip; }
+html body.cb-home main, html body.cb-home .footer { overflow-x: clip; }
+/* mobile articles: one tidy list with dividers, the "Show all" button at the end */
+@media (max-width: 900px) {
+  html body.cb-home .pz #writing .pz-cols { display: flex; flex-direction: column; gap: 0; margin-top: 22px; }
+  html body.cb-home .pz #writing .pz-col { display: contents; }
+  html body.cb-home .pz #writing .pz-art { margin: 0; padding: 13px 0; border-top: 2px solid rgba(20,20,20,.28); font-size: 18px; }
+  html body.cb-home .pz #writing .pz-art:last-of-type { border-bottom: 2px solid rgba(20,20,20,.28); }
+  html body.cb-home .pz #writing .pz-btn[data-dialog] { order: 99; align-self: flex-start; margin-top: 22px; }
+}

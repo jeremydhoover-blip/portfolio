@@ -46,7 +46,8 @@ const favicon = `${base}/favicon.svg?v=5`;
         <a href={`${base}/`} class="nav__logo" aria-label="Jeremy Hoover, home">
           <span class="nav__wordmark">Jeremy Hoover<span class="nav__dot" aria-hidden="true">.</span></span>
         </a>
-        <ul class="nav__links">
+        <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span aria-hidden="true"></span></button>
+        <ul class="nav__links" id="nav-links">
           <li><a href={`${base}/#projects`}>Projects</a></li>
           <li><a href={`${base}/#experience`}>Experience</a></li>
           <li><a href={`${base}/#program`}>Program</a></li>
@@ -70,6 +71,17 @@ const favicon = `${base}/favicon.svg?v=5`;
         </ul>
       </div>
     </footer>
+    <script is:inline>
+      // Phone menu: the yellow button opens and closes the link list.
+      (() => {
+        const nav = document.querySelector('.nav'), btn = nav && nav.querySelector('.nav__toggle');
+        if (!btn) return;
+        const set = (open) => { nav.classList.toggle('nav--open', open); btn.setAttribute('aria-expanded', String(open)); btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); };
+        btn.addEventListener('click', () => set(!nav.classList.contains('nav--open')));
+        nav.querySelectorAll('.nav__links a').forEach((a) => a.addEventListener('click', () => set(false)));
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && nav.classList.contains('nav--open')) { set(false); btn.focus(); } });
+      })();
+    </script>
     <script is:inline>
       // Color-block: long sections collapse behind "Keep reading" on phones; open them on wider screens.
       if (matchMedia('(min-width: 901px)').matches) document.querySelectorAll('details.cb-keep').forEach((d) => { d.open = true; });
